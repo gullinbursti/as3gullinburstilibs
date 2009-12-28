@@ -1,7 +1,7 @@
 package cc.gullinbursti.math.algebra {
 	
 	public class QuadraticEquation extends BasicAlgebra {
-		// TODO: define & implement some quad equasion operations
+		// TODO: define & implement some quad equation operations
 		
 		public function QuadraticEquation() {
 			super();

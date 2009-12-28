@@ -245,11 +245,12 @@ package cc.gullinbursti.math {
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
 		public static function isCoprime(val_arr:Array):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// get the greatest common factor
-			var gcf:int = Factorization.greatestCommon(val_arr);
+			var gcf:int = Factorization.gr8CommonFactor(val_arr);
 			
 			// only common factor is 1, they are coprime
 			if (gcf == 1)
@@ -322,6 +323,24 @@ package cc.gullinbursti.math {
 				 
 				
 			return (tot);
+		
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function moduloChain(val_arr:Array):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			
+			var loop_modo:int = val_arr[0];
+			
+			
+			for (var i:int=0; i<val_arr.length-1; i++) {
+				loop_modo = loop_modo % val_arr[i+1];
+			}
+			
+			
+			// result modulus
+			return (loop_modo);
 		
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		

@@ -2,8 +2,8 @@ package cc.gullinbursti.utils {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-	import cc.gullinbursti.math.discrete.Sorting;
 	import cc.gullinbursti.math.probility.ListScrambler;
+	import cc.gullinbursti.math.sorting.BasicSorting;
 	
 	import flash.display.BitmapData;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
@@ -125,7 +125,7 @@ package cc.gullinbursti.utils {
 		/**
 		* Generates a copy of the array, w/ references to the orginal items.
 		 */
-		public static function createReference(in_arr:Array, hasRepeats:Boolean=true):Array {
+		public static function ptMemRef(in_arr:Array, hasRepeats:Boolean=true):Array {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			// reference array
@@ -173,7 +173,7 @@ package cc.gullinbursti.utils {
 		public static function sortByNumber(in_arr:Array, isAscending:Boolean=true):Array {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
-			return (Sorting.binary(in_arr, isAscending));
+			return (BasicSorting.binary(in_arr, isAscending));
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
@@ -181,7 +181,7 @@ package cc.gullinbursti.utils {
 		public static function sortByAlpha(in_arr:Array, isAscending:Boolean=true):Array {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
-			return (Sorting.binary(in_arr, isAscending));
+			return (BasicSorting.binary(in_arr, isAscending));
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
