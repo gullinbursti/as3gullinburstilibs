@@ -1,4 +1,4 @@
-package cc.gullinbursti.math.sorting
+package cc.gullinbursti.sorting
 {
 	public class AsinineSorting extends BasicSorting
 	{

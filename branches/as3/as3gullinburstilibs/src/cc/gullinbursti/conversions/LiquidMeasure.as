@@ -1,4 +1,4 @@
-package cc.gullinbursti.math.sorting {
+package cc.gullinbursti.conversions {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -9,32 +9,29 @@ package cc.gullinbursti.math.sorting {
 	 * @author Gullinbursti
 	 */
 	 // <[!] class delaration [¡]>
-	public class Exchanging extends BasicSorting {
+	public class LiquidMeasure {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: implement add'l exchange sorts
+		// TODO: define & implement some add'l lq measure conversions
 		
-		/**
-		 * 
-		 */
-		// <*] class constructor [*>	
-		public function Exchanging() {/* …\(^_^)/… */}
+		public function LiquidMeasure() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
-		/**
-		 * Bubble sorts the data set & returns the sorted list 
-		 * 
-		 * @param array
-		 * @return Array
-		 */
-		public static function bubble(in_arr:Array, isAscending:Boolean=true):Array {
+		// l = gal * ???
+		public static function gallonsToLiters(vol:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement bubble sort algorithm
-			
-			return (in_arr);
+			return (vol * 0);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		// gal = l * ???
+		public static function litersToGallons(vol:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (vol * 0);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+
 	}
 }

@@ -44,7 +44,7 @@ http://en.wikipedia.org/wiki/MIT_license/
 */
 
 
-package cc.gullinbursti.math.convert {
+package cc.gullinbursti.conversions {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.

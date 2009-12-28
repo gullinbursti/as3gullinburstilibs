@@ -3,7 +3,7 @@ package cc.gullinbursti.utils {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.math.probility.ListScrambler;
-	import cc.gullinbursti.math.sorting.BasicSorting;
+	import cc.gullinbursti.sorting.BasicSorting;
 	
 	import flash.display.BitmapData;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[

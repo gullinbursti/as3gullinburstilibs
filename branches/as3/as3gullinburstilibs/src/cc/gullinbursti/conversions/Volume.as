@@ -1,4 +1,4 @@
-package cc.gullinbursti.math.convert {
+package cc.gullinbursti.conversions {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
