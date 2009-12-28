@@ -1,8 +1,8 @@
-package cc.gullinbursti.math.discrete {
+package cc.gullinbursti.math.discrete.networks {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-	import cc.gullinbursti.math.BasicMath;
+	import cc.gullinbursti.math.discrete.Combinatoric;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
@@ -10,14 +10,14 @@ package cc.gullinbursti.math.discrete {
 	 * @author Gullinbursti
 	 */
 	// <[!] class delaration [¡]>
-	public class Networking extends BasicMath {
+	public class BasicNetworking extends Combinatoric {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		/**
 		 * 
 		 */
 		// <*] class constructor [*>	
-		public function Networking() {/* …\(^_^)/… */}
+		public function BasicNetworking() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>

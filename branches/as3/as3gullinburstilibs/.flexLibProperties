@@ -2,10 +2,12 @@
 <flexLibProperties version="1">
 <includeClasses>
 <classEntry path="cc.gullinbursti.math.settheory.BasicSetTheory"/>
+<classEntry path="cc.gullinbursti.math.discrete.networks.Hamilton"/>
 <classEntry path="cc.gullinbursti.fx.BlurFX"/>
 <classEntry path="cc.gullinbursti.games.vo.InteractiveGameSpriteVO"/>
 <classEntry path="cc.gullinbursti.utils.Colors"/>
 <classEntry path="cc.gullinbursti.math.probility.Randomness"/>
+<classEntry path="cc.gullinbursti.math.geom.matroids.BasicMatroidTheory"/>
 <classEntry path="cc.gullinbursti.math.sorting.Merging"/>
 <classEntry path="cc.gullinbursti.math.calculus.Differential"/>
 <classEntry path="cc.gullinbursti.math.calculus.Derivative"/>
@@ -16,6 +18,8 @@
 <classEntry path="cc.gullinbursti.math.geom.Triangle"/>
 <classEntry path="cc.gullinbursti.math.discrete.Topology"/>
 <classEntry path="cc.gullinbursti.fx.BriteContrastFX"/>
+<classEntry path="cc.gullinbursti.math.discrete.Combinatoric"/>
+<classEntry path="cc.gullinbursti.math.discrete.networks.MemberNobility"/>
 <classEntry path="cc.gullinbursti.math.settheory.Ring"/>
 <classEntry path="cc.gullinbursti.utils.Chars"/>
 <classEntry path="cc.gullinbursti.fx.HueSaturateFX"/>
@@ -25,7 +29,6 @@
 <classEntry path="cc.gullinbursti.math.algebra.Group"/>
 <classEntry path="cc.gullinbursti.games.vo.NPCGameSpriteVO"/>
 <classEntry path="cc.gullinbursti.math.settheory.Functions"/>
-<classEntry path="cc.gullinbursti.math.discrete.Networking"/>
 <classEntry path="cc.gullinbursti.math.calculus.BasicCalc"/>
 <classEntry path="cc.gullinbursti.fx.IEffect"/>
 <classEntry path="cc.gullinbursti.math.sorting.AsinineSorting"/>
@@ -46,6 +49,7 @@
 <classEntry path="cc.gullinbursti.ui.AbstractGullinBtnSprite"/>
 <classEntry path="cc.gullinbursti.math.geom.Elipse"/>
 <classEntry path="cc.gullinbursti.math.sorting.Exchanging"/>
+<classEntry path="cc.gullinbursti.math.discrete.networks.Euler"/>
 <classEntry path="cc.gullinbursti.math.geom.Pentagon"/>
 <classEntry path="cc.gullinbursti.utils.Bitmaps"/>
 <classEntry path="cc.gullinbursti.math.algebra.BasicAlgebra"/>
@@ -55,6 +59,7 @@
 <classEntry path="cc.gullinbursti.ui.ScrollBarUI"/>
 <classEntry path="cc.gullinbursti.math.algebra.Field"/>
 <classEntry path="cc.gullinbursti.math.calculus.Integral"/>
+<classEntry path="cc.gullinbursti.math.discrete.categorytheory.BasicCategoryTheory"/>
 <classEntry path="cc.gullinbursti.logic.BasicLogic"/>
 <classEntry path="cc.gullinbursti.math.sorting.Noncomparing"/>
 <classEntry path="cc.gullinbursti.fx.FloppyJiggleFX"/>
@@ -70,6 +75,7 @@
 <classEntry path="cc.gullinbursti.math.convert.Temperature"/>
 <classEntry path="cc.gullinbursti.utils.Numbers"/>
 <classEntry path="cc.gullinbursti.science.weather.Temperature"/>
+<classEntry path="cc.gullinbursti.math.discrete.networks.CitationRanking"/>
 <classEntry path="cc.gullinbursti.vo.AbstractUserInputVO"/>
 <classEntry path="cc.gullinbursti.events.AMFEvent"/>
 <classEntry path="cc.gullinbursti.puremvc.model.vo.LoadVO"/>
