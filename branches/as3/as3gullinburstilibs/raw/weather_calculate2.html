@@ -1,0 +1,546 @@
+<!--#include virtual="/er/box/bin2/home0"-->
+<title>NWS Boston, MA - Weather Calculators</title>
+<!--#include virtual="/er/box/bin2/home1"-->
+    <!-- insert start -->
+    <table border="0" cellpadding="0" cellspacing="0" width="630">
+      <tr>
+        <td width="100%" align="center"><font face="Arial" size="6"><strong>Weather Calculators</strong></font></td>
+      </tr>
+      <tr>
+        <td width="100%" align="center">&nbsp;<hr width="80%" noshade>
+        </td>
+      </tr>
+    </table>
+    <table border="0" cellpadding="0" cellspacing="0" width="630">
+      <tr>
+        <td width="50%" valign="middle" align="center">&nbsp;<table border="3" cellpadding="5" bgcolor="#99BBEE" width="250" bordercolor="#000000">
+          <tr>
+            <td><form name="temperature">
+              <font face="Arial,Helvetica"><b><div align="center"><center><p>Convert<br>
+              Temperature</b></font><br>
+              <font face="Arial,Helvetica" size="-1">Enter temperature in one blank to convert to the
+              other scale.</font></p>
+              </center></div><div align="center"><center><table border="0">
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Fahrenheit:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="CENTER"><input type="text" size="5" name="fahrenheit"></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Celsius:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="CENTER"><input type="text" size="5" name="celsius"></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Kelvin:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="CENTER"><input type="text" size="5" name="kelvin"></td>
+                </tr>
+                <tr>
+                  <td colspan="3" align="CENTER"><input name="name" type="button" value="Convert" onclick="tempIt(this.form)"> <input type="Reset" value="Reset"> </td>
+                </tr>
+              </table>
+              </center></div>
+            </form>
+            </td>
+          </tr>
+        </table>
+        </td>
+        <td width="10" valign="middle" align="center"></td>
+        <td width="50%" valign="middle" align="center">&nbsp;<table border="3" cellpadding="5" bgcolor="#99BBEE" bordercolor="#000000" width="250">
+          <tr>
+            <td><form name="windchill">
+              <font face="Arial, Helvetica"><b><div align="center"><center><p>Calculate<br>
+              Wind Chill</b></font><br>
+              <font face="Arial,Helvetica" size="-1">Enter temperature and wind speed to compute wind
+              chill.</font></p>
+              </center></div><div align="center"><center><table border="0">
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Temperature:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="CENTER"><input type="text" size="8" name="Temp"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td valign="TOP" align="CENTER"><font size="-1" face="Arial, Helvetica"><b><input type="radio" name="corf" value="Fahrenheit" checked>F<input type="radio" name="corf" value="Celsius">C</b></font></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Wind Speed:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="CENTER"><input type="text" size="8" name="Wind"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td valign="TOP" align="left"><font size="-1" face="Arial, Helvetica"><b><input type="radio" name="corf2" value="mph" checked>MPH<input type="radio" name="corf2" value="knot">Knots</b></font></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Wind Chill:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="CENTER"><input type="text" size="8" name="Windchill"></td>
+                </tr>
+                <tr>
+                  <td colspan="3" align="CENTER"><input type="button" value="Compute" onclick="computewc(this.form)"> <input type="Reset" value="Reset"></td>
+                </tr>
+              </table>
+              </center></div>
+            </form>
+            </td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td width="100%" colspan="3">&nbsp;<hr width="80%">
+        </td>
+      </tr>
+      <tr>
+        <td width="50%" valign="middle" align="center">&nbsp;<table border="3" cellpadding="5" bgcolor="#99BBEE" width="250" bordercolor="#000000">
+          <tr>
+            <td><form name="heat">
+              <font face="Arial, Helvetica"><b><div align="center"><center><p>Calculate<br>
+              Heat Index</b></font><br>
+              <font face="Arial,Helvetica" size="-1">Enter temperature and relative humidity below to
+              calculate heat index</font></p>
+              </center></div><div align="center"><center><table border="0">
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Temperature:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="CENTER"><input type="text" size="5" name="temp"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td valign="TOP" align="CENTER"><font size="-1" face="Arial, Helvetica"><b><input type="radio" name="convert" value="1" checked>F<input type="radio" name="convert" value="0">C</b></font></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Relative Humidity:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="CENTER"><input type="text" size="5" name="rh"></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Heat Index:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="CENTER"><input type="text" size="5" name="heatindex"></td>
+                </tr>
+                <tr>
+                  <td colspan="3" align="CENTER"><input type="button" value="Compute" onclick="heatIt(this.form)"> <input type="Reset" value="Reset"></td>
+                </tr>
+              </table>
+              </center></div>
+            </form>
+            </td>
+          </tr>
+        </table>
+        </td>
+        <td width="10" valign="middle" align="center"></td>
+        <td width="50%" valign="middle" align="center">&nbsp;<table border="3" cellpadding="5" bgcolor="#99BBEE" bordercolor="#000000" width="250">
+          <tr>
+            <td><form name="windspeed">
+              <font face="Arial, Helvetica"><b><div align="center"><center><p>Wind Speed<br>
+              Conversions</b></font><br>
+              <font face="Arial,Helvetica" size="-1">Enter a speed into any blank to convert to all
+              other wind speeds.</font></p>
+              </center></div><div align="center"><center><table border="0">
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>MPH:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP"><input type="text" size="5" name="mph"></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Km/h:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP"><input type="text" size="5" name="kmh"></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Knots:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP"><input type="text" size="5" name="knots"></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Meters/Second:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP"><input type="text" size="5" name="meters"></td>
+                </tr>
+                <tr>
+                  <td colspan="3" align="CENTER"><input name="name" type="button" value="Convert" onclick="windIt(this.form)"> <input type="Reset" value="Reset"> </td>
+                </tr>
+              </table>
+              </center></div>
+            </form>
+            </td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td width="100%" colspan="3">&nbsp;<hr width="80%" noshade>
+        </td>
+      </tr>
+      <tr>
+        <td width="50%" valign="middle" align="center">&nbsp;<table border="3" cellpadding="5" bgcolor="#99BBEE" bordercolor="#000000" width="250">
+          <tr>
+            <td><form name="humidity">
+              <font face="Arial, Helvetica"><b><div align="center"><center><p>Calculate<br>
+              Relative Humidity</b></font><br>
+              <font face="Arial,Helvetica" size="-1">Enter temperature and dewpoint below to calculate
+              relative humidity</font></p>
+              </center></div><div align="center"><center><table border="0">
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Temperature:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="center"><input type="text" size="5" name="Temp"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td valign="TOP" align="left"><font face="Arial, Helvetica" size="-1&quot;"><b><input type="radio" name="corf" value="Fahrenheit" checked>F<input type="radio" name="corf" value="Celsius">C</b></font></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Dewpoint:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="center"><input type="text" size="5" name="Dewp"></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Relative Humidity:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="center"><input type="text" size="5" name="Relh" onfocus="this.form.Temp.value='';this.form.Dewp.value='';this.form.Relh.value=''; "></td>
+                </tr>
+                <tr>
+                  <td colspan="3" align="CENTER"><input type="button" value="Compute" onclick="computerh(this.form)"> <input type="Reset" value="Reset"></td>
+                </tr>
+              </table>
+              </center></div>
+            </form>
+            </td>
+          </tr>
+        </table>
+        </td>
+        <td width="10" valign="middle" align="center"></td>
+        <td width="50%" valign="middle" align="center">&nbsp;<table border="3" cellpadding="5" bgcolor="#99BBEE" bordercolor="#000000" width="250">
+          <tr>
+            <td><form name="Pressure">
+              <font face="Arial,Helvetica"><b><div align="center"><center><p>Convert<br>
+              Pressure</b></font><br>
+              <font face="Arial,Helvetica" size="-1">Enter a pressure in one blank to convert to the
+              other pressures.</font></p>
+              </center></div><div align="center"><center><table border="0">
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Millibars:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="CENTER"><input type="text" size="5" name="millibars"></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Inches:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="CENTER"><input type="text" size="5" name="inches"></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Millimeters:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP" align="CENTER"><input type="text" size="5" name="millimeters"></td>
+                </tr>
+                <tr>
+                  <td colspan="3" align="CENTER"><input name="name" type="button" value="Convert" onclick="presIt(this.form)"> <input type="Reset" value="Reset"> </td>
+                </tr>
+              </table>
+              </center></div>
+            </form>
+            </td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td width="100%" colspan="3">&nbsp;<hr width="80%" noshade>
+        </td>
+      </tr>
+      <tr>
+        <td width="100%" valign="middle" align="center" colspan="3">&nbsp;<table border="3" cellpadding="5" bgcolor="#99BBEE" bordercolor="#000000" width="250">
+          <tr>
+            <td><form name="precipitation">
+              <font face="Arial, Helvetica"><b><div align="center"><center><p>Convert<br>
+              Precipitation</b></font><br>
+              <font face="Arial,Helvetica" size="-1">Enter a depth into any blank to convert to other
+              units .</font></p>
+              </center></div><div align="center"><center><table border="0">
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Inches (hundredths) :</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP"><input type="text" size="5" name="hundredths"></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Inches:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP"><input type="text" size="5" name="inches"></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Millimeters:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP"><input type="text" size="5" name="millimeters"></td>
+                </tr>
+                <tr>
+                  <td valign="MIDDLE"><font size="-1" face="Arial, Helvetica"><b>Centimeters:</b></font></td>
+                  <td valign="TOP"><img src width="10" height="1"></td>
+                  <td valign="TOP"><input type="text" size="5" name="centimeters"></td>
+                </tr>
+                <tr>
+                  <td colspan="3" align="CENTER"><input name="name" type="button" value="Convert" onclick="pcpnIt(this.form)"> <input type="Reset" value="Reset"> <script language="JavaScript">
+
+<!-- Hide from Stupid Browsers
+function tempIt(inform) {
+// variables taken from the input form
+var fahrenheit = inform.fahrenheit.value;
+var celsius = inform.celsius.value;
+var kelvin = inform.kelvin.value;
+//F-C-K conversion
+if ((inform.celsius.value == "") && (inform.kelvin.value == "")){
+celsius = (fahrenheit-32)*(5/9);
+kelvin = celsius + 273.16;
+inform.celsius.value = celsius;
+inform.kelvin.value = kelvin;
+}
+//C-F-K conversion
+else if ((inform.fahrenheit.value == "") && (inform.kelvin.value == "")){
+kelvin = (celsius*(1.0) + 273.16);
+fahrenheit = celsius*(9/5) + 32;
+inform.fahrenheit.value = fahrenheit;
+inform.kelvin.value = kelvin;
+}
+//K-C-F conversion
+else if ((inform.fahrenheit.value == "") && (inform.celsius.value == "")){
+if (kelvin < 0){
+  kelvin = 0;
+  inform.kelvin.value = kelvin;
+}
+celsius = kelvin-273.16;
+fahrenheit = celsius*(9/5) + 32;
+inform.celsius.value = celsius;
+inform.fahrenheit.value = fahrenheit;
+}
+else {
+celsius = (fahrenheit-32)*(5/9);
+kelvin= celsius + 273.16;
+inform.kelvin.value = kelvin;
+inform.celsius.value = celsius;
+}
+}
+
+function presIt(inform) {
+// variables taken from the input form
+var millibars = inform.millibars.value;
+var inches = inform.inches.value;
+var millimeters = inform.millimeters.value;
+// conversion
+if ((inform.inches.value == "") && (inform.millimeters.value == "")){
+inches = millibars/33.864;
+millimeters=millibars/1.33323;
+inform.inches.value=inches;
+inform.millimeters.value=millimeters;
+}
+// conversion
+else if ((inform.inches.value == "") && (inform.millibars.value == "")) {
+inches = millimeters/25.4;
+millibars=millimeters*1.33323;
+inform.inches.value=inches;
+inform.millibars.value=millibars;
+}
+if ((inform.millibars.value == "") && (inform.millimeters.value == "")){
+millibars=inches*33.864;
+millimeters=inches*25.4;
+inform.millibars.value=millibars;
+inform.millimeters.value=millimeters;
+}
+else {
+millibars=inches*33.864;
+millimeters=inches*25.4;
+inform.millibars.value=millibars;
+inform.millimeters.value=millimeters;
+}
+}
+
+function windIt(inform) {
+var mph = parseInt(inform.mph.value);
+var kmh = parseInt(inform.kmh.value);
+var knots = parseInt(inform.knots.value);
+var meters = parseInt(inform.meters.value);
+//MPH-KMH-knots conversion
+//knots to X
+if ((inform.mph.value == "") && (inform.kmh.value=="" ) && (inform.meters.value=="" )) {
+mph = (knots)*(1.1508);
+kmh = (knots)*(1.853);
+meters = (knots)*(.5144);
+inform.mph.value = Math.round(mph);
+inform.kmh.value = Math.round(kmh);
+inform.meters.value = Math.round(meters);
+}
+//kmh to X
+else if ((inform.mph.value == "") && (inform.knots.value=="") && (inform.meters.value=="" )) {
+mph = (kmh)*(0.62137);
+knots = (kmh)*(0.54704);
+meters = (kmh)*(0.27778);
+inform.mph.value = Math.round(mph);
+inform.knots.value = Math.round(knots);
+inform.meters.value = Math.round(meters);
+}
+//mph to X
+else if ((inform.kmh.value == "") && (inform.knots.value=="") && (inform.meters.value=="")) {
+kmh = (mph)*(1.60934);
+knots = (mph)/(1.1508);
+meters  = (mph)*(0.44704);
+inform.kmh.value = Math.round(kmh);
+inform.knots.value = Math.round(knots);
+inform.meters.value = Math.round(meters);
+}
+//meters-second to X
+else if ((inform.kmh.value == "") && (inform.knots.value=="") && (inform.mph.value=="")) {
+kmh = (meters)*(3.6);
+knots = (meters)/(.5144);
+mph  = (meters)*(2.23693);
+inform.kmh.value = Math.round(kmh);
+inform.knots.value = Math.round(knots);
+inform.mph.value = Math.round(mph);
+}
+else {
+kmh = (mph)*(1.60934);
+knots = (mph)/(1.1508);
+meters  = (mph)*(0.44704);
+inform.kmh.value = Math.round(kmh);
+inform.knots.value = Math.round(knots);
+inform.meters.value = Math.round(meters);
+}
+}
+function pcpnIt(inform) {
+var hundredths = parseInt(inform.hundredths.value);
+var inches = parseInt(inform.inches.value);
+var millimeters = parseInt(inform.millimeters.value);
+var centimeters = parseInt(inform.centimeters.value);
+//hundredts-inches-millimeters-centimeters conversion
+//hundredths of inches to X
+if ((inform.inches.value == "") && (inform.millimeters.value=="" ) && (inform.centimeters.value=="" )) {
+inches = (hundredths)*(.01);
+centimeters = (inches)*(2.54);
+millimeters = (centimeters)*(10);
+inform.millimeters.value=millimeters;
+inform.inches.value=inches;
+inform.centimeters.value=centimeters;
+}
+//inches to X
+if ((inform.hundredths.value == "") && (inform.millimeters.value=="" ) && (inform.centimeters.value=="" )) {
+hundredths = (inches)*(100);
+centimeters = (inches)*(2.54);
+millimeters = (centimeters)*(10);
+inform.millimeters.value=millimeters;
+inform.hundredths.value=hundredths;
+inform.centimeters.value=centimeters;
+}
+//millimeters to X
+if ((inform.hundredths.value == "") && (inform.inches.value=="" ) && (inform.centimeters.value=="" )) {
+centimeters = (millimeters)*(.1);
+inches = (centimeters)/(2.54);
+hundredths = (inches)*(100);
+inform.hundredths.value=hundredths;
+inform.inches.value=inches;
+inform.centimeters.value=centimeters;
+}
+//centimeters to X
+if ((inform.hundredths.value == "") && (inform.inches.value=="" ) && (inform.millimeters.value=="" )) {
+millimeters = (centimeters)*(10);
+inches = (centimeters)/(2.54);
+hundredths = (inches)*(100);
+inform.hundredths.value=hundredths;
+inform.inches.value=inches;
+inform.millimeters.value=millimeters;
+}
+else {
+inches = (hundredths)*(.01);
+centimeters = (inches)*(2.54);
+millimeters = (centimeters)*(10);
+inform.millimeters.value=millimeters;
+inform.inches.value=inches;
+inform.centimeters.value=centimeters;
+}
+}
+function computewc(inform) {
+if (inform.corf[0].checked)  {
+var t= inform.Temp.value;
+}
+if (inform.corf[1].checked)  {
+var t= 9* (inform.Temp.value)/5+32;
+}
+if (inform.corf2[0].checked)  {
+var w= inform.Wind.value;
+}
+if (inform.corf2[1].checked)  {
+var w= inform.Wind.value*1.15078;
+}
+var WC= 35.74 + 0.6215 * t - (35.75 - 0.4275 * t ) * Math.pow(w,0.16) ;
+if(w<3){
+   var WC=t;
+}
+if(t>=50){
+   var WC=t;
+}
+if (inform.corf[0].checked)  {
+  inform.Windchill.value= parseInt(WC);
+ }
+if (inform.corf[1].checked)  {
+    var wcx= 5*(WC-32)/9;
+    inform.Windchill.value=parseInt(wcx); 
+}
+}
+function computerh(inform) {
+if (inform.corf[0].checked)  {
+var T=5*(parseInt(inform.Temp.value-32)/9);
+var Td=5*(parseInt(inform.Dewp.value-32)/9);
+}
+if (inform.corf[1].checked)  {
+var T=parseInt(inform.Temp.value);
+var Td=parseInt(inform.Dewp.value);
+}
+T=(Math.exp((17.67 * T)/(243.5+T)));
+Td=(Math.exp((17.67 * Td)/(243.5+Td)));
+inform.Relh.value=parseInt(100*(Td/T));
+}
+//HeatIndex
+function heatIt(inform) {
+// variables taken from the input form
+var temp = parseInt(inform.temp.value);
+if (inform.convert[1].checked) {
+var temp = temp*(9/5) + 32
+}
+var rh = parseInt(inform.rh.value);
+var t2=temp*temp;
+var t3=t2*temp;
+var rh2=rh*rh;
+var rh3=rh2*rh;
+
+//Fahrenheit conversion
+var index =16.923+0.185212*temp+5.37941*rh-0.100254*temp*rh+ 0.941695e-2*t2+0.728898e-2*rh2+0.345372e-3*t2*rh- 0.814971e-3*temp*rh2+0.102102e-4*t2*rh2- 0.38646e-4*t3+0.291583e-4*rh3+0.142721e-5*t3*rh+ 0.197483e-6*temp*rh3-0.218429e-7*t3*rh2+ 0.843296e-9*t2*rh3-0.481975e-10*t3*rh3;
+
+if (inform.convert[1].checked) {
+var index = (index-32)*(5/9)
+}
+
+var heatindex = parseInt(index);
+inform.heatindex.value = parseInt(heatindex);
+}
+// End Hiding From Stupid Browsers-->
+
+</script></td>
+                </tr>
+              </table>
+              </center></div>
+            </form>
+            </td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <hr width="80%">
+        </td>
+      </tr>
+    </table>
+<!-- insert stop -->
+<!--#include virtual="/er/box/bin2/home2"-->
+~

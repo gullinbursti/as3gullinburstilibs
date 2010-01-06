@@ -1,0 +1,57 @@
+Wind Chill (°F) = 
+35.74 + (0.6215 × °F) - (35.75 × (mph ^ 0.16)) + ((0.4275 × °F) * mph^0.16)
+
+-45°F - 45°F
+3mph - 60mph
+
+
+http://www.linkedin.com/profile?viewProfile=&key=22619394&authToken=DRea&authType=name&goback=.vpf_35602738_1_oc*4g_name_*1_Matthew_Holcombe.vpf_16155515_1_OcS5_name_*1_Joseph_Abenhaim.vpf_13244593_1_ZlJ2_name_*1_Adnan_Alam.bcc_13244593_1#recommendations
+
+
+Beaufort Scale:
+Calm - 0
+Wind speed is 0-1 mph/kts; wave height is 0 ft. The sea is calm, like a mirror.
+Light Air - 1
+Wind speed is 1-3 mph/kts; wave height is >.5 ft. Ripples with the appearance of scales are formed, but without foam crests.
+Light Breeze - 2
+Wind speed is 4-7 mph/4-6 kts; wave height is >1 ft. Small wavelets, still short, but more pronounced. Crests have a glassy appearance and do not break.
+Gentle Breeze - 3
+Wind speed is 8-12 mph/7-10 kts; wave height is 2-3 ft. Large wavelets. Crests begin to break. Foam of glassy appearance. Some whitecaps.
+Moderate Breeze - 4
+Wind speed is 13-18 mph/11-16 kts; wave height is 3.5-5 ft. Small waves, becoming larger; fairly frequent whitecaps.
+Fresh Breeze - 5
+Wind speed is 19-24 mph/17-21 kts; wave height is 6-8 ft. Moderate waves, taking a more pronounced long form; many whitecaps are formed. Chance of some spray.
+Strong Breeze - 6
+Wind speed is 25-31 mph/22-27 kts; wave height is 9-13 ft. Large waves begin to form; the white foam crests are more extensive everywhere. Probably some spray. If the storm forms in the tropics, a 6 or 7 on the Beaufort Scale corresponds to a Tropical Depression's wind speed as it develops first into a Tropical Storm, and if it strengthens, a hurricane.
+Near Gale - 7
+Wind speed is 32-38 mph/28-33 kts; wave height is 13-19 ft. Sea heaps up and white foam from breaking waves begins to be blown in streaks along the direction of the wind.
+Gale - 8
+Wind speed is 39-46 mph/34-40 kts; 19-25 ft. wave height is 18-25 ft. Moderately high waves of greater length; edges of crests begin to break into spindrift. The foam is blown in well-marked streaks along the direction of the wind. If the storm forms in the tropics, once the wind reaches speeds above 38 mph, it is categorized as a Tropical Storm and given a name.
+Severe Gale - 9
+Wind speed is 47-54 mph/41-47 kts; wave height is 23-32 ft. High waves. Dense streaks of foam along the direction of the wind. Crests of waves begin to topple, tumble and roll over. Spray may affect visibility.
+Storm - 10
+Wind speed is 55-63 mph/48-55 kts; wave height is 29-41 ft. Very high waves with long overhanging crests. The resulting foam, in great patches, is blown in dense white streaks along the direction of the wind. On the whole the surface of the sea takes on a white appearance. The 'tumbling' of the sea becomes heavy and visibility is affected.
+Violent Storm - 11
+Wind speed is 64-72 mph/56-63 kts; wave height is 37-52 ft. Exceptionally high waves (small and medium-size ships might be for a time lost to view behind the waves). The sea is completely covered with long white patches of foam lying along the direction of the wind. Everywhere the edges of the wave crests are blown into froth. Visibility affected.
+Hurricane - 12
+Wind speed is 73-83 mph/64-71 kts; wave height is over 45 ft. The air is filled with foam and spray. Sea completely white with driving spray; visibility very seriously affected. A 12 on the Beaufort Scale corresponds to a Category 1 Hurricane on the Saffir-Simpson Scale, the scale by which hurricanes are measured.
+
+
+
+
+
+
+
+Saffir-Simpson Scale:
+
+Category One Hurricane
+Winds 74-95 mph (64-82 kt or 119-153 km/hr). Storm surge generally 4-5 ft above normal. No real damage to building structures. Damage primarily to unanchored mobile homes, shrubbery, and trees. Some damage to poorly constructed signs. Also, some coastal road flooding and minor pier damage.
+
+Category Two Hurricane
+Winds 96-110 mph (83-95 kt or 154-177 km/hr). Storm surge generally 6-8 feet above normal. Some roofing material, door, and window damage of buildings. Considerable damage to shrubbery and trees with some trees blown down. Considerable damage to mobile homes, poorly constructed signs, and piers. Coastal and low-lying escape routes flood 2-4 hours before arrival of the hurricane center. Small craft in unprotected anchorages break moorings.
+Category Three Hurricane
+Winds 111-130 mph (96-113 kt or 178-209 km/hr). Storm surge generally 9-12 ft above normal. Some structural damage to small residences and utility buildings. Damage to shrubbery and trees with foliage blown off trees and large trees blown down. Mobile homes and poorly constructed signs are destroyed. Low-lying escape routes are cut by rising water 3-5 hours before arrival of the center of the hurricane. Flooding near the coast destroys smaller structures with larger structures damaged by battering from floating debris. Terrain continuously lower than 5 ft above mean sea level may be flooded inland 8 miles (13 km) or more. Evacuation of low-lying residences with several blocks of the shoreline may be required.
+Category Four Hurricane
+Winds 131-155 mph (114-135 kt or 210-249 km/hr). Storm surge generally 13-18 ft above normal. More extensive curtainwall failures with some complete roof structure failures on small residences. Shrubs, trees, and all signs are blown down. Complete destruction of mobile homes. Extensive damage to doors and windows. Low-lying escape routes may be cut by rising water 3-5 hours before arrival of the center of the hurricane. Major damage to lower floors of structures near the shore. Terrain lower than 10 ft above sea level may be flooded requiring massive evacuation of residential areas as far inland as 6 miles (10 km).
+Category Five Hurricane
+Winds greater than 155 mph (135 kt or 249 km/hr). Storm surge generally greater than 18 ft above normal. Complete roof failure on many residences and industrial buildings. Some complete building failures with small utility buildings blown over or away. All shrubs, trees, and signs blown down. Complete destruction of mobile homes. Severe and extensive window and door damage. Low-lying escape routes are cut by rising water 3-5 hours before arrival of the center of the hurricane. Major damage to lower floors of all structures located less than 15 ft above sea level and within 500 yards of the shoreline. Massive evacuation of residential areas on low ground within 5-10 miles (8-16 km) of the shoreline may be required.
