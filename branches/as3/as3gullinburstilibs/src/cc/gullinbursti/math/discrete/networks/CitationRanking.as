@@ -2,6 +2,7 @@ package cc.gullinbursti.math.discrete.networks {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.math.algebra.BasicAlgebra;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
 	
 	/**
@@ -19,7 +20,7 @@ package cc.gullinbursti.math.discrete.networks {
 		 * Single member's worth when other worths are known:
 		 * 
 		 * 			 PR(B)	     PR(C)		 PR(D)
-		 * PR(A) = --------- + --------- + --------- 
+		 * PR(A) = ————————— + ————————— + ————————— 
 		 * 			 L(B)		 L(C)		 L(D)
 		 * 
 		 * 
@@ -30,7 +31,7 @@ package cc.gullinbursti.math.discrete.networks {
 		 * Find the value of any page:
 		 * 
 		 * 			   PR(ß)
-		 * PR(∂) =  ∑ ------
+		 * PR(∂) =  ∑ ———————
 		 * 		   ß∊∂  L(ß)
 		 * 
 		 * 
@@ -60,7 +61,7 @@ package cc.gullinbursti.math.discrete.networks {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
 			
 			// the reciprical of total outs
-			return (1 / outbounds);
+			return (BasicAlgebra.reciprocal(outbounds));
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
@@ -69,7 +70,7 @@ package cc.gullinbursti.math.discrete.networks {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
 			
 			// the reciprical of total outs
-			return (1 / outbounds);
+			return (BasicAlgebra.reciprocal(outbounds));
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		

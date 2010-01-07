@@ -10,7 +10,7 @@ package cc.gullinbursti.math.settheory {
 	 */
 	// <[!] class delaration [¡]>
 	public class Functions {
-		// TODO: _/[class evo'lt]» implement some more op's on function equations
+		// TODO: [EVO]» implement some more op's on function equations
 		
 		public function Functions() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

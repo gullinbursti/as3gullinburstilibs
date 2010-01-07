@@ -29,32 +29,9 @@ package cc.gullinbursti.math.discrete {
 		
 		public static function sequence(max:int, min:int=0):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			/* 
-			// seeds to start the formula
-			var seed0:int;
-			var seed1:int;
 			
-			// starting at zero, hard seed
-			if (min == 0) {
-				seed0 = 0;
-				seed1 = 1;
-			
-			// find the next two lowest fib #'s
-			} else {
-				seed1 = Fibonacci.nextLowest(min);
-				seed0 = Fibonacci.nextLowest(seed1);
-			}
-			
-			// swap if seed0 > seed1
-			if (seed0 > seed1)
-				Arrays.swap([seed0, seed1], seed0, seed1);
-			
-			 */
-			 
-			 
-			 var last2:Point = Fibonacci.last2InSeq(min);
-			 
-			 
+			// find the prev two fib #'s from the smaller val 
+			var last2:Point = Fibonacci.last2InSeq(min);
 			 
 			// sequence of fibonacci #'s
 			var seq_arr:Array = new Array();
@@ -94,16 +71,19 @@ package cc.gullinbursti.math.discrete {
 		public static function isRatio(nom:int, denom:int, isSeq:Boolean=true):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
+			// fraction arrays
 			var nom_arr:Array = new Array();
 			var denom_arr:Array = new Array();
 			
+			// pts holding prev two fib #'s
 			var nom_last2:Point = Fibonacci.last2InSeq(nom);
 			var denom_last2:Point = Fibonacci.last2InSeq(denom);
 			
+			// populate the arrays
 			nom_arr.push([nom, nom_last2.x, nom_last2.y]);
 			denom_arr.push([denom, denom_last2.x, denom_last2.y]);
 			
-			
+			// point holding validity flags
 			var bool_pt:Point = new Point();
 				bool_pt.x = int(Fibonacci.isValidFib(nom));
 				bool_pt.y = int(Fibonacci.isValidFib(denom));
@@ -112,25 +92,29 @@ package cc.gullinbursti.math.discrete {
 			if (bool_pt.x + bool_pt.y != 2)
 				return (false);
 			
-			// both are true, not checking for sequence
+			// both flags are true, not checking for sequence
 			else if (bool_pt.x + bool_pt.y == 2 && !isSeq)
 				return (true);
 				
 			
+			// nominator is larger…
 			if (Math.max(nom, denom) == nom) {
 				
+				// the denomimator is the 1st prev
 				if (nom_last2.y == denom)
 					return (true);
 			}
 				
-			
+			// denominator is larger…
 			else if (Math.max(nom, denom) == denom) {
-			
+				
+				// the nomimator is the 1st prev
 				if (denom_last2.y == nom)
 					return (true)
 			}
 			
 			
+			// both vals aren't fib #'s
 			return (false);
 			
 			
@@ -143,7 +127,7 @@ package cc.gullinbursti.math.discrete {
 			/**
 			 * 
 			 * 		   φⁿ - (1 - φ)ⁿ
-			 * F(n) = -----------------
+			 * F(n) = ————————————————
 			 * 			    √5
 			 * 
 			 *  n = next lowest
@@ -186,10 +170,16 @@ package cc.gullinbursti.math.discrete {
 				Arrays.swap([seed0, seed1], seed0, seed1);
 			
 			
+			// return last two as a pt
 			return (new Point(seed0, seed1));
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		/**
+		 * Performs the square root of 5 for Fibonacci formulas.
+		 * 
+		 * @return √5
+		 */
 		private static function sqRoot5():Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			return (BasicMath.root(5));

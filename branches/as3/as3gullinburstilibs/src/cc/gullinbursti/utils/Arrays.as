@@ -63,9 +63,9 @@ package cc.gullinbursti.utils {
 		/**
 		 * Determines whether the specified array contains the param value.
 		 */
-		public static function containsValue(in_arr:Array, val:Object):Boolean {
+		public static function containsValue(in_arr:Array, val:Object, start:int=0):Boolean {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._	
-			return (in_arr.indexOf(val) != -1);
+			return (in_arr.indexOf(val, start) != -1);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -85,6 +85,54 @@ package cc.gullinbursti.utils {
 				if (in_arr[i] === val)
 					in_arr.splice(i, 1);
 			}					
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		* Tallies duplicate elements, returns an array of 
+		 * values and occurances.
+		 * 
+		 */
+		public static function tallyDups(in_arr:Array):Array {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			// returned array
+			var dup_arr:Array = new Array();
+			
+			// counters
+			var itm_cnt:int = 1;
+			var dup_tot:int = 0;
+			
+			// loop thru array 1st time…
+			for (var i:int=0; i<in_arr.length-1; i++) {
+				
+				// array has the val beyond it's index
+				if (containsValue(in_arr, in_arr[i], i+1)) {
+					itm_cnt++;
+				
+				// no dup found, reset
+				} else {
+					itm_cnt = 1;
+					continue;
+				}
+				
+				// has at least 1 dup
+				if (itm_cnt > 1) {
+					
+					// 1st dup occurance
+					if (itm_cnt == 2) {
+						dup_arr.push([in_arr[i], itm_cnt]);
+						dup_tot++;
+					
+					// found previously
+					} else
+						dup_arr[dup_tot-1][1] = itm_cnt;
+				}
+			}
+			
+			
+			
+			return (dup_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -181,9 +229,58 @@ package cc.gullinbursti.utils {
 		public static function sortByAlpha(in_arr:Array, isAscending:Boolean=true):Array {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
-			return (BasicSorting.binary(in_arr, isAscending));
+			return (unicodeConvert(BasicSorting.binary(unicodeConvert(in_arr), isAscending), false));
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function lengthCompare(isMax:Boolean=true, ... args):int {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			// init w/ -1 (no change / same len)
+			var ind:int = -1;
+			
+			// prime the top array
+			var top_arr:Array = args[0] as Array;
+			
+			
+			// loop thru the args
+			for (var i:int=0; i<args.length; i++) {
+				
+				// cast each arg & reset flag
+				var arg_arr:Array = args[i] as Array;
+				var isNewTop:Boolean = false;
+				
+				// going for max items
+				if (isMax) {
+					
+					// current array has more items
+					if (arg_arr.length > top_arr.length)
+						isNewTop = true;
+				
+				// going for min items
+				} else {
+					
+					// current array has less items
+					if (arg_arr.length < top_arr.length)
+						isNewTop = true;
+				}
+				
+				// update the top array & index
+				if (isNewTop) {
+					top_arr = arg_arr;
+					ind = i;
+				}
+			}
+			
+			
+			// return the top index / -1
+			return (ind);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
 		
 		
 		public static function reverse(in_arr:Array):Array {
@@ -197,6 +294,54 @@ package cc.gullinbursti.utils {
 			}
 			
 			return (ret_arr);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function unicodeConvert(in_arr:Array, isAlpha:Boolean=true):Array {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			// converted to unicode
+			var convert_arr:Array = new Array();
+			
+			// each item
+			var itm_str:String;
+			var itm_arr:Array;
+			
+			
+			// loop thru all the elements
+			for (var i:int=0; i<in_arr.length; i++) {
+				
+				// going to unicode
+				if (isAlpha) {
+				
+					// pull each element
+					itm_str = String(in_arr[i]);
+					itm_arr = new Array();
+					
+					// loop thru each element & convert
+					for (var j:int=0; j<itm_str.length; j++)
+						itm_arr.push(in_arr[i].charCodeAt(j));
+					
+					// push into array
+					convert_arr.push(itm_arr);
+				
+				
+				// coming from unicode
+				} else {
+					
+					// pull each element & convert to chars
+					itm_arr = in_arr[i] as Array;
+					itm_str = String.fromCharCode(in_arr[i] as Array);
+					
+					// push into array
+					convert_arr.push(itm_str);
+				}
+			}
+			
+			
+			// return the converted array
+			return (convert_arr);
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		

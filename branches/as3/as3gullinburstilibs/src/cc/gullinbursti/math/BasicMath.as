@@ -49,6 +49,7 @@ package cc.gullinbursti.math {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.math.discrete.Factorization;
+	import cc.gullinbursti.math.settheory.BasicSetTheory;
 	import cc.gullinbursti.utils.Numbers;
 	
 	import flash.geom.Point;
@@ -87,8 +88,13 @@ package cc.gullinbursti.math {
 					"Ω", "Ψ", "α", "β", "δ", "ε", "φ", "γ", "λ", "μ", 
 					"π", "θ", "ρ", "ψ");
 					
-					
+		
+		// φ ≈ 1.6.180339887
 		public static const GOLDEN_RATIO:Number = (1 + BasicMath.root(5)) / 2;
+		
+		// = 2√2
+		public static const GELFOND_SCHNEIDER:Number = 2 * root(2); 
+		
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		
@@ -99,7 +105,7 @@ package cc.gullinbursti.math {
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
 		
-		public static function isDivisible(dividend:Number, divisor:Number, isSelf:Boolean):Boolean {
+		public static function isDivisible(dividend:Number, divisor:Number):Boolean { //, isSelf:Boolean):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 			// no remainder, it's divisible
@@ -118,12 +124,12 @@ package cc.gullinbursti.math {
 			
 			// allow self compare
 			if (isSelf)
-				return (BasicMath.isDivisible(val, multiplier, isSelf));
+				return (BasicMath.isDivisible(val, multiplier));//, isSelf));
 				
 			else {
 				// two values are different
 				if (val != multiplier)
-					return (BasicMath.isDivisible(val, multiplier, isSelf));
+					return (BasicMath.isDivisible(val, multiplier));//, isSelf));
 				
 				else
 					return (false);
@@ -141,15 +147,32 @@ package cc.gullinbursti.math {
 			// return array of divisors
 			var div_arr:Array = new Array();
 			
-			// not including 1, start w/ 2
-			if (!isOne)
-				range_pt.x = 2;	
+			// not including 1, start w/ next divisor
+			if (!isOne) {
+				
+				// generate a set of prime #'s 2 - ½val
+				var prime_arr:Array = BasicSetTheory.primes(range_pt.y);
+				var prime_ind:int; 
+				
+				// loop thru the primes
+				for (i=0; i<=prime_arr.length; i++) {
+					
+					// found a divisor, stop loop
+					if (isDivisible(val, prime_arr[i])) {
+						prime_ind = i;
+						break;
+					}
+				}
+				 
+				// set smallest divisor to found prime
+				range_pt.x = prime_arr[prime_ind];
+			}
 			
 			// loop thru # range
 			for (var i:int=range_pt.x; i<=range_pt.y; i++) {
 				
 				// the value is divisible, push into array
-				if (BasicMath.isDivisible(val, i, isSelf))
+				if (BasicMath.isDivisible(val, i))//, isSelf))
 					div_arr.push(i);
 			}
 			
@@ -163,6 +186,11 @@ package cc.gullinbursti.math {
 		
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		public static function smallestDivisor(val:Number, isOne:Boolean=false, isSelf:Boolean=true):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (BasicMath.divisors(val, isOne, isSelf).shift());
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public static function isApproxEqual(val1:Number, val2:Number, places:int=5):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
@@ -186,6 +214,19 @@ package cc.gullinbursti.math {
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		public static function isEven(val:Number):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// value is divisible by two
+			if (val % 2 == 0)
+				return (true);
+				
+			else
+				return (false);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 		public static function isPrime(val:Number):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
@@ -195,6 +236,10 @@ package cc.gullinbursti.math {
 			
 			// check for divisors
 			else {
+				
+				// #'s 3 & less are prime
+				if (val <= 3)
+					return (true);
 				
 				// none excluding 1 & the value
 				if (BasicMath.divisors(val).length == 0)
@@ -243,6 +288,20 @@ package cc.gullinbursti.math {
 		// m = a^2·b^3 (> 0)
 		public static function isSquareful(val:int):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			return (false);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		// m = a^2·b^3 (> 0)
+		public static function isRational(val:Number):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/**
+			 * 
+			 */
+			
 			
 			return (false);
 			

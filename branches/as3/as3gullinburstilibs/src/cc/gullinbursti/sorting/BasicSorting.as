@@ -35,7 +35,6 @@ package cc.gullinbursti.sorting {
 		 */
 		public static function binary(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: test descending binary sort order
 			
 			// base index to compare
 			var base_ind:int;

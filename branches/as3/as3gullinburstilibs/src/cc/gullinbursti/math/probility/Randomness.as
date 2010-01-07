@@ -68,24 +68,26 @@ package cc.gullinbursti.math.probility {
 		
 		public static function generateInt(lower:Number, upper:Number):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
-			var range:Number = (upper - lower) +1;
-			var rnd:int = Numbers.dropDecimal((Math.random() * range)+lower); 
 			
-			return (rnd);
+			// remove decimal from floating pt #
+			return (Numbers.dropDecimal(generateFloat(lower, upper)));
 		
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public static function generateFloat(lower:Number, upper:Number, precision:int=2):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
+			
+			// range of values
 			var range:Number = upper - lower;
+			
+			// pick a rnd #
 			var rnd:Number = (Math.random() * range) + lower;
 			
-			if (precision > 0)
-				rnd = Numbers.setPrecision(rnd, precision);
+			// set # of decimals
+			rnd = Numbers.setPrecision(rnd, precision);
 			
+			// rnd floating pt #
 			return (rnd);
 		
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
@@ -129,8 +131,11 @@ package cc.gullinbursti.math.probility {
 		
 		public static function coinFlip():Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
+			
+			// generate rnd 0 or 1
 			var rnd:int = generateInt(0, 1);
+			
+			// true if val = 1
 			return (rnd == 1);
 		
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
@@ -138,8 +143,11 @@ package cc.gullinbursti.math.probility {
 		
 		public static function diceRoller(sides:int=6):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
+			
+			// generate rnd # 1 - sides
 			var rnd:int = generateInt(1, sides);
+			
+			
 			return (rnd);
 		
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯

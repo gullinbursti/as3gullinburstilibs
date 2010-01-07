@@ -48,6 +48,8 @@ package cc.gullinbursti.math.algebra {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.math.BasicMath;
+	
 	import flash.geom.Point;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
@@ -63,7 +65,10 @@ package cc.gullinbursti.math.algebra {
 		// TODO: define & implement some add'l quadratic formula operations
 		
 		/**
-		 * 
+		 *            ________
+		 *      -b ± √b² - 4ac
+		 * ϰ = —————————————————
+		 *           2a
 		 */
 		// <*] class constructor [*>
 		public function QuadraticFormula() {/* …\(^_^)/… */}
@@ -75,7 +80,7 @@ package cc.gullinbursti.math.algebra {
 		
 		/**
 		 * Accepts a, b, & c values of a quadratic eq and returns
-		 * the value under the radical.
+		 * the value under the radical (Δ).
 		 * 
 		 * @param a
 		 * @param b
@@ -83,27 +88,74 @@ package cc.gullinbursti.math.algebra {
 		 * 
 		 * @return Number 
 		 */
-		public static function discriminat(a:Number, b:Number, c:Number):Number {
+		public static function discriminant(a:Number, b:Number, c:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (Math.pow(b, 2) - (4 * a * c));
+		
+			/**
+			 * Δ = b² - 4ac
+			 * 
+			 */
+		
+			return ((BasicMath.square(b)) - (4 * a * c));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
 		 * Accepts a, b, & c values of a quadratic eq and returns
-		 * roots of the equasion
+		 * roots of the equasion. If the discriminant happens to
+		 * be a perfect square, the roots are rational, otherwise
+		 * the roots are quadratic irrationals.
 		 * 
 		 * @param a
 		 * @param b
 		 * @param c
 		 * 
-		 * @return Point 
+		 * @return QuadPolynomialVO 
 		 */
-		public static function roots(a:Number, b:Number, c:Number):Point {
+		public static function roots(a:Number, b:Number, c:Number):QuadPolynomialVO {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement root finding on a quadratric formula
 			
-			return (new Point());
+			/**
+			 *                   _
+		 	 *             -b + √Δ
+		 	 * 1st root = ——————————
+		 	 *                2a
+		 	 * 
+		 	 *                   _
+		 	 *             -b - √Δ
+		 	 * 2nd root = ——————————
+		 	 *                2a
+		 	 */ 
+			
+			
+			// point to hold the two possible roots
+			var roots:Point = new Point();
+			
+			// discriminant is < zero, two imaginary roots
+			if (discriminant(a, b, c) < 0) {
+				
+				// solve as if discriminant were positive
+				roots.x = -b + (BasicMath.root(-discriminant(a, b, c)) / (2 * a));
+				roots.y = -b - (BasicMath.root(-discriminant(a, b, c)) / (2 * a));
+				
+				// include h-value w/ results (-b / 2a)
+				return (new QuadPolynomialVO(a, b, c, AbstractPolynomial.hVal(a, b, c), 0, discriminant(a, b, c), roots, false));
+				
+			// discriminant is zero, one real root (dbl root)
+			} else if (discriminant(a, b, c) == 0) {
+				roots.x = -b / (2 * a);
+				roots.y = -b / (2 * a);
+			
+			// discriminant is > zero, two real roots
+			} else {
+				roots.x = (-b + BasicMath.root(discriminant(a, b, c))) / (2 * a);
+				roots.y = (-b - BasicMath.root(discriminant(a, b, c))) / (2 * a);
+			}
+			
+				
+			
+			// return as a QuadPolynomialVO
+			return (new QuadPolynomialVO(a, b, c, 0, 0, discriminant(a, b, c), roots));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

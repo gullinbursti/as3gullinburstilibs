@@ -31,12 +31,38 @@ package cc.gullinbursti.math.discrete {
 		 * 
 		 * @return the unique # of item permutations 
 		**/
+		public static function orderedPairs(... args):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// prime w/ 1st arg set
+			var pair_tot:int = (args[0] as Array).length;
+			
+			// loop thru remaining args & tally…
+			for (var i:int=1; i<args.length; i++)
+				pair_tot *= (args[i] as Array).length;
+			
+			
+			return (pair_tot);
+		
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Calculates unique permutations for a given set 
+		 * ~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		 * <p></p>
+		 * 
+		 * @param n_items the # of items in the set
+		 * @param k_per the # of items per combo
+		 * 
+		 * @return the unique # of item permutations 
+		**/
 		public static function permutate(n_items:int, k_per:int):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 			/**
 			 *     n!
-			 * ----------
+			 * ——————————
 			 *   (n-k)!
 			**/
 			
@@ -60,11 +86,11 @@ package cc.gullinbursti.math.discrete {
 		
 			/**
 			 *      n!
-			 * ------------
+			 * ————————————
 			 *   k!(n-k)!
 			**/
 			
-			// # of items in combo is zero or greater & not greater than total items
+			// # of items in combo is ≥ & not greater than total items
 			if (k_per >= 0 && k_per <= n_items)
 				return (factorial(n_items) / (factorial(k_per) * (factorial(n_items-k_per))));
 			
@@ -88,7 +114,7 @@ package cc.gullinbursti.math.discrete {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 			/**
-			 *   2 ^ n
+			 *   2ⁿ
 			**/
 			
 			return (Math.pow(2, n_items));
@@ -111,7 +137,7 @@ package cc.gullinbursti.math.discrete {
 		
 			/**
 			 *      n!
-			 * ------------ * k!
+			 * ———————————— * k!
 			 *   k!(n-k)!
 			**/
 			
@@ -135,7 +161,7 @@ package cc.gullinbursti.math.discrete {
 		
 			/**
 			 *     n!
-			 * ----------
+			 * ——————————
 			 *   (n-k)!
 			**/
 			

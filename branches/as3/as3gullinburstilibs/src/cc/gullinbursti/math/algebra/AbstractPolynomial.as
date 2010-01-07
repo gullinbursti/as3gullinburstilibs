@@ -47,7 +47,7 @@ package cc.gullinbursti.math.algebra {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-	import flash.geom.Point;
+	import cc.gullinbursti.math.BasicMath;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	
@@ -56,7 +56,7 @@ package cc.gullinbursti.math.algebra {
 	 * 
 	 * @author Gullinbursti
 	 */
-	 // <[!] class delaration [¡]>
+	// <[!] class delaration [¡]>
 	public class AbstractPolynomial extends BasicAlgebra {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		// TODO: define & implement some abstract polynomial operations
@@ -66,5 +66,51 @@ package cc.gullinbursti.math.algebra {
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
+		
+		
+		protected static function completeTheSquare(a:Number, b:Number, c:Number):PolynomialVO {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/**
+			 * Definition: 
+			 * aϰ² + bϰ + c = a(ϰ - h)² + k
+			 * 
+			 */
+			 
+			// return as a new PolyVO
+			return (new PolynomialVO(a, b, c, -hVal(a, b, c), kVal(a, b, c)));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function hVal(a:Number, b:Number, c:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/**
+			 * 
+			 *      ⎛ 1b ⎞
+			 * h = ⁻⎜————⎟
+			 *      ⎝ 2a ⎠
+			 * 
+			 */
+			
+			// return the calc'd h-value
+			return (-(b / (2 * a)));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function kVal(a:Number, b:Number, c:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/**
+			 * 
+			 *        ⎛ b² ⎞
+			 * k = c -⎜————⎜
+			 *        ⎝ 4a ⎠
+			 * 
+			 */
+			
+			// return the calc'ed k-value
+			return (c - (BasicMath.square(b) / (4 * a)));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

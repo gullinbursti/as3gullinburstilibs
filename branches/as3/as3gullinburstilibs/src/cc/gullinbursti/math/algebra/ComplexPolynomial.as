@@ -47,7 +47,7 @@ package cc.gullinbursti.math.algebra {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-	import flash.geom.Point;
+	import cc.gullinbursti.math.BasicMath;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	
@@ -68,11 +68,11 @@ package cc.gullinbursti.math.algebra {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
-		public static function completeTheSquare(a:Number, b:Number, c:Number):Point {
+		public static function completeTheSquare(a:Number, b:Number, c:Number):PolynomialVO {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement completing the square for complex polynonials
 			
-			return (new Point())
+			// return a new PolyVO from AbstractPoly
+			return (AbstractPolynomial.completeTheSquare(a, b, c));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

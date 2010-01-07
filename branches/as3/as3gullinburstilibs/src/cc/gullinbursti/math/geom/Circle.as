@@ -27,13 +27,25 @@ package cc.gullinbursti.math.geom {
 		
 		public static function circumference(radius:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return ((radius * 2) * Math.PI);
+		
+			/**
+			 * c = 2πr
+			 * 
+			 */
+		
+			return (2 * Math.PI * radius);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function circleArea(radius:Number):Number {
+		public static function area(radius:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (square(radius) * Math.PI);
+			
+			/**
+			 * a = πr²
+			 * 
+			 */
+		
+			return (Math.PI * square(radius));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 	}

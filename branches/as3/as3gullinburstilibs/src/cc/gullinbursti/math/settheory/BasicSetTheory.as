@@ -54,17 +54,13 @@ package cc.gullinbursti.math.settheory {
 		public static function naturals(max:int, isZero:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			var min:int;
-			var set_arr:Array = new Array();
-			
+			// start at zero
 			if (isZero)
-				min = 0;
-				
+				return (integers(0, max));
+			
+			// start at one
 			else
-				min = 1;
-			
-			
-			return (BasicSetTheory.integers(min, max)); 
+				return (integers(1, max)); 
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
@@ -73,8 +69,10 @@ package cc.gullinbursti.math.settheory {
 		public static function integers(min:int, max:int):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
+			// list of ints
 			var set_arr:Array = new Array();
 			
+			// push vals
 			for (var i:int=min; i<=max; i++)
 				set_arr.push(i);	
 			
@@ -184,11 +182,11 @@ package cc.gullinbursti.math.settheory {
 			for (i=0; i<args.length; i++)
 				chain_arr = Arrays.chain(true, chain_arr, args[i])
 			
-			// 1st loop thru array
+			// loop thru array 1st time
 			for (i=0; i<chain_arr.length; i++) {
 				
-				// 2nd loop thru array
-				for (j=i+1; j<chain_arr.length-1; j++) {
+				// loop thru array 2nd time
+				for (j=i+1; j<chain_arr.length; j++) {
 					
 					// if 1st loop = the 2nd, push & restart
 					if (chain_arr[i] == chain_arr[j] && !Arrays.containsValue(intersect_arr, chain_arr[i])) {
@@ -254,63 +252,61 @@ package cc.gullinbursti.math.settheory {
 		 */
 		// set of all ordered pairs (x, y) such that A contains x and B contains y
 		public static function cartisianProduct(... args):Array {
-		//public static function cartisianProduct(setA:Array, setB:Array):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: finish cartisian product method
 			
 			// no set or only one, return ∅
 			if (args.length <= 1)
-				return (cart_arr);
+				return ([]);
 			
 			// loop counter
 			var i:int;
 			
 			// largest set
-			var max_len:int = 0;
 			var max_ind:int = 0;
-			var max_arr:Array = new Array();
+			var max_arr:Array = Arrays.elementObjCopy(args[0] as Array);
 			
 			
 			// array of ordered pairs 
 			var cart_arr:Array = new Array();
 			
-			// loop thru the each of the args
-			for (i=0; i<args.length; i++) {
+			// loop thru args
+			for (i=0; i<args.length-1; i++) {
 				
-				// cast each arg index as an array
-				var tmp_arr:Array = args[i] as Array;
+				// parse current & next array
+				var curr_arr:Array = args[i] as Array;
+				var next_arr:Array = args[i+1] as Array;
 				
-				// update the largest set
-				if (tmp_arr.length > max_arr.length) {
-					max_ind = i;
-					max_arr = Arrays.elementObjCopy(tmp_arr);
-				}
+				// compare the lengths
+				var tmp_ind:int = Arrays.lengthCompare(true, curr_arr, next_arr);
+				
+				// length change, update index
+				if (tmp_ind > -1)
+					max_ind = tmp_ind + i;
+				
+				// define max array from args
+				max_arr = args[max_ind] as Array;
 			}
 			
 			// loop thru largest set
 			for (i=0; i<max_arr.length; i++) {
 				
-				
-				
-				
-			}
-			
-			
-			
-			/* 
-			// loop thru sets
-			for (var i:int=0; i<setA.length; i++) {
-				for (var j:int=0; j<setB.length; j++) {
+				// loop thru all the sets
+				for (var j:int=0; j<args.length; j++) {
 					
-					// tmp coord array (x, y)
-					var coord_arr:Array = new Array(setA[i], setB[j]);
-					
-					// push as coord array (x, y) into set
-					//cart_arr.push([setA[i], setB[j]]);
-					cart_arr.push(coord_arr);
+					// not the largest…
+					if (j != max_ind) {
+						var arg_arr:Array = args[j] as Array;
+						
+						// loop thru the current arg set
+						for (var q:int=0; q<arg_arr.length; q++) {
+							
+							// push paired coords
+							cart_arr.push([max_arr[i], arg_arr[q]]);
+						}
+					}
 				}
 			}
-			 */
+			
 			return (cart_arr);
 		
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
@@ -342,5 +338,33 @@ package cc.gullinbursti.math.settheory {
 		public static function axiomOfChoice():void {
 			
 		}
+		
+		
+		
+		private static function coordArray(arr1:Array, arr2:Array):Array {
+			
+			// coords to return
+			var coord_arr:Array = new Array();
+			
+			// loop thru 1st array
+			for (var i:int=0; i<arr1.length; i++) {
+				
+				// reset the pair
+				var pair_arr:Array = new Array();
+				
+				// loop thru 2nd array & push
+				for (var j:int=0; j<arr2.length; j++) {
+					pair_arr.push(arr1[i]);
+					pair_arr.push(arr2[j]);
+				}
+				
+				// push pair array into coord array
+				coord_arr.push(pair_arr);
+			}
+			
+			
+			return (coord_arr)
+		}
+		
 	}
 }

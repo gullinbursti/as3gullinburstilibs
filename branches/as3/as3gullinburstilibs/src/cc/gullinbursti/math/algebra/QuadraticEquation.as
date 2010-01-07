@@ -16,9 +16,10 @@ package cc.gullinbursti.math.algebra {
 			// surd = irrational
 			
 			/**
-			 * a + b√c
-			 * -------
-			 *   d
+			 *        _
+			 *  a + b√c
+			 * —————————
+			 *    d
 			 */
 			
 			return (false);

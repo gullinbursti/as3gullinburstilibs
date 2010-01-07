@@ -33,13 +33,7 @@ package cc.gullinbursti.math.algebra {
 		
 		public static function reciprocal(val:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (1/val);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		public static function expInverse(val:Number):Number {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (-val);
+			return (1 / val);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }
