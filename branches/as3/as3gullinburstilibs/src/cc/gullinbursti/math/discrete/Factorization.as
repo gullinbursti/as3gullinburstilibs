@@ -44,19 +44,20 @@ package cc.gullinbursti.math.discrete {
 			// expanded factors
 			var factors_arr:Array = new Array();
 			
-			// dup factor count
+			// dup factors [base, exp], [base, exp]
 			var dup_arr:Array;
-			
 			
 			// factorizing vars
 			var prev_val:int = val;
 			var sm_div:int = 1;
 			
+			
 			// already prime, return val¹
 			if (BasicMath.isPrime(val))
 				return (new FactorizedVO([new Point(val, 1)]));
 			
-			// loop until the prev val & divisor is prime
+			
+			// loop until the prev val is prime
 			while (!BasicMath.isPrime(prev_val)) {
 				
 				// find the smallest prime divisor (exclude 1)
@@ -77,13 +78,13 @@ package cc.gullinbursti.math.discrete {
 			// push final prime factor
 			factors_arr.push(prev_val);
 			
-			// assign the duplicates ([prime, exp], [prime, exp])
+			// total up the duplicates ([prime, exp], [prime, exp])
 			dup_arr = Arrays.tallyDups(factors_arr);
 			
 			// create a vo to return
 			var vo:FactorizedVO = new FactorizedVO();
 			
-			// loop thru the factor array & add vals
+			// loop thru the factor array & add [base, exp] pairs
 			for (var i:int=0; i<dup_arr.length; i++)
 				vo.addFactor(new Point(dup_arr[i][0], dup_arr[i][1]));
 			

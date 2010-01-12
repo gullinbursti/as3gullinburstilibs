@@ -44,7 +44,7 @@ http://en.wikipedia.org/wiki/MIT_license/
 */
 
 
-package cc.gullinbursti.conversions {
+package cc.gullinbursti.converts {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -54,7 +54,7 @@ package cc.gullinbursti.conversions {
 	 * 
 	 * @author Gullinbursti
 	 */
-	 // <[!] class delaration [¡]>	
+	// <[!] class delaration [¡]>	
 	public class Length {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		// TODO: define & implement some add'l length conversions
@@ -131,10 +131,10 @@ package cc.gullinbursti.conversions {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// m = yd * ???
+		// m = yd * 0.9144
 		public static function yardsToMeters(len:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (len * 0);	
+			return (len * 0.9144);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -153,23 +153,23 @@ package cc.gullinbursti.conversions {
 		
 		
 		// km = mi * 1.609343999999998
-		public static function milesToKilometers(len:Number):Number {
+		public static function statuteToKilometers(len:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			return (len * 1.609343999999998);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		// mi = km * 0.6213711922373346
-		public static function kilometersToMiles(len:Number):Number {
+		public static function kilometersToStatute(len:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			return (len * 0.6213711922373346);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// nautical mi = statute mi / 1.1 
+		// nautical mi = statute mi * 0.868976241900648 
 		public static function statuteToNautical(len:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (len / 1.1);	
+			return (len * 0.868976241900648);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -179,18 +179,90 @@ package cc.gullinbursti.conversions {
 			return (len * 1.150779448023542);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		// statute mi = AU * 92955810 
+		public static function astroUnitsToStatute(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 92955810);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		// nautical mi = (km * ???) * 1.1
+		// statute mi = ly * 5878625000000 
+		public static function lightYrsToStatute(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 5878625000000);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// statute mi = pc * 19169300000000 
+		public static function parsecsToStatute(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 19169300000000);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// nautical mi = (km * 0.6213711922373346) * 1.150779
 		public static function kilometersToNautical(len:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (kilometersToMiles(len) * 0);	
+			return (statuteToNautical(kilometersToStatute(len)));	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		// km = (nautical mi * 1.1) * 1.8519999999999972 
 		public static function nauticalToKilometers(len:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (nauticalToStatute(len) * 1.8519999999999972);	
+			return (statuteToKilometers(nauticalToStatute(len)));	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		// km = AU * 149597900 
+		public static function astroUnitsToKilometers(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 149597900);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// km = ly * 9460730000000 
+		public static function lightYrsToKilometers(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 9460730000000);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// km = pc * 30850000000000 
+		public static function parsecsToKilometers(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 30850000000000);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// AU = km * 0.000000006684587 
+		public static function kilometersToAstroUnits(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 0.000000006684587);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// AU = mi * 0.0000000107578 
+		public static function milesToAstroUnits(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 0.0000000107578);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// AU = ly * 63241.08 
+		public static function lightYrsToAstroUnits(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 63241.08);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// AU = pc * 206219.5
+		public static function parsecsToAstroUnits(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 206219.5);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// ly = pc * 3.260848
+		public static function parsecsToLightYrs(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 3.260848);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// pc = ly * 0.3066687 
+		public static function lightYrsToParsecs(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 0.3066687);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 	}

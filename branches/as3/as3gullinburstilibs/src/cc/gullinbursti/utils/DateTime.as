@@ -55,7 +55,8 @@ package cc.gullinbursti.utils {
 	public class DateTime {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
-		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 		private static var month_arr:Array = new Array(
 			"January",
 			"February",
@@ -122,7 +123,7 @@ package cc.gullinbursti.utils {
 		private static const RFC3339:String = "Y-m-d\TH:i:sP"; // [2005-08-15T15:52:01+00:00) (ATOM]
 		private static const RSS:String 	= "D, d M Y H:i:s O"; // [Mon, 15 Aug 2005 15:52:01 +0000]
 		private static const W3C:String 	= "Y-m-d\TH:i:sP"; // [2005-08-15T15:52:01+00:00]
-		
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 /**
  * 
  * <listing>
@@ -371,12 +372,13 @@ package cc.gullinbursti.utils {
 		 * return int
 		 */		
 		private function dayOfYear(date:Date):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			var firstDayOfYear:Date = new Date(date.getFullYear(), 0, 1);
 			var millisecs_offset:Number = date.getTime() - firstDayOfYear.getTime();
 			
 			return (int(millisecs_offset / 86400000));
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
@@ -387,6 +389,7 @@ package cc.gullinbursti.utils {
 		 * @return int
 		 */
 		private function weekOfYear(date:Date):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// number of passed days
 			var dayOfYear:Number = dayOfYear(date);
@@ -406,7 +409,7 @@ package cc.gullinbursti.utils {
 			fullWeeks++;
 			
 			return (int(fullWeeks));		
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		
@@ -432,6 +435,59 @@ package cc.gullinbursti.utils {
 			}
 			
 			return (false);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns the 1st day of a month from a <code>Date</code> object.
+		 * 
+		 * @param date Date
+		 * @return int
+		 */
+		public static function monthStartDay(date:Date):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			return (date.getDay());
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns the last day of a month from a <code>Date</code> object.
+		 * 
+		 * @param date Date
+		 * @return int
+		 */
+		public static function monthLastDay(date:Date):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// date for the last day of the month
+			var end_date:Date = new Date(date.getFullYear(), date.getMonth(), daysInMonth(date))
+			
+			return (end_date.getDay());
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns the Julian day from a <code>Date</code> object.
+		 * 
+		 * @param date Date
+		 * @return Number
+		 */
+		public static function julianDay(date:Date):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		
+			var y:int = date.getFullYear();
+			var m:int = date.getMonth() + 1;
+			var d:int = date.getDate(); 
+			
+			if (m < 3) {
+				m += 12;
+				y--;
+			}
+				
+			return (Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + d + 2 - Math.floor(y / 100) + Math.floor(Math.floor(y / 100) / 4) - 1524);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -475,6 +531,34 @@ package cc.gullinbursti.utils {
 				return (false);
 			
 			return (true);			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns true if it's Mon-Fri.
+		 * 
+		 * @param Date
+		 * @return Boolean
+		 */
+		public static function isWeekday(date:Date):Boolean {
+			
+			// the day of week index
+			var day:int = date.getDay();
+			
+			// boolean test
+			return (!(day == 0 || day == 6));			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns true if it's Sat / Sun.
+		 * 
+		 * @param Date
+		 * @return Boolean
+		 */
+		public static function isWeekend(date:Date):Boolean {
+			
+			return (!isWeekday(date));			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

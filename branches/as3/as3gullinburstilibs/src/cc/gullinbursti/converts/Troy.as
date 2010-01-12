@@ -1,4 +1,4 @@
-package cc.gullinbursti.conversions {
+package cc.gullinbursti.converts {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -8,87 +8,86 @@ package cc.gullinbursti.conversions {
 	 * 
 	 * @author Gullinbursti
 	 */
-	 // <[!] class delaration [¡]>
-	public class Area {
+	// <[!] class delaration [¡]>
+	public class Troy extends Weight {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some add'l area conversions
 		
-		public function Area() {/* …\(^_^)/… */}
+		/**
+		 * grain
+		 * pennyweight
+		 * ounce
+		 * pound
+		 */
+		
+		// <*] class constructor [*>	
+		public function Troy() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
 		
-		
-		// in2 = cm2 * ???
-		public static function Inches2ToCentimeters2(area:Number):Number {
+		// g = gr * 0.06479891
+		public static function grainsToGrams(vol:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (area * 0);	
+			return (vol * 0.06479891);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// g = oz * 31.1034768
+		public static function ozToGrams(vol:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (vol * 31.1034768);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// cm2 = in2 * ???
-		public static function centimeters2ToInches2(area:Number):Number {
+		// gr = pw * 24
+		public static function pennyToGrains(vol:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (area * 0);	
+			return (vol * 24);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// gr = g * 15.432358352941431
+		public static function gramsToGrains(vol:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (vol * 15.432358352941431);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// gr = oz * 480
+		public static function OzToGrains(vol:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (vol * 480);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// pw = gr * 0.04166666666667
+		public static function grainsToPenny(vol:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (vol * 0.04166666666667);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// oz = g * 0.03215074656863
+		public static function gramsToOz(vol:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (vol * 0.03215074656863);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// oz = gr * 0.002083333333333
+		public static function grainsToOz(vol:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (vol * 0.002083333333333);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// oz = lb * 12
+		public static function poundsToOz(vol:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (vol * 12);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// m2 = ft2 * ???
-		public static function feet2ToMeters2(area:Number):Number {
+		
+		// lb = oz * 1/12
+		public static function ozToPounds(vol:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (area * 0);	
+			return (vol * 0.083333333333333);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		
-		// ft2 = m2 * ???
-		public static function meters2ToFeet2(area:Number):Number {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (area * 0);	
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		// acres = ft2 * ???
-		public static function feet2ToAcres(area:Number):Number {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (area * 0);	
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		// acres = yd2 * ???
-		public static function yards2ToAcres(area:Number):Number {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (area * 0);	
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		// ft2 = acres * ???
-		public static function acresToFeet2(area:Number):Number {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (area * 0);	
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		// yd2 = acres * ???
-		public static function acresToYards2(area:Number):Number {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (area * 0);	
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		// hectares = acres * ???
-		public static function acresToHectares(area:Number):Number {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (area * 0);	
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		// acres = hectares * ???
-		public static function hectaresToAcres(area:Number):Number {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (area * 0);	
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-
 	}
 }

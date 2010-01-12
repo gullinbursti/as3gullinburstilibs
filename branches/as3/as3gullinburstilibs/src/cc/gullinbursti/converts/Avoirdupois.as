@@ -1,4 +1,4 @@
-package cc.gullinbursti.conversions {
+package cc.gullinbursti.converts {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -8,30 +8,43 @@ package cc.gullinbursti.conversions {
 	 * 
 	 * @author Gullinbursti
 	 */
-	 // <[!] class delaration [¡]>
-	public class LiquidMeasure {
+	// <[!] class delaration [¡]>
+	public class Avoirdupois extends Weight {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some add'l lq measure conversions
 		
-		public function LiquidMeasure() {/* …\(^_^)/… */}
+		/**
+		 * grain
+		 * dram
+		 * ounce
+		 * pound
+		 * ton
+		 */
+		
+		// <*] class constructor [*>	
+		public function Avoirdupois() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
-		// l = gal * ???
-		public static function gallonsToLiters(vol:Number):Number {
+		// g = oz * 28.34952
+		public static function ozToGrams(vol:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (vol * 0);	
+			return (vol * 28.34952);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// gal = l * ???
-		public static function litersToGallons(vol:Number):Number {
+		
+		// oz = g * 0.03527396583787
+		public static function gramsToOz(vol:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (vol * 0);	
+			return (vol * 0.03527396583787);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-
+		
+		
+		
+		
+		
 	}
 }

@@ -1,4 +1,4 @@
-package cc.gullinbursti.conversions {
+package cc.gullinbursti.converts {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -9,57 +9,57 @@ package cc.gullinbursti.conversions {
 	 * @author Gullinbursti
 	 */
 	 // <[!] class delaration [¡]>
-	public class Speed {
-	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some add'l speed conversions
+	public class Temperature {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._	
 		
-		public function Speed() {/* …\(^_^)/… */}
+		public function Temperature() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
-		// kph = mph * ???
-		public static function mphToKph(spd:Number):Number {
+		// °C = (°F - 32) * (5 / 9)
+		public static function fehrenheitToCelsius(temp:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (spd * 0);	
+			return ((temp - 32) * (9 / 5));	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// mph = kph * ???
-		public static function kphToMph(spd:Number):Number {
+		// °F = (°C * (9 / 5)) + 32
+		public static function celsiusToFehrenheit(temp:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (spd * 0);	
+			return ((temp * (9 / 5)) + 32);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// knots = mph * ???
-		public static function mphToKnots(spd:Number):Number {
+		// °K = ((°F - 32) * (5 / 9)) - 273
+		public static function fehrenheitToKelvin(temp:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (spd * 0);	
+			return (celsiusToKelvin(fehrenheitToCelsius(temp)));	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// mph = knots * ???
-		public static function knotsToMph(spd:Number):Number {
+		// °K = °C + 273 
+		public static function celsiusToKelvin(temp:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (spd * 0);	
+			return (temp - 273);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// kph = knots * ???
-		public static function knotsToKph(spd:Number):Number {
+		// °F = ((°K + 273) * (9 / 5)) + 32
+		public static function kelvinToFehrenheit(temp:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (knotsToMph(spd) * 0);	
+			return (celsiusToFehrenheit(kelvinToCelsius(temp)));	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// knots = kph * ???
-		public static function kphToKnots(spd:Number):Number {
+		// °C = °K + 273
+		public static function kelvinToCelsius(temp:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (kphToMph(spd) * 0);	
+			return (temp + 273);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 
 	}
 }
