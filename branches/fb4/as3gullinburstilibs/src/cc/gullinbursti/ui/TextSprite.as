@@ -62,8 +62,8 @@ package cc.gullinbursti.ui {
 			
 			_txt.antiAliasType = AntiAliasType.ADVANCED;
 			_txt.gridFitType = GridFitType.SUBPIXEL;
-			_txt.sharpness = 400;
-			_txt.thickness = 100;
+			//_txt.sharpness = 400;
+			//_txt.thickness = 100;
 			
 			_txt.setTextFormat(txtFrmt_new);
 			_txt.defaultTextFormat = txtFrmt_new
@@ -173,6 +173,7 @@ package cc.gullinbursti.ui {
 			_txt.thickness = Math.min(Math.max(val.y, -200), 200);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
 		public function setLabel (val:String):void {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			_txt.text = val;
@@ -247,8 +248,15 @@ package cc.gullinbursti.ui {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public function pixelAntiAlias ():void {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			setAntiAlias(new Point(400, 100));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		
+		public function stdAntiAlias ():void {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			setAntiAlias(new Point());
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public function toggleBtnBehavior (val:Boolean=true):void {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
