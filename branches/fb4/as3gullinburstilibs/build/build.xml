@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="as3facebooklib" basedir="../" default="zip">
+<project name="as3gullinburstilibs" basedir="../" default="zip">
 
 	<!-- Define variables/paths used in this build script -->
 	<property file="./build/build.properties" />
@@ -203,15 +203,90 @@
 		</for>
 	</target>
 	
+	<target name="incrementalBuild">
+	<property name="incremental" value="true" />
+	<antcall target="build" />
+	</target>
 	
+	<!--
+	<sshsession host="somehost" username="dude" password="yo" localtunnels="2401:localhost:2401">
+		<sequential>
+			<cvs command="update ${cvs.parms} ${module}" cvsRoot="${cvs.root}" dest="${local.root}" failonerror="true" />
+		</sequential>
+	</sshsession>
+	-->
+
+	<!-- changed files --> <!--
+	<ftp server="ftp.apache.org"
+	       port="2121"
+	       remotedir="/pub/incoming"
+	       userid="coder"
+	       password="java1"
+	       passive="yes"
+	       depends="yes"
+	       binary="no">
+	    <fileset dir="htdocs/manual">
+	      <include name="**/*.html"/>
+	    </fileset>
+	  </ftp>
+	  -->
+	  
+	  <!-- all files --> <!--
+	  <ftp server="ftp.apache.org"
+       userid="anonymous"
+       password="me@myorg.com">
+    <fileset dir="htdocs/manual"/>
+  </ftp>-->
+	  
+	<!--
 		<path id="svnant.classpath">
 			<fileset dir="${project.libraryPath}/ant/svnant">
 				<include name="*.jar"/>
 			</fileset>
 		</path>  
 		<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="svnant.classpath" />
-		
-		
+	-->
+	
+	<!-- get files --> <!--
+	<ftp server="ftp.apache.org"
+	       userid="anonymous"
+	       password="me@myorg.com">
+	    <fileset dir="htdocs/manual"/>
+	  </ftp>
+	-->
+	
+	<!-- delete files -->
+	<!--<ftp action="del"
+	       server="ftp.apache.org"
+	       userid="anonymous"
+	       password="me@myorg.com">
+	    <fileset>
+	      <include name="**/*.tmp"/>
+	    </fileset>
+	  </ftp>
+	-->
+	
+	<!-- make remove dirs -->
+	<!-- <ftp action="del"
+       server="ftp.apache.org"
+       userid="anonymous"
+       password="me@myorg.com">
+    <fileset>
+      <include name="**/*.tmp"/>
+    </fileset>
+  </ftp>
+  
+  
+  <ftp action="del"
+       server="ftp.apache.org"
+       userid="anonymous"
+       password="me@myorg.com">
+    <fileset>
+      <include name="**/*.tmp"/>
+    </fileset>
+  </ftp>
+  
+	-->
 	<!--
 		Generate a distribution based on the current source code.  Includes
 		the source code, the documentation, the examples, and the binary .swc file.
