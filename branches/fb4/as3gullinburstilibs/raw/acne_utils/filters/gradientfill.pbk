@@ -1,0 +1,54 @@
+<languageVersion : 1.0;>
+kernel GradientFill
+<
+namespace : "GradientFill";
+vendor : "Svante Hellberg";
+version : 1;
+description : "Creates a gradient fill.";
+>
+{
+    parameter float4 xywh 
+    <
+    defaultValue:float4(0.0, 0.0, 269.0, 721.0);
+    maxValue:float4(5000.0, 5000.0, 5000.0, 5000.0);
+    minValue:float4(0.0, 0.0, 0.0, 0.0);
+    >;
+    
+    parameter pixel4 color1 
+    <
+    defaultValue:pixel4(0.0, 0.0, 0.0, 1.0);
+    >;
+
+    
+    parameter pixel4 color2
+    <
+    defaultValue:pixel4(0.0, 0.0, 0.0, 1.0); 
+    >;
+    
+    parameter float multiply
+    <
+    	defaultValue:float(0); 
+        maxValue:float(1.0);
+        minValue:float(-1.0);
+    >;
+    
+    input image4 src;
+    output pixel4 dst;
+  
+    void evaluatePixel()
+    {
+        float2 p = outCoord();
+        pixel4 outpixle;
+        if ( !(p.x < xywh[0] || p.y < xywh[1] || p.x > (xywh[0]+xywh[2]) || p.y > (xywh[1]+xywh[3])) ) {
+            pixel4 cP = sampleNearest(src,p);
+            float d = p.y / (xywh[3]-xywh[1]);
+            d = d+multiply;
+            outpixle = mix(cP,color1,d);
+            outpixle.a = cP.a;
+        } else {
+            outpixle = sampleNearest(src,p);
+        }
+        
+        dst = outpixle;
+    }
+}
