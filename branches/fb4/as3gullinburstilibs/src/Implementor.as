@@ -32,17 +32,34 @@
 
 package {
 	
+	//] includes [!]>
+	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.puremvc.model.AbstractBulkLoadProxy;
 	import cc.gullinbursti.puremvc.model.vo.LoadVO;
 	
 	import org.puremvc.as3.interfaces.IProxy;
+	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
+	/**
+	 * 
+	 * @author Gullinbursti
+	 */
+	// <[!] class delaration [!]>
 	public class Implementor {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 		private var df:Array
-		 
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
+		
+		// <*] class constructor [*>
 		public function Implementor() {	
-		}
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 
 	}
 }
