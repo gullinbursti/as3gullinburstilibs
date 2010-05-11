@@ -87,6 +87,7 @@
     <classEntry path="cc.gullinbursti.utils.Arrays"/>
     <classEntry path="cc.gullinbursti.math.algebra.PolynomialVO"/>
     <classEntry path="cc.gullinbursti.science.weather.BasicWeather"/>
+    <classEntry path="cc.gullinbursti.science.weather.Moisture"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

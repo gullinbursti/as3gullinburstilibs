@@ -11,7 +11,7 @@ package cc.gullinbursti.science.weather {
 	 * @author Gullinbursti
 	 */
 	// <[!] class delaration [¡]>
-	public class Air extends BasicWeather {
+	public class Wind extends BasicWeather {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		
@@ -22,7 +22,7 @@ package cc.gullinbursti.science.weather {
 		 * 
 		 */
 		// <*] class constructor [*>
-		public function Air() {/* …\(^_^)/… */}
+		public function Wind() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>

@@ -9,7 +9,7 @@ package cc.gullinbursti.science.weather {
 	 * @author Gullinbursti
 	 */
 	// <[!] class delaration [!]>
-	public class Clouds extends BasicWeather {
+	public class Moisture extends BasicWeather {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -17,11 +17,12 @@ package cc.gullinbursti.science.weather {
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 		
 		// <*] class constructor [*>
-		public function Clouds() {/* …\(^_^)/… */}
+		public function Moisture() {/* …\(^_^)/… */}
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
+		
 	}
 }
