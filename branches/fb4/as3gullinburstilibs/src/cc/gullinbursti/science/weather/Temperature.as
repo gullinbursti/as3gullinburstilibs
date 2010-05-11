@@ -1,4 +1,5 @@
 package cc.gullinbursti.science.weather {
+	import cc.gullinbursti.math.BasicMath;
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -8,8 +9,8 @@ package cc.gullinbursti.science.weather {
 	 * 
 	 * @author Gullinbursti
 	 */
-	// <[!] class delaration [!]>
-	public class Moisture extends BasicWeather {
+	// <[!] class delaration [¡]>
+	public class Temperature extends BasicWeather {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -17,7 +18,7 @@ package cc.gullinbursti.science.weather {
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 		
 		// <*] class constructor [*>
-		public function Moisture() {/* …\(^_^)/… */}
+		public function Temperature() {/* …\(^_^)/… */}
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
@@ -25,15 +26,16 @@ package cc.gullinbursti.science.weather {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
-		public static function realitiveHumidity(feh:Number, dewPt:Number):Number {
-			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+		public static function heatIndex(feh:Number, humid:Number):Number {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			/**
-			 * rel_humidity = 
+			 * heat_index = 
 			 * 
-			 * T=(Math.exp((17.67 * T)/(243.5+T)));
-			 * Td=(Math.exp((17.67 * Td)/(243.5+Td)));
-			 * inform.Relh.value=parseInt(100*(Td/T));
+			 * -42.379 + (2.04901523 * t) + (10.14333127 * h)
+			 * - (0.22475541 * t * h) - (6.83783e-3 * t^2) 
+			 * - (5.481717e-2 * h^2) + (1.22874e-3 * t^2 * h) 
+			 * + (8.5282e-4 * t * h^2) - (1.99e-6 * t^2 * r^2)
 			 * 
 			 */
 			
@@ -52,33 +54,6 @@ package cc.gullinbursti.science.weather {
 			var humid_sq:Number = BasicMath.square(humid);
 			
 			return (const_arr[0] + (const_arr[1] * feh) + (const_arr[2] * humid) - (const_arr[3] * feh * humid) - (const_arr[4] * feh_sq) - (const_arr[5] * humid_sq) + (const_arr[6] * feh_sq * humid) + (const_arr[7] * feh * humid_sq) - (const_arr[8] * feh_sq * humid_sq));
-			
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-	
-		
-		public static function satVaporPressure(celc:Number):Number {
-			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-			
-			/**
-			 * 6.11*10.0**(7.5*Tc/(237.7+Tc))
-			 * 
-			 */
-			
-			
-			return (0);
-			
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		public static function vaporPressure(celc:Number):Number {
-			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-			
-			/**
-			 * 6.11*10.0**(7.5*Tdc/(237.7+Tdc))
-			 * 
-			 */
-			
-			
-			return (0);
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}

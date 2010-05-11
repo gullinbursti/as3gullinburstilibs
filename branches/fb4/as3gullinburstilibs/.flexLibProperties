@@ -72,7 +72,6 @@
     <classEntry path="cc.gullinbursti.puremvc.view.ui.AbstractBtnUI_PMVC"/>
     <classEntry path="cc.gullinbursti.utils.Numbers"/>
     <classEntry path="cc.gullinbursti.math.algebra.QuadPolynomialVO"/>
-    <classEntry path="cc.gullinbursti.science.weather.Temperature"/>
     <classEntry path="cc.gullinbursti.converts.Avoirdupois"/>
     <classEntry path="cc.gullinbursti.math.discrete.networks.CitationRanking"/>
     <classEntry path="cc.gullinbursti.vo.AbstractUserInputVO"/>
@@ -86,8 +85,9 @@
     <classEntry path="cc.gullinbursti.math.algebra.ComplexPolynomial"/>
     <classEntry path="cc.gullinbursti.utils.Arrays"/>
     <classEntry path="cc.gullinbursti.math.algebra.PolynomialVO"/>
-    <classEntry path="cc.gullinbursti.science.weather.BasicWeather"/>
-    <classEntry path="cc.gullinbursti.science.weather.Moisture"/>
+    <classEntry path="cc.gullinbursti.science.weather.Clouds"/>
+    <classEntry path="cc.gullinbursti.science.weather.Precip"/>
+    <classEntry path="cc.gullinbursti.science.weather.Temperature"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
