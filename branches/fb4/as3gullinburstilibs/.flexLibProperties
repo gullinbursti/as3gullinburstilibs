@@ -88,6 +88,8 @@
     <classEntry path="cc.gullinbursti.science.weather.Clouds"/>
     <classEntry path="cc.gullinbursti.science.weather.Precip"/>
     <classEntry path="cc.gullinbursti.science.weather.Temperature"/>
+    <classEntry path="cc.gullinbursti.audio.MusicTheory"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.Waveform"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
