@@ -149,6 +149,7 @@ package cc.gullinbursti.math.discrete {
 		
 		
 		private static function last2InSeq(val:int):Point {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// seeds to start the formula
 			var seed0:int;

@@ -14,6 +14,10 @@ package cc.gullinbursti.math.geom {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		// TODO: define & implement some quadrilateral functions
 		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
+		
 		/**
 		 * 
 		 */

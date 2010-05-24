@@ -11,7 +11,13 @@ package cc.gullinbursti.math.geom {
 	 
 	 // <[!] class delaration [¡]>
 	public class Elipse extends Circle {
+	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		// TODO: define & implement some elipse functions
+		
+		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		/**
 		 * 

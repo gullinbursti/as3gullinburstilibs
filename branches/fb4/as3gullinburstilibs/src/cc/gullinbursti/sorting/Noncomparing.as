@@ -1,11 +1,29 @@
-package cc.gullinbursti.sorting
-{
-	public class Noncomparing extends BasicSorting
-	{
-		public function Noncomparing()
-		{
-			super();
-		}
+package cc.gullinbursti.sorting {
+	
+	//] includes [!]>
+	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
+	
+	/**
+	 * 
+	 * @author Gullinbursti
+	 */
+	// <[!] class delaration [¡]>
+	public class Noncomparing extends BasicSorting {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
+		
+		/**
+		 * 
+		 */
+		// <*] class constructor [*>
+		public function Noncomparing() {/* …\(^_^)/… */}
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 	}
 }

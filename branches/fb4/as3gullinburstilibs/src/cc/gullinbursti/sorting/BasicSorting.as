@@ -15,6 +15,10 @@ package cc.gullinbursti.sorting {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		// TODO: beef up basic sorting class [http://en.wikipedia.org/wiki/Sorting_algorithm]
 		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
+		
 		/**
 		 * 
 		 */

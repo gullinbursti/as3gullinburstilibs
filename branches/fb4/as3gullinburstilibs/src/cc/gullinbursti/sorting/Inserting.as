@@ -1,13 +1,34 @@
 package cc.gullinbursti.sorting {
 	
+	//] includes [!]>
+	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
+	
+	/**
+	 * 
+	 * @author Gullinbursti
+	 */
+	// <[!] class delaration [¡]>-
 	public class Inserting extends BasicSorting {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
-		public function Inserting() { }
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
+		/**
+		 * 
+		 */
+		// <*] class constructor [*>	
+		public function Inserting() {/* …\(^_^)/… */}
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
 		public static function gnomeSort(in_arr:Array):Array {
-			
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			/**
 			 * 
 			 * function gnomeSort(a[0..size-1]) {
@@ -36,9 +57,6 @@ package cc.gullinbursti.sorting {
 			 
 			 
 			 return (in_arr);
-			 
-			 
-		}
-		
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

@@ -53,7 +53,6 @@ package cc.gullinbursti.fx {
 	import flash.display.DisplayObject;
 	import flash.filters.ColorMatrixFilter;
 	import flash.geom.Rectangle;
-	
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
@@ -74,6 +73,7 @@ package cc.gullinbursti.fx {
 		 * ~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		 * <p>.</p>
 		**/
+		// <*] class constructor [*>
 		public function BriteContrastFX(brite:Number=0, contra:Number=0) {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			

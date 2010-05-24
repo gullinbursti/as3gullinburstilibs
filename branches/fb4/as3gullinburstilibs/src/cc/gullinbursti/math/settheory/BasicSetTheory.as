@@ -28,6 +28,8 @@ package cc.gullinbursti.math.settheory {
 		 * http://www.apronus.com/provenmath/choice.htm
 		 */
 		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 		// complex set (a + bi)
 		private static const C_SET:Array = new Array();
 		
@@ -40,6 +42,7 @@ package cc.gullinbursti.math.settheory {
 		
 		// real set (2, 5/3, π)
 		private static const R_SET:Array = new Array();
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		 
 		// <*] class constructor [*>	

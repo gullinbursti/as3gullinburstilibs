@@ -94,7 +94,6 @@ package cc.gullinbursti.math {
 		
 		// = 2√2
 		public static const GELFOND_SCHNEIDER:Number = 2 * root(2); 
-		
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		

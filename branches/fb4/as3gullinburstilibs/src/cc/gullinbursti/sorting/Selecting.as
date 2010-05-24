@@ -1,16 +1,34 @@
-package cc.gullinbursti.sorting
-{
-	public class Selecting extends BasicSorting
-	{
-		public function Selecting()
-		{
-			super();
-		}
+package cc.gullinbursti.sorting {
+	
+	//] includes [!]>
+	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
+	
+	/**
+	 * 
+	 * @author Gullinbursti
+	 */
+	// <[!] class delaration [¡]>
+	public class Selecting extends BasicSorting {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
+		
+		/**
+		 * 
+		 */
+		// <*] class constructor [*>
+		public function Selecting() {/* …\(^_^)/… */}
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
 		public static function selectSort(in_arr:Array):Array {
-			
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			/**
 			 * 
@@ -34,7 +52,6 @@ package cc.gullinbursti.sorting
 			 */ 
 			
 			return (new Array())
-		}
-		
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

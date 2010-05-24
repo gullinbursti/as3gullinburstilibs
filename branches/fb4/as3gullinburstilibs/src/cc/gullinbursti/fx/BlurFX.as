@@ -66,7 +66,6 @@ package cc.gullinbursti.fx {
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 		private var _blur_amt:Point;
 		private var _quality:Number;
-		
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		/**
@@ -74,6 +73,7 @@ package cc.gullinbursti.fx {
 		 * ~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		 * <p>.</p>
 		**/
+		// <*] class constructor [*>
 		public function BlurFX(x:Number=2, y:Number=2, qual:int=1) {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			

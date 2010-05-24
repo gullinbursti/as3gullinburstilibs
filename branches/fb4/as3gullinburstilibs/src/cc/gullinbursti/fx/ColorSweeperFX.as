@@ -1,5 +1,7 @@
 package cc.gullinbursti.fx {
 	
+	//] includes [!]>
+	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import caurina.transitions.Tweener;
 	import caurina.transitions.properties.CurveModifiers;
 	
@@ -8,9 +10,17 @@ package cc.gullinbursti.fx {
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.filters.ColorMatrixFilter;
+	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
+	/**
+	 * Renders a brightness & contrast fx.</p>
+	 **/
+	// <[!] class delaration [!]>
 	public class ColorSweeperFX {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 		public  var currHue_val:Number;
 		
 		
@@ -40,16 +50,16 @@ package cc.gullinbursti.fx {
 		public static const INIT_2_LOWER:String = "INIT_2_LOWER";
 		public static const LOWER_2_UPPER:String = "LOWER_2_UPPER";
 		public static const UPPER_2_LOWER:String = "UPPER_2_LOWER";
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
-		
-		public function ColorSweeperFX (
-			initPos:Number=0, 
-			dir:int=1, 
-			minPos:Number=-180, 
-			maxPos:Number=180, 
-			dur_tot:Number=30, 
-			trans_str:String="linear"
-		) {
+		/**
+		 * The brightness & contrast fx's contructor.
+		 * ~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		 * <p>.</p>
+		 **/
+		// <*] class constructor [*>
+		public function ColorSweeperFX (initPos:Number=0, dir:int=1, minPos:Number=-180, maxPos:Number=180, dur_tot:Number=30, trans_str:String="linear") {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			// adds _beizer prop to tweener
 			CurveModifiers.init();
@@ -87,9 +97,13 @@ package cc.gullinbursti.fx {
 			
 			// dummy sprite to add events on
 			evt_sprite = new Sprite();
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 		
 		public function commence():void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			// color matrix
 			colr_mtx = new ColorMatrix();
@@ -106,14 +120,17 @@ package cc.gullinbursti.fx {
 				this.calcDuration();
 				this.tweenHueTo();
 			}
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public function returnFilterFX():ColorMatrixFilter {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
 			return (new ColorMatrixFilter(colr_mtx));
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		private function initFullHueSweep():void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			// choose a direction
 			switch (tween_state) {
@@ -139,9 +156,10 @@ package cc.gullinbursti.fx {
 			
 			// start tweening
 			this.tweenHueTo();
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		private function tweenHueTo():void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			// tween the hue val
 			Tweener.addTween(this, {
@@ -166,19 +184,21 @@ package cc.gullinbursti.fx {
                 	evt_sprite.dispatchEvent(new Event(Event.COMPLETE));
                 }
             });
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		private function hdlTweenComplete(e:Event=null):void {
-				
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
 			// change the tween params
 			this.changeState();
 			
 			// start the next tween
 			this.tweenHueTo();
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		//private function updColorMatrix(val:Number=Math.PI):void {
 		private function updColorMatrix(val:Number=3.141592653589793236):void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			if (val != Math.PI)
 				currHue_val = val;
@@ -204,9 +224,10 @@ package cc.gullinbursti.fx {
 			colr_mtx.adjustSaturation(satur_scaler);
 			colr_mtx.adjustBrightness(brite_scaler);
 			colr_mtx.adjustContrast(contr_scaler);
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		private function changeState():void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			// choose a state
 			switch(tween_state) {
@@ -277,10 +298,11 @@ package cc.gullinbursti.fx {
 			this.calcDuration();
 			
 			//trace("<<[changeState]>> ["+tween_state+"]>> currHue_val:["+currHue_val+"] toHue_val:["+toHue_val+"] dur:["+dur+"]");
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		private function calcDuration():void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			dur = Math.abs(toHue_val - currHue_val) * rate;
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

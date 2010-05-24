@@ -3,13 +3,25 @@
 
 package cc.gullinbursti.math.algebra {
 	
+	//] includes [!]>
+	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
+	
+	
+	
+	/**
+	 * 
+	 * @author Gullinbursti
+	 */
+	// <[!] class delaration [¡]>
 	public class Field extends BasicAlgebra {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		// TODO: define & implement some field algebra operations
 		
-		public function Field()
-		{
-			super();
-		}
+		public function Field() {/* …\(^_^)/… */}
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 	}
 }

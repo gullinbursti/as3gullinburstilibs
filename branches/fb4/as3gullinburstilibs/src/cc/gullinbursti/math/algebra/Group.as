@@ -3,13 +3,17 @@
 
 package cc.gullinbursti.math.algebra {
 	
+	
+	
 	public class Group extends BasicAlgebra {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		// TODO: define & implement some group algebra operations
 		
-		public function Group()
-		{
-			super();
-		}
+		public function Group() {/* …\(^_^)/… */}
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 		
 	}
 }

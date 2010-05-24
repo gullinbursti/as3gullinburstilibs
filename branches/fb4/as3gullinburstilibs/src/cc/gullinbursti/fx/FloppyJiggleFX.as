@@ -1,14 +1,23 @@
 package cc.gullinbursti.fx {
 	
+	//] includes [!]>
+	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import flash.display.BitmapData;
 	import flash.display.BitmapDataChannel;
 	import flash.filters.DisplacementMapFilter;
 	import flash.filters.DisplacementMapFilterMode;
 	import flash.geom.Point;
+	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
-	
+	/**
+	 * 
+	 **/
+	// <[!] class delaration [!]>
 	public class FloppyJiggleFX {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 		// noise matte
 		private var noise_bmp:BitmapData;
 		
@@ -27,12 +36,14 @@ package cc.gullinbursti.fx {
 		// fixes the noise displacement offset
 		private var offset_flt:DisplacementMapFilter;
 		private var offset_bmp:BitmapData;
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
-		
-		public function FloppyJiggleFX (w:int, h:int, oct:int=2, 
-			xBase:int=8, yBase:int=32, 
-			xStr:Number=2, yStr:Number=0.5, 
-			xMap:int=0, yMap:int=0, seed_max:int=2048) {
+		/**
+		 * 
+		 **/
+		// <*] class constructor [*>
+		public function FloppyJiggleFX (w:int, h:int, oct:int=2, xBase:int=8, yBase:int=32, xStr:Number=2, yStr:Number=0.5, xMap:int=0, yMap:int=0, seed_max:int=2048) {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			size_pt = new Point(w, h);
 			noise_oct = oct;
@@ -46,10 +57,14 @@ package cc.gullinbursti.fx {
 			offsetInc_arr = new Array();
 			
 			initNoiseMap();
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
 		private function initNoiseMap():void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			// populate the offset array
 			for (var i:int=0; i<noise_oct; i++)
@@ -67,10 +82,11 @@ package cc.gullinbursti.fx {
             
             // offset coords from noise displace (-x & -y strength)
             offset_flt = new DisplacementMapFilter(offset_bmp, map_pt, comp_pt.x, comp_pt.y, -str_pt.x, -str_pt.y, filter_mode);
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public function returnFilterFX():Array {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			// return array
 			var arr:Array = new Array();
@@ -90,6 +106,6 @@ package cc.gullinbursti.fx {
             arr.push(noise_flt);
             
             return (arr);
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

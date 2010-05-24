@@ -1,11 +1,31 @@
-package cc.gullinbursti.sorting
-{
-	public class AsinineSorting extends BasicSorting
-	{
-		public function AsinineSorting()
-		{
-			super();
-		}
+package cc.gullinbursti.sorting {
+	
+	//] includes [!]>
+	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
+	
+	/**
+	 * 
+	 * @author Gullinbursti
+	 */
+	
+	// <[!] class delaration [¡]>
+	public class AsinineSorting extends BasicSorting {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
+		
+		/**
+		 * 
+		 */
+		// <*] class constructor [*>	
+		public function AsinineSorting() {/* …\(^_^)/… */}
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 		
 	}
 }

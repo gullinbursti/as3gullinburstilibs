@@ -65,6 +65,7 @@ package cc.gullinbursti.fx {
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 		private var _mapping_pt:Point;
 		private var _render_rect:Rectangle;
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		/**
 		 * The abstract fx's contructor.
@@ -94,12 +95,12 @@ package cc.gullinbursti.fx {
 		
 		
 		protected function displayObjectApply(dispObj:DisplayObject):void {
-			
-		}
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		protected function bmpDataApply(bmpData:BitmapData):void {
-			
-		}
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public function get mappingPoint():Point {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._

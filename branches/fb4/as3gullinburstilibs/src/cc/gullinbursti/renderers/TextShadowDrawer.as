@@ -1,13 +1,30 @@
 package cc.gullinbursti.renderers {
 	
+	//] includes [!]>
+	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
-
+	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
+	
+	/**
+	 * 
+	 * @author Gullinbursti
+	 */
+	
+	// <[!] class delaration [¡]>
 	public class TextShadowDrawer extends TextField {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
-		public function TextShadowDrawer(src_txt:TextField, 
-			xDist:Number=2, yDist:Number=2, 
-			colr:uint=0x181a1e, alph:Number=1) {
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
+		
+		/**
+		 * 
+		 */
+		// <*] class constructor [*>
+		public function TextShadowDrawer(src_txt:TextField, xDist:Number=2, yDist:Number=2, colr:uint=0x181a1e, alph:Number=1) {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			super();  
 			
@@ -25,6 +42,9 @@ package cc.gullinbursti.renderers {
 				this.y = src_txt.y + yDist;
 				this.width = src_txt.width;
 				this.alpha = alph;
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 	}
 }

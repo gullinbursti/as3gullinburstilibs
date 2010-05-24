@@ -1,12 +1,22 @@
-package cc.gullinbursti.science.quantum
-{
+package cc.gullinbursti.science.quantum {
+	
+	//] includes [!]>
+	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.science.chemistry.BasicChem;
 	import cc.gullinbursti.science.physics.BasicPhysics;
+	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
 	
-	public class BasicQuantumMechanics extends BasicPhysics
-	{
+	/**
+	 * 
+	 * @author Gullinbursti
+	 */
+	
+	// <[!] class delaration [¡]>
+	public class BasicQuantumMechanics extends BasicPhysics {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
-		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 		/*
 		Values of h 			Units
 		6.62606896(33)×10−34 	J·s
@@ -26,27 +36,32 @@ package cc.gullinbursti.science.quantum
 		
 		// R / Nₐ
 		public static const BOLTZMANN_CONST:Number = BasicChem.GAS_CONST / BasicChem.AVOGADRO_CONST;
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
+		/**
+		 * 
+		 */
+		// <*] class constructor [*>	
+		public function BasicQuantumMechanics() {/* …\(^_^)/… */}
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
-		
-		public function BasicQuantumMechanics()
-		{
-		}
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
 		public static function photonEnergyByFreq(freq:Number):Number {
-			
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			/**
 			 * 
 			 * E = hν
 			 */
 			 
 			 return (PLANCK_CONST * freq);
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public static function photonEnergyByWavelen(wavelen:Number):Number {
-			
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			/**
 			 * 
 			 *       hc
@@ -56,35 +71,36 @@ package cc.gullinbursti.science.quantum
 			 
 			 
 			 return ((PLANCK_CONST * BasicPhysics.LIGHT_VELOCITY) / wavelen);
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public static function freq(wavelen:Number, spd:Number=BasicPhysics.LIGHT_VELOCITY):Number {
-			
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			/**
 			 * ν = spd / λ
 			 * 
 			 */
 			 
 			 return (spd / wavelen);
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public static function wavelen(freq:Number, spd:Number=BasicPhysics.LIGHT_VELOCITY):Number {
-			
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			/**
 			 * λ = spd / ν
 			 * 
 			 */
 			 
 			 return (spd / freq);
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public static function bodyRadiation():Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			// TODO: black body radiation
 			 return (0);
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 
 	}
 }

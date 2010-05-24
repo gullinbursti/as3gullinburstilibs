@@ -10,8 +10,16 @@ package cc.gullinbursti.math.settheory {
 	 */
 	// <[!] class delaration [¡]>
 	public class Functions {
+	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
 		// TODO: [EVO]» implement some more op's on function equations
 		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
+		/**
+		 * 
+		 */
+		// <*] class constructor [*>
 		public function Functions() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		

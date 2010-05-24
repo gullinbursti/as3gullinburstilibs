@@ -1,17 +1,35 @@
-package cc.gullinbursti.science.physics
-{
-	import cc.gullinbursti.math.BasicMath;
+package cc.gullinbursti.science.physics {
 	
-	public class Gravity extends BasicPhysics
-	{
-		public function Gravity()
-		{
-			super();
-		}
+	//] includes [!]>
+	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.math.BasicMath;
+	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
+	
+	/**
+	 * 
+	 * @author Gullinbursti
+	 */
+	
+	// <[!] class delaration [¡]>
+	public class Gravity extends BasicPhysics {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
+		
+		/**
+		 * 
+		 */
+		// <*] class constructor [*>	
+		public function Gravity() {/* …\(^_^)/… */}
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 		
 		public static function twoBodies(m1:Number, m2:Number, dist:Number):Number {
-			
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
 			/**
 			 *         ⎛ m₁m₂ ⎞
 			 * F = G × ⎜——————⎜
@@ -20,11 +38,11 @@ package cc.gullinbursti.science.physics
 			 
 			 
 			 return (GRAV_CONST * ((m1 * m2) / BasicMath.square(dist)));
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public static function multiBodies(masses:Array, dists:Array):Array {
-			
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			// array of forces between bodies
 			var force_arr:Array = new Array();
 			
@@ -38,8 +56,7 @@ package cc.gullinbursti.science.physics
 					force_arr.push(twoBodies(masses[i], masses[i+1], dists[j]));
 			}
 			
-			
 			return (force_arr);	
-		}	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯	
 	}
 }

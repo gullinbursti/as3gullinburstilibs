@@ -79,16 +79,26 @@ package cc.gullinbursti.fx {
 		private var _amt:Number;
 		
 		private var _color_arr:Array;
+		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
+		/**
+		 * 
+		 **/
+		// <*] class constructor [*>
 		public function TintFX(rgb:uint=0x00, amt:Number=0) {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			_rgb = rgb;
 			_amt = amt;
 			
 			super();
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 		
 		override public function applyFX(obj:Object, rect:Rectangle=null):void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			calcColors();
 			
@@ -110,10 +120,11 @@ package cc.gullinbursti.fx {
 				var matte:BitmapData = obj as BitmapData;
 					matte.applyFilter(matte, this.renderRect, this.mappingPoint, filter);
 			}
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		private function calcColors():void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			_red_val   = (( _rgb >> 16 ) & 0xff) / 255;
 			_green_val = (( _rgb >> 8  ) & 0xff) / 255;
@@ -127,39 +138,33 @@ package cc.gullinbursti.fx {
 				_amt*_blue_val*RED_MULT, _amt*_blue_val*GREEN_MULT, inv_amt+_amt*_blue_val*BLUE_MULT, 0, 0, 
 				0, 0, 0, 1, 0
 			);
-			
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		private function spawnFilter():ColorMatrixFilter {
-			
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._	
 			return (new ColorMatrixFilter(_color_arr));
-			
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public function get color():uint {
-			
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._	
 			return (_rgb);
-			
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public function set color(val:uint):void {
-			
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			_rgb = val;
-			
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public function get amount():Number {
-			
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			return (_amt);
-			
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public function set amount(val:Number):void {
-			
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			_amt = val;
-			
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

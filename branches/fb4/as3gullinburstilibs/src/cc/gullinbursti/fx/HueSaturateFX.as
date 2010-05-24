@@ -70,10 +70,9 @@ package cc.gullinbursti.fx {
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		/**
-		 * The brightness & contrast fx's contructor.
-		 * ~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		 * <p>.</p>
+		 * 
 		**/
+		// <*] class constructor [*>
 		public function HueSaturateFX(hue:Number=0, satur:Number=0):void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
