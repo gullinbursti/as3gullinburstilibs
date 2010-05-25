@@ -527,7 +527,7 @@ package cc.gullinbursti.utils {
 		 */
 		public static function isAM(date:Date):Boolean {
 			
-			if (date.getHours() > 12)
+			if (date.getHours() > 11)
 				return (false);
 			
 			return (true);			
