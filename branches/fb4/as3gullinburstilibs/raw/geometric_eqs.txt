@@ -1,5 +1,6 @@
 Geometric formulas and theorems (middle) some commonly used mathematical formula 
 
+
 1 had two points and only a straight line 
 2, the shortest line between two points 
 3, the supplementary angle with the same angle or isometric 
