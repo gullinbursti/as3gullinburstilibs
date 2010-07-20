@@ -1,10 +1,20 @@
 package cc.gullinbursti.utils {
-	import flash.display.BitmapData;
-	
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.math.probility.Randomness;
+	
+	import flash.display.BitmapData;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
+	
+	/*
+	Color:
+	var t:uint=0×77ff8877
+	var s:uint=0xff000000
+	var h:uint=t&s
+	var m:uint=h>>>24
+	trace(m);
+	*/
 	
 	// <[!] class delaration [!]>
 	public class Colors {
@@ -154,33 +164,90 @@ package cc.gullinbursti.utils {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public static function toRGB(red:uint, green:uint, blue:uint):uint {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			return (red << 16 | green << 8 | blue);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function toARGB(alpha:uint, red:uint, green:uint, blue:uint):uint {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			return (alpha << 24 | red << 16 | green << 8 | blue);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function alphaChannel(color:uint):uint {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			return (color >> 24 & 0xff);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function redChannel(color:uint):uint {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			if (color > 0xffffff)
+				return (color >> 16 & 0xff);
+			
+			return (color >> 16)
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function greenChannel(color:uint):uint {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			return (color >> 8 & 0xff);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		static public function toCGA(src_bmpData:BitmapData, isGrey:Boolean=false, isAlpha:Boolean=false):void {
+		public static function blueChannel(color:uint):uint {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			return (color & 0xff);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function randRGB():uint {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			return (Randomness.generateInt(0x000000, 0xffffff));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+	
+		public static function randARGB():uint {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+		return (Randomness.generateInt(0x00000000, 0xffffffff));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+
+		public static function randChannel(min:uint=0xff, max:uint=0xff):uint {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			return (Randomness.generateInt(min, max));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function randGrey(min:uint=0xff, max:uint=0xff):uint {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			var val:uint = randChannel(min, max)
+			
+			return (toRGB(val, val, val));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+	
+		public static function toCGA(src_bmpData:BitmapData, isGrey:Boolean=false, isAlpha:Boolean=false):void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			 reduceChannels(src_bmpData, 0, isGrey, isAlpha);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 			
 		
-		static public function toEGA( src_bmpData:BitmapData, isGrey:Boolean=false, isAlpha:Boolean=false):void {
+		public static function toEGA( src_bmpData:BitmapData, isGrey:Boolean=false, isAlpha:Boolean=false):void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			 reduceChannels(src_bmpData, 4, isGrey, isAlpha);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		static public function toHAM( src_bmpData:BitmapData, isGrey:Boolean=false, isAlpha:Boolean=false):void {
+		public static function toHAM( src_bmpData:BitmapData, isGrey:Boolean=false, isAlpha:Boolean=false):void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			 reduceChannels(src_bmpData, 6, isGrey, isAlpha);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		static public function toVGA( src_bmpData:BitmapData, isGrey:Boolean=false, isAlpha:Boolean=false):void {
+		public static function toVGA( src_bmpData:BitmapData, isGrey:Boolean=false, isAlpha:Boolean=false):void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			 reduceChannels(src_bmpData, 8, isGrey, isAlpha);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		static public function toSVGA( src_bmpData:BitmapData, isGrey:Boolean=false, isAlpha:Boolean=false):void {
+		public static function toSVGA( src_bmpData:BitmapData, isGrey:Boolean=false, isAlpha:Boolean=false):void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			 reduceChannels(src_bmpData, 16, isGrey, isAlpha);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
 		
 	}
 }

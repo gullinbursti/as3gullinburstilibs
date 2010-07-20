@@ -1,9 +1,8 @@
 package cc.gullinbursti.utils {
-	import flash.geom.Point;
-	
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import flash.geom.Point;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
@@ -21,7 +20,7 @@ package cc.gullinbursti.utils {
 		/**
 		 * 
 		 */
-		// <*] class constructor [*>	
+		// <*] class constructor [*>
 		public function Numbers() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		

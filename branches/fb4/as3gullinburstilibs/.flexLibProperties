@@ -90,6 +90,12 @@
     <classEntry path="cc.gullinbursti.science.weather.Temperature"/>
     <classEntry path="cc.gullinbursti.audio.MusicTheory"/>
     <classEntry path="cc.gullinbursti.audio.synthesis.Waveform"/>
+    <classEntry path="cc.gullinbursti.utils.Bitwise"/>
+    <classEntry path="cc.gullinbursti.converts.Radix"/>
+    <classEntry path="cc.gullinbursti.math.algebra.Complex"/>
+    <classEntry path="cc.gullinbursti.utils.Keys"/>
+    <classEntry path="cc.gullinbursti.math.geom.Curve"/>
+    <classEntry path="cc.gullinbursti.sorting.Exchanging"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

@@ -62,5 +62,23 @@ package cc.gullinbursti.math.geom {
 			
 			return (new Point());
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function angleDiff(ang1:Number, ang2:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var diff:Number = (ang1 - ang2) % 360;
+			
+			if (diff != diff % 180) {
+				
+				if (diff < 0)
+					diff += 360;
+				else
+					diff -= 360;
+			}
+				
+			
+			return (diff);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

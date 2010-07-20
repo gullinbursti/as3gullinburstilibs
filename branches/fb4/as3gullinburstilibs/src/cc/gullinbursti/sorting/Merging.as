@@ -1,4 +1,5 @@
 package cc.gullinbursti.sorting {
+	import cc.gullinbursti.utils.Arrays;
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -12,6 +13,7 @@ package cc.gullinbursti.sorting {
 	public class Merging extends BasicSorting {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		// TODO: implement add'l merge sort algorithms
+		// aka Distro type
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	
@@ -33,40 +35,87 @@ package cc.gullinbursti.sorting {
 		 * @param array
 		 * @return Array
 		 */
+		/**
+		 * Merge sorts the data set & returns the sorted list. 
+		 * 
+		 * @param array
+		 * @return Array
+		 */
 		public static function mergeSort(in_arr:Array, isAscending:Boolean=true):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement merge sort algorithm [http://en.wikipedia.org/wiki/Merge_sort]
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			/**
-			 * 
-			 * if length(m) ≤ 1
-			 *	 return m
-			 * 
-			 * var list left, right, result
-			 * var integer middle = length(m) / 2
-			 * 
-			 * for each x in m up to middle
-			 *	 add x to left
-			 * 
-			 * for each x in m after middle
-			 *	 add x to right
-			 * 
-			 * left = merge_sort(left)
-			 * right = merge_sort(right)
-			 * 
-			 * if left.last_item > right.first_item
-			 *	 result = merge(left, right)
-			 * 
-			 * else
-			 *	 result = append(left, right)
-			 * 
-			 * 
-			 * return result
-			 * 
-			 */
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
-			return (in_arr);
+			return (sort_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-
+		
+		
+		
+		/**
+		 * Polyphase merge sorts the data set & returns the sorted list 
+		 * 
+		 * @param array
+		 * @return Array
+		 */
+		/**
+		 * Merge sorts the data set & returns the sorted list. 
+		 * 
+		 * @param array
+		 * @return Array
+		 */
+		public static function polyphaseSort(in_arr:Array, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			return (sort_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Strand sorts the data set & returns the sorted list. 
+		 * 
+		 * @param array
+		 * @return Array
+		 */
+		public static function strandSort(in_arr:Array, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			return (sort_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * Timsorts the data set & returns the sorted list. 
+		 * 
+		 * @param array
+		 * @return Array
+		 */
+		public static function timsort(in_arr:Array, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			return (sort_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * UnShuffle sorts the data set & returns the sorted list. 
+		 * 
+		 * @param array
+		 * @return Array
+		 */
+		public static function unshuffleSort(in_arr:Array, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			return (sort_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 	}
 }

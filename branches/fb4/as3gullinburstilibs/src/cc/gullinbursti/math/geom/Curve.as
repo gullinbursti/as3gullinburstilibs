@@ -2,17 +2,17 @@ package cc.gullinbursti.math.geom {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import flash.geom.Point;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
 	
 	/**
 	 * 
 	 * @author Gullinbursti
 	 */
-	 
+	
 	// <[!] class delaration [¡]>
-	public class Trig extends Triangle {
+	public class Curve extends BasicGeom {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		// TODO: implement trig functions
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -22,27 +22,17 @@ package cc.gullinbursti.math.geom {
 		 * 
 		 */
 		// <*] class constructor [*>
-		public function Trig() {/* …\(^_^)/… */}
+		public function Curve() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
+	
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
-		
-		public static function rotVector(ang1:Number, ang2:Number):Number {
+	
+		public static function thruControlPt(anch1:Point, ctrl:Point, anch2:Point):Point {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
-			var diff:Number = (ang1 - ang2) % 360;
-			
-			if (diff != diff % 180) {
-				
-				if (diff < 0)
-					diff += 360;
-				else
-					diff -= 360;
-			}
-			
-			
-			return (diff);
+			return (new Point(2 * ctrl.x - (anch1.x + anch2.x) / 2, 2 * ctrl.y - (anch1.y + anch2.y) / 2));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
 	}
 }

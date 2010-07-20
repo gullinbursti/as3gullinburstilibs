@@ -27,5 +27,50 @@ package cc.gullinbursti.sorting {
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
 		
+		
+		/**
+		 * Bogo sorts the data set & returns the sorted list. 
+		 * 
+		 * @param array
+		 * @return Array
+		 */
+		public static function bogoSort(in_arr:Array, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			// TODO: implement radix sort algorithm
+			
+			
+			return (in_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Lucky sorts the data set & returns the sorted list. 
+		 * 
+		 * @param array
+		 * @return Array
+		 */
+		public static function luckysort(in_arr:Array, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			// TODO: implement radix sort algorithm
+			
+			
+			return (in_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Stooge sorts the data set & returns the sorted list. 
+		 * 
+		 * @param array
+		 * @return Array
+		 */
+		public static function stoogeSort(in_arr:Array, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			// TODO: implement radix sort algorithm
+			
+			
+			return (in_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 	}
 }

@@ -381,5 +381,31 @@ package cc.gullinbursti.utils {
 			return(html_str);
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function trim(in_str:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (lTrim(rTrim(in_str)));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function lTrim(in_str:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			var i:int = 0;
+			
+			while ((i< in_str.length) && (in_str.substr(i, 1) == " ")) 
+				i++;
+			
+			return (in_str.substr(i, in_str.length - i));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function rTrim(in_str:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+			var i:int = in_str.length - 1;
+			
+			while ((i > 0) && (in_str.substr(i, 1) == " "))
+				i--;
+			
+			return (in_str.substr(0, i + 1));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }
