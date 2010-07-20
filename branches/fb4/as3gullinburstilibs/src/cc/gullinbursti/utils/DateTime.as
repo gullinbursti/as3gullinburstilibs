@@ -57,7 +57,7 @@ package cc.gullinbursti.utils {
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-		private static var month_arr:Array = new Array(
+		private static const MONTH_NAMES:Array = new Array(
 			"January",
 			"February",
 			"March",
@@ -73,7 +73,7 @@ package cc.gullinbursti.utils {
 		);
 		
 		// weekdays: name // abrev // 1=Mon / 7=Sun
-		private static var weekday_arr:Array = new Array(
+		private static const WEEK_DAYS:Array = new Array(
 			["Sunday", 		"Sun",	7],
 			["Monday", 		"Mon",	1],
 			["Tuesday", 	"Tue",	2],
@@ -84,7 +84,7 @@ package cc.gullinbursti.utils {
 		);
 		
 		// name abbreviation & UTC offset
-		private static var timeZone_arr:Array = new Array(
+		private static const TIME_ZONES:Array = new Array(
 			["IDLW",	-12], 
 			["NT", 		-11], 
 			["HST", 	-10], 
@@ -109,9 +109,11 @@ package cc.gullinbursti.utils {
 			["JST", 	  9],
 			["AEST", 	 10],
 			["AEDT", 	 11],
-			["NZST", 	 12]);
+			["NZST", 	 12]
+		);
 
 		
+		// ISO 
 		private static const ATOM:String 	= "Y-m-d\TH:i:sP"; // [2005-08-15T15:52:01+00:00]
 		private static const COOKIE:String 	= "l, d-M-y H:i:s T"; // [Monday, 15-Aug-05 15:52:01 UTC]
 		private static const ISO8601:String = "Y-m-d\TH:i:sO"; // [2005-08-15T15:52:01+0000]
@@ -223,7 +225,7 @@ package cc.gullinbursti.utils {
 		 */
 		 
 		// "Y-m-d\TH:i:sO" [2005-08-15T15:52:01+0000]
-		public static function ISO8601ToDate(date_str:String):Date {
+		public static function iso8601ToDate(date_str:String):Date {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
 			
 			var year:int = String(date_str.split(" ")[0]).split("-")[0];
@@ -235,7 +237,7 @@ package cc.gullinbursti.utils {
 			var sec:int = String(date_str.split(" ")[1]).split(":")[2];
 			
 			
-			return (new Date(year, month-1, day, hour, min, sec));
+			return (new Date(year, month, day, hour, min, sec));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -314,7 +316,7 @@ package cc.gullinbursti.utils {
 		 */
 		public static function monthName(date:Date, isAbbreviated:Boolean=false):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (month_arr[date.getMonth()]);	
+			return (MONTH_NAMES[date.getMonth()]);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -327,24 +329,24 @@ package cc.gullinbursti.utils {
 		 */
 		public static function dayOfWeek(date:Date, isAbbreviated:Boolean=false):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (weekday_arr[date.getDay()][int(isAbbreviated)]);
+			return (WEEK_DAYS[date.getDay()][int(isAbbreviated)]);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
-		 * Returns the time zone abreviation from a <code>Date</code> object.
+		 * Returns the time zone abreviation (ISO 8601) from a <code>Date</code> object.
 		 * 
 		 * @param date Date
 		 * @return String
 		 */
-		public static function timeZoneID(date:Date):String {
+		public static function iso8601TZ(date:Date):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			var offset:Number = Math.round(11 + -(date.getTimezoneOffset() / 60));
 			
 			if (isDST(date))
 				offset--;
 				
-			return (timeZone_arr[offset]);
+			return (TIME_ZONES[offset][0]);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -398,11 +400,11 @@ package cc.gullinbursti.utils {
 			var firstDay:Date = new Date(date.getFullYear(), 0, 1);
 			
 			// remove days of the 1st & current wk for acurate passed weeks
-			var fullWeeks:Number = (dayOfYear - (weekday_arr[date.getDay()][2] + (7 - weekday_arr[firstDay.getDay()][2]))) / 7;  
+			var fullWeeks:Number = (dayOfYear - (WEEK_DAYS[date.getDay()][2] + (7 - WEEK_DAYS[firstDay.getDay()][2]))) / 7;  
 			
 
 			// if 1st wk of this yr has > 3 for the date
-			if (weekday_arr[firstDay.getDay()][2] <= 4)
+			if (WEEK_DAYS[firstDay.getDay()][2] <= 4)
 				fullWeeks++;
 			
 			//adding the current week
@@ -527,7 +529,7 @@ package cc.gullinbursti.utils {
 		 */
 		public static function isAM(date:Date):Boolean {
 			
-			if (date.getHours() > 11)
+			if (date.getHours() > 12)
 				return (false);
 			
 			return (true);			

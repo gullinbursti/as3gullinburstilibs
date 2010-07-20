@@ -30,6 +30,8 @@ package cc.gullinbursti.math.geom {
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.math.BasicMath;
 	
+	import flash.geom.Point;
+	
 	 // <[!] class delaration [¡]>
 	public class BasicGeom extends BasicMath {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
@@ -48,5 +50,17 @@ package cc.gullinbursti.math.geom {
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
+		
+		
+		public static function midPt(pt1:Point, pt2:Point):Point {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/**
+			 * c = 2πr
+			 * 
+			 */
+			
+			return (new Point());
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

@@ -59,13 +59,6 @@ package cc.gullinbursti.math.probility {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		// TODO: implement some more add'l random generation techniques
 		
-		//] class properties ]>
-		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
-		/**
-		 * 
-		 */
-		// <*] class constructor [*>
 		public function Randomness() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
@@ -73,16 +66,24 @@ package cc.gullinbursti.math.probility {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
+		/**
+		 * Generates a random <code>int</code>   
+		 * ~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		 * @param lower the smallest possible #
+		 * @param upper the highest possible #
+		 * 
+		 * @return a random <code>int</code> from <code>lower</code> to <code>upper</code>
+		 **/
 		public static function generateInt(lower:Number, upper:Number):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// remove decimal from floating pt #
-			return (Numbers.dropDecimal(generateFloat(lower, upper)));
+			return (Numbers.dropDecimal(generateFloat(lower, upper+1)));
 		
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function generateFloat(lower:Number, upper:Number, precision:int=2):Number {
+		public static function generateFloat(lower:Number=0, upper:Number=1, precision:int=2):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// range of values
@@ -136,15 +137,47 @@ package cc.gullinbursti.math.probility {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function coinFlip():Boolean {
+		public static function coinFlip(tries:int=1):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			// generate rnd 0 or 1
-			var rnd:int = generateInt(0, 1);
+			var calc:Number = 0;
 			
-			// true if val = 1
-			return (rnd == 1);
+			// loop # of tries, adding a 0 or 1
+			for (var i:int=0; i<tries; i++)
+				calc += generateInt(0, 100);
+			
+			// get the ave
+			calc /= tries;
+			
+			// true if at least 50%
+			return (calc >= 50);
 		
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function pickBool(prob:Number=0.5):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+			return (generateFloat(0, 1, 4) > prob);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function pickSign(prob:Number=0.5):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+			
+			if (pickBool(prob))
+				return (1);
+			
+			return (-1);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function pickBit(prob:Number=0.5):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (pickBool(prob))
+				return (1);
+			
+			return (0);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -152,11 +185,9 @@ package cc.gullinbursti.math.probility {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// generate rnd # 1 - sides
-			var rnd:int = generateInt(1, sides);
+			var side:int = generateInt(1, sides);
 			
-			
-			return (rnd);
-		
+			return (side);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }
