@@ -42,7 +42,16 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function mergeSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/*
+				Stable
+				Θ(n) extra space for arrays (as shown)
+				Θ(lg(n)) extra space for linked lists
+				Θ(n·lg(n)) time
+				Not adaptive
+				Does not require random access to data
+			*/
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			

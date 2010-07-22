@@ -36,7 +36,15 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function bubbleSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/*
+				Stable
+				O(1) extra space
+				O(n²) comparisons and swaps
+				Adaptive: O(n) when nearly sorted
+			*/
+			
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
@@ -156,6 +164,47 @@ package cc.gullinbursti.sorting {
 		 */
 		public static function quicksort(in_arr:Array, l:int=0, r:int=-1, isAscending:Boolean=true):Array {
 			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/*
+				Not stable
+				O(lg(n)) extra space (see discussion)
+				O(n2) time, but typically O(n·lg(n)) time
+				Not adaptive
+			*/
+			
+			//var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			if (r == -1)
+				r = in_arr.length;
+			
+			var ind:int = partition(in_arr, l, r);
+			
+			if (l < ind -1)
+				quicksort(in_arr, l, ind - 1);
+			
+			if (ind < r)
+				quicksort(in_arr, ind, r);
+			
+			
+			return (in_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Quicksorts using 3-way partitoning of the data set & returns the sorted list. 
+		 * 
+		 * @param array
+		 * @return Array
+		 */
+		public static function quicksort3(in_arr:Array, l:int=0, r:int=-1, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/*
+				Not stable
+				O(lg(n)) extra space
+				O(n²) time, but typically O(n·lg(n)) time
+				Adaptive: O(n) time when O(1) unique keys
+			*/
 			
 			//var sort_arr:Array = Arrays.xerox(in_arr, true);
 			

@@ -49,8 +49,14 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function heapSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
+			/*
+				Not stable
+				O(1) extra space (see discussion)
+				O(n·lg(n)) time
+				Not really adaptive
+			*/
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
 			return (sort_arr);
@@ -65,7 +71,15 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function selectionSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/*
+				Not stable
+				O(1) extra space
+				Θ(n²) comparisons
+				Θ(n) swaps
+				Not adaptive
+			*/
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			var len:int = sort_arr.length;

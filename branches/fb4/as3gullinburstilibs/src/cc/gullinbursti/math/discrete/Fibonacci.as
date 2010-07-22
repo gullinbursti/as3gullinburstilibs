@@ -27,7 +27,7 @@ package cc.gullinbursti.math.discrete {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
-		public static function sequence(max:int, min:int=0):Array {
+		public static function seqGenerator(max:int, min:int=0):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// find the prev two fib #'s from the smaller val 
@@ -53,7 +53,7 @@ package cc.gullinbursti.math.discrete {
 		
 		
 		
-		public static function isValidFib(val:int):Boolean {
+		public static function isValidFibo(val:int):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// get the two before the val
@@ -85,8 +85,8 @@ package cc.gullinbursti.math.discrete {
 			
 			// point holding validity flags
 			var bool_pt:Point = new Point();
-				bool_pt.x = int(Fibonacci.isValidFib(nom));
-				bool_pt.y = int(Fibonacci.isValidFib(denom));
+				bool_pt.x = int(Fibonacci.isValidFibo(nom));
+				bool_pt.y = int(Fibonacci.isValidFibo(denom));
 			
 			// both or one (x, y) is false
 			if (bool_pt.x + bool_pt.y != 2)

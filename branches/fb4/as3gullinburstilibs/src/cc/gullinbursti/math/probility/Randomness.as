@@ -175,9 +175,9 @@ package cc.gullinbursti.math.probility {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			if (pickBool(prob))
-				return (1);
+				return (0x1);
 			
-			return (0);
+			return (0x0);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

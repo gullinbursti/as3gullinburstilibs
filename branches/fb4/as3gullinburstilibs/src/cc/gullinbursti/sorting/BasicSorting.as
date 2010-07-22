@@ -83,6 +83,30 @@ package cc.gullinbursti.sorting {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
+		// shortcuts to primary sorting methods
+		
+		public static function bubbleSort(in_arr:Array, isAsc:Boolean=true):Array {
+			return (Exchanging.bubbleSort(in_arr, isAsc));
+		}
+		
+		public static function insertSort(in_arr:Array, isAsc:Boolean=true):Array {
+			return (Inserting.insertionSort(in_arr, isAsc));
+		}
+		
+		public static function mergeSort(in_arr:Array, isAsc:Boolean=true):Array {
+			return (Merging.mergeSort(in_arr, isAsc));
+		}
+		
+		public static function quicksort(in_arr:Array, l:int, r:int, isAsc:Boolean=true):Array {
+			return (Exchanging.quicksort(in_arr, l, r, isAsc));
+		}
+		
+		public static function selectSort(in_arr:Array, isAsc:Boolean=true):Array {
+			return (Selecting.selectionSort(in_arr, isAsc));
+		}
+		
+		
+		
 		
 		/**
 		 * Binary sorts the data set & returns the sorted list 

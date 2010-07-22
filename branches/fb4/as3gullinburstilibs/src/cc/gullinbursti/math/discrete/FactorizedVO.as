@@ -68,11 +68,11 @@ package cc.gullinbursti.math.discrete {
 		public function toString():String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			var ret_str:String = "\FactorizedVO:\n";
-				ret_str += "[=-=-=-=-=-=-=-=-=-=-=-=-=-=-=]\n";
+			var ret_str:String = "\FactorizedVO\n";
+				ret_str += "[=-=-=-=-=-=-=-=-=-=-=-=-=-=-=]:\n";
 				ret_str += "factors_arr: ["+factors_arr+"]\n";
 				ret_str += "factors_tot: ["+factors_tot+"]\n";
-				ret_str += "[=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=]\n\n";
+				ret_str += "[=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=]_\n\n";
 			
 			return (ret_str);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯

@@ -96,6 +96,13 @@
     <classEntry path="cc.gullinbursti.utils.Keys"/>
     <classEntry path="cc.gullinbursti.math.geom.Curve"/>
     <classEntry path="cc.gullinbursti.sorting.Exchanging"/>
+    <classEntry path="cc.gullinbursti.sorting.ISorter"/>
+    <classEntry path="cc.gullinbursti.searching.BasicSearching"/>
+    <classEntry path="cc.gullinbursti.dataorgs.trees.BinaryTree"/>
+    <classEntry path="cc.gullinbursti.searching.ISearcher"/>
+    <classEntry path="cc.gullinbursti.dataorgs.trees.AbstractTree"/>
+    <classEntry path="cc.gullinbursti.dataorgs.trees.AbstractLeaf"/>
+    <classEntry path="cc.gullinbursti.dataorgs.trees.LeafVO"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

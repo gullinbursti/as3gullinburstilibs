@@ -15,6 +15,32 @@ package cc.gullinbursti.utils {
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 		
+		
+		public static const ASCII_CTRLS:Array = new Array(
+			["null", 0x00000000], 
+			["ack"], 
+			["syn"], 
+			["esc"]
+		);
+		
+		public static const ASCII_CHARS:Array = new Array(
+			["A", 65]
+		);
+		
+		public static const ASCII_SYMBS:Array = new Array(
+			["!", 33], 
+			["@", 64]
+		);
+		
+		public static const ASCII_NUMS:Array = new Array(
+			["0", 0x00110000], 
+			["1", 0x00110001]
+		);
+		
+		public static const ASCII_EXTS:Array = new Array(
+			["Ç", 0x10000000]
+		);
+		
 		// sub & super scripts
 		public static const SUBSUPER_SCRIPTS:Array = new Array(
 			["⁰", "₀"], // 0
@@ -31,7 +57,8 @@ package cc.gullinbursti.utils {
 			["⁽", "₍"], // (
 			["⁾", "₎"], // )
 			["⁺", "₊"], // positive sign
-			["⁻", "₋"]); // negative sign
+			["⁻", "₋"] // negative sign
+		); 
 			
 		
 		// misc math
@@ -68,7 +95,8 @@ package cc.gullinbursti.utils {
 			"⦚", // squiggly bar
 			"⊥", // perpendicular
 			"‖", // parallel
-			"№"); // number abbreviation
+			"№" // number abbreviation
+		);
 		
 		
 		// roman numerals
@@ -91,7 +119,8 @@ package cc.gullinbursti.utils {
 			["Ⅿ", "ⅿ"], // 1,000
 			["ↀ", "ↀ"], // 1,000
 			["ↁ", "ↁ"], // 5,000
-			["ↂ", "ↂ"]); // 10,000
+			["ↂ", "ↂ"]  // 10,000
+		);
 			
 			
 		// greek alphabet
@@ -129,7 +158,8 @@ package cc.gullinbursti.utils {
 			["ϡ", "Ϡ"], // sampi / disigma (san + pi = 900)
 			
 			["Ϛ", "ϛ"], // stigma (lunate sigma + tau)
-			["Ϸ", "ϸ"]); // sho (added for Bactrian lang)
+			["Ϸ", "ϸ"] // sho (added for Bactrian lang)
+		);
 			
 		
 		// cyrillic chars
@@ -182,7 +212,8 @@ package cc.gullinbursti.utils {
 			
 			["Ъ", "ъ"], // hard sign
 			["Ҍ", "ҍ"], // semisoft sign
-			["Ь", "ь"]); // soft sign
+			["Ь", "ь"]  // soft sign
+		);
 		
 		
 		// musical symbols
@@ -206,7 +237,8 @@ package cc.gullinbursti.utils {
 			"𝄑", // fermata bottom
 			"𝄒", // breathe
 			"𝄪", // dbl sharp
-			"𝄫"); // dbl flat 
+			"𝄫" // dbl flat
+		); 
 			
 		
 		// glyphs of a six sided die
@@ -216,7 +248,8 @@ package cc.gullinbursti.utils {
 			"⚂", // three
 			"⚃", // four
 			"⚄", // five
-			"⚅"); // six
+			"⚅"  // six
+		);
 		
 		
 		/**

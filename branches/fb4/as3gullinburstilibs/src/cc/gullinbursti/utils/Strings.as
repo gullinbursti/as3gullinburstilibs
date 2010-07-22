@@ -48,6 +48,10 @@ package cc.gullinbursti.utils {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.math.probility.ListScrambler;
+	import cc.gullinbursti.math.probility.Randomness;
+	
+	import flash.geom.Point;
+
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
@@ -184,6 +188,36 @@ package cc.gullinbursti.utils {
 			}
 			
 			return (ret_str);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function genRndASCII(len:int, isMultiCased:Boolean=true, asciiRange:Point=null):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// no ascii range specified, use 'A' - 'Z'
+			if (!asciiRange)
+				asciiRange = new Point(65, 90);
+			
+			// return string
+			var concat_str:String = "";
+			
+			// coin flip for case
+			if (isMultiCased && Randomness.coinFlip())
+				
+			// loop thru & picking rand chars
+			for (var i:int=0; i<len; i++) {
+				var rnd_char:String = String.fromCharCode(Randomness.generateInt(asciiRange.x, asciiRange.y));
+				
+				// upper + lower case
+				if (isMultiCased && asciiRange.x == 65 && asciiRange.y == 90)
+					rnd_char += int(Randomness.pickBit()) * 32;
+					
+				// append
+				concat_str += rnd_char;
+			}
+			
+			
+			return (concat_str);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -387,12 +421,14 @@ package cc.gullinbursti.utils {
 			return (lTrim(rTrim(in_str)));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
 		public static function lTrim(in_str:String):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			var i:int = 0;
 			
 			while ((i< in_str.length) && (in_str.substr(i, 1) == " ")) 
 				i++;
+			
 			
 			return (in_str.substr(i, in_str.length - i));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
@@ -404,6 +440,7 @@ package cc.gullinbursti.utils {
 			
 			while ((i > 0) && (in_str.substr(i, 1) == " "))
 				i--;
+			
 			
 			return (in_str.substr(0, i + 1));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯

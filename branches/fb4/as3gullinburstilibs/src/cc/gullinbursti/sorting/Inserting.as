@@ -35,7 +35,14 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function insertionSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/*
+				Stable
+				O(1) extra space
+				O(n²) comparisons and swaps
+				Adaptive: O(n) time when nearly sorted
+			*/
 			
 			var j:int;
 			var tmp:int;
@@ -95,7 +102,24 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function shellSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/*
+				Not stable
+				O(1) extra space
+				O(n ³⸍²) time as shown (see below)
+				Adaptive: O(n·lg(n)) time when nearly sorted
+			*/
+			
+			/**
+			 * 	h = 1
+			 * 	while h < n, h = 3*h + 1
+			 * 		while h > 0,
+			 * 		h = h / 3
+			 * 		for k = 1:h, insertion sort a[k:h:n]
+			 * 		→ invariant: each h-sub-array is sorted
+			 * 	end
+			 */
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
