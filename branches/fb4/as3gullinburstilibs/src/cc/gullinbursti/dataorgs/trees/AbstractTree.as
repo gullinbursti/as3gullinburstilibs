@@ -4,7 +4,7 @@ package cc.gullinbursti.dataorgs.trees {
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.math.BasicMath;
 	import cc.gullinbursti.searching.BasicSearching;
-	import cc.gullinbursti.utils.Arrays;
+	import cc.gullinbursti.lang.Arrays;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**

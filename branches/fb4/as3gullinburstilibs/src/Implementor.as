@@ -36,7 +36,7 @@ package {
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.puremvc.model.AbstractBulkLoadProxy;
 	import cc.gullinbursti.puremvc.model.vo.LoadVO;
-	import cc.gullinbursti.utils.Colors;
+	import cc.gullinbursti.utils.Color;
 	
 	import org.puremvc.as3.interfaces.IProxy;
 

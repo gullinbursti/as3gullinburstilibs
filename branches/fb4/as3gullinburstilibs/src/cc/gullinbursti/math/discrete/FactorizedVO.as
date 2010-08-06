@@ -3,7 +3,7 @@ package cc.gullinbursti.math.discrete {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.interfaces.IValueObject;
-	import cc.gullinbursti.utils.Arrays;
+	import cc.gullinbursti.lang.Arrays;
 	
 	import flash.geom.Point;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[

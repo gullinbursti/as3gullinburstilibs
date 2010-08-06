@@ -44,7 +44,7 @@ http://en.wikipedia.org/wiki/MIT_license/
 
 
 
-package cc.gullinbursti.utils {
+package cc.gullinbursti.lang {
 	import flash.text.StyleSheet;
 	import flash.text.TextField;
 	import flash.text.TextFormat;

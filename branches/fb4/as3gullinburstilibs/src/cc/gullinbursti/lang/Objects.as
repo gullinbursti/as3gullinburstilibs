@@ -1,4 +1,4 @@
-package cc.gullinbursti.utils {
+package cc.gullinbursti.lang {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.

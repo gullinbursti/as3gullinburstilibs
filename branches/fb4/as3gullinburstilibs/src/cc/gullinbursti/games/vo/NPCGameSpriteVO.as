@@ -21,7 +21,7 @@ package cc.gullinbursti.games.vo {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-	import cc.gullinbursti.utils.Arrays;
+	import cc.gullinbursti.lang.Arrays;
 	
 	import flash.geom.Point;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[

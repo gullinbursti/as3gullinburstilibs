@@ -47,7 +47,7 @@ package cc.gullinbursti.math.probility {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.math.BasicMath;
-	import cc.gullinbursti.utils.Numbers;
+	import cc.gullinbursti.lang.Numbers;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**

@@ -3,7 +3,7 @@ package cc.gullinbursti.math.discrete {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.math.BasicMath;
-	import cc.gullinbursti.utils.Arrays;
+	import cc.gullinbursti.lang.Arrays;
 	
 	import flash.geom.Point;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
@@ -168,7 +168,7 @@ package cc.gullinbursti.math.discrete {
 			
 			// swap if seed0 > seed1
 			if (seed0 > seed1)
-				Arrays.swap([seed0, seed1], seed0, seed1);
+				Arrays.swapElements([seed0, seed1], seed0, seed1);
 			
 			
 			// return last two as a pt

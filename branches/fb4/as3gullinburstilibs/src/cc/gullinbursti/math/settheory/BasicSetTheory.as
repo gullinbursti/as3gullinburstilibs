@@ -3,7 +3,7 @@ package cc.gullinbursti.math.settheory {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.math.BasicMath;
-	import cc.gullinbursti.utils.Arrays;
+	import cc.gullinbursti.lang.Arrays;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
 	
 	/**

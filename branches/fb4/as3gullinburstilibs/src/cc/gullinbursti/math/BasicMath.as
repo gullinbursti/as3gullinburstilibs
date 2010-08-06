@@ -50,7 +50,7 @@ package cc.gullinbursti.math {
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.math.discrete.Factorization;
 	import cc.gullinbursti.math.settheory.BasicSetTheory;
-	import cc.gullinbursti.utils.Numbers;
+	import cc.gullinbursti.lang.Numbers;
 	
 	import flash.geom.Point;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~

@@ -42,7 +42,7 @@ http://en.wikipedia.org/wiki/MIT_license/
 []~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~:~~[].
 */
 
-package cc.gullinbursti.utils {
+package cc.gullinbursti.lang {
 	import cc.gullinbursti.math.BasicMath;
 	
 	
@@ -52,7 +52,7 @@ package cc.gullinbursti.utils {
 	 * @author Gullinbursti
 	 */
 	 // <[!] class delaration [¡]>
-	public class DateTime {
+	public class DateTimes {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -187,7 +187,7 @@ package cc.gullinbursti.utils {
 		 * 
 		 */
 		// <*] class constructor [*>
-		public function DateTime() {/* …\(^_^)/… */}
+		public function DateTimes() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
@@ -290,7 +290,7 @@ package cc.gullinbursti.utils {
 		 */
 		public static function longDate(date:Date):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (DateTime.dayOfWeek(date)+", "+DateTime.monthName(date)+" "+date.getDate()+", "+date.getFullYear());
+			return (DateTimes.dayOfWeek(date)+", "+DateTimes.monthName(date)+" "+date.getDate()+", "+date.getFullYear());
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -579,11 +579,11 @@ package cc.gullinbursti.utils {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// 1st date is after the 2nd
-			if (DateTime.dateDiff(date1, date2) > 0)
+			if (DateTimes.dateDiff(date1, date2) > 0)
 				return (-1);
 			
 			// 1st date is before 2nd
-			else if (DateTime.dateDiff(date1, date2) < 0)
+			else if (DateTimes.dateDiff(date1, date2) < 0)
 				return (1);
 			
 			// same date

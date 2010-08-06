@@ -1,15 +1,16 @@
-package cc.gullinbursti.utils {
+package cc.gullinbursti.lang {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.math.probility.ListScrambler;
+	import cc.gullinbursti.math.probility.Randomness;
 	import cc.gullinbursti.sorting.BasicSorting;
 	
 	import flash.display.BitmapData;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	// <[!] class delaration [!]>
-	public class Arrays {
+	public class Arrays extends Array {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -374,28 +375,89 @@ package cc.gullinbursti.utils {
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		
-		public static function scrambleExisting(in_arr:Array):Array {
-		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-			
-			return(ListScrambler.randomizeArray(in_arr));
-				
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
 		public static function scrambleNew(len:int=1):Array {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-			
-			return(ListScrambler.newRandomIndexes(len));
-				
+			return(genIndRands(len));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		/**
+		 * Randomizes an array's elements
+		 * @param _arr input array
+		 * @return randomized array w/ contents reordered
+		 * 
+		 */		
+		public static function scrambleContents(_arr:Array):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+			
+			var i:int;
+			var tmp_arr:Array;
+			var len:int = _arr.length;
+			var new_arr:Array;
+			
+			// loop thru array…
+			for (i=(len-1); i>=0; i--) {
+				
+				// pick random index 0-i
+				var rnd:int = Randomness.generateInt(0, i);
+				
+				// assign current index to tmp var
+				var tmp:int = i;
+				
+				// make the array
+				tmp_arr = new Array();
+				tmp_arr.push(_arr[tmp]);
+				
+				// swap current index w/ the rnd one
+				_arr[i] = _arr[rnd];
+				_arr[rnd] = tmp_arr[0];
+			}
+			
+			
+			// make the new array
+			new_arr = new Array();
+			
+			for (i=0; i<len; i++)
+				new_arr.push(_arr[i]);
+			
+			// return the scrambled array
+			return (new_arr);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Generates an array containing int elements equal to 
+		 * the corresponding indexes.
+		 * 
+		 * @param len the array's length
+		 * @return array of ints from 0 - len
+		 * 
+		 */		
+		public static function indPrimer(len:int):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// make a new array
+			var _arr:Array = new Array();
+			
+			// push ascending vals
+			for (var i:int=0; i<len; i++)
+				_arr.push(i);
+			
+			// return the primed array
+			return (_arr);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
 		 * Swaps the values of two elements in an array.
-		 */
-		public static function swap(in_arr:Array, ind1:int, ind2:int):void {
+		 * @param in_arr array containing the items to swap
+		 * @param ind1 index of the swapper
+		 * @param ind2 index of the swapee
+		 * 
+		 */		
+		public static function swapElements(in_arr:Array, ind1:int, ind2:int):void {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._		
 			
 			var tmp_obj:Object = Object(in_arr[ind1]);
@@ -405,6 +467,31 @@ package cc.gullinbursti.utils {
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		/**
+		 * Creates a randomizd array of ints 
+		 * @param len
+		 * @return 
+		 * 
+		 */		
+		private static function genIndRands(len:int):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var new_arr:Array = new Array();
+			var rnd_arr:Array = new Array();
+			
+			new_arr = indPrimer(len);
+			rnd_arr = scrambleContents(new_arr);
+			
+			return (rnd_arr);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function rndIndex(in_arr:Array):int {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			return(Randomness.generateInt(0, in_arr.length-1));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		// <*] class constructor [*>
 		public function Arrays() {/*..\(^_^)/..*/}

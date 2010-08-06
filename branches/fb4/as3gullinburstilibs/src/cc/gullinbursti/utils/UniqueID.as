@@ -45,6 +45,7 @@ http://en.wikipedia.org/wiki/MIT_license/
 
 package cc.gullinbursti.utils {
 	import cc.gullinbursti.math.BasicMath;
+	import cc.gullinbursti.lang.Numbers;
 	
 	
 	// <[!] class delaration [¡]>

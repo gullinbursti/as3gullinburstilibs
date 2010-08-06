@@ -3,8 +3,8 @@ package cc.gullinbursti.ui {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.events.UIEvent;
-	import cc.gullinbursti.utils.Strings;
-	import cc.gullinbursti.utils.TextFields;
+	import cc.gullinbursti.lang.Strings;
+	import cc.gullinbursti.lang.TextFields;
 	
 	import flash.display.Graphics;
 	import flash.display.Sprite;

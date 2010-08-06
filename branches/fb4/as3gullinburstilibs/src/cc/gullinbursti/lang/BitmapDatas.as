@@ -1,4 +1,4 @@
-package cc.gullinbursti.utils {
+package cc.gullinbursti.lang {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -9,7 +9,7 @@ package cc.gullinbursti.utils {
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	// <[!] class delaration [!]>
-	public class Bitmaps {
+	public class BitmapDatas {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -18,11 +18,8 @@ package cc.gullinbursti.utils {
 		
 		
 		// <*] class constructor [*>
-		public function Bitmaps() {/*..\(^_^)/..*/}
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
-		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
-		//]~=~=~=~=~=~=~=~=~=[>
+		public function BitmapDatas() {/*..\(^_^)/..*/}
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		
 		

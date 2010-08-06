@@ -3,7 +3,7 @@ package cc.gullinbursti.sorting {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.math.BasicMath;
-	import cc.gullinbursti.utils.Arrays;
+	import cc.gullinbursti.lang.Arrays;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
@@ -156,7 +156,7 @@ package cc.gullinbursti.sorting {
 	
 				// swap two array vals, if needed
 				if (isSwap)
-					Arrays.swap(in_arr, base_ind, i);
+					Arrays.swapElements(in_arr, base_ind, i);
 			}
 			
 			

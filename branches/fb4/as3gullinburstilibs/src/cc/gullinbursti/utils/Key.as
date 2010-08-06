@@ -6,7 +6,7 @@ package cc.gullinbursti.utils {
 	
 	
 	// <[!] class delaration [!]>
-	public class Keys {
+	public class Key {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -111,7 +111,7 @@ package cc.gullinbursti.utils {
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		// <*] class constructor [*>
-		public function Keys(){/*..\(^_^)/..*/}
+		public function Key(){/*..\(^_^)/..*/}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>

@@ -43,7 +43,7 @@ http://en.wikipedia.org/wiki/MIT_license/
 */
 
 
-package cc.gullinbursti.utils {
+package cc.gullinbursti.lang {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -71,13 +71,81 @@ package cc.gullinbursti.utils {
 		public static const PHONE_FORMAT_3:String = "### ###-####";
 		public static const PHONE_FORMAT_4:String = "### ### ####";
 		
+		public static const MALE_NAMES:Array = new Array(
+			"Arthur", 
+			"Ty", 
+			"Nick", 
+			"Brian", 
+			"Lucian", 
+			"Alex", 
+			"John", 
+			"Adrian", 
+			"Alexander", 
+			"Dino", 
+			"Luigi", 
+			"George", 
+			"William", 
+			"Jimmy", 
+			"Charles", 
+			"Kenny", 
+			"Victor", 
+			"Ron", 
+			"Keith", 
+			"Don", 
+			"Ron", 
+			"Edward", 
+			"Michael", 
+			"Tim", 
+			"Tom", 
+			"David"
+		);
+		
+		public static const FEMALE_NAMES:Array = new Array(
+			"Kay", 
+			"Leppy", 
+			"Nora", 
+			"Abigail", 
+			"Audrey", 
+			"Fiona", 
+			"Daisy", 
+			"Diedre", 
+			"Iris"
+		);
+		
+		public static const LAST_NAMES:Array = new Array("Sludge", 
+			"Gunrun", 
+			"Lei", 
+			"Stokes", 
+			"Yault", 
+			"Tessler", 
+			"Facotti", 
+			"Wilson", 
+			"Gumby", 
+			"Luss", 
+			"Uncton", 
+			"Entropy", 
+			"Biggles", 
+			'Savage', 
+			'Shabby', 
+			'Pewty', 
+			'Scribbler', 
+			'Frampton', 
+			'Aldridge', 
+			'Lewis', 
+			'Higgins', 
+			'Bumble', 
+			'Apricot', 
+			'Peach', 
+			'Thatcher', 
+			'Thomas', 
+			'Lemming'
+		);
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		
 		// <*] class constructor [*>
 		public function Strings() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
 		
@@ -220,6 +288,54 @@ package cc.gullinbursti.utils {
 			return (concat_str);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		/**
+		 * Generates a random name 
+		 * @param gender 0:rnd / 1:male / 2:female
+		 * @param hasSurName include the last name
+		 * @return a random name
+		 * 
+		 */		
+		public static function nameBank(gender:int=0, hasSurName:Boolean=false):String {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var fName_str:String = "";
+			var lName_str:String = "";
+			var genderFlip:Boolean = Randomness.coinFlip();
+			
+			var rndBoy_str:String = MALE_NAMES[Arrays.rndIndex(MALE_NAMES)];
+			var rndGirl_str:String = FEMALE_NAMES[Arrays.rndIndex(FEMALE_NAMES)];
+			
+			// male or female
+			switch (gender) {
+				
+				// heads for male - tails for female
+				case 0:
+					
+					if (Randomness.coinFlip())
+						fName_str = rndBoy_str;
+					
+					else
+						fName_str = rndGirl_str;
+					
+					break;
+				
+				// male
+				case 1:
+					fName_str = rndBoy_str;
+					break;
+				
+				// female
+				case 2:
+					fName_str = rndGirl_str;
+					break;
+			}
+			
+			
+			lName_str = LAST_NAMES[Arrays.rndIndex(LAST_NAMES)];
+			
+			return (fName_str + " " + lName_str);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public static function isPhone(val:String, frmt:String):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

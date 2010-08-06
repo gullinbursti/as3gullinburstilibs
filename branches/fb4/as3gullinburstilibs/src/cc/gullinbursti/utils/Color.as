@@ -17,7 +17,7 @@ package cc.gullinbursti.utils {
 	*/
 	
 	// <[!] class delaration [!]>
-	public class Colors {
+	public class Color {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -25,7 +25,7 @@ package cc.gullinbursti.utils {
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		// <*] class constructor [*>
-		public function Colors() {/*..\(^_^)/..*/}
+		public function Color() {/*..\(^_^)/..*/}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>

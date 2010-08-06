@@ -127,7 +127,7 @@ package cc.gullinbursti.math.probility {
 		
 		private static function primeArray(len:int):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
+			
 			// make a new array
 			var _arr:Array = new Array();
 			
