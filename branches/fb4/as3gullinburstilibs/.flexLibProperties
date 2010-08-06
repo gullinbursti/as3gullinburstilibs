@@ -105,6 +105,8 @@
     <classEntry path="cc.gullinbursti.lang.Ints"/>
     <classEntry path="cc.gullinbursti.lang.Sprites"/>
     <classEntry path="cc.gullinbursti.lang.Shapes"/>
+    <classEntry path="cc.gullinbursti.math.geom.Cone"/>
+    <classEntry path="cc.gullinbursti.math.geom.Sphere"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

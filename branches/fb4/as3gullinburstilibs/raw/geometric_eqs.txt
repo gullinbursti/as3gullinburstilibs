@@ -214,10 +214,11 @@ The standard parabolic equation y2 = 2px y2 =- 2px x2 = 2py x2 =- 2py
 
 Straight prism lateral area S = c * h oblique prism lateral area S = c '* h 
 Is a pyramid lateral area S = 1/2c * h 'is bevel side of the area of S = 1 / 2 (c + c') h ' 
-Round table-side area of S = 1 / 2 (c + c ') l = pi (R + r) l ball surface area S = 4pi * r2 
+Round table-side area of S = 1 / 2 (c + c ') l = pi (R + r) l 
+//ball surface area S = 4pi * r2 
 Cylindrical side of the area S = c * h = 2pi * h tapered side of the area of S = 1 / 2 * c * l = pi * r * l 
 
 Formula of length l = a * ra is the central angle in radians r> 0 fan-shaped area of the formula s = 1 / 2 * l * r 
 
-Cone volume formula V = 1 / 3 * S * H the cone volume formula V = 1 / 3 * pi * r2h 
+//Cone volume formula V = 1 / 3 * S * H the cone volume formula V = 1 / 3 * pi * r2h 
 Oblique prism volume V = S'L Note: one, S 'is a straight cross-sectional area, L is longer side edge cylinder volume formula V = s * h cylinder V = pi * r2h

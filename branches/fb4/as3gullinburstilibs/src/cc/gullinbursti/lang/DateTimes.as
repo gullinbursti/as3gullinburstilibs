@@ -43,6 +43,7 @@ http://en.wikipedia.org/wiki/MIT_license/
 */
 
 package cc.gullinbursti.lang {
+	
 	import cc.gullinbursti.math.BasicMath;
 	
 	
