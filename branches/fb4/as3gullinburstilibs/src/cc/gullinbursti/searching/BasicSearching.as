@@ -13,7 +13,7 @@ package cc.gullinbursti.searching {
 	// <[!] class delaration [¡]>
 	public class BasicSearching {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: beef up basic searching class
+		//TODO: beef up basic searching class
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.

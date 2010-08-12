@@ -56,7 +56,7 @@ package cc.gullinbursti.math.calculus {
 	 // <[!] class delaration [¡]>
 	public class Derivative extends BasicCalc {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		// TODO: define & implement some derivative operations
+		//TODO: define & implement some derivative operations
 		
 		public function Derivative() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

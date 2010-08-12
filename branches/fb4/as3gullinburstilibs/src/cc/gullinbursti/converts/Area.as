@@ -11,7 +11,7 @@ package cc.gullinbursti.converts {
 	 // <[!] class delaration [¡]>
 	public class Area {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some add'l area conversions
+		//TODO: define & implement some add'l area conversions
 		
 		public function Area() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

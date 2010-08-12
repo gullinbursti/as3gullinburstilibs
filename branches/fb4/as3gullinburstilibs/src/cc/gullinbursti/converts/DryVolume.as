@@ -11,7 +11,7 @@ package cc.gullinbursti.converts {
 	// <[!] class delaration [¡]> 
 	public class DryVolume extends Volume {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some add'l lq measure conversions
+		//TODO: define & implement some add'l lq measure conversions
 		
 		// <*] class constructor [*>
 		public function DryVolume() {/* …\(^_^)/… */}

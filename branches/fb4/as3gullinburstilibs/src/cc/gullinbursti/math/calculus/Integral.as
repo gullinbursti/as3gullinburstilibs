@@ -56,7 +56,7 @@ package cc.gullinbursti.math.calculus {
 	 // <[!] class delaration [¡]>
 	public class Integral extends BasicCalc {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		// TODO: define & implement some integral operations
+		//TODO: define & implement some integral operations
 		
 		public function Integral() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

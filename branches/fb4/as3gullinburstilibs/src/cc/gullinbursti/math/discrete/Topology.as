@@ -11,7 +11,7 @@ package cc.gullinbursti.math.discrete {
 	// <[!] class delaration [¡]>
 	public class Topology {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: implement some topology methods
+		//TODO: implement some topology methods
 		
 		/**
 		 * 

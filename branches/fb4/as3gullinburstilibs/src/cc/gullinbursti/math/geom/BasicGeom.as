@@ -35,7 +35,7 @@ package cc.gullinbursti.math.geom {
 	 // <[!] class delaration [¡]>
 	public class BasicGeom extends BasicMath {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some add'l geometry functions
+		//TODO: define & implement some add'l geometry functions
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.

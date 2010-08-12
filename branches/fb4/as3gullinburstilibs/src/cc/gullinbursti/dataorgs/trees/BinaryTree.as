@@ -16,7 +16,7 @@ package cc.gullinbursti.dataorgs.trees {
 	// <[!] class delaration [¡]>
 	public class BinaryTree extends AbstractTree implements ISearcher {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: apply bin search props to this static class
+		//TODO: apply bin search props to this static class
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.

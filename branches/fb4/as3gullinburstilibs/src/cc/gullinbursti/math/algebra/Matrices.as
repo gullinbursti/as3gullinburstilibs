@@ -4,7 +4,7 @@ package cc.gullinbursti.math.algebra {
 	
 	public class Matrices extends BasicAlgebra {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some matrix operations
+		//TODO: define & implement some matrix operations
 		
 		public function Matrices() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
@@ -15,7 +15,7 @@ package cc.gullinbursti.math.algebra {
 		// http://en.wikipedia.org/wiki/Dual_number
 		public static function dualNumber(val:int):Matrix {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-			// TODO: implement the matrix dual # operation
+			//TODO: implement the matrix dual # operation
 			
 			return (new  Matrix());
 		}

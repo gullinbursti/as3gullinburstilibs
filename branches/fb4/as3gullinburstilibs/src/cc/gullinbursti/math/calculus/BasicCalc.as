@@ -56,7 +56,7 @@ package cc.gullinbursti.math.calculus {
 	 // <[!] class delaration [¡]>
 	public class BasicCalc extends BasicMath {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		// TODO: define & implement some calculus operations
+		//TODO: define & implement some calculus operations
 		
 		public function BasicCalc() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

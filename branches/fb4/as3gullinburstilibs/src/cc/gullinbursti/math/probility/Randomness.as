@@ -57,7 +57,7 @@ package cc.gullinbursti.math.probility {
 	// <[!] class delaration [¡]>
 	public class Randomness extends Numbers {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: implement some more add'l random generation techniques
+		//TODO: implement some more add'l random generation techniques
 		
 		public function Randomness() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

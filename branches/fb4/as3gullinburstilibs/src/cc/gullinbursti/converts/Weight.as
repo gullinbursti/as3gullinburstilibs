@@ -11,7 +11,7 @@ package cc.gullinbursti.converts {
 	// <[!] class delaration [¡]>
 	public class Weight {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some add'l weight conversions
+		//TODO: define & implement some add'l weight conversions
 		
 		// <*] class constructor [*>
 		public function Weight() {/* …\(^_^)/… */}

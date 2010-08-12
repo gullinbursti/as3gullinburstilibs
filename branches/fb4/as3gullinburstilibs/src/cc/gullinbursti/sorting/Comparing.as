@@ -12,7 +12,7 @@ package cc.gullinbursti.sorting {
 	 // <[!] class delaration [¡]>
 	public class Comparing extends BasicSorting {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: implement add'l exchange sorts
+		//TODO: implement add'l exchange sorts
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	

@@ -57,7 +57,7 @@ package cc.gullinbursti.math.algebra {
 	 // <[!] class delaration [¡]>
 	public class RealPolynomial extends AbstractPolynomial {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some add'l real polynomial operations
+		//TODO: define & implement some add'l real polynomial operations
 		
 		/**
 		 * 

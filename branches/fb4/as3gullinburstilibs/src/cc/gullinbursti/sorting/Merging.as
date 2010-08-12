@@ -12,7 +12,7 @@ package cc.gullinbursti.sorting {
 	 // <[!] class delaration [¡]>
 	public class Merging extends BasicSorting {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: implement add'l merge sort algorithms
+		//TODO: implement add'l merge sort algorithms
 		// aka Distro type
 		
 		//] class properties ]>

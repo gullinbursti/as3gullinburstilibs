@@ -11,7 +11,7 @@ package cc.gullinbursti.converts {
 	 // <[!] class delaration [¡]>
 	public class Volume {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some add'l volume conversions
+		//TODO: define & implement some add'l volume conversions
 		
 		public function Volume() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

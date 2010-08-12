@@ -31,7 +31,7 @@ package cc.gullinbursti.math.discrete {
 		// http://en.wikipedia.org/wiki/Euler%27s_factorization_method
 		public static function euler(val:int):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement Euler factorization for a given value
+			//TODO: implement Euler factorization for a given value
 				
 			return (new Array());
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯

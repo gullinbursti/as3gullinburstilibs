@@ -59,7 +59,7 @@ package cc.gullinbursti.math.algebra {
 	 // <[!] class delaration [¡]>
 	public class ComplexPolynomial extends AbstractPolynomial {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some add'l complex polynomial operations
+		//TODO: define & implement some add'l complex polynomial operations
 		
 		public function ComplexPolynomial() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

@@ -4,7 +4,7 @@ package cc.gullinbursti.math.settheory {
 	
 	public class Ring extends BasicSetTheory {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		// TODO: implement some ring theory methods
+		//TODO: implement some ring theory methods
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -22,7 +22,7 @@ package cc.gullinbursti.math.settheory {
 		// http://en.wikipedia.org/wiki/Nilpotent
 		public static function isNilpotent(val:int):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement nilpotent test
+			//TODO: implement nilpotent test
 			
 			return (false);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯

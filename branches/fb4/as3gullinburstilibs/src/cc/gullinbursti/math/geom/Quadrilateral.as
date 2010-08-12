@@ -12,7 +12,7 @@ package cc.gullinbursti.math.geom {
 	 // <[!] class delaration [¡]>
 	public class Quadrilateral extends Polygon {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		// TODO: define & implement some quadrilateral functions
+		//TODO: define & implement some quadrilateral functions
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.

@@ -27,7 +27,7 @@ package cc.gullinbursti.math.discrete.networks {
 		// http://en.wikipedia.org/wiki/Metcalfe%27s_law
 		public static function metcalfeValue(val:int):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement Metcalfe's Law for networking calcs
+			//TODO: implement Metcalfe's Law for networking calcs
 				
 			return (0);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯

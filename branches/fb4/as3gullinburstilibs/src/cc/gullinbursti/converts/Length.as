@@ -57,7 +57,7 @@ package cc.gullinbursti.converts {
 	// <[!] class delaration [¡]>	
 	public class Length {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some add'l length conversions
+		//TODO: define & implement some add'l length conversions
 		
 		// <*] class constructor [*>
 		public function Length() {/* …\(^_^)/… */}

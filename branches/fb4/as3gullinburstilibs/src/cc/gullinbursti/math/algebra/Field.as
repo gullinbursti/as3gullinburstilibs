@@ -16,7 +16,7 @@ package cc.gullinbursti.math.algebra {
 	// <[!] class delaration [¡]>
 	public class Field extends BasicAlgebra {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some field algebra operations
+		//TODO: define & implement some field algebra operations
 		
 		public function Field() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

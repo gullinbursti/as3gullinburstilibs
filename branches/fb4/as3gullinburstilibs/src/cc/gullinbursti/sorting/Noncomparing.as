@@ -34,8 +34,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function beadSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement radix sort algorithm
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement bead sort algorithm
 			
 			
 			return (in_arr);
@@ -49,8 +49,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function bucketSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement bucket sort algorithm
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement bucket sort algorithm
 			
 			
 			/**
@@ -79,8 +79,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function burstsort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement radix sort algorithm
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement burst sort algorithm
 			
 			
 			return (in_arr);
@@ -94,8 +94,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function countSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement radix sort algorithm
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement count sort algorithm
 			
 			
 			return (in_arr);
@@ -109,8 +109,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function pigeonholeSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement radix sort algorithm
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement pigeonhole sort algorithm
 			
 			
 			return (in_arr);
@@ -124,8 +124,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function radixSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement radix sort algorithm
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement radix sort algorithm
 			
 			
 			return (in_arr);

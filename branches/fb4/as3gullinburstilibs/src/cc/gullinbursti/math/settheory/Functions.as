@@ -11,7 +11,7 @@ package cc.gullinbursti.math.settheory {
 	// <[!] class delaration [¡]>
 	public class Functions {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
-		// TODO: [EVO]» implement some more op's on function equations
+		//TODO: [EVO]» implement some more op's on function equations
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -29,7 +29,7 @@ package cc.gullinbursti.math.settheory {
 		
 		public static function convolute():Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement the convolute method for functions
+			//TODO: implement the convolute method for functions
 			
 			return (0);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯

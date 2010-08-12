@@ -56,7 +56,7 @@ package cc.gullinbursti.math.calculus {
 	 // <[!] class delaration [¡]>
 	public class Limit extends BasicCalc {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		// TODO: define & implement some limit calculus operations
+		//TODO: define & implement some limit calculus operations
 		
 		public function Limit() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

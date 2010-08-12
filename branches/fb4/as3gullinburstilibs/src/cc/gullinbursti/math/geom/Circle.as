@@ -12,7 +12,7 @@ package cc.gullinbursti.math.geom {
 	 // <[!] class delaration [¡]>
 	public class Circle extends BasicGeom {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		// TODO: define & implement some add'l circle functions
+		//TODO: define & implement some add'l circle functions
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.

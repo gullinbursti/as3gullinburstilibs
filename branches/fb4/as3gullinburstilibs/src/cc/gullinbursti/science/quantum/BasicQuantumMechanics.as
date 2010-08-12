@@ -50,7 +50,7 @@ package cc.gullinbursti.science.quantum {
 		
 		
 		public static function photonEnergyByFreq(freq:Number):Number {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			/**
 			 * 
 			 * E = hν
@@ -61,7 +61,7 @@ package cc.gullinbursti.science.quantum {
 		
 		
 		public static function photonEnergyByWavelen(wavelen:Number):Number {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			/**
 			 * 
 			 *       hc
@@ -75,7 +75,7 @@ package cc.gullinbursti.science.quantum {
 		
 		
 		public static function freq(wavelen:Number, spd:Number=BasicPhysics.LIGHT_VELOCITY):Number {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			/**
 			 * ν = spd / λ
 			 * 
@@ -86,7 +86,7 @@ package cc.gullinbursti.science.quantum {
 		
 		
 		public static function wavelen(freq:Number, spd:Number=BasicPhysics.LIGHT_VELOCITY):Number {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			/**
 			 * λ = spd / ν
 			 * 
@@ -98,7 +98,7 @@ package cc.gullinbursti.science.quantum {
 		
 		public static function bodyRadiation():Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: black body radiation
+			//TODO: black body radiation
 			 return (0);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 

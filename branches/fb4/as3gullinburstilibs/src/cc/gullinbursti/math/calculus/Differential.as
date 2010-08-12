@@ -55,7 +55,7 @@ package cc.gullinbursti.math.calculus {
 	 // <[!] class delaration [¡]>
 	public class Differential extends BasicCalc {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		// TODO: define & implement some differential operations
+		//TODO: define & implement some differential operations
 		
 		public function Differential() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

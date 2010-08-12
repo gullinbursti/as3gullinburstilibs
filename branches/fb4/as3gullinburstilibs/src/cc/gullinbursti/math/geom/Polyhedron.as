@@ -14,7 +14,7 @@ package cc.gullinbursti.math.geom {
 	 // <[!] class delaration [¡]>
 	public class Polyhedron extends BasicMath {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some polyhedra functions
+		//TODO: define & implement some polyhedra functions
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.

@@ -62,7 +62,7 @@ package cc.gullinbursti.math.algebra {
 	 // <[!] class delaration [¡]>
 	public class QuadraticFormula extends QuadraticEquation {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some add'l quadratic formula operations
+		//TODO: define & implement some add'l quadratic formula operations
 		
 		/**
 		 *            ________

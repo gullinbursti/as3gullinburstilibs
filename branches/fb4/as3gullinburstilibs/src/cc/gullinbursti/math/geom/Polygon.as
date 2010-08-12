@@ -12,7 +12,7 @@ package cc.gullinbursti.math.geom {
 	 // <[!] class delaration [¡]>
 	public class Polygon extends BasicGeom {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some polygon functions
+		//TODO: define & implement some polygon functions
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.

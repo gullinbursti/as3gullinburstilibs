@@ -12,7 +12,7 @@ package cc.gullinbursti.math.geom {
 	// <[!] class delaration [¡]>
 	public class Trig extends Triangle {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		// TODO: implement trig functions
+		//TODO: implement trig functions
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.

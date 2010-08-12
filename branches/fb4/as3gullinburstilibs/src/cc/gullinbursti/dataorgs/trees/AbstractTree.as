@@ -14,7 +14,7 @@ package cc.gullinbursti.dataorgs.trees {
 	// <[!] class delaration [¡]>
 	public class AbstractTree extends BasicSearching {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: give this inheritable tree of props
+		//TODO: give this inheritable tree of props
 		
 		
 		//] class properties ]>

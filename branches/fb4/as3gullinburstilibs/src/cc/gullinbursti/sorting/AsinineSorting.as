@@ -35,8 +35,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function bogoSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement radix sort algorithm
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement bogo sort algorithm
 			
 			
 			return (in_arr);
@@ -50,8 +50,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function luckysort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement radix sort algorithm
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement lucky sort algorithm
 			
 			
 			return (in_arr);
@@ -65,8 +65,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function stoogeSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			// TODO: implement radix sort algorithm
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement stooge sort algorithm
 			
 			
 			return (in_arr);

@@ -13,7 +13,7 @@ package cc.gullinbursti.sorting {
 	 // <[!] class delaration [¡]>
 	public class BasicSorting extends BasicMath {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: beef up basic sorting class [http://en.wikipedia.org/wiki/Sorting_algorithm]
+		//TODO: beef up basic sorting class [http://en.wikipedia.org/wiki/Sorting_algorithm]
 		//	Pancake sorting (http://en.wikipedia.org/wiki/Pancake_sorting)
 		// (http://en.wikipedia.org/wiki/Sorting_algorithm)
 		

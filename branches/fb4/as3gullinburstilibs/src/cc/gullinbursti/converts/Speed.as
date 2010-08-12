@@ -11,7 +11,7 @@ package cc.gullinbursti.converts {
 	 // <[!] class delaration [¡]>
 	public class Speed {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		// TODO: define & implement some add'l speed conversions
+		//TODO: define & implement some add'l speed conversions
 		
 		public function Speed() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

@@ -43,7 +43,6 @@ package cc.gullinbursti.lang {
 		
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		
 		public static function dropDecimal(val:Number):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			return (val << 0);
