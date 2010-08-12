@@ -37,6 +37,7 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement bead sort algorithm
 			
+			// O(n) / O(n2)
 			
 			return (in_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯

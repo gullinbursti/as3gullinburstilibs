@@ -13,6 +13,15 @@ package cc.gullinbursti.sorting {
 	public class Inserting extends BasicSorting {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
+		/*
+		 * Insertion sorts:
+		 *	- Insertion sort: determine where the current item belongs in the list of sorted ones, and insert it there
+		 *	- Library sort
+		 *	- Patience sorting
+		 *	- Shell sort: an attempt to improve insertion sort
+		 *	- Tree sort (binary tree sort): build binary tree, then traverse it to create sorted list
+		*/
+		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
@@ -72,7 +81,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function librarySort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement library sort algorithm
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
@@ -87,7 +97,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function patienceSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement patience sort algorithm
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
@@ -103,6 +114,7 @@ package cc.gullinbursti.sorting {
 		 */
 		public static function shellSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement shell sort algorithm
 			
 			/*
 				Not stable
@@ -135,7 +147,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function treeSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement tree sort algorithm
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			

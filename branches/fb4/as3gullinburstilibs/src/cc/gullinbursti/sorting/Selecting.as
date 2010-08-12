@@ -13,6 +13,13 @@ package cc.gullinbursti.sorting {
 	public class Selecting extends BasicSorting {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
+		/*
+		 * Selection sorts:
+		 *	- Heapsort: convert the list into a heap, keep removing the largest element from the heap and adding it to the end of the list
+		 * 	- Selection sort: pick the smallest of the remaining elements, add it to the end of the sorted list
+		 *  - Smoothsort
+		*/
+		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
@@ -50,6 +57,7 @@ package cc.gullinbursti.sorting {
 		 */
 		public static function heapSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: Implement heap sort
 			
 			/*
 				Not stable
@@ -61,7 +69,6 @@ package cc.gullinbursti.sorting {
 			
 			return (sort_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
 		
 		
 		/**
@@ -115,7 +122,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function smoothsort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: Implement smoothsort
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			

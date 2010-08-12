@@ -560,5 +560,7 @@ package cc.gullinbursti.lang {
 			
 			return (in_str.substr(0, i + 1));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
 	}
 }

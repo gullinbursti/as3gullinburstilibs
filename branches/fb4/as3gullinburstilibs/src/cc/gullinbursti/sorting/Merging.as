@@ -13,7 +13,13 @@ package cc.gullinbursti.sorting {
 	public class Merging extends BasicSorting {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		//TODO: implement add'l merge sort algorithms
-		// aka Distro type
+		
+		
+		/*
+		 * Merge sorts:
+		 * 	- Merge sort: sort the first and second half of the list separately, then merge the sorted lists
+		 * 	- Strand sort
+		*/
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	
@@ -43,6 +49,7 @@ package cc.gullinbursti.sorting {
 		 */
 		public static function mergeSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement merge sort algorithm
 			
 			/*
 				Stable
@@ -73,7 +80,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function polyphaseSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement polyphase sort algorithm
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
@@ -88,7 +96,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function strandSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement strand sort algorithm
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
@@ -104,7 +113,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function timsort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement time sort algorithm
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
@@ -119,7 +129,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function unshuffleSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement unshuffle sort algorithm
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			

@@ -38,6 +38,7 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement bogo sort algorithm
 			
+			/* O(n • n!) */
 			
 			return (in_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
@@ -68,6 +69,7 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement stooge sort algorithm
 			
+			/* O(n²⁽⁷ʹ¹⁰⁾ */
 			
 			return (in_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯

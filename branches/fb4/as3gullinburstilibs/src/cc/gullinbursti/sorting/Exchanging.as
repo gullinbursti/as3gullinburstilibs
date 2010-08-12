@@ -13,6 +13,17 @@ package cc.gullinbursti.sorting {
 	public class Exchanging extends BasicSorting {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
+		/*
+		* Exchange Sorts:
+		*	- Bubble sort
+		*	- Cocktail sort
+		*	- Comb sort
+		*	- Gnome sort
+		*	- Odd-even sort
+		*	- Quicksort
+		*/
+		
+		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
@@ -80,8 +91,10 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function cocktailSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement cocktail sort algorithm
 			
+			//O(n²)
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
 			return (sort_arr);
@@ -96,7 +109,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function combSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement comb sort algorithm
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
@@ -107,6 +121,7 @@ package cc.gullinbursti.sorting {
 		
 		public static function gnomeSort(in_arr:Array):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement gnome sort algorithm
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
@@ -148,7 +163,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function oddEvenSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement odd/even sort algorithm
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
@@ -163,7 +179,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function quicksort(in_arr:Array, l:int=0, r:int=-1, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement quick sort algorithm
 			
 			/*
 				Not stable
@@ -197,7 +214,8 @@ package cc.gullinbursti.sorting {
 		 * @return Array
 		 */
 		public static function quicksort3(in_arr:Array, l:int=0, r:int=-1, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement quick sort 3 algorithm
 			
 			/*
 				Not stable

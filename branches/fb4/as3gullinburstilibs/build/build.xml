@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<project name="as3gullinburstilibs" basedir="../" default="zip">
+<project name="Build Project" basedir="../" default="zip">
 
 	<!-- Define variables/paths used in this build script -->
+	<property file="./build/project.properties" />
 	<property file="./build/build.properties" />
 	
 	
@@ -11,6 +12,8 @@
 		</fileset>
 	</path>  
 	<typedef resource="flexTasks.tasks" classpathref="flextasks.classpath" />
+	
+	<!-- <antcall target="compile_swc_runtime" /> -->
 	
 	<!--
 		Have you edit the properties file to make sure the paths are right oo your system?
@@ -301,5 +304,30 @@
 			</fileset>
 		</zip>
 	</target>
+	
+	<!-- CONDITS -->
+	<!--
+	<condition property="project.compiler.parameters.optimized" value="-external-library-path ${project.libraries.swc}/runtime_comp.swc -external-library-path ${project.libraries.swc}/sharedassets.swc -external-library-path ${project.libraries.swc}/sharedassets_comp.swc -external-library-path ${project.libraries.swc}/playerglobal.swc">
+		<and>
+			<equals arg1="${project.compiler.optimize}" arg2="true" />
+		</and>
+	</condition>
 
+	<condition property="project.compiler.parameters.optimized" value="">
+		<and>
+			<equals arg1="${project.compiler.optimize}" arg2="false" />
+		</and>
+	</condition>
+
+	<condition property="project.compiler.parameters.sharedassetsoptimized" value="-external-library-path ${project.libraries.swc}/runtime_comp.swc -external-library-path ${project.libraries.swc}/playerglobal.swc">
+		<and>
+			<equals arg1="${project.compiler.sharedassetsoptimized}" arg2="true" />
+		</and>
+	</condition>
+
+	<condition property="project.compiler.parameters.sharedassetsoptimized" value="">
+		<and>
+			<equals arg1="${project.compiler.sharedassetsoptimized}" arg2="false" />
+		</and>
+	</condition> -->
 </project>
