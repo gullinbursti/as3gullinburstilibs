@@ -28,5 +28,18 @@ package cc.gullinbursti.science.physics {
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
+		
+		
+		/**
+		 * calculates velocity from distance and time 
+		 * @param dist the distance traveled
+		 * @param time the time
+		 * @return velocity
+		 * 
+		 */		
+		public static function velocity(dist:Number, time:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (dist / time);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯	
 	}
 }
