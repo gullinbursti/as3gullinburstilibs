@@ -318,37 +318,45 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function genRndASCII(amt:int, isMultiCased:Boolean=true, range:Point=null):String {
+		public static function genRndASCII(amt:int=0, isMultiCased:Boolean=true, isSpaces:Boolean=false):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			// range length in unicode
-			var len:int;
 			
 			// return string
 			var concat_str:String = "";
 			
-			// no ascii range specified, use 'A'(0x0041) - 'Z'(0x005a)
-			if (!range) {
-				len = Chars.LATIN_STD_CHARS.length;
-				range = new Point(Chars.LATIN_STD_CHARS[0][2], Chars.LATIN_STD_CHARS[len][2]);
-			
-			// passed in range
-			} else
-				len = Math.abs(range.y - range.x);
-			
+			// character bank
+			var char_arr:Array = new Array();
+			var len:int = LATIN_STD_CHARS.length*int(isMultiCased+1);
 				
+			// prime the char array w/ letters
+			for (i=0; i<len; i++) {
+				
+				// upper case
+				if (i < LATIN_STD_CHARS.length)
+					char_arr.push(LATIN_STD_CHARS[i][0][0]);
+				
+				// lower case, bring index back to 0
+				else
+					char_arr.push(LATIN_STD_CHARS[i-LATIN_STD_CHARS.length][1][0]);
+			}
+			
+			
+			// allow spaces
+			if (isSpaces)
+				char_arr.push(ASCII_CTRLS[ASCII_CTRLS.length-1][0][0]);
+			
+			
+			// randomize amount
+			if (amt <= 0)
+				amt = Randomness.generateInt(4, 32);
+			
+			
 			// loop thru amount to generate
 			for (var i:int=0; i<amt; i++) {
 				
-				// pick a random char
-				var rnd_char:String = String.fromCharCode(Randomness.generateInt(range.x, range.y));
-				
-				// upper + lower case
-				if (isMultiCased && Chars.isStandardASCII(rnd_char))
-					rnd_char += int(Randomness.pickBit()) * 32;
-					
-				// append
-				concat_str += rnd_char;
+				// pick a random char & append
+				concat_str += char_arr[Arrays.rndIndex(char_arr)];
 			}
 			
 			
