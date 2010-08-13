@@ -89,7 +89,8 @@ package cc.gullinbursti.sorting {
 		// Samplesort
 		
 		//] class properties ]>
-		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+		public static const MAX_RECURSIONS:int = 512;
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		/**
@@ -178,9 +179,9 @@ package cc.gullinbursti.sorting {
 		 * @return A new <code>Array</code> of sorted items
 		 * 
 		 */		
-		public static function quicksort(in_arr:Array, isAscending:Boolean=true, l:int=0, r:int=-1):Array {
+		public static function quicksort(in_arr:Array, l:int=0, r:int=-1, max:int=MAX_RECURSIONS, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (Exchanging.quicksort(in_arr, l, r, isAscending));
+			return (Exchanging.quicksort(in_arr, l, r, max, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -268,11 +269,15 @@ package cc.gullinbursti.sorting {
 		 * @return  the index to divide on
 		 * 
 		 */		
-		protected static function partition(in_arr:Array, l:int, r:int):int {
+		protected static function partition(in_arr:Array, l:int, r:int, piv:Number=-1):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			// the pivot value
-			var pivot_val:int = in_arr[Numbers.dropDecimal((l + r) / 2)];
+			
+			var pivot_val:Number = piv;
+			
+			if (piv > -1)
+				pivot_val = in_arr[Numbers.dropDecimal((l + r) / 2)];
+			 
 			
 			// loop incs
 			var i:int = l;

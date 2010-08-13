@@ -4,6 +4,9 @@ package cc.gullinbursti.sorting {
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.lang.Arrays;
 	import cc.gullinbursti.lang.Numbers;
+	import cc.gullinbursti.lang.Objects;
+	
+	import flash.geom.Point;
 
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
@@ -28,8 +31,7 @@ package cc.gullinbursti.sorting {
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-		private static var resurse_cnt:int=0;
-		
+		private static var resurse_pt:Point;
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		/**
@@ -278,7 +280,7 @@ package cc.gullinbursti.sorting {
 		 * @return A new <code>Array</code> of sorted items
 		 * 
 		 */
-		public static function quicksort(in_arr:Array, l:int=0, r:int=-1, isAscending:Boolean=true):Array {
+		public static function quicksort(in_arr:Array, l:int=0, r:int=-1, max:int=MAX_RECURSIONS, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			/*
 				Not stable
@@ -297,7 +299,7 @@ package cc.gullinbursti.sorting {
 			
 			
 			// init recurse counter
-			resurse_cnt = 0;
+			resurse_pt = new Point(0, Math.min(max, MAX_RECURSIONS));
 			
 			// start the sort
 			kwiksort(sort_arr, l, r);
@@ -319,7 +321,7 @@ package cc.gullinbursti.sorting {
 		 * @return A new <code>Array</code> of sorted items
 		 * 
 		 */	
-		public static function quicksort3(in_arr:Array, l:int=0, r:int=-1, isAscending:Boolean=true):Array {
+		public static function quicksort3(in_arr:Array, l:int=0, r:int=-1, max:int=MAX_RECURSIONS, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement quick sort 3 algorithm
 			
@@ -340,10 +342,10 @@ package cc.gullinbursti.sorting {
 			
 			
 			// init recurse counter
-			resurse_cnt = 0;
+			resurse_pt = new Point(0, Math.min(max, MAX_RECURSIONS));
 			
 			// start the sort
-			kwiksort(sort_arr, l, r);
+			kwiksort3(sort_arr, l, r);
 			
 			
 			// return the sorted list
@@ -353,7 +355,7 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * Helper recursable function for quicksorting.
+		 * Helper internal function for quicksort recursion.
 		 * @param in_arr An <code>Array</code> containing all / a segment of the items 
 		 * @param l Staring index to sort on
 		 * @param r Ending index to sort on
@@ -367,7 +369,11 @@ package cc.gullinbursti.sorting {
 			
 			
 			// inc the rescurse counter
-			resurse_cnt++;
+			resurse_pt.x++;
+			
+			// abandon sort at max recursions
+			if (resurse_pt.x >= resurse_pt.y)
+				return;
 			
 			// recurse when left index
 			if (l < par_ind - 1)
@@ -378,54 +384,110 @@ package cc.gullinbursti.sorting {
 			if (par_ind < r)
 				kwiksort(in_arr, par_ind, r);
 			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Helper internal function for 3-way quicksort recursion.
+		 * @param in_arr An <code>Array</code> containing all / a segment of the items 
+		 * @param l Staring index to sort on
+		 * @param r Ending index to sort on
+		 * 
+		 */		
+		private static function kwiksort3(in_arr:Array, l:int, r:int):void {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			/*
-			// pivot index is 1/2 between start & end
-			var pivot_val:int = in_arr[Numbers.dropDecimal((l + r) / 2)];
+			// inc the rescurse counter
+			resurse_pt.x++;
 			
-			// loop iterators
-			var i:Number = l;
-			var j:Number = r;
+			trace ("\n\n]] ("+resurse_pt.x+")START ->> l:["+l+"] r:["+r+"] arr:["+in_arr+"]")
 			
-			
-			// inc resurse counter
-			resurse_cnt++;
-			
-			
-			// keep looping until left index is greater than right
-			while (i <= j) {
+			// cutoff
+			if (l+3 > r)
+				insertSort(in_arr, l, r);
+				
+			// sort low, middle, high
+			else {
+				
+				// middle index
+				var m:int = Numbers.dropDecimal((l + r) / 2);
+				trace ("]] SORT ->> l:["+l+"] m:["+m+"] r:["+r+"] ")
 				
 				
-				// inc i up towards the pivot while val is less than it
-				while (in_arr[i] < pivot_val)
-					i++;
+				// middle not equal to left val
+				if (in_arr[m] >= in_arr[l]) {
+					Arrays.swapElements(in_arr, l, m);
+					trace ("  -:]] 1-SWAP(l/m) ->> arr:["+in_arr+"]")
+				}
+			
+				// right not equal to left val
+				if (in_arr[r] <= in_arr[l]) {
+					Arrays.swapElements(in_arr, l, r);
+					trace ("  -:]] 2-SWAP(l/r) ->> arr:["+in_arr+"]")
+				}
 				
-				// dec j down towards to the pivot while val is less than it
-				while (in_arr[j] > pivot_val)
-					j--;
+				// right not equal to middle val
+				if (in_arr[r] >= in_arr[m]) {
+					Arrays.swapElements(in_arr, m, r);
+					trace ("  -:]] 3-SWAP(m/r) ->> arr:["+in_arr+"]")
+				}
 				
 				
-				// when left val is smaller than right val, swap items & adj counters
-				if (i <= j)
-					Arrays.swapElements(in_arr, i++, j--);
+				// swap items at middle & right index - 1
+				Arrays.swapElements(in_arr, m, r-1);
+				trace ("  -:]] 4-SWAP(m/r-1) ->> arr:["+in_arr+"]")
+				
+				
+				// make a pivot val & find partition
+				var pivot_val:int = in_arr[r-1];
+				var par_ind:Number = partition(in_arr, l, r, in_arr[r-1])
+				trace ("]] PAR ->> piv:["+pivot_val+"] par:["+par_ind+"]\n")
+				
+				
+				// restore prev pivot
+				Arrays.swapElements(in_arr, m, r-1);
+				trace ("]] RES(i/r-1) ->> arr:["+in_arr+"]")
+				
+				
+				
+				// recurse when left index
+				if (l < par_ind - 1)
+					kwiksort3(in_arr, l, par_ind - 1);
+				
+				
+				// recurse when partition index 
+				if (par_ind < r)
+					kwiksort3(in_arr, par_ind, r);
 			}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Helper internal function for 3-way quicksort that performs an insertion sort
+		 * @param in_arr
+		 * @param l
+		 * @param r
+		 * 
+		 */		
+		private static function insertSort(in_arr:Array, l:int, r:int):void {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			
-			
-			// recurse if left index is less than j
-			if (l < j)
-				kwiksort(in_arr, l, j);
-			
-			
-			// recurse if i is less than right index
-			if (i < r)
-				kwiksort(in_arr, i, r);
-			
-			*/
-			
-			//trace ("\n]] START("+resurse_cnt+") [[->> i:["+i+"] j:["+j+"] pivot:["+pivot_val+"] pre_arr:["+in_arr+"]");
-			//trace ("  -:]] SWAP [[ ->> i:["+(i-1)+"]="+in_arr[i-1]+" j:["+(j+1)+"]="+in_arr[j+1]+" // swap_arr:["+in_arr+"]");
-			//trace ("]] FIN [[->> l:["+l+"] j:["+j+"] // i:["+i+"] r:["+r+"]");
+			// loop from left+1 to right
+			for (var i:int=l+1; i<=r; i++) {
+				
+				// prime counter
+				var j:int = i;
+				
+				// loop until j equals left AND i is larger than j-1
+				while (j>l && in_arr[i] < in_arr[j-1]) {
+					
+					// make j the prev j
+					in_arr[j] = in_arr[--j];
+				}
+				
+				// swap i & j items
+				in_arr[j] = in_arr[i];
+			}
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }
