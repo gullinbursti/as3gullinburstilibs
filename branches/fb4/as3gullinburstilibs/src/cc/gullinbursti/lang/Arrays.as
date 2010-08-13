@@ -7,6 +7,8 @@ package cc.gullinbursti.lang {
 	import cc.gullinbursti.sorting.BasicSorting;
 	
 	import flash.display.BitmapData;
+	import flash.geom.Point;
+
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	// <[!] class delaration [!]>
@@ -147,22 +149,23 @@ package cc.gullinbursti.lang {
 			// new array to return
 			var xeroxed_arr:Array = new Array();
 			
+			// pushable flag
+			var isPushed:Boolean = hasRepeats;
+			
+			
 			// loop thru the input array
 			for (var i:int=0; i<in_arr.length; ++i) {
 				
 				// grab each element as an Object
 				var item_obj:Object = Object(in_arr[i]);
 				
-				// test to see if it already is in there
-				if (Arrays.containsValue(xeroxed_arr, item_obj)) {
+				// dups not allowed but doesn't contain item, push it
+				if (!hasRepeats && !Arrays.containsValue(xeroxed_arr, item_obj))
+					isPushed = true;
 					
-					// dups ok, push it
-					if (hasRepeats)
-						xeroxed_arr.push(item_obj);
-				
-				
-				// not in there yet
-				} else
+					
+				// item is pushed into array
+				if (isPushed)
 					xeroxed_arr.push(item_obj);
 			}
 			
@@ -174,7 +177,7 @@ package cc.gullinbursti.lang {
 		/**
 		* Generates a copy of the array, w/ references to the orginal items.
 		 */
-		public static function ptMemRef(in_arr:Array, hasRepeats:Boolean=true):Array {
+		public static function genPtRef(in_arr:Array, hasRepeats:Boolean=true):Array {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			// reference array
@@ -222,7 +225,7 @@ package cc.gullinbursti.lang {
 		public static function sortByNumber(in_arr:Array, isAscending:Boolean=true):Array {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
-			return (BasicSorting.binary(in_arr, isAscending));
+			return (BasicSorting.binarySort(in_arr, isAscending));
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
@@ -230,7 +233,7 @@ package cc.gullinbursti.lang {
 		public static function sortByAlpha(in_arr:Array, isAscending:Boolean=true):Array {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
-			return (unicodeConvert(BasicSorting.binary(unicodeConvert(in_arr), isAscending), false));
+			return (unicodeConvert(BasicSorting.binarySort(unicodeConvert(in_arr), isAscending), false));
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
@@ -287,15 +290,14 @@ package cc.gullinbursti.lang {
 		public static function reverse(in_arr:Array):Array {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
-			var tot:int = in_arr.length;
-			var ret_arr:Array = new Array();
+			var len:int = in_arr.length;
+			var rev_arr:Array = new Array();
 			
-			for (var i:int=0; i<tot; i++) {
-				ret_arr[i] = in_arr[tot - i];
-			}
+			for (var i:int=len-1; i>=0; i--)
+				rev_arr.push(in_arr[i]);
 			
-			return (ret_arr);
 			
+			return (rev_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -375,53 +377,37 @@ package cc.gullinbursti.lang {
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		public static function scrambleNew(len:int=1):Array {
+		public static function genScrambled(len:int=1):Array {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-			return(genIndRands(len));
+			
+			// create an array of vals asc or dsc
+			var ind_arr:Array = genIndexedVals(len, Randomness.pickBool());
+			
+			// scramble the indexes up
+			scrambledIndexes(ind_arr);
+			
+			// return the array
+			return (ind_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
 		 * Randomizes an array's elements
 		 * @param _arr input array
-		 * @return randomized array w/ contents reordered
 		 * 
 		 */		
-		public static function scrambleContents(_arr:Array):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
-			
-			var i:int;
-			var tmp_arr:Array;
-			var len:int = _arr.length;
-			var new_arr:Array;
+		public static function scrambledIndexes(in_arr:Array):void {//Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
 			
 			// loop thru array…
-			for (i=(len-1); i>=0; i--) {
+			for (var i:int=(in_arr.length-1); i>0; i--) {
 				
-				// pick random index 0-i
-				var rnd:int = Randomness.generateInt(0, i);
-				
-				// assign current index to tmp var
-				var tmp:int = i;
-				
-				// make the array
-				tmp_arr = new Array();
-				tmp_arr.push(_arr[tmp]);
-				
-				// swap current index w/ the rnd one
-				_arr[i] = _arr[rnd];
-				_arr[rnd] = tmp_arr[0];
+				// swap the loop index w/ an index 0 thru i-1
+				Arrays.swapElements(in_arr, i, Randomness.generateInt(0, i-1));
 			}
 			
-			
-			// make the new array
-			new_arr = new Array();
-			
-			for (i=0; i<len; i++)
-				new_arr.push(_arr[i]);
-			
-			// return the scrambled array
-			return (new_arr);
+			// swap the 1st index w/ an other
+			Arrays.swapElements(in_arr, i, Randomness.generateInt(1, in_arr.length-1));
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
@@ -431,21 +417,51 @@ package cc.gullinbursti.lang {
 		 * the corresponding indexes.
 		 * 
 		 * @param len the array's length
+		 * @param isAsc push vals incrementally
 		 * @return array of ints from 0 - len
 		 * 
 		 */		
-		public static function indPrimer(len:int):Array {
+		public static function genIndexedVals(len:int, isAsc:Boolean=true):Array {
 			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// make a new array
-			var _arr:Array = new Array();
+			var ind_arr:Array = new Array();
 			
 			// push ascending vals
-			for (var i:int=0; i<len; i++)
-				_arr.push(i);
+			for (var i:int=0; i<len; i++) {
+				
+				// ascending
+				if (isAsc)
+					ind_arr.push(i);
+				
+				// descending
+				else
+					ind_arr.push(len - (i+1));
+				
+			}
 			
 			// return the primed array
-			return (_arr);
+			return (ind_arr);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function genRandVals(len:int, range:Point=null):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!range)
+				range = new Point(0, len);
+			
+			// make a new array
+			var val_arr:Array = new Array();
+			
+			// push rand vals
+			for (var i:int=0; i<len; i++)
+				val_arr.push(Randomness.generateInt(range.x, range.y));
+			
+			
+			// return the filled array
+			return (val_arr);
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
@@ -460,30 +476,11 @@ package cc.gullinbursti.lang {
 		public static function swapElements(in_arr:Array, ind1:int, ind2:int):void {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._		
 			
+			// holder of the array's element
 			var tmp_obj:Object = Object(in_arr[ind1]);
 			
 			in_arr[ind1] = in_arr[ind2];
 			in_arr[ind2] = tmp_obj;
-			
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		/**
-		 * Creates a randomizd array of ints 
-		 * @param len
-		 * @return 
-		 * 
-		 */		
-		private static function genIndRands(len:int):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
-			var new_arr:Array = new Array();
-			var rnd_arr:Array = new Array();
-			
-			new_arr = indPrimer(len);
-			rnd_arr = scrambleContents(new_arr);
-			
-			return (rnd_arr);
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		

@@ -1,4 +1,5 @@
 package cc.gullinbursti.sorting {
+	import cc.gullinbursti.lang.Arrays;
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -11,6 +12,18 @@ package cc.gullinbursti.sorting {
 	// <[!] class delaration [¡]>
 	public class Noncomparing extends BasicSorting {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+		
+		
+		/*
+		* Non-Comaparision Sorts:
+		* 	- Bead sort
+		*	- Burstsort
+		* 	- Bucket sort
+		* 	- Radix sort
+		*	- Counting sort
+		* 	- Pigeonhole sort
+		* 	- Postman sort
+		*/
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	
@@ -119,17 +132,45 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * Radix sorts the data set & returns the sorted list. 
+		 * Radix sorts the data set by LSD (least signifcant digit) & returns the sorted list. 
 		 * 
 		 * @param array
 		 * @return Array
 		 */
-		public static function radixSort(in_arr:Array, isAscending:Boolean=true):Array {
+		public static function lsdRadixSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			//TODO: implement radix sort algorithm
+			//TODO: implement lsd radix sort algorithm
 			
 			
 			return (in_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function msdRadixSort(in_arr:Array, isAscending:Boolean=true):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement msd radix sort algorithm
+			
+			
+			return (in_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function postmanSort(in_arr:Array, isAscending:Boolean=true):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement postman sort algorithm
+			
+			
+			return (in_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function spaghettiSort(in_arr:Array, isAscending:Boolean=true):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement spaghetti sort algorithm
+			
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			return (sort_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

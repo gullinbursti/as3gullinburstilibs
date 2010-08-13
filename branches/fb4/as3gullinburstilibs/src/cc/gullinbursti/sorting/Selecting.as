@@ -89,31 +89,44 @@ package cc.gullinbursti.sorting {
 			*/
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
-			var len:int = sort_arr.length;
+			var len:int = in_arr.length;
+			var min_ind:int;
 			
-			var min_ind:int;;
-			var tmp:int;
-			
-			for (var i:int=0; i<len-1; i++) {
-				min_ind = i;
+			// loop from top to bot
+			for (var i:int=len-1; i>0; i--) {
 				
-				for (var j:int=i+1; j<len; j++) {
+				// prime lowest index
+				min_ind = 0;
+				
+				// loop from 1st to counter
+				for (var j:int=1; j<=i; j++) {
+					
+					// val is less than lowest index, set lowest to val
 					if (sort_arr[j] < sort_arr[min_ind])
 						min_ind = j;
 				}
 				
-				if (min_ind != i) {
-					tmp = sort_arr[i];
-					sort_arr[i] = sort_arr[min_ind];
-					sort_arr[min_ind] = tmp;
-				}
+				// swap the elements
+				Arrays.swapElements(sort_arr, min_ind, i);
 			}
 			
+			// reverse for ascending order
+			if (isAscending)
+				return (Arrays.reverse(sort_arr));
+			
 			return (sort_arr);
-			
-			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-
+		
+		
+		public static function poolsort(in_arr:Array, isAscending:Boolean=true):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement poolsort algorithm
+			
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			return (sort_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 		
 		/**
 		 * Smoothsorts the data set & returns the sorted list. 

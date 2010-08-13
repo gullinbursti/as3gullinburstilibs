@@ -154,5 +154,26 @@ package cc.gullinbursti.sorting {
 			
 			return (sort_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function flashsort(in_arr:Array, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement flash sort algorithm
+			
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			return (sort_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function jSort(in_arr:Array, isAscending:Boolean=true):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement j sort algorithm
+			
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			return (sort_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

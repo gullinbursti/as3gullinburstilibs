@@ -39,6 +39,83 @@ package cc.gullinbursti.sorting {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
+		public static function exchangeSort(in_arr:Array, isAscending:Boolean=true):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
+			var len:int = in_arr.length;
+			var tmp:int;
+			
+			for (var i:int=0; i<len; i++) {
+				for (var j:int=i+1; j<len; j++) {
+				
+					if (sort_arr[i] > sort_arr[j])
+						Arrays.swapElements(sort_arr, i, j);
+				}
+			}
+			
+			return (sort_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
+		
+		
+		public static function binarySort(in_arr:Array, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// array length
+			var len:int = in_arr.length;
+			
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			// base index to compare
+			var base_ind:int;
+			
+			// swap flag
+			var isSwap:Boolean;
+			
+			
+			// start outer sort loop
+			for (var i:int=0; i<len; i++) {
+				
+				// find the next smallest number
+				base_ind = i;
+				isSwap = false;
+				
+				// start inner loop
+				for (var j:int=i+1; j<len; j++) {
+					
+					// returning asc vals
+					if (isAscending) {
+						
+						// index under [j] is >, set to swap
+						if (sort_arr[base_ind] > sort_arr[j]) {
+							base_ind = j;
+							isSwap = true;
+						}
+						
+						// return desc vals
+					} else {
+						
+						// index under [j] is smaller, set to swap
+						if (sort_arr[base_ind] < sort_arr[j]) {
+							base_ind = j;
+							isSwap = true;
+						}
+					}
+				}
+				
+				// swap two array vals, if needed
+				if (isSwap)
+					Arrays.swapElements(sort_arr, base_ind, i);
+			}
+			
+			
+			// return sorted array
+			return (sort_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
 		/**
 		 * Bubble sorts the data set & returns the sorted list. 
 		 * (aka exchange sort)
@@ -63,19 +140,21 @@ package cc.gullinbursti.sorting {
 			var j:int = 0;
 			var tmp:int;
 			
+			// loop until no swapping
 			while (isSwapped) {
 				
+				// prime boolean
 				isSwapped = false;
+				
+				// loop counter
 				j++;
 				
+				// loop thru array, counter to length
 				for (var i:int=0; i<sort_arr.length - j; i++) {
 					
-					if (sort_arr[i] > sort_arr[i+1]) {
-						tmp = sort_arr[i];
-						sort_arr[i] = sort_arr[i+1];
-						sort_arr[i+1] = tmp;
-						isSwapped = true;
-					}
+					// swap elements if current > the next
+					if (sort_arr[i] > sort_arr[i+1])
+						Arrays.swapElements(sort_arr, i, i+1);
 				}
 			}
 			

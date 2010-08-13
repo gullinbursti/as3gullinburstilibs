@@ -77,7 +77,12 @@ package cc.gullinbursti.math.probility {
 		public static function generateInt(lower:Number, upper:Number):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			// remove decimal from floating pt #
+			lower = Math.min(lower, upper);
+			upper = Math.max(lower, upper);
+			
+			if (lower == upper)
+				return (lower);
+				
 			return (Numbers.dropDecimal(generateFloat(lower, upper+1)));
 		
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
