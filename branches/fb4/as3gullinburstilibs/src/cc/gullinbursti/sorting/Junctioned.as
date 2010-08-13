@@ -1,18 +1,18 @@
 package cc.gullinbursti.sorting {
-	import cc.gullinbursti.lang.Arrays;
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.lang.Arrays;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
 	 * 
 	 * @author Gullinbursti
 	 */
-	 // <[!] class delaration [¡]>
+	// <[!] class delaration [¡]>
 	public class Junctioned extends BasicSorting {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		//TODO: implement add'l exchange sorts
+		//TODO: implement add'l junctioned sorts
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	
@@ -27,6 +27,20 @@ package cc.gullinbursti.sorting {
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
+		
+		
+		/**
+		 * Utilizes <i>intro sort</i> as the class default algorithm to sort a list of items.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * 
+		 */	
+		public static function sort(in_arr:Array, isAscending:Boolean=true):void {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// perform intro sort on list
+			in_arr = introSort(in_arr, isAscending);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
@@ -59,7 +73,7 @@ package cc.gullinbursti.sorting {
 		 * 
 		 */
 		public static function spreadsort(in_arr:Array, isAscending:Boolean=true):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement spreadsort algorithm
 			
 			// sorted array

@@ -145,7 +145,7 @@ package cc.gullinbursti.sorting {
 		 * 
 		 */		
 		public static function exchangeSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			return (Exchanging.exchangeSort(in_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
@@ -158,7 +158,7 @@ package cc.gullinbursti.sorting {
 		 * 
 		 */		
 		public static function heapSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			return (Selecting.heapSort(in_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
@@ -211,7 +211,7 @@ package cc.gullinbursti.sorting {
 		 * 
 		 */		
 		public static function radixSort(in_arr:Array, isAscending:Boolean=true, isLSD:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// use LSD
 			if (isLSD)

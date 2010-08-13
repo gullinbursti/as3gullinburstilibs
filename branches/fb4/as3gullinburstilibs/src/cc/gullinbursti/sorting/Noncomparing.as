@@ -40,6 +40,19 @@ package cc.gullinbursti.sorting {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
+		/**
+		 * Utilizes <i>bucket sort</i> as the class default algorithm to sort a list of items.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * 
+		 */		
+		public static function sort(in_arr:Array, isAscending:Boolean=true):void {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// perform bogo sort on list
+			in_arr = bucketSort(in_arr, isAscending);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 		
 		public static function beadSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

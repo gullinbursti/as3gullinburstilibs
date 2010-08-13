@@ -35,6 +35,20 @@ package cc.gullinbursti.sorting {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
+		/**
+		 * Utilizes <i>selection sort</i> as the class default algorithm to sort a list of items.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * 
+		 */		
+		public static function sort(in_arr:Array, isAscending:Boolean=true):void {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// perform bogo sort on list
+			in_arr = selectionSort(in_arr, isAscending);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
 		public static function selectionSort(in_arr:Array, isAscending:Boolean=true):Array {
 			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			

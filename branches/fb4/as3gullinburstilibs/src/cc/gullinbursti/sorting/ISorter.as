@@ -9,7 +9,7 @@ package cc.gullinbursti.sorting {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
 		
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		function sort(in_arr:Array, isAsc:Boolean=true):void;
+		function sort(in_arr:Array):void;
 		//]~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 	}

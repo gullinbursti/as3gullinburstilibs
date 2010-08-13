@@ -37,6 +37,22 @@ package cc.gullinbursti.sorting {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
+		
+		/**
+		 * Utilizes <i>insertion sort</i> as the class default algorithm to sort a list of items.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * 
+		 */		
+		public static function sort(in_arr:Array, isAscending:Boolean=true):void {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// perform bogo sort on list
+			in_arr = insertionSort(in_arr, isAscending);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
 		/**
 		 * Utilizes the common insertion sort algorithm to order items in a list.
 		 * @param in_arr An <code>Array</code> of items to sort

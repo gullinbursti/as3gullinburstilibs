@@ -1,8 +1,8 @@
 package cc.gullinbursti.sorting {
-	import cc.gullinbursti.lang.Arrays;
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.lang.Arrays;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
 	
 	/**
@@ -11,7 +11,7 @@ package cc.gullinbursti.sorting {
 	 */
 	
 	// <[!] class delaration [¡]>
-	public class AsinineSorting extends BasicSorting {
+	public class Asinine extends BasicSorting {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -21,12 +21,26 @@ package cc.gullinbursti.sorting {
 		/**
 		 * 
 		 */
-		// <*] class constructor [*>	
-		public function AsinineSorting() {/* …\(^_^)/… */}
+		// <*] class constructor [*>
+		public function Asinine() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
+		
+		
+		/**
+		 * Utilizes <i>bogo sort</i> as the class default algorithm to sort a list of items.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * 
+		 */		
+		public static function sort(in_arr:Array, isAscending:Boolean=true):void {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// perform bogo sort on list
+			in_arr = bogoSort(in_arr, isAscending);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
@@ -38,7 +52,7 @@ package cc.gullinbursti.sorting {
 		 * 
 		 */	
 		public static function bogoSort(in_arr:Array, isAscending:Boolean=true):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement bogo sort algorithm
 			
 			/* O(n • n!) */
@@ -62,7 +76,7 @@ package cc.gullinbursti.sorting {
 		 * 
 		 */	
 		public static function luckysort(in_arr:Array, isAscending:Boolean=true):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement lucky sort algorithm
 			
 			
@@ -83,7 +97,7 @@ package cc.gullinbursti.sorting {
 		 * 
 		 */	
 		public static function stoogeSort(in_arr:Array, isAscending:Boolean=true):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement stooge sort algorithm
 			
 			/* O(n²⁽⁷ʹ¹⁰⁾ */
@@ -94,7 +108,6 @@ package cc.gullinbursti.sorting {
 			
 			// return the sorted list
 			return (orderBy(sort_arr, isAscending));
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯	
 	}
 }
