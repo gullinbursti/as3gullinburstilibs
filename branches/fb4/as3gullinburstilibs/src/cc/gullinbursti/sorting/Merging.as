@@ -36,16 +36,11 @@ package cc.gullinbursti.sorting {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		/**
-		 * Merge sorts the data set & returns the sorted list 
+		 * Utilizes the common merge sort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
-		 */
-		/**
-		 * Merge sorts the data set & returns the sorted list. 
-		 * 
-		 * @param array
-		 * @return Array
 		 */
 		public static function mergeSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
@@ -68,16 +63,11 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * Polyphase merge sorts the data set & returns the sorted list 
+		 * Utilizes the polyphase sort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
-		 */
-		/**
-		 * Merge sorts the data set & returns the sorted list. 
-		 * 
-		 * @param array
-		 * @return Array
 		 */
 		public static function polyphaseSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
@@ -90,10 +80,11 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * Strand sorts the data set & returns the sorted list. 
+		 * Utilizes the strand sort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
 		 */
 		public static function strandSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
@@ -107,10 +98,11 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * Timsorts the data set & returns the sorted list. 
+		 * Utilizes the timsort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
 		 */
 		public static function timsort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
@@ -123,10 +115,11 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * UnShuffle sorts the data set & returns the sorted list. 
+		 * Utilizes the unshuffle sort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
 		 */
 		public static function unshuffleSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

@@ -29,6 +29,13 @@ package cc.gullinbursti.sorting {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
+		/**
+		 * Utilizes the introsort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
+		 * 
+		 */
 		public static function introSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement intro sort algorithm
@@ -39,6 +46,14 @@ package cc.gullinbursti.sorting {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		
+		/**
+		 * Utilizes the spreadsort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
+		 * 
+		 */
 		public static function spreadsort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement spreadsort algorithm

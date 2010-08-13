@@ -38,11 +38,12 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * Insertion sorts the data set & returns the sorted list. 
+		 * Utilizes the common insertion sort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
-		 */
+		 */	
 		public static function insertionSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
@@ -75,11 +76,12 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * Library sorts the data set & returns the sorted list. 
+		 * Utilizes the library sort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
-		 */
+		 */	
 		public static function librarySort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement library sort algorithm
@@ -91,11 +93,12 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * Patience sorts the data set & returns the sorted list. 
+		 * Utilizes the patience sort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
-		 */
+		 */	
 		public static function patienceSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement patience sort algorithm
@@ -107,11 +110,12 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * Shell sorts the data set & returns the sorted list. 
+		 * Utilizes the shell sort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
-		 */
+		 */	
 		public static function shellSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement shell sort algorithm
@@ -141,11 +145,12 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * Tree sorts the data set & returns the sorted list. 
+		 * Utilizes the tree sort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
-		 */
+		 */	
 		public static function treeSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement tree sort algorithm
@@ -156,9 +161,17 @@ package cc.gullinbursti.sorting {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function flashsort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			//TODO: implement flash sort algorithm
+		
+		/**
+		 * Utilizes the flash sort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
+		 * 
+		 */	
+		public static function flashSort(in_arr:Array, isAscending:Boolean=true):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement flash sort algorithm [http://www.neubert.net/FSOIntro.html]
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
@@ -166,7 +179,13 @@ package cc.gullinbursti.sorting {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		
+		/**
+		 * Utilizes the j-sort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
+		 * 
+		 */
 		public static function jSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement j sort algorithm

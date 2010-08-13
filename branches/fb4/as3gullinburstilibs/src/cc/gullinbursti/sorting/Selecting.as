@@ -110,11 +110,8 @@ package cc.gullinbursti.sorting {
 				Arrays.swapElements(sort_arr, min_ind, i);
 			}
 			
-			// reverse for ascending order
-			if (isAscending)
-				return (Arrays.reverse(sort_arr));
-			
-			return (sort_arr);
+			// return ordered list
+			return (orderBy(sort_arr, !isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

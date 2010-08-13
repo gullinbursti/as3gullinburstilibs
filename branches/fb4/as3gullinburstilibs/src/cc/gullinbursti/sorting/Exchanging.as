@@ -3,6 +3,8 @@ package cc.gullinbursti.sorting {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.lang.Arrays;
+	import cc.gullinbursti.lang.Numbers;
+
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
@@ -25,7 +27,9 @@ package cc.gullinbursti.sorting {
 		
 		
 		//] class properties ]>
-		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.	
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+		private static var resurse_cnt:int=0;
+		
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		/**
@@ -39,6 +43,13 @@ package cc.gullinbursti.sorting {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
+		/**
+		 * Utilizes the common <i>exchange sort</i> algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
+		 * 
+		 */	
 		public static function exchangeSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
@@ -59,6 +70,14 @@ package cc.gullinbursti.sorting {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
 		
 		
+		
+		/**
+		 * Utilizes the <i>binary sort</i> algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
+		 * 
+		 */
 		public static function binarySort(in_arr:Array, isAscending:Boolean=true):Array {
 			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
@@ -84,25 +103,12 @@ package cc.gullinbursti.sorting {
 				
 				// start inner loop
 				for (var j:int=i+1; j<len; j++) {
-					
-					// returning asc vals
-					if (isAscending) {
 						
-						// index under [j] is >, set to swap
-						if (sort_arr[base_ind] > sort_arr[j]) {
-							base_ind = j;
-							isSwap = true;
-						}
-						
-						// return desc vals
-					} else {
-						
-						// index under [j] is smaller, set to swap
-						if (sort_arr[base_ind] < sort_arr[j]) {
-							base_ind = j;
-							isSwap = true;
-						}
-					}
+					// index under [j] is >, set to swap
+					if (sort_arr[base_ind] > sort_arr[j]) {
+						base_ind = j;
+						isSwap = true;
+					}	
 				}
 				
 				// swap two array vals, if needed
@@ -111,17 +117,18 @@ package cc.gullinbursti.sorting {
 			}
 			
 			
-			// return sorted array
-			return (sort_arr);
+			// return sorted list asc / desc
+			return (orderBy(sort_arr, isAscending));
+			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
-		 * Bubble sorts the data set & returns the sorted list. 
-		 * (aka exchange sort)
+		 * Utilizes the <i>bubble sort</i> algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
 		 */
 		public static function bubbleSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
@@ -164,10 +171,11 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * Cocktail sorts the data set & returns the sorted list. 
+		 * Utilizes the <i>cocktail sort</i> algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
 		 */
 		public static function cocktailSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
@@ -182,11 +190,12 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * Comb sorts the data set & returns the sorted list. 
+		 * Utilizes the <i>comb sort</i> algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
-		 */
+		 */	
 		public static function combSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement comb sort algorithm
@@ -198,6 +207,13 @@ package cc.gullinbursti.sorting {
 		
 		
 		
+		/**
+		 * Utilizes the <i>gnome sort</i> algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
+		 * 
+		 */
 		public static function gnomeSort(in_arr:Array):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement gnome sort algorithm
@@ -236,10 +252,11 @@ package cc.gullinbursti.sorting {
 		
 		
 		/**
-		 * Odd-Even sorts the data set & returns the sorted list. 
+		 * Utilizes the <i>odd/even sort</i> algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
 		 */
 		public static function oddEvenSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
@@ -251,16 +268,18 @@ package cc.gullinbursti.sorting {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		
 		/**
-		 * Quicksorts the data set & returns the sorted list. 
+		 * Utilizes the <i>quicksort</i> algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param l Starting index to sort on
+		 * @param r Ending index to sort on
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
 		 */
 		public static function quicksort(in_arr:Array, l:int=0, r:int=-1, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			//TODO: implement quick sort algorithm
-			
 			/*
 				Not stable
 				O(lg(n)) extra space (see discussion)
@@ -268,30 +287,38 @@ package cc.gullinbursti.sorting {
 				Not adaptive
 			*/
 			
-			//var sort_arr:Array = Arrays.xerox(in_arr, true);
-			
+			// change end index to last
 			if (r == -1)
-				r = in_arr.length;
-			
-			var ind:int = partition(in_arr, l, r);
-			
-			if (l < ind -1)
-				quicksort(in_arr, l, ind - 1);
-			
-			if (ind < r)
-				quicksort(in_arr, ind, r);
+				r = in_arr.length-1;
 			
 			
-			return (in_arr);
+			// duplicate input array
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			
+			// init recurse counter
+			resurse_cnt = 0;
+			
+			// start the sort
+			kwiksort(sort_arr, l, r);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
+			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		
 		/**
-		 * Quicksorts using 3-way partitoning of the data set & returns the sorted list. 
+		 * Utilizes the <i>3-way quicksort</i> algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param l Starting index to sort on
+		 * @param r Ending index to sort on
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
 		 * 
-		 * @param array
-		 * @return Array
-		 */
+		 */	
 		public static function quicksort3(in_arr:Array, l:int=0, r:int=-1, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement quick sort 3 algorithm
@@ -303,21 +330,102 @@ package cc.gullinbursti.sorting {
 				Adaptive: O(n) time when O(1) unique keys
 			*/
 			
-			//var sort_arr:Array = Arrays.xerox(in_arr, true);
-			
+			// change end index to last
 			if (r == -1)
-				r = in_arr.length;
-			
-			var ind:int = partition(in_arr, l, r);
-			
-			if (l < ind -1)
-				quicksort(in_arr, l, ind - 1);
-			
-			if (ind < r)
-				quicksort(in_arr, ind, r);
+				r = in_arr.length-1;
 			
 			
-			return (in_arr);
+			// duplicate input array
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			
+			// init recurse counter
+			resurse_cnt = 0;
+			
+			// start the sort
+			kwiksort(sort_arr, l, r);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * Helper recursable function for quicksorting.
+		 * @param in_arr An <code>Array</code> containing all / a segment of the items 
+		 * @param l Staring index to sort on
+		 * @param r Ending index to sort on
+		 * 
+		 */		
+		private static function kwiksort(in_arr:Array, l:int, r:int):void {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// find the index to partition on
+			var par_ind:int = partition(in_arr, l, r);
+			
+			
+			// inc the rescurse counter
+			resurse_cnt++;
+			
+			// recurse when left index
+			if (l < par_ind - 1)
+				kwiksort(in_arr, l, par_ind - 1);
+			
+			
+			// recurse when partition index 
+			if (par_ind < r)
+				kwiksort(in_arr, par_ind, r);
+			
+			
+			/*
+			// pivot index is 1/2 between start & end
+			var pivot_val:int = in_arr[Numbers.dropDecimal((l + r) / 2)];
+			
+			// loop iterators
+			var i:Number = l;
+			var j:Number = r;
+			
+			
+			// inc resurse counter
+			resurse_cnt++;
+			
+			
+			// keep looping until left index is greater than right
+			while (i <= j) {
+				
+				
+				// inc i up towards the pivot while val is less than it
+				while (in_arr[i] < pivot_val)
+					i++;
+				
+				// dec j down towards to the pivot while val is less than it
+				while (in_arr[j] > pivot_val)
+					j--;
+				
+				
+				// when left val is smaller than right val, swap items & adj counters
+				if (i <= j)
+					Arrays.swapElements(in_arr, i++, j--);
+			}
+			
+			
+			
+			// recurse if left index is less than j
+			if (l < j)
+				kwiksort(in_arr, l, j);
+			
+			
+			// recurse if i is less than right index
+			if (i < r)
+				kwiksort(in_arr, i, r);
+			
+			*/
+			
+			//trace ("\n]] START("+resurse_cnt+") [[->> i:["+i+"] j:["+j+"] pivot:["+pivot_val+"] pre_arr:["+in_arr+"]");
+			//trace ("  -:]] SWAP [[ ->> i:["+(i-1)+"]="+in_arr[i-1]+" j:["+(j+1)+"]="+in_arr[j+1]+" // swap_arr:["+in_arr+"]");
+			//trace ("]] FIN [[->> l:["+l+"] j:["+j+"] // i:["+i+"] r:["+r+"]");
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }
