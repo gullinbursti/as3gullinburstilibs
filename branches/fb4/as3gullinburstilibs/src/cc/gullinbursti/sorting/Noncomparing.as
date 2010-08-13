@@ -40,28 +40,24 @@ package cc.gullinbursti.sorting {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
-		/**
-		 * Bead sorts the data set & returns the sorted list. 
-		 * 
-		 * @param array
-		 * @return Array
-		 */
+		
 		public static function beadSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement bead sort algorithm
 			
 			// O(n) / O(n2)
 			
-			return (in_arr);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		/**
-		 * Bucket sorts the data set & returns the sorted list. 
-		 * 
-		 * @param array
-		 * @return Array
-		 */
+		
 		public static function bucketSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement bucket sort algorithm
@@ -82,77 +78,95 @@ package cc.gullinbursti.sorting {
 			 * return the concatenation of buckets[0], ..., buckets[n-1]
 			 */
 			
-			return (in_arr);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		/**
-		 * Burst sorts the data set & returns the sorted list. 
-		 * 
-		 * @param array
-		 * @return Array
-		 */
+		
 		public static function burstsort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement burst sort algorithm
 			
 			
-			return (in_arr);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		/**
-		 * Count sorts the data set & returns the sorted list. 
-		 * 
-		 * @param array
-		 * @return Array
-		 */
+		
 		public static function countSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement count sort algorithm
 			
 			
-			return (in_arr);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		/**
-		 * Pigenhole sorts the data set & returns the sorted list. 
-		 * 
-		 * @param array
-		 * @return Array
-		 */
+		public static function lsdRadixSort(in_arr:Array, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement lsd radix sort algorithm
+			
+			
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function msdRadixSort(in_arr:Array, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement msd radix sort algorithm
+			
+			
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
 		public static function pigeonholeSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement pigeonhole sort algorithm
 			
 			
-			return (in_arr);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		/**
-		 * Radix sorts the data set by LSD (least signifcant digit) & returns the sorted list. 
-		 * 
-		 * @param array
-		 * @return Array
-		 */
-		public static function lsdRadixSort(in_arr:Array, isAscending:Boolean=true):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			//TODO: implement lsd radix sort algorithm
-			
-			
-			return (in_arr);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function msdRadixSort(in_arr:Array, isAscending:Boolean=true):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			//TODO: implement msd radix sort algorithm
-			
-			
-			return (in_arr);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public static function postmanSort(in_arr:Array, isAscending:Boolean=true):Array {
@@ -160,7 +174,13 @@ package cc.gullinbursti.sorting {
 			//TODO: implement postman sort algorithm
 			
 			
-			return (in_arr);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -168,9 +188,13 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement spaghetti sort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

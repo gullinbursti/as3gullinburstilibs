@@ -43,13 +43,14 @@ package cc.gullinbursti.sorting {
 			
 			/* O(n • n!) */
 			
+			
+			// duplicate input array
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
 			
 			
-			
-			
-			return (in_arr);
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -65,7 +66,12 @@ package cc.gullinbursti.sorting {
 			//TODO: implement lucky sort algorithm
 			
 			
-			return (in_arr);
+			// duplicate input array
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -82,7 +88,12 @@ package cc.gullinbursti.sorting {
 			
 			/* O(n²⁽⁷ʹ¹⁰⁾ */
 			
-			return (in_arr);
+			// duplicate input array
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 	}

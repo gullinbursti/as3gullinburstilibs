@@ -35,57 +35,15 @@ package cc.gullinbursti.sorting {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
-		/**
-		 * Cartesian tree sorts the data set & returns the sorted list. 
-		 * 
-		 * @param array
-		 * @return Array
-		 */
-		public static function cartTreeSort(in_arr:Array, isAscending:Boolean=true):Array {
+		public static function selectionSort(in_arr:Array, isAscending:Boolean=true):Array {
 			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
-			
-			return (sort_arr);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		/**
-		 * Heap sorts the data set & returns the sorted list. 
-		 * 
-		 * @param array
-		 * @return Array
-		 */
-		public static function heapSort(in_arr:Array, isAscending:Boolean=true):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			//TODO: Implement heap sort
-			
 			/*
-				Not stable
-				O(1) extra space (see discussion)
-				O(n·lg(n)) time
-				Not really adaptive
-			*/
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
-			
-			return (sort_arr);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		/**
-		 * Selection sorts the data set & returns the sorted list. 
-		 * 
-		 * @param array
-		 * @return Array
-		 */
-		public static function selectionSort(in_arr:Array, isAscending:Boolean=true):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
-			/*
-				Not stable
-				O(1) extra space
-				Θ(n²) comparisons
-				Θ(n) swaps
-				Not adaptive
+			Not stable
+			O(1) extra space
+			Θ(n²) comparisons
+			Θ(n) swaps
+			Not adaptive
 			*/
 			
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
@@ -115,44 +73,85 @@ package cc.gullinbursti.sorting {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		
+		public static function cartTreeSort(in_arr:Array, isAscending:Boolean=true):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function heapSort(in_arr:Array, isAscending:Boolean=true):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: Implement heap sort
+			
+			/*
+				Not stable
+				O(1) extra space (see discussion)
+				O(n·lg(n)) time
+				Not really adaptive
+			*/
+			
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		
+		
+		
 		public static function poolsort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement poolsort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		/**
-		 * Smoothsorts the data set & returns the sorted list. 
-		 * 
-		 * @param array
-		 * @return Array
-		 */
+		
 		public static function smoothsort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: Implement smoothsort
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		/**
-		 * Tournament sorts the data set & returns the sorted list. 
-		 * 
-		 * @param array
-		 * @return Array
-		 */
+		
 		public static function tournamentSort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

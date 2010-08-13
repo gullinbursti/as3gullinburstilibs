@@ -55,9 +55,13 @@ package cc.gullinbursti.sorting {
 				Does not require random access to data
 			*/
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -73,9 +77,13 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement polyphase sort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -90,9 +98,13 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement strand sort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -108,9 +120,13 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement time sort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -125,9 +141,13 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement unshuffle sort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 	}

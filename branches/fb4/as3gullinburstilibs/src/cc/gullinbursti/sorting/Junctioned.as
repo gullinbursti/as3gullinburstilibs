@@ -10,7 +10,7 @@ package cc.gullinbursti.sorting {
 	 * @author Gullinbursti
 	 */
 	 // <[!] class delaration [¡]>
-	public class Junctioning extends BasicSorting {
+	public class Junctioned extends BasicSorting {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		//TODO: implement add'l exchange sorts
 		
@@ -22,7 +22,7 @@ package cc.gullinbursti.sorting {
 		 * 
 		 */
 		// <*] class constructor [*>	
-		public function Junctioning() {/* …\(^_^)/… */}
+		public function Junctioned() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
@@ -40,9 +40,13 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement intro sort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -58,9 +62,13 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement spreadsort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

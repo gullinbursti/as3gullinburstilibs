@@ -54,24 +54,83 @@ package cc.gullinbursti.sorting {
 				Adaptive: O(n) time when nearly sorted
 			*/
 			
-			var j:int;
-			var tmp:int;
+			
+			
+			// sorted array
 			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
+			
+			// loop from index 1 to end
 			for (var i:int=1; i<sort_arr.length; i++) {
-				tmp = sort_arr[i];
-				j = i;
 				
-				while (j > 0 && sort_arr[j-1] > tmp) {
+				// set a tmp obj
+				var tmp_obj:Object = sort_arr[i];
+				
+				// prime j index
+				var j:int = i;
+				
+				
+				// loop while j is larger than 0 AND val at j-1 is larger than the tmp
+				while (j > 0 && sort_arr[j-1] > tmp_obj) {
+					
+					// swap pt1
 					sort_arr[j] = sort_arr[j-1];
+					
+					// dec j index
 					j--;
 				}
-				sort_arr[j] = tmp;
+				
+				// swap pt2
+				sort_arr[j] = tmp_obj;
 			}
 			
-			return (sort_arr);
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * Utilizes the flash sort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
+		 * 
+		 */	
+		public static function flashSort(in_arr:Array, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement flash sort algorithm [http://www.neubert.net/FSOIntro.html]
+			
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
 			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Utilizes the j-sort algorithm to order items in a list.
+		 * @param in_arr An <code>Array</code> of items to sort
+		 * @param isAscending Determines ascending / descending returned order
+		 * @return A new <code>Array</code> of sorted items
+		 * 
+		 */
+		public static function jSort(in_arr:Array, isAscending:Boolean=true):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//TODO: implement j sort algorithm
+			
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -86,9 +145,13 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement library sort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -103,9 +166,13 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement patience sort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -137,9 +204,13 @@ package cc.gullinbursti.sorting {
 			 * 	end
 			 */
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -155,44 +226,14 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement tree sort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		
-		
-		/**
-		 * Utilizes the flash sort algorithm to order items in a list.
-		 * @param in_arr An <code>Array</code> of items to sort
-		 * @param isAscending Determines ascending / descending returned order
-		 * @return A new <code>Array</code> of sorted items
-		 * 
-		 */	
-		public static function flashSort(in_arr:Array, isAscending:Boolean=true):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			//TODO: implement flash sort algorithm [http://www.neubert.net/FSOIntro.html]
-			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
-			
-			return (sort_arr);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		/**
-		 * Utilizes the j-sort algorithm to order items in a list.
-		 * @param in_arr An <code>Array</code> of items to sort
-		 * @param isAscending Determines ascending / descending returned order
-		 * @return A new <code>Array</code> of sorted items
-		 * 
-		 */
-		public static function jSort(in_arr:Array, isAscending:Boolean=true):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			//TODO: implement j sort algorithm
-			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
-			
-			return (sort_arr);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

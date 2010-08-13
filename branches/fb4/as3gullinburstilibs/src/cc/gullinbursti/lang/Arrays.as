@@ -180,6 +180,14 @@ package cc.gullinbursti.lang {
 		public static function genPtRef(in_arr:Array, hasRepeats:Boolean=true):Array {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
+			// allowing repeats
+			if (hasRepeats)
+				return (in_arr.slice());
+			
+			return (in_arr.slice());
+			
+			
+			/*
 			// reference array
 			var ref_arr:Array;
 			
@@ -192,7 +200,7 @@ package cc.gullinbursti.lang {
 				ref_arr = in_arr.slice();
 			
 			
-			return (ref_arr);
+			return (ref_arr);*/
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -287,15 +295,31 @@ package cc.gullinbursti.lang {
 		
 		
 		
-		public static function reverse(in_arr:Array):Array {
+		public static function reverse(in_arr:Array):void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			var i:int;
+			var len:int = in_arr.length;
+			var rev_arr:Array = new Array();
+			
+			for (i=len-1; i>=0; i--)
+				rev_arr.push(in_arr[i]);
+			
+			for (i=0; i<len; i++)
+				in_arr[i] = rev_arr[i];
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function genReverse(in_arr:Array):Array {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			var len:int = in_arr.length;
 			var rev_arr:Array = new Array();
 			
 			for (var i:int=len-1; i>=0; i--)
 				rev_arr.push(in_arr[i]);
-			
 			
 			return (rev_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯

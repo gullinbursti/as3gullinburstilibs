@@ -31,7 +31,6 @@ package cc.gullinbursti.sorting {
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-		private static var resurse_pt:Point;
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		/**
@@ -55,20 +54,28 @@ package cc.gullinbursti.sorting {
 		public static function exchangeSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
+			// duplicate input array
 			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
+			// length of the list
 			var len:int = in_arr.length;
-			var tmp:int;
 			
+			
+			// loop thru all indexes
 			for (var i:int=0; i<len; i++) {
-				for (var j:int=i+1; j<len; j++) {
 				
+				// loop from i+1 to the end
+				for (var j:int=i+1; j<len; j++) {
+					
+					// swap items if 1st val is larger than 2nd
 					if (sort_arr[i] > sort_arr[j])
 						Arrays.swapElements(sort_arr, i, j);
 				}
 			}
 			
-			return (sort_arr);
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
 		
 		
@@ -81,7 +88,7 @@ package cc.gullinbursti.sorting {
 		 * 
 		 */
 		public static function binarySort(in_arr:Array, isAscending:Boolean=true):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// array length
 			var len:int = in_arr.length;
@@ -143,11 +150,15 @@ package cc.gullinbursti.sorting {
 			*/
 			
 			
+			// sorted array
 			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
+			// swap flag
 			var isSwapped:Boolean = true;
+			
+			// loop counter
 			var j:int = 0;
-			var tmp:int;
+			
 			
 			// loop until no swapping
 			while (isSwapped) {
@@ -167,7 +178,9 @@ package cc.gullinbursti.sorting {
 				}
 			}
 			
-			return (sort_arr);
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
 		
 		
@@ -184,9 +197,15 @@ package cc.gullinbursti.sorting {
 			//TODO: implement cocktail sort algorithm
 			
 			//O(n²)
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
 			
-			return (sort_arr);
+			
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -202,9 +221,13 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement comb sort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -216,11 +239,13 @@ package cc.gullinbursti.sorting {
 		 * @return A new <code>Array</code> of sorted items
 		 * 
 		 */
-		public static function gnomeSort(in_arr:Array):Array {
+		public static function gnomeSort(in_arr:Array, isAscending:Boolean=true):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement gnome sort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
+			
 			
 			/**
 			 * 
@@ -249,7 +274,8 @@ package cc.gullinbursti.sorting {
 			 */
 			
 			
-			return (sort_arr);
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -264,9 +290,13 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement odd/even sort algorithm
 			
-			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			// sorted array
+			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
-			return (sort_arr);
+			
+			
+			// return the sorted list
+			return (orderBy(sort_arr, isAscending));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -280,7 +310,7 @@ package cc.gullinbursti.sorting {
 		 * @return A new <code>Array</code> of sorted items
 		 * 
 		 */
-		public static function quicksort(in_arr:Array, l:int=0, r:int=-1, max:int=MAX_RECURSIONS, isAscending:Boolean=true):Array {
+		public static function quicksort(in_arr:Array, isAscending:Boolean=true, l:int=0, r:int=-1, max:int=MAX_RECURSIONS):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			/*
 				Not stable
@@ -299,7 +329,7 @@ package cc.gullinbursti.sorting {
 			
 			
 			// init recurse counter
-			resurse_pt = new Point(0, Math.min(max, MAX_RECURSIONS));
+			_recursion_pt = new Point(0, Math.min(max, MAX_RECURSIONS));
 			
 			// start the sort
 			kwiksort(sort_arr, l, r);
@@ -321,7 +351,7 @@ package cc.gullinbursti.sorting {
 		 * @return A new <code>Array</code> of sorted items
 		 * 
 		 */	
-		public static function quicksort3(in_arr:Array, l:int=0, r:int=-1, max:int=MAX_RECURSIONS, isAscending:Boolean=true):Array {
+		public static function quicksort3(in_arr:Array, isAscending:Boolean=true, l:int=0, r:int=-1, max:int=MAX_RECURSIONS):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement quick sort 3 algorithm
 			
@@ -342,7 +372,7 @@ package cc.gullinbursti.sorting {
 			
 			
 			// init recurse counter
-			resurse_pt = new Point(0, Math.min(max, MAX_RECURSIONS));
+			_recursion_pt = new Point(0, Math.min(max, MAX_RECURSIONS));
 			
 			// start the sort
 			kwiksort3(sort_arr, l, r);
@@ -369,10 +399,10 @@ package cc.gullinbursti.sorting {
 			
 			
 			// inc the rescurse counter
-			resurse_pt.x++;
+			_recursion_pt.x++;
 			
 			// abandon sort at max recursions
-			if (resurse_pt.x >= resurse_pt.y)
+			if (_recursion_pt.x >= _recursion_pt.y)
 				return;
 			
 			// recurse when left index
@@ -398,9 +428,9 @@ package cc.gullinbursti.sorting {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// inc the rescurse counter
-			resurse_pt.x++;
+			_recursion_pt.x++;
 			
-			trace ("\n\n]] ("+resurse_pt.x+")START ->> l:["+l+"] r:["+r+"] arr:["+in_arr+"]")
+			trace ("\n\n]] ("+_recursion_pt.x+")START ->> l:["+l+"] r:["+r+"] arr:["+in_arr+"]")
 			
 			// cutoff
 			if (l+3 > r)
