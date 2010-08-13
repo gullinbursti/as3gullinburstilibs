@@ -162,6 +162,21 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public static function isContaining(in_str:String, char_str:String):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// index of the character(s)
+			var char_ind:int = in_str.indexOf(char_str);
+			
+			// return false if not found
+			if (char_ind == -1)
+				return (false);
+			
+			// has an index
+			return (true);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
 		public static function isEmail(val:String):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
@@ -211,6 +226,50 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		
+		public static function afterFirst(in_str:String, char_str:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			
+			// return empty string if not found
+			if (!isContaining(in_str, char_str))
+				return ("");
+			
+			
+			// return all chars after
+			return (in_str.substr(in_str.indexOf(char_str) + char_str.length));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function afterLast(in_str:String, char_str:String):String {
+			
+			// return empty string if not found
+			if (!isContaining(in_str, char_str))
+				return ("");
+			
+			
+			// return all chars after
+			return (in_str.substr(in_str.lastIndexOf(char_str) + char_str.length));
+		}
+		
+		
+		public static function beforeFirst(in_str:String, char_str:String):String {
+			
+			
+			// return empty string if not found
+			if (!isContaining(in_str, char_str))
+				return ("");
+			
+			
+			// return all chars prior
+			return (in_str.substr(0, in_str.indexOf(char_str)));
+		}
+		
+		
+		public static function isStartingWith(in_str:String, char_str:String):Boolean {
+			
+			return (in_str.indexOf(char_str) == 0);
+		}
+		
 		public static function prependZeroes(ret_len:int, val:int):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
@@ -259,25 +318,33 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function genRndASCII(len:int, isMultiCased:Boolean=true, asciiRange:Point=null):String {
+		public static function genRndASCII(amt:int, isMultiCased:Boolean=true, range:Point=null):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			// no ascii range specified, use 'A' - 'Z'
-			if (!asciiRange)
-				asciiRange = new Point(65, 90);
+			// range length in unicode
+			var len:int;
 			
 			// return string
 			var concat_str:String = "";
 			
-			// coin flip for case
-			if (isMultiCased && Randomness.coinFlip())
+			// no ascii range specified, use 'A'(0x0041) - 'Z'(0x005a)
+			if (!range) {
+				len = Chars.LATIN_STD_CHARS.length;
+				range = new Point(Chars.LATIN_STD_CHARS[0][2], Chars.LATIN_STD_CHARS[len][2]);
+			
+			// passed in range
+			} else
+				len = Math.abs(range.y - range.x);
+			
 				
-			// loop thru & picking rand chars
-			for (var i:int=0; i<len; i++) {
-				var rnd_char:String = String.fromCharCode(Randomness.generateInt(asciiRange.x, asciiRange.y));
+			// loop thru amount to generate
+			for (var i:int=0; i<amt; i++) {
+				
+				// pick a random char
+				var rnd_char:String = String.fromCharCode(Randomness.generateInt(range.x, range.y));
 				
 				// upper + lower case
-				if (isMultiCased && asciiRange.x == 65 && asciiRange.y == 90)
+				if (isMultiCased && Chars.isStandardASCII(rnd_char))
 					rnd_char += int(Randomness.pickBit()) * 32;
 					
 				// append

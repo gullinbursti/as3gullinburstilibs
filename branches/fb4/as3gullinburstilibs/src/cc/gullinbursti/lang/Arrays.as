@@ -325,6 +325,115 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public static function subsetSlicer(in_arr:Array, dim_arr:Array=null, len:int=-1):Array {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			// loop counters
+			var i:int;
+			var j:int;
+			
+			// len restrain
+			len = Math.min(len, in_arr.length);
+			
+			// default to all items
+			if (len == -1)
+				len = in_arr.length;
+			
+			
+			// no dims specified, use the 1st
+			if (!dim_arr || dim_arr.length == 0) {
+				dim_arr = new Array();
+				dim_arr.push(0);
+			}
+			
+			// array made from slices 
+			var subset_arr:Array = new Array();
+			
+			// loop thru the input array & prime subset
+			for (i=0; i<len; i++)
+				subset_arr.push(in_arr[i].slice(dim_arr[0]));
+			
+			
+			// loop thru again
+			for (i=0; i<len; i++) {
+				
+				trace ("\n -: START ->> i:["+i+"] // ["+subset_arr[i]+"]");
+				
+				// loop thru the dimension array
+				for (j=1; j<dim_arr.length; j++) {
+					
+					trace ("  -: SUB-SLICE ->> j:["+j+"] @["+dim_arr[j]+"] ["+subset_arr[i]+"]");
+					subset_arr = subSlice(subset_arr[i], dim_arr[j]);
+				}
+			}
+			
+			
+			return (subset_arr);
+			
+			/*
+			// loop thru the input array
+			for (i=0; i<len; i++) {
+				
+				// wipe any prev slices
+				var slice_arr:Array = new Array();
+				
+				// loop thru the dimension array
+				for (j=0; j<dim_arr.length; j++) {
+					
+					// nothing there, return subset 
+					//if (!in_arr[i][dim_arr[j]]) {
+					if (subset_arr.length == 0) {
+						trace ("  -: IN-SLICE j:["+j+"] // @["+dim_arr[j]+"]  ["+in_arr[i][dim_arr[j]]+"] // [>"+in_arr[dim_arr[j]]+"<]");	
+						
+						// push the contents starting at dim[j]
+						slice_arr.push(in_arr[i][0][dim_arr[j]]); //(in_arr[i] as Array).slice(dim_arr[j], 1));
+						
+					} else {
+						//trace ("  -: SB-SLICE i:["+i+"] j:["+j+"] // @["+dim_arr[j]+"] ["+in_arr[i][dim_arr[j]]+"] // [>"+in_arr[i][dim_arr[j]]+"<]");
+						trace ("  -: SB-SLICE i:["+i+"] j:["+j+"] // @["+dim_arr[j]+"] ["+subset_arr[i][dim_arr[j]]+"] // [>"+subset_arr[i][dim_arr[j]]+"<]");
+						
+						// push the contents starting at dim[j]
+						slice_arr.push(subset_arr[i][dim_arr[j]]); //(in_arr[i] as Array).slice(dim_arr[j], 1));
+						
+					}
+						
+					
+					
+					
+					// push the contents starting at dim[j]
+					//slice_arr.push(in_arr[i][dim_arr[j]]); //(in_arr[i] as Array).slice(dim_arr[j], 1));
+				}
+				
+				trace (" -PUSHING: ("+slice_arr.length+") [>"+slice_arr+"<]\n")
+				
+				// push the sliced elements into subset
+				subset_arr.push(slice_arr);
+			}
+			*/
+			trace ("FIN: ["+subset_arr.length+"]")
+			
+			// return the sub array
+			return (subset_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		private static function subSlice(in_arr:Array, pivot:int):Array {
+			
+			// delete up to pivot
+			//if (pivot > 0)
+			//	in_arr = in_arr.splice(0, pivot-1);
+			
+			//trace ("   -: b-DEL ->> piv:["+pivot+"] // ["+in_arr+"]");
+			
+			// delete after pivot	
+			//in_arr = in_arr.splice(pivot, 1);
+			
+			trace ("   -: a-DEL ->> piv:["+pivot+"] // ["+in_arr+"]\n");
+			
+			return (in_arr.splice(pivot, 1));
+		}
+		
+		
 		public static function unicodeConvert(in_arr:Array, isAlpha:Boolean=true):Array {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			

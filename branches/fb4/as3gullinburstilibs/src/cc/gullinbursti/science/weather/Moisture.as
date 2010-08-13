@@ -25,7 +25,7 @@ package cc.gullinbursti.science.weather {
 		
 		
 		public static function realitiveHumidity(feh:Number, dewPt:Number):Number {
-			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			/**
 			 * rel_humidity = 
@@ -41,6 +41,7 @@ package cc.gullinbursti.science.weather {
 				2.04901523, 
 				10.14333127, 
 				0.22475541, 
+				
 				BasicMath.e(6.837830, -3), 
 				BasicMath.e(5.481717, -2), 
 				BasicMath.e(1.228740, -3), 
@@ -55,8 +56,8 @@ package cc.gullinbursti.science.weather {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	
 		
-		public static function satVaporPressure(celc:Number):Number {
-			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+		public static function satVaporPressure(cel:Number):Number {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			/**
 			 * 6.11*10.0**(7.5*Tc/(237.7+Tc))
@@ -68,8 +69,8 @@ package cc.gullinbursti.science.weather {
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		public static function vaporPressure(celc:Number):Number {
-			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+		public static function vaporPressure(cel:Number):Number {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			/**
 			 * 6.11*10.0**(7.5*Tdc/(237.7+Tdc))

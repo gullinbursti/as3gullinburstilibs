@@ -107,6 +107,13 @@
     <classEntry path="cc.gullinbursti.lang.Shapes"/>
     <classEntry path="cc.gullinbursti.math.geom.Cone"/>
     <classEntry path="cc.gullinbursti.math.geom.Sphere"/>
+    <classEntry path="cc.gullinbursti.sorting.Junctioned"/>
+    <classEntry path="cc.gullinbursti.sorting.Asinine"/>
+    <classEntry path="cc.gullinbursti.science.astro.BasicAstronomy"/>
+    <classEntry path="cc.gullinbursti.science.ai.BasicAI"/>
+    <classEntry path="cc.gullinbursti.science.thermo.BasicThermo"/>
+    <classEntry path="cc.gullinbursti.science.ai.Pathfinding"/>
+    <classEntry path="cc.gullinbursti.science.ai.Heuristics"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

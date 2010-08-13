@@ -1,4 +1,4 @@
-package cc.gullinbursti.science.chemistry {
+package cc.gullinbursti.science.thermo {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -10,21 +10,19 @@ package cc.gullinbursti.science.chemistry {
 	 */
 	
 	// <[!] class delaration [¡]>
-	public class BasicChem {
+	public class BasicThermo {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		//TODO: implement add'l basic chem methods
+		//TODO: implement add'l basic thermodynamics methods
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-		public static const AVOGADRO_CONST:Number = 6.02214179 * Math.pow(10, 23); // ±30 mol⁻¹ 
-		public static const GAS_CONST:Number = 8.314472 * Math.pow(10, 23); // ±15 J / K·mol
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		/**
 		 * 
 		 */
-		// <*] class constructor [*>	
-		public function BasicChem() {/* …\(^_^)/… */}
+		// <*] class constructor [*>
+		public function BasicThermo() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>

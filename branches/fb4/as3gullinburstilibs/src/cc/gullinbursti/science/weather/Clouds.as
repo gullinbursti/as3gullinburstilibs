@@ -14,6 +14,21 @@ package cc.gullinbursti.science.weather {
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+		
+		// basic types
+		public static const BASIC_CLOUDS:Array = new Array(
+			["Cirrus"], 
+			["Stratus"],
+			["Cummulus"], 
+			["Nimbus"], 
+			["Fog"]
+		);
+		
+		// median types
+		public static const PREFIXES:Array = new Array(
+			["Alto"] 
+		);
+		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 		
 		// <*] class constructor [*>
