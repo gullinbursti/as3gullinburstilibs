@@ -60,6 +60,45 @@ package cc.gullinbursti.converts {
 			return (temp + 273);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-
+		
+		// °R = °F - 459.67
+		public static function fehrenheitToRankine(temp:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (temp - 459.67);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// °R = (°C * (9 / 5)) + 32) - 459.67
+		public static function celciusToRankine(temp:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (celsiusToFehrenheit(temp) - 459.67);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		// °R = ((°K + 273) * (9 / 5)) + 32) - 459.67
+		public static function kelvinToRankine(temp:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (celciusToRankine(kelvinToCelsius(temp));	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		// °F = ((°K + 273) * (9 / 5)) + 32
+		public static function rankineToFehrenheit(temp:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (temp + 459.67);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		// °C =((°R + 459.67) - 32) * (5 / 9)
+		public static function rankineToCelsius(temp:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (fehrenheitToCelsius(rankineToFehrenheit(temp)));	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// °K = °R + 273
+		public static function rankineToKelvin(temp:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (fehrenheitToKelvin(rankineToFehrenheit(temp)));	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 	}
 }

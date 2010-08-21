@@ -1,5 +1,10 @@
 package cc.gullinbursti.science.weather {
+	import cc.gullinbursti.converts.Speed;
 	import cc.gullinbursti.math.BasicMath;
+	import cc.gullinbursti.math.geom.BasicGeom;
+	import cc.gullinbursti.math.geom.Trig;
+	
+	import flash.geom.Point;
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -57,27 +62,165 @@ package cc.gullinbursti.science.weather {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function windChill(temp:Number, spd:Number):Number {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		public static function summerSizzleIndex(feh:Number, rh:Number=-1):Number {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			/**
-			 * 
-			 * wind chill = 35.74 + (0.6215 × °F) - ((35.75 × mph) ^ 0.16) + ((0.4275 × °F × mph) ^ 0.16) [^ is “raised to”]
+			 * 	1.98(temp - (0.55 - 0.0055(rh))(temp-58)) - 56.83
 			 * 
 			 */
 			
-			/*
-			35.74 + (0.6215 × °F) - ((35.75 × mph) ^ 0.16) + ((0.4275 × °F × mph) ^ 0.16) [^ is “raised to”]
+			if (rh == -1)
+				rh = Moisture.realitiveHumidity(feh, 0);
 			
 			
-			35.74 + 0.6215T - 35.75V (**0.16) + 0.4275TV(**0.16) 
+			return (1.98 * (feh - (0.55 - 0.0055 * rh) * (feh - 58)) - 56.83);
 			
-			T = °F
-			V = mph
-			*/
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function virtualTemp(celc:Number, vapPress:Number, satVapPress:Number):Number {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
+			/**
+			 * 	Tv= ((TemperatureC + 273.16) / (1 - 0.378 * (VaporPressure / StationPressure))) - 273.16
+			 * 
+			 */
 			
-			return (34.74 + (0.6215 * temp) - Math.pow((35.75 * spd), 0.16) + Math.pow((0.4275 * temp * spd), 0.16));
+			return (0);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function liftedIndex(celc:Number, vapPress:Number, satVapPress:Number):Number {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			/**
+			 * 	LI= Tc(500mb) - Tp(500mb)
+			 * tp - adiabatic
+			 * 
+			 */
+			
+			return (0);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function verticalTotals(celc:Number, press:Number=850):Number {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			/**
+			 * 	VT= T(850mb) - T(500mb)
+			 * 
+			 */
+			
+			return (0);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function crossTotals(celc:Number, press:Number=850):Number {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			/**
+			 * 	CT= Tdewpt(850mb) - T(500mb)
+			 * 
+			 */
+			
+			return (0);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function totalTotals(celc:Number, dewpt:Number):Number {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			/**
+			 * 	TT= Tc(850mb) + Tdewc(850mb) - 2*Tc(500mb)
+			 * 
+			 */
+			
+			return (0);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function deepConvectIndex(celc:Number, dewpt:Number):Number {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			/**
+			 * 	DCI= T(850 mb) + Td(850 mb) - LI(sfc-500 mb)
+			 *  > 30 strong t-storms
+			 */
+			
+			return (0);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function maxHailSize(max_vel:Number):Number {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			/**
+			 * 	mhs = 2 * ((3 * 0.55 * 1.0033 * max_vel2) / (8 * 9.8 * 900)) * 100
+			 */
+			
+			return (2 * ((3 * 0.55 * 1.0033 * BasicMath.square(max_vel)) / (8 * 9.8 * 900)) * 100);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function tqIndex(celc:Number, dewpt:Number):Number {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			/**
+			 * low-top convection potential
+			 * (T850 + Td850 ) - 1.7 (T700)
+			 * > 12 storms possible
+			 * > 17 low-top storms possible
+			 */
+			
+			return (0);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function hWindUV(spd:Number, angle:Number):Point {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			/**
+			 * spd is mph
+			 * angle is degrees
+			 */
+			
+			spd = Speed.mphToKnots(spd);
+			
+			return (new Point(
+				-spd * 0.5148 * Trig.sinDeg(angle),
+				-spd * 0.5148 * Trig.cosDeg(angle)
+			));
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function airDensity(celc:Number, dewpt:Number):Number {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			/**
+			 * D= (mb*100)/((Tc+273.16)*287)
+			 */
+			
+			return (0);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function absHumidity(celc:Number, dewpt:Number):Number {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			/**
+			 * Ah= ((6.11*10.0**(7.5*Tdc/(237.7+Tdc)))*100)/((Tc+273.16)*461.5)
+			 */
+			
+			return (0);
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}

@@ -84,7 +84,6 @@
     <classEntry path="cc.gullinbursti.math.algebra.ComplexPolynomial"/>
     <classEntry path="cc.gullinbursti.lang.Arrays"/>
     <classEntry path="cc.gullinbursti.math.algebra.PolynomialVO"/>
-    <classEntry path="cc.gullinbursti.science.weather.Clouds"/>
     <classEntry path="cc.gullinbursti.science.weather.Precip"/>
     <classEntry path="cc.gullinbursti.science.weather.Temperature"/>
     <classEntry path="cc.gullinbursti.audio.MusicTheory"/>

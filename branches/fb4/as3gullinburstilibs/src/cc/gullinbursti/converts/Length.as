@@ -165,6 +165,29 @@ package cc.gullinbursti.converts {
 			return (len * 0.6213711922373346);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		//lat = mi * 69.125 
+		public static function statuteToLatitude(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 69.125);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		//lat = mi * 69.125 
+		public static function nauticalToLatitude(len:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (nauticalToStatute(len) * 69.125);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		//lat = mi * 69.125 
+		public static function latitudeToStatute(len:Number):Number {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (len * 0.014466546112116);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		//lat = mi * 69.125 
+		public static function latitudeToNautical(len:Number):Number {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (statuteToNautical(len * 0.014466546112116));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		// nautical mi = statute mi * 0.868976241900648 
 		public static function statuteToNautical(len:Number):Number {

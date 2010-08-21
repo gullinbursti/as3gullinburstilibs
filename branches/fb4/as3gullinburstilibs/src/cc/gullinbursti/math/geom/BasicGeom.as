@@ -53,7 +53,7 @@ package cc.gullinbursti.math.geom {
 		
 		
 		public static function midPt(pt1:Point, pt2:Point):Point {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			/**
 			 * c = 2πr

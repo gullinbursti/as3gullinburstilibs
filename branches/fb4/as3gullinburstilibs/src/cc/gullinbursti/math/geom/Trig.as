@@ -1,4 +1,5 @@
 package cc.gullinbursti.math.geom {
+	import cc.gullinbursti.converts.Angle;
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -43,6 +44,22 @@ package cc.gullinbursti.math.geom {
 			
 			
 			return (diff);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function cosDeg(radians:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (Math.cos(Angle.degreesToRadians(radians)));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function sinDeg(radians:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (Math.sin(Angle.degreesToRadians(radians)));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function tanDeg(radians:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (Math.tan(Angle.degreesToRadians(radians)));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

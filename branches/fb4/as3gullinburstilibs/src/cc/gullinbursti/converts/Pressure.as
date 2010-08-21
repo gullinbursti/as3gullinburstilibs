@@ -29,6 +29,18 @@ package cc.gullinbursti.converts {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
+		// psi = bars * 14.50377
+		public static function barsToMilibars(val:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (val / 1000);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// psi = bars * 14.50377
+		public static function milibarsToBars(val:Number):Number {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (val * 1000);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 		// psi = atmospheres * 14.69595
 		public static function atmospheresToPsi(val:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
