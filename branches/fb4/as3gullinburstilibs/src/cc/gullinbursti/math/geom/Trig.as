@@ -47,19 +47,19 @@ package cc.gullinbursti.math.geom {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function cosDeg(radians:Number):Number {
+		public static function cosDeg(degrees:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (Math.cos(Angle.degreesToRadians(radians)));
+			return (Math.cos(Angle.degreesToRadians(degrees)));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		public static function sinDeg(radians:Number):Number {
+		public static function sinDeg(degrees:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (Math.sin(Angle.degreesToRadians(radians)));
+			return (Math.sin(Angle.degreesToRadians(degrees)));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		public static function tanDeg(radians:Number):Number {
+		public static function tanDeg(degrees:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (Math.tan(Angle.degreesToRadians(radians)));
+			return (Math.tan(Angle.degreesToRadians(degrees)));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }
