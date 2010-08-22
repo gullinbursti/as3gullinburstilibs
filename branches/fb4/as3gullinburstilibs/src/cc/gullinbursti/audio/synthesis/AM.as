@@ -1,8 +1,8 @@
 package cc.gullinbursti.audio.synthesis {
 	
-	public class LFO {
+	public class AM {
 		
-		public function LFO() {
+		public function AM() {
 		}
 	}
 }

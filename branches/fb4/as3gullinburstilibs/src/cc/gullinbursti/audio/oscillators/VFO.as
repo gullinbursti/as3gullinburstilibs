@@ -1,4 +1,4 @@
-package cc.gullinbursti.audio.synthesis {
+package cc.gullinbursti.audio.oscillators {
 	
 	public class VFO {
 		
