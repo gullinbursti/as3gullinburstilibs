@@ -1,9 +1,8 @@
-package cc.gullinbursti.audio.eq
-{
-	public class Shelf
-	{
-		public function Shelf()
-		{
+package cc.gullinbursti.audio.eq {
+	
+	public class Shelf {
+		
+		public function Shelf() {
 			super();
 		}
 	}

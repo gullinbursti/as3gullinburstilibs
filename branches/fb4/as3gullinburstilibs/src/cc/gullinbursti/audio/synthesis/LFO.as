@@ -1,9 +1,8 @@
-package cc.gullinbursti.audio.synthesis
-{
-	public class LFO
-	{
-		public function LFO()
-		{
+package cc.gullinbursti.audio.synthesis {
+	
+	public class LFO {
+		
+		public function LFO() {
 		}
 	}
 }

@@ -1,9 +1,9 @@
-package cc.gullinbursti.audio.synthesis
-{
-	public class VCA
-	{
-		public function VCA()
-		{
+package cc.gullinbursti.audio.synthesis {
+	
+	public class VCA {
+		
+		// variable-gain / voltage-controlled amplifier
+		public function VCA() {
 		}
 	}
 }

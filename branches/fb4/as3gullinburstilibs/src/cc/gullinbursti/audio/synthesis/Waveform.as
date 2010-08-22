@@ -73,6 +73,30 @@ package cc.gullinbursti.audio.synthesis {
 		
 		
 		// 
+		public static function pulse(freq:Number, ratio:Number=0.5):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var wavePt_arr:Array = new Array();
+			
+			for (var i:int=0; i<360; i++) {
+				var wave_val:Number = Trig.sinDeg(i);
+				
+				if (i < 360 * ratio)
+					wave_val = freq;
+					
+				else
+					wave_val = -freq;
+				
+				//trace (i, wave_val);
+				wavePt_arr.push(wave_val);
+				
+			}
+			
+			return (wavePt_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		// 
 		public static function triangle(freq:Number):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
@@ -112,6 +136,25 @@ package cc.gullinbursti.audio.synthesis {
 					
 				else
 					wave_val += wave_inc;
+				
+				//trace (i, wave_val);
+				wavePt_arr.push(wave_val);
+				
+			}
+			
+			return (wavePt_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		// 
+		public static function noise(freq:Number):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var wavePt_arr:Array = new Array();
+			
+			for (var i:int=0; i<360; i++) {
+				var wave_val:Number = Trig.sinDeg(i);
 				
 				//trace (i, wave_val);
 				wavePt_arr.push(wave_val);
