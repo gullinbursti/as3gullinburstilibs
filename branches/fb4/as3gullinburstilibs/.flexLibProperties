@@ -113,6 +113,44 @@
     <classEntry path="cc.gullinbursti.science.thermo.BasicThermo"/>
     <classEntry path="cc.gullinbursti.science.ai.Pathfinding"/>
     <classEntry path="cc.gullinbursti.science.ai.Heuristics"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Delay"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Reverb"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Compressor"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Phaser"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Flanger"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.LFO"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.VCO"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.VCA"/>
+    <classEntry path="cc.gullinbursti.audio.fx.RingModulator"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Distort"/>
+    <classEntry path="cc.gullinbursti.audio.eq.HPF"/>
+    <classEntry path="cc.gullinbursti.audio.eq.Shelf"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Arpeggiator"/>
+    <classEntry path="cc.gullinbursti.audio.fx.TimeStretch"/>
+    <classEntry path="cc.gullinbursti.audio.fx.PitchBend"/>
+    <classEntry path="cc.gullinbursti.audio.eq.MultiBandPass"/>
+    <classEntry path="cc.gullinbursti.audio.modulate.BasicModulation"/>
+    <classEntry path="cc.gullinbursti.audio.modulate.Phase"/>
+    <classEntry path="cc.gullinbursti.audio.modulate.Freq"/>
+    <classEntry path="cc.gullinbursti.audio.modulate.PulseWidth"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.FMO"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.VFO"/>
+    <classEntry path="cc.gullinbursti.audio.eq.VCF"/>
+    <classEntry path="cc.gullinbursti.audio.modulate.Amplitude"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Vibrato"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Temolo"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Gate"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Chorus"/>
+    <classEntry path="cc.gullinbursti.audio.env.ADSR"/>
+    <classEntry path="cc.gullinbursti.audio.env.DADSR"/>
+    <classEntry path="cc.gullinbursti.audio.env.AHR"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Overdrive"/>
+    <classEntry path="cc.gullinbursti.audio.fx.WahPetal"/>
+    <classEntry path="cc.gullinbursti.audio.fx.StereoSplit"/>
+    <classEntry path="cc.gullinbursti.audio.fx.MonoMerge"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Exciter"/>
+    <classEntry path="cc.gullinbursti.audio.eq.StopBand"/>
+    <classEntry path="cc.gullinbursti.audio.fx.Reverse"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
