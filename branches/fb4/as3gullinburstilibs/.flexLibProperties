@@ -118,8 +118,8 @@
     <classEntry path="cc.gullinbursti.audio.fx.Compressor"/>
     <classEntry path="cc.gullinbursti.audio.fx.Phaser"/>
     <classEntry path="cc.gullinbursti.audio.fx.Flanger"/>
-    <classEntry path="cc.gullinbursti.audio.synthesis.LFO"/>
-    <classEntry path="cc.gullinbursti.audio.synthesis.VCO"/>
+    <classEntry path="cc.gullinbursti.audio.oscillators.LFO"/>
+    <classEntry path="cc.gullinbursti.audio.oscillators.VCO"/>
     <classEntry path="cc.gullinbursti.audio.synthesis.VCA"/>
     <classEntry path="cc.gullinbursti.audio.fx.RingModulator"/>
     <classEntry path="cc.gullinbursti.audio.fx.Distort"/>
@@ -133,8 +133,8 @@
     <classEntry path="cc.gullinbursti.audio.modulate.Phase"/>
     <classEntry path="cc.gullinbursti.audio.modulate.Freq"/>
     <classEntry path="cc.gullinbursti.audio.modulate.PulseWidth"/>
-    <classEntry path="cc.gullinbursti.audio.synthesis.FMO"/>
-    <classEntry path="cc.gullinbursti.audio.synthesis.VFO"/>
+    <classEntry path="cc.gullinbursti.audio.oscillators.FMO"/>
+    <classEntry path="cc.gullinbursti.audio.oscillators.VFO"/>
     <classEntry path="cc.gullinbursti.audio.eq.VCF"/>
     <classEntry path="cc.gullinbursti.audio.modulate.Amplitude"/>
     <classEntry path="cc.gullinbursti.audio.fx.Vibrato"/>
@@ -151,6 +151,21 @@
     <classEntry path="cc.gullinbursti.audio.fx.Exciter"/>
     <classEntry path="cc.gullinbursti.audio.eq.StopBand"/>
     <classEntry path="cc.gullinbursti.audio.fx.Reverse"/>
+    <classEntry path="cc.gullinbursti.audio.oscillators.BasicOscillator"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.FM"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.AM"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.PhaseDistortion"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.Additive"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.Subtractive"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.Distortion"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.LA"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.Wavetable"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.Scanned"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.Granular"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.Vector"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.Waveguide"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.KarplusStrong"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.Formant"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
