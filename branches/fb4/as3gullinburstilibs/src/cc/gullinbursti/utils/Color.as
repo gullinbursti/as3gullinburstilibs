@@ -175,7 +175,7 @@ package cc.gullinbursti.utils {
 				if (g > green && r > red && b < blue)  
 					bmpData.setPixel32(i % bmpData.width, i / bmpData.width, toARGB(0x00, r, g, b)); 
 			}
-		}  
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
 		
 		public static function toRGB(red:uint, green:uint, blue:uint):uint {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._

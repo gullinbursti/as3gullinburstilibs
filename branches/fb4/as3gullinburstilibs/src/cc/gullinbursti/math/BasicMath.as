@@ -48,9 +48,9 @@ package cc.gullinbursti.math {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.lang.Numbers;
 	import cc.gullinbursti.math.discrete.Factorization;
 	import cc.gullinbursti.math.settheory.BasicSetTheory;
-	import cc.gullinbursti.lang.Numbers;
 	
 	import flash.geom.Point;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
@@ -322,11 +322,16 @@ package cc.gullinbursti.math {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function half(val:Number):Number {
+		public static function half(val:Number, isRounded:Boolean=false, precision:int=0):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
+			// round the result
+			if (isRounded)
+				return (Numbers.setPrecision(val * 0.5, precision));
+				
+			
+			// return 1/2
 			return (val * 0.5);
-		
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

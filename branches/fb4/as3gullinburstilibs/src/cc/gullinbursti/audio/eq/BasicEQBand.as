@@ -1,17 +1,16 @@
 package cc.gullinbursti.audio.eq {
 	
-	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
+	
 	
 	/**
 	 * 
 	 * @author Gullinbursti
 	 */
-	
 	// <[!] class delaration [!]>
-	public class LPF extends SingleBandPass {
+	public class BasicEQBand {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -22,10 +21,12 @@ package cc.gullinbursti.audio.eq {
 		 * 
 		 */
 		// <*] class constructor [*>
-		public function LPF() {/* …\(^_^)/… */}
+		public function BasicEQBand() {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
+		
 	}
 }

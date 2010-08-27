@@ -56,6 +56,42 @@ package cc.gullinbursti.converts {
 			return (val * 0.1019716);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		// in-lb = N-m * 8.856
+		public static function newtonMeterToInchPounds(val:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (val * 8.856);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// ft-lb = N-m * 0.738
+		public static function newtonMeterToFtPounds(val:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (val * 0.738);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// N-m = in-lbs * 0.1129
+		public static function inchPoundsToNewtonMeters(val:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (val * 0.1129);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// ft-lbs = in-lbs / 12
+		public static function inchPoundsToFtPounds(val:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (Length.inchesToFeet(val));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// N-m = ft-lbs * 1.355
+		public static function ftPoundsToNewtonMeters(val:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (val * 1.355);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// in-lbs = ft-lbs * 12
+		public static function ftPoundsToInchPounds(val:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (Length.feetToInches(val));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 		// lb = kg * 2.204623
 		public static function kilogramsToPounds(val:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

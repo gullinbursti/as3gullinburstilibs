@@ -1,8 +1,7 @@
-package cc.gullinbursti.audio.synthesis {
+package cc.gullinbursti.audio {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-	import cc.gullinbursti.audio.MusicTheory;
 	import cc.gullinbursti.math.BasicMath;
 	import cc.gullinbursti.math.geom.Trig;
 	import cc.gullinbursti.math.probility.Randomness;
@@ -17,7 +16,7 @@ package cc.gullinbursti.audio.synthesis {
 	 * @author Gullinbursti
 	 */
 	// <[!] class delaration [!]>
-	public class Waveform extends MusicTheory {
+	public class BasicAudioWave extends MusicTheory {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -30,9 +29,8 @@ package cc.gullinbursti.audio.synthesis {
 		 * 
 		 */
 		// <*] class constructor [*>
-		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		public function Waveform() {	
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		public function BasicAudioWave() {/* …\(^_^)/… */}
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>

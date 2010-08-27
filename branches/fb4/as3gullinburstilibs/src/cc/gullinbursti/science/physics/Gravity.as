@@ -58,5 +58,8 @@ package cc.gullinbursti.science.physics {
 			
 			return (force_arr);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯	
+		
+		
+		
 	}
 }

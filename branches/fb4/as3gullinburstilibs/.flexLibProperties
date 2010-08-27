@@ -87,7 +87,7 @@
     <classEntry path="cc.gullinbursti.science.weather.Precip"/>
     <classEntry path="cc.gullinbursti.science.weather.Temperature"/>
     <classEntry path="cc.gullinbursti.audio.MusicTheory"/>
-    <classEntry path="cc.gullinbursti.audio.synthesis.Waveform"/>
+    <classEntry path="cc.gullinbursti.audio.BasicAudioWave"/>
     <classEntry path="cc.gullinbursti.utils.Bitwise"/>
     <classEntry path="cc.gullinbursti.converts.Radix"/>
     <classEntry path="cc.gullinbursti.math.algebra.Complex"/>
@@ -175,6 +175,29 @@
     <classEntry path="cc.gullinbursti.audio.graphing.Spectrogram"/>
     <classEntry path="cc.gullinbursti.math.calculus.fourier.Series"/>
     <classEntry path="cc.gullinbursti.math.calculus.fourier.Transform"/>
+    <classEntry path="cc.gullinbursti.audio.env.AbstractEnvelope"/>
+    <classEntry path="cc.gullinbursti.audio.eq.BasicEQBand"/>
+    <classEntry path="cc.gullinbursti.audio.env.IEnvelope"/>
+    <classEntry path="cc.gullinbursti.math.geom.BasicWaveform"/>
+    <classEntry path="cc.gullinbursti.lang.Booleans"/>
+    <classEntry path="cc.gullinbursti.audio.generate.AbstractWave"/>
+    <classEntry path="cc.gullinbursti.audio.generate.ISoundWave"/>
+    <classEntry path="cc.gullinbursti.audio.generate.SineWave"/>
+    <classEntry path="cc.gullinbursti.audio.generate.SquareWave"/>
+    <classEntry path="cc.gullinbursti.audio.generate.SawtoothWave"/>
+    <classEntry path="cc.gullinbursti.audio.generate.TriangleWave"/>
+    <classEntry path="cc.gullinbursti.audio.generate.NoiseWave"/>
+    <classEntry path="cc.gullinbursti.audio.generate.PulseWave"/>
+    <classEntry path="cc.gullinbursti.science.physics.machines.SimpleMachine"/>
+    <classEntry path="cc.gullinbursti.science.physics.machines.Lever"/>
+    <classEntry path="cc.gullinbursti.science.physics.machines.Axle"/>
+    <classEntry path="cc.gullinbursti.science.physics.machines.Pulley"/>
+    <classEntry path="cc.gullinbursti.science.physics.machines.Wedge"/>
+    <classEntry path="cc.gullinbursti.science.physics.machines.Screw"/>
+    <classEntry path="cc.gullinbursti.science.physics.force.AbstractSpring"/>
+    <classEntry path="cc.gullinbursti.science.physics.force.ExtensionSpring"/>
+    <classEntry path="cc.gullinbursti.science.physics.force.TorsionSpring"/>
+    <classEntry path="cc.gullinbursti.science.physics.force.CompressionSpring"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

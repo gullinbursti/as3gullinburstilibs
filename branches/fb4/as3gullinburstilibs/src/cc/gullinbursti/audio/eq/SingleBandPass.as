@@ -1,8 +1,31 @@
 package cc.gullinbursti.audio.eq {
 	
-	public class SingleBandPass {
+	
+	//] includes [!]>
+	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
+	
+	/**
+	 * 
+	 * @author Gullinbursti
+	 */
+	
+	// <[!] class delaration [!]>
+	public class SingleBandPass extends BasicEQBand {
+	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
-		public function SingleBandPass() {
-		}
+		//] class properties ]>
+		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
+		
+		/**
+		 * 
+		 */
+		// <*] class constructor [*>
+		public function SingleBandPass() {/* …\(^_^)/… */}
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 	}
 }

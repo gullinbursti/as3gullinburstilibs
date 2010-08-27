@@ -1,5 +1,4 @@
-package cc.gullinbursti.audio.eq {
-	
+package cc.gullinbursti.science.physics.machines {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -9,9 +8,8 @@ package cc.gullinbursti.audio.eq {
 	 * 
 	 * @author Gullinbursti
 	 */
-	
 	// <[!] class delaration [!]>
-	public class LPF extends SingleBandPass {
+	public class Screw extends SimpleMachine {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -22,8 +20,10 @@ package cc.gullinbursti.audio.eq {
 		 * 
 		 */
 		// <*] class constructor [*>
-		public function LPF() {/* …\(^_^)/… */}
+		public function Screw(l:int) {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			super(l);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>

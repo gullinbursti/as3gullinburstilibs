@@ -46,8 +46,8 @@ package cc.gullinbursti.math.probility {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-	import cc.gullinbursti.math.BasicMath;
 	import cc.gullinbursti.lang.Numbers;
+	import cc.gullinbursti.math.BasicMath;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
@@ -97,8 +97,10 @@ package cc.gullinbursti.math.probility {
 			// pick a rnd #
 			var rnd:Number = (Math.random() * range) + lower;
 			
+			
 			// set # of decimals
-			rnd = Numbers.setPrecision(rnd, precision);
+			if (precision != Number.MAX_VALUE)
+				return (Numbers.setPrecision(rnd, precision));
 			
 			// rnd floating pt #
 			return (rnd);

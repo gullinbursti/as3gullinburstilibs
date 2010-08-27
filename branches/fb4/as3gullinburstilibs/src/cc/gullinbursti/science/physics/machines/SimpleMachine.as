@@ -1,5 +1,4 @@
-package cc.gullinbursti.audio.eq {
-	
+package cc.gullinbursti.science.physics.machines {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -11,19 +10,24 @@ package cc.gullinbursti.audio.eq {
 	 */
 	
 	// <[!] class delaration [!]>
-	public class LPF extends SingleBandPass {
-	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+	public class SimpleMachine {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+		
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+		protected var len:Number;
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 		
 		/**
 		 * 
 		 */
 		// <*] class constructor [*>
-		public function LPF() {/* …\(^_^)/… */}
+		public function SimpleMachine(l:int) {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		
+			len = l;
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
