@@ -93,7 +93,7 @@ package cc.gullinbursti.lang {
 			bounds.textWidth = tf.textWidth;
 			bounds.textHeight = tf.textHeight;
 			
-			/*
+			/* 
 			trace ("<[: [bounds.xMin:["+bounds.xMin+"] bounds.xMax:["+bounds.xMax+"]")
 			trace ("<[: [tf.textWidth:["+tf.textWidth+"] tf.textHeight:["+tf.textHeight+"]");
 			trace ("<[: [bounds.yMin:["+bounds.yMin+"] bounds.yMax:["+bounds.yMax+"]");

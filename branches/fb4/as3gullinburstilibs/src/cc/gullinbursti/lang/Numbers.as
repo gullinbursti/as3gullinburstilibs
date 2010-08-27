@@ -49,6 +49,12 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public static function invert(val:Number):Number {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (val * -1);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
 		/**
 		 * Returns the ordinal suffix of a # (th / st / nd / rd)
 		 * 

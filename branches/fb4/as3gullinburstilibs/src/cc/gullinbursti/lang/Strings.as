@@ -152,7 +152,7 @@ package cc.gullinbursti.lang {
 		
 		public static function isBoolean(val:String):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
+			
 			if (int(val) == 1 || val.toLowerCase() == "true" || val.toLowerCase() == "t")
 				return (true);
 				
@@ -175,7 +175,6 @@ package cc.gullinbursti.lang {
 			// has an index
 			return (true);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
 		
 		public static function isEmail(val:String):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
@@ -220,16 +219,65 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public static function isEndingWith(in_str:String, char_str:String):Boolean {
+			
+			return (in_str.indexOf(char_str) == (in_str.length - char_str.length));
+		}
+		
+		
 		public static function isNumeric(val:String):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			return (!isNaN(Number(val)));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		public static function isPhone(val:String, frmt:String):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var isValid:Boolean = false;
+			
+			switch (frmt) {
+				case PHONE_FORMAT_1:
+					if (val.charAt(0) == "(" && val.charAt(4) == ")" && val.charAt(5) == " " && val.charAt(9) == "-" && isNumeric(val.substr(1, 3)) && isNumeric(val.substr(6, 3)) && isNumeric(val.substr(10, 4)))
+						isValid = true;
+					
+					break;
+				
+				case PHONE_FORMAT_2:
+					if (val.charAt(3) == "." && val.charAt(7) == "." && isNumeric(val.substr(0, 3)) && isNumeric(val.substr(4, 3)) && isNumeric(val.substr(8, 4)))
+						isValid = true;
+					
+					break;
+				
+				case PHONE_FORMAT_3:
+					if (val.charAt(3) == " " && val.charAt(7) == "-" && isNumeric(val.substr(0, 3)) && isNumeric(val.substr(4, 3)) && isNumeric(val.substr(8, 4)))
+						isValid = true;
+					
+					break;
+				
+				case PHONE_FORMAT_4:
+					if (val.charAt(3) == " " && val.charAt(7) == " " && isNumeric(val.substr(0, 3)) && isNumeric(val.substr(4, 3)) && isNumeric(val.substr(8, 4)))
+						isValid = true;
+					break;
+				
+				default:
+					if (isNumeric(val))
+						isValid = true;
+					break;
+			}
+			
+			return (isValid);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function isStartingWith(in_str:String, char_str:String):Boolean {
+			
+			return (in_str.indexOf(char_str) == 0);
+		}
+		
 		
 		
 		public static function afterFirst(in_str:String, char_str:String):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
 			
 			// return empty string if not found
 			if (!isContaining(in_str, char_str))
@@ -264,17 +312,242 @@ package cc.gullinbursti.lang {
 			return (in_str.substr(0, in_str.indexOf(char_str)));
 		}
 		
-		
-		public static function isStartingWith(in_str:String, char_str:String):Boolean {
-			
-			return (in_str.indexOf(char_str) == 0);
-		}
-		
-		public static function prependZeroes(ret_len:int, val:int):String {
+		public static function between(in_str:String, start_str:String, end_str:String):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			var ret_str:String = val.toString();
-			var digits:int = 0;
+			var pos_pt:Point = new Point();
+			pos_pt.x = in_str.indexOf(start_str);
+			pos_pt.y = in_str.indexOf(end_str);
+			
+			
+			return (in_str.substring(pos_pt.x, pos_pt.y));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function findNReplace(src_str:String, find_str:String, replace_str:String, isAll:Boolean=true):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var new_str:String = "";
+			var str_arr:Array = src_str.split(find_str);
+			var occ_num:Number = str_arr.length;
+			var rep_num:Number = 0;
+			
+			for (var i:Number=0; i<occ_num; i++) {
+				new_str += str_arr[i];
+				rep_num++;
+				
+				if (i < occ_num - 1) {
+					if (isAll || (!isAll && rep_num == 1))
+						new_str += replace_str;
+					
+					if (!isAll && (rep_num > 1))
+						new_str += find_str;
+				}
+			}
+			
+			return (new_str);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function lTrim(in_str:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			var i:int = 0;
+			
+			while ((i< in_str.length) && (in_str.substr(i, 1) == " ")) 
+				i++;
+			
+			
+			return (in_str.substr(i, in_str.length - i));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function occurances(in_str:String, search_str:String):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		
+			if (!isContaining(in_str, search_str))
+				return ([]);
+			
+			var char_arr:Array = new Array();
+			var char_pos:int = in_str.indexOf(search_str);
+			
+			var i:int=0;
+			
+			while (char_pos > -1) {
+				char_arr.push(char_pos);
+				char_pos = in_str.indexOf(search_str.substring(char_pos+search_str.length, in_str.length));
+			}
+			
+			return (char_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function pad(in_str:String, char_str:String, amt:int, isLeft:Boolean=true):String {
+			
+			var ret_str:String = in_str;
+			
+			while (ret_str.length < in_str.length + (amt * char_str.length)) {
+				
+				if (isLeft)
+					ret_str = char_str + ret_str;
+					
+				else
+					ret_str += char_str;
+			}
+			
+			return (ret_str);
+		}
+		
+		
+		public static function remove(in_str:String, search_str:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			return(findNReplace(in_str, search_str, ""));
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function reverse(val:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// return string
+			var rev_str:String = "";
+			
+			// loop thru string…
+			for (var i:int=val.length; i>=0; i--)
+				rev_str += val.charAt(i);
+			
+			// return result
+			return (rev_str);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		/**
+		 * 
+		 * @param in_str
+		 * @return 
+		 * 
+		 */		
+		public static function rTrim(in_str:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+			var i:int = in_str.length - 1;
+			
+			while ((i > 0) && (in_str.substr(i, 1) == " "))
+				i--;
+			
+			
+			return (in_str.substr(0, i + 1));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function scramble(val:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var new_arr:Array = new Array();
+			var char_arr:Array = toArray(val);
+			var rnd_str:String = "";
+			
+			// randomize the array
+			new_arr = ListScrambler.randomizeArray(char_arr);
+			
+			// reconstruct the string from array
+			for (var i:int=0; i<val.length; i++)
+				rnd_str += new_arr[i];
+			
+			return (rnd_str);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function titleize(in_str:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (isEmpty(in_str))
+				return (in_str);
+			
+			var words_arr:Array = in_str.split(" ");
+			
+			for (var i:int=0; i<words_arr.length; i++)
+				words_arr[i] = toProperNoun(words_arr[i]);
+			
+			return (words_arr.join(" "));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function toArray(val:String):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var char_arr:Array = new Array();
+			
+			// push string chars into array
+			for (var i:int=0; i<val.length; i++)
+				char_arr.push(val.charAt(i));
+			
+			return (char_arr);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		public static function toProperNoun(val:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var ret_str:String = val.charAt(0).toUpperCase();
+			
+			for (var i:int=0; i<val.length; i++)
+				ret_str += val.charAt(i).toLowerCase();
+			
+			return (ret_str);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function tokenize(in_str:String, delimit_str:String):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			var res_arr:Array = new Array();
+			var len:int = in_str.length;
+			var isFound:Boolean = false;
+			var token_str:String = "";
+			
+			for (var i:int = 0; i < len; i++) {
+				var char_str:String = in_str.charAt(i);
+				
+				if (delimit_str.indexOf(char_str) == -1)
+					token_str += char_str;
+					
+				else {
+					res_arr.push(token_str);
+					token_str = "";
+				}
+				
+				// add the last token if we reached the end of the string
+				if (i == len - 1)
+					res_arr.push(token_str);
+			}
+			
+			return (res_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function trim(in_str:String):String {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (lTrim(rTrim(in_str)));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function truncate(in_str:String, len:int, suffix_str:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			return(in_str.substr(0, len) + suffix_str);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		
+		public static function prependZeroes(amt:int, in_str:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var ret_str:String = in_str;
+			
+			/*var digits:int = 0;
 			var amt:int = 0;
 			
 			var base_cnt:int = 1;
@@ -313,6 +586,13 @@ package cc.gullinbursti.lang {
 				for (var i:int=0; i<amt; i++)
 					ret_str = "0" + ret_str;
 			}
+			*/
+			
+			
+			while (ret_str.length < in_str.length + amt) {
+				ret_str = "0" + ret_str;
+			}
+			
 			
 			return (ret_str);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
@@ -372,7 +652,7 @@ package cc.gullinbursti.lang {
 		 * 
 		 */		
 		public static function nameBank(gender:int=0, hasSurName:Boolean=false):String {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			var fName_str:String = "";
 			var lName_str:String = "";
@@ -412,132 +692,6 @@ package cc.gullinbursti.lang {
 			return (fName_str + " " + lName_str);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		public static function isPhone(val:String, frmt:String):Boolean {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
-			var isValid:Boolean = false;
-		
-			switch (frmt) {
-				case PHONE_FORMAT_1:
-					if (val.charAt(0) == "(" && val.charAt(4) == ")" && val.charAt(5) == " " && val.charAt(9) == "-" && isNumeric(val.substr(1, 3)) && isNumeric(val.substr(6, 3)) && isNumeric(val.substr(10, 4)))
-						isValid = true;
-					
-					break;
-					
-				case PHONE_FORMAT_2:
-					if (val.charAt(3) == "." && val.charAt(7) == "." && isNumeric(val.substr(0, 3)) && isNumeric(val.substr(4, 3)) && isNumeric(val.substr(8, 4)))
-						isValid = true;
-					
-					break;
-					
-				case PHONE_FORMAT_3:
-					if (val.charAt(3) == " " && val.charAt(7) == "-" && isNumeric(val.substr(0, 3)) && isNumeric(val.substr(4, 3)) && isNumeric(val.substr(8, 4)))
-						isValid = true;
-						
-					break;
-				
-				case PHONE_FORMAT_4:
-					if (val.charAt(3) == " " && val.charAt(7) == " " && isNumeric(val.substr(0, 3)) && isNumeric(val.substr(4, 3)) && isNumeric(val.substr(8, 4)))
-						isValid = true;
-					break;
-				
-				default:
-					if (isNumeric(val))
-						isValid = true;
-					break;
-			}
-			
-			return (isValid);
-			
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		public static function toArray(val:String):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
-			var char_arr:Array = new Array();
-			
-			// push string chars into array
-			for (var i:int=0; i<val.length; i++)
-				char_arr.push(val.charAt(i));
-				
-			return (char_arr);
-		
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		public static function scramble(val:String):String {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
-			var new_arr:Array = new Array();
-			var char_arr:Array = toArray(val);
-			var rnd_str:String = "";
-			
-			// randomize the array
-			new_arr = ListScrambler.randomizeArray(char_arr);
-			
-			// reconstruct the string from array
-			for (var i:int=0; i<val.length; i++)
-				rnd_str += new_arr[i];
-			
-			return (rnd_str);
-		
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		public static function toProperNoun(val:String):String {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
-			var ret_str:String = val.charAt(0).toUpperCase();
-		
-			for (var i:int=0; i<val.length; i++)
-				ret_str += val.charAt(i).toLowerCase();
-			
-			return (ret_str);
-		
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-	
-		public static function findNReplace(src_str:String, find_str:String, replace_str:String, isAll:Boolean=true):String {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
-			var new_str:String = "";
-			var str_arr:Array = src_str.split(find_str);
-			var occ_num:Number = str_arr.length;
-			var rep_num:Number = 0;
-				
-			for (var i:Number=0; i<occ_num; i++) {
-				new_str += str_arr[i];
-				rep_num++;
-				
-				if (i < occ_num - 1) {
-					if (isAll || (!isAll && rep_num == 1))
-						new_str += replace_str;
-						
-					if (!isAll && (rep_num > 1))
-						new_str += find_str;
-				}
-			}
-			
-			return (new_str);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		public static function reverse(val:String):String {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
-			// return string
-			var rev_str:String = "";
-			
-			// loop thru string…
-			for (var i:int=val.length; i>=0; i--)
-				rev_str += val.charAt(i);
-			
-			// return result
-			return (rev_str);
-		
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public static function htmlLink(link_str:String, href:String, target:String="_blank"):String {
@@ -606,36 +760,5 @@ package cc.gullinbursti.lang {
 			return(html_str);
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		public static function trim(in_str:String):String {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (lTrim(rTrim(in_str)));
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		public static function lTrim(in_str:String):String {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			var i:int = 0;
-			
-			while ((i< in_str.length) && (in_str.substr(i, 1) == " ")) 
-				i++;
-			
-			
-			return (in_str.substr(i, in_str.length - i));
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		public static function rTrim(in_str:String):String {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
-			var i:int = in_str.length - 1;
-			
-			while ((i > 0) && (in_str.substr(i, 1) == " "))
-				i--;
-			
-			
-			return (in_str.substr(0, i + 1));
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
 	}
 }
