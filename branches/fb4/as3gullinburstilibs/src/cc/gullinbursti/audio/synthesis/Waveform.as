@@ -5,6 +5,10 @@ package cc.gullinbursti.audio.synthesis {
 	import cc.gullinbursti.audio.MusicTheory;
 	import cc.gullinbursti.math.BasicMath;
 	import cc.gullinbursti.math.geom.Trig;
+	import cc.gullinbursti.math.probility.Randomness;
+	
+	import flash.display.BitmapData;
+	import flash.geom.Rectangle;
 
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
@@ -18,6 +22,8 @@ package cc.gullinbursti.audio.synthesis {
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+		public static const MIN_SAMPLES:uint = 0x0800; // 2048
+		public static const MAX_SAMPLES:uint = 0x2000; // 8192
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 		
 		/**
@@ -33,12 +39,12 @@ package cc.gullinbursti.audio.synthesis {
 		
 		
 		// 
-		public static function sine(freq:Number):Array {
+		public static function sine(freq:Number, samp:uint=MAX_SAMPLES/2):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			var wavePt_arr:Array = new Array();
 			
-			for (var i:int=0; i<360; i++) {
+			for (var i:int=0; i<samp; i++) {
 				//trace ((Trig.sinDeg(i) * freq));
 				wavePt_arr.push(Trig.sinDeg(i) * freq);
 			}
@@ -148,20 +154,48 @@ package cc.gullinbursti.audio.synthesis {
 		
 		
 		// 
-		public static function noise(freq:Number):Array {
+		public static function noise(samp:uint=MAX_SAMPLES/2):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			var wavePt_arr:Array = new Array();
 			
-			for (var i:int=0; i<360; i++) {
-				var wave_val:Number = Trig.sinDeg(i);
-				
-				//trace (i, wave_val);
-				wavePt_arr.push(wave_val);
-				
-			}
+			for (var i:int=0; i<samp; i++)
+				wavePt_arr.push(Randomness.generateFloat(-1, 1));
 			
 			return (wavePt_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		// 
+		public static function clone(wave:Array):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var wavePt_arr:Array = new Array();
+			
+			for (var i:int=0; i<360; i++)
+				wavePt_arr.push(wave[i]);
+			
+			
+			return (wavePt_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		// 
+		public static function graph(wave:Array, size:Rectangle=null):BitmapData {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!size)
+				size = new Rectangle(0, 0, 360, 128);
+			
+			var bmpData:BitmapData = new BitmapData(360, 128, true, 0x00000000);
+				bmpData.fillRect(size, 0xff808080);
+			
+			for (var i:int=0; i<wave.length; i++) {
+				bmpData.setPixel32(i, wave[i], 0xff00ff00);
+			}
+			
+			return (bmpData);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

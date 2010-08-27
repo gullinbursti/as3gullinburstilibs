@@ -164,6 +164,19 @@ package cc.gullinbursti.utils {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public static function chroma(bmpData:BitmapData, red:uint, green:uint, blue:uint):void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+		
+			for (var i:int=0; i<bmpData.width*bmpData.height; i++) {  
+				var r:int = bmpData.getPixel32(i % bmpData.width, i / bmpData.width) + 0;  
+				var g:int = bmpData.getPixel32(i % bmpData.width, i / bmpData.width) + 1;  
+				var b:int = bmpData.getPixel32(i % bmpData.width, i / bmpData.width) + 2;  
+				
+				if (g > green && r > red && b < blue)  
+					bmpData.setPixel32(i % bmpData.width, i / bmpData.width, toARGB(0x00, r, g, b)); 
+			}
+		}  
+		
 		public static function toRGB(red:uint, green:uint, blue:uint):uint {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			return (red << 16 | green << 8 | blue);

@@ -1,6 +1,8 @@
 package cc.gullinbursti.math.geom {
 	import cc.gullinbursti.converts.Angle;
 	
+	import flash.geom.Point;
+	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
@@ -61,5 +63,18 @@ package cc.gullinbursti.math.geom {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			return (Math.tan(Angle.degreesToRadians(degrees)));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// http://en.wikipedia.org/wiki/Euler's_identity
+		public static function eulerID(degrees:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (0);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		// http://en.wikipedia.org/wiki/De_Moivre's_formula
+		public static function DeMoivre(n:Number, x:Number, i:Point):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (0);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 	}
 }

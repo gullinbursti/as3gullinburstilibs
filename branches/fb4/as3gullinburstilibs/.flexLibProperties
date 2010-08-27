@@ -166,6 +166,15 @@
     <classEntry path="cc.gullinbursti.audio.synthesis.Waveguide"/>
     <classEntry path="cc.gullinbursti.audio.synthesis.KarplusStrong"/>
     <classEntry path="cc.gullinbursti.audio.synthesis.Formant"/>
+    <classEntry path="cc.gullinbursti.converts.Sound"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.Concatenative"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.UnitSelection"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.Diphone"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.Articulatory"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.HMM"/>
+    <classEntry path="cc.gullinbursti.audio.graphing.Spectrogram"/>
+    <classEntry path="cc.gullinbursti.math.calculus.fourier.Series"/>
+    <classEntry path="cc.gullinbursti.math.calculus.fourier.Transform"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
