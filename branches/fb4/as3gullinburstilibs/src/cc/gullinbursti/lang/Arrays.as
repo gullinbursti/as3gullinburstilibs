@@ -2,14 +2,13 @@ package cc.gullinbursti.lang {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-	import cc.gullinbursti.math.probility.ListScrambler;
 	import cc.gullinbursti.math.probility.Randomness;
 	import cc.gullinbursti.sorting.BasicSorting;
 	
 	import flash.display.BitmapData;
 	import flash.geom.Point;
-
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
+	
 	
 	// <[!] class delaration [!]>
 	public class Arrays extends Array {
@@ -177,7 +176,7 @@ package cc.gullinbursti.lang {
 		/**
 		* Generates a copy of the array, w/ references to the orginal items.
 		 */
-		public static function genPtRef(in_arr:Array, hasRepeats:Boolean=true):Array {
+		public static function genRefPts(in_arr:Array, hasRepeats:Boolean=true):Array {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			// allowing repeats
@@ -514,10 +513,10 @@ package cc.gullinbursti.lang {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			// create an array of vals asc or dsc
-			var ind_arr:Array = genIndexedVals(len, Randomness.pickBool());
+			var ind_arr:Array = genIndexedVals(len, Randomness.generateBool());
 			
 			// scramble the indexes up
-			scrambledIndexes(ind_arr);
+			scrambleIndexes(ind_arr);
 			
 			// return the array
 			return (ind_arr);
@@ -529,7 +528,7 @@ package cc.gullinbursti.lang {
 		 * @param _arr input array
 		 * 
 		 */		
-		public static function scrambledIndexes(in_arr:Array):void {//Array {
+		public static function scrambleIndexes(in_arr:Array):void {//Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
 			
 			// loop thru array…

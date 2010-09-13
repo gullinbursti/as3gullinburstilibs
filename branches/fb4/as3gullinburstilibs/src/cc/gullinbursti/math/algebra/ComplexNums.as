@@ -13,7 +13,7 @@ package cc.gullinbursti.math.algebra {
 	 */
 	
 	// <[!] class delaration [¡]>
-	public class Complex extends BasicAlgebra {
+	public class ComplexNums extends BasicAlgebra {
 	//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//] class properties ]>
@@ -24,7 +24,7 @@ package cc.gullinbursti.math.algebra {
 		 * 
 		 */
 		// <*] class constructor [*>	
-		public function Complex() {/* …\(^_^)/… */}
+		public function ComplexNums() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>

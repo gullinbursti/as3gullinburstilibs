@@ -63,7 +63,7 @@ package cc.gullinbursti.math {
 	// <[!] class delaration [¡]>
 	public class BasicMath {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		
+		// TODO: http://en.wikipedia.org/wiki/Multiplicative_group_of_integers_modulo_n
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -458,7 +458,25 @@ package cc.gullinbursti.math {
 		
 		
 		
+		//http://en.wikipedia.org/wiki/Fermat_prime
+		public static function fermatSeq(start:int, amt:Number):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var val_arr:Array = new Array();
+			
+			return (val_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		//http://en.wikipedia.org/wiki/Euler_totient
+		//http://sfabriz.blogspot.com/2010/03/euler-totient-function.html
+		public static function eulerTotients(val:Number):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var val_arr:Array = new Array();
+			
+			return (val_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public static function changeBase(val:Number, radix:int):String {

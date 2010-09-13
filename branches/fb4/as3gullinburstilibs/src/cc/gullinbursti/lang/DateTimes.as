@@ -207,14 +207,31 @@ package cc.gullinbursti.lang {
 		
 		
 		/**
-		 * Calculates the secs elapsed from Unix Epoch to the <code>Date</code> object 
+		 * Calculates the time elapsed from Unix Epoch to the <code>Date</code> object.
+		 * @param date The <code>Date</code> object to get time from.
+		 * @param isMilli Boolean flag for millisecond precision.
+		 * @return The time in integer seconds w/ or w/out millisecond decimal precision.
 		 * 
-		 * @param date
-		 * @return int
-		 */
-		public static function epochDate(date:Date):int {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
-			return (Numbers.dropDecimal(date.getTime() / 1000));
+		 */		
+		public static function epoch(date:Date=null, isMilli:Boolean=false):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// use the current datetime
+			if (!date)
+				date = new Date();
+			
+			
+			// value in millisecs
+			var epoch_ms:int = date.getTime();
+			
+			
+			// millisecs as decimal
+			if (isMilli)
+				return (epoch_ms / 1000);
+			
+				
+			// as integer seconds
+			return (Numbers.dropDecimal(epoch_ms / 1000));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

@@ -2,19 +2,24 @@ package cc.gullinbursti.lang {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.math.BasicMath;
+	
 	import flash.geom.Point;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
+	
 	/**
-	 * 
+	 * @package cc.gullinbursti.lang
+	 * @class Numbers
 	 * @author Gullinbursti
 	 */
 	 // <[!] class delaration [¡]>
-	public class Numbers {
+	public class Numbers extends Ints {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+		private static const MAX_SHIFT:uint = 2147483648;
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		/**
@@ -28,79 +33,115 @@ package cc.gullinbursti.lang {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
-		public static function setPrecision(val:Number, places:int=2):Number {
+		/**
+		 * Strips trailing decimal values from a <code>Number</code>.
+		 * @param float The input <code>Number</code> to convert.
+		 * @param places The # of digits following the decimal point.
+		 * @return A <code>Number</code> w/ a set # of decomal places.
+		 * 
+		 */		
+		public static function setPrecision(float:Number, places:int=2):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// get the decimal val of places (1/10^places)
-			var fract:Number = 1 / Math.pow(10, places);
+			var fract:Number = 1 / BasicMath.powr10(places);
 			
 			// the fract < val
-			if (fract <= val)
-				return (dropDecimal(val / fract) * fract);
+			if (fract <= float)
+				return (dropDecimal(float / fract) * fract);
 			
 			else
-				return (val);
+				return (float);
 		
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		public static function dropDecimal(val:Number):int {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (val << 0);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		public static function invert(val:Number):Number {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (val * -1);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
-		 * Returns the ordinal suffix of a # (th / st / nd / rd)
+		 * Strips any decimal places from a <code>Number</code> using a bitwise left shift.
+		 * @param float The input <code>Number</code> to convert.
+		 * @return An <code>int</code> representation of the floating point value.
 		 * 
-		 * @param date Date
-		 * @retun String; 
-		 */
-		public static function getOrdinalSuffix(val:int):String {
+		 */		
+		public static function dropDecimal(float:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			var suffix_str:String;
+			// build in floor method
+			if (float > MAX_SHIFT || float < -MAX_SHIFT)
+				return (Math.floor(float));
 			
-			switch(val) {
-				
-				case 1:
-					suffix_str = "st";
-					break;
-				
-				case 2:
-					suffix_str =  "nd";
-					break;
-
-				case 3:
-					suffix_str = "rd";
-					break;
-				
-				default:
-					suffix_str = "th";
-					break;				
-			}
+			if (Math.abs(float) == MAX_SHIFT)
+				return (-Bits.lShift(float, 0));
 			
-			return (suffix_str);
+			
+			// bitwise left shift
+			return (Bits.lShift(float, 0));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * Strips any decimal places from a <code>Number</code> using a bitwise left shift.
+		 * @param float The input <code>Number</code> to convert.
+		 * @return An <code>int</code> representation of the floating point value.
+		 * 
+		 */		
+		public static function stripUpperDigits(float:Number, digits:int):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var float_str:String = String(float);
+			var int_str:String = float_str.split(".")[0];
+			var dec_str:String = float_str.split(".")[1];
+			var tmp_str:String = float_str;
+			
+			
+			if (int_str.length > digits)
+				tmp_str = float_str.substring(int_str.length - digits);
+			
+			return (Number(tmp_str));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
-		 * Swaps the values of two #'s.
+		 * Converts a <code>Number</code> to it's inverse. 
+		 * @param float The input <code>Number</code> to convert.
+		 * @return The inverse (negated) value.
+		 * 
 		 */
-		public static function swap(val1:Number, val2:Number):Point {
+		public static function invert(float:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// the val multiplied by ¯1
+			return (float * -1);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * Returns the ordinal suffix of a <code>Number</code> (th / st / nd / rd)
+		 * @param float The input <code>Number</code> to find suffix for.
+		 * @return A <code>String</code> representing the suffix of a <code>Number</code>.
+		 * 
+		 */		
+		public static function ordinalSuffix(float:Number):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// use method from Ints
+			return (Ints.ordinalSuffix(dropDecimal(float)));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns a <code>Point</code> of two swapped <code>Number</code>s.
+		 * @param val1 The 1st <code>Number</code> to swap.
+		 * @param val2 The 2nd <code>Number</code> to swap.
+		 * @return A <code>Point</code> obj representing two swapped <code>Number</code>s.
+		 * 
+		 */		
+		public static function swap(float1:Number, float2:Number):Point {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._		
 			
-			var tmp_val:Number = val1;
-			
-			val1 = val2;
-			val2 = tmp_val;
-			
-			return (new Point(val1, val2));
-			
+			// a point containing the swapped vals
+			return (new Point(float2, float1));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }
