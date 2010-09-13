@@ -14,11 +14,4 @@
 	<natures>
 		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>[source path] src</name>
-			<type>2</type>
-			<locationURI>DOCUMENTS/gullinbursti/libraries/as3gullinburstilibs/src</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
