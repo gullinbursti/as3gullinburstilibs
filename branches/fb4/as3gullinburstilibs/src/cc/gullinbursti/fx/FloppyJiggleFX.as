@@ -47,7 +47,7 @@ package cc.gullinbursti.fx {
 			
 			size_pt = new Point(w, h);
 			noise_oct = oct;
-			base_pt = new Point(xBase, yBase)
+			base_pt = new Point(xBase, yBase);
 			str_pt = new Point(xStr, yStr);
 			comp_pt = new Point(BitmapDataChannel.RED, BitmapDataChannel.GREEN);
 			map_pt = new Point(xMap, yMap);

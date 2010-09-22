@@ -444,7 +444,7 @@ package cc.gullinbursti.sorting {
 			// inc the rescurse counter
 			_recursion_pt.x++;
 			
-			trace ("\n\n]] ("+_recursion_pt.x+")START ->> l:["+l+"] r:["+r+"] arr:["+in_arr+"]")
+			trace ("\n\n]] ("+_recursion_pt.x+")START ->> l:["+l+"] r:["+r+"] arr:["+in_arr+"]");
 			
 			// cutoff
 			if (l+3 > r)
@@ -455,42 +455,42 @@ package cc.gullinbursti.sorting {
 				
 				// middle index
 				var m:int = Numbers.dropDecimal((l + r) / 2);
-				trace ("]] SORT ->> l:["+l+"] m:["+m+"] r:["+r+"] ")
+				trace ("]] SORT ->> l:["+l+"] m:["+m+"] r:["+r+"] ");
 				
 				
 				// middle not equal to left val
 				if (in_arr[m] >= in_arr[l]) {
 					Arrays.swapElements(in_arr, l, m);
-					trace ("  -:]] 1-SWAP(l/m) ->> arr:["+in_arr+"]")
+					trace ("  -:]] 1-SWAP(l/m) ->> arr:["+in_arr+"]");
 				}
 			
 				// right not equal to left val
 				if (in_arr[r] <= in_arr[l]) {
 					Arrays.swapElements(in_arr, l, r);
-					trace ("  -:]] 2-SWAP(l/r) ->> arr:["+in_arr+"]")
+					trace ("  -:]] 2-SWAP(l/r) ->> arr:["+in_arr+"]");
 				}
 				
 				// right not equal to middle val
 				if (in_arr[r] >= in_arr[m]) {
 					Arrays.swapElements(in_arr, m, r);
-					trace ("  -:]] 3-SWAP(m/r) ->> arr:["+in_arr+"]")
+					trace ("  -:]] 3-SWAP(m/r) ->> arr:["+in_arr+"]");
 				}
 				
 				
 				// swap items at middle & right index - 1
 				Arrays.swapElements(in_arr, m, r-1);
-				trace ("  -:]] 4-SWAP(m/r-1) ->> arr:["+in_arr+"]")
+				trace ("  -:]] 4-SWAP(m/r-1) ->> arr:["+in_arr+"]");
 				
 				
 				// make a pivot val & find partition
 				var pivot_val:int = in_arr[r-1];
-				var par_ind:Number = partition(in_arr, l, r, in_arr[r-1])
-				trace ("]] PAR ->> piv:["+pivot_val+"] par:["+par_ind+"]\n")
+				var par_ind:Number = partition(in_arr, l, r, in_arr[r-1]);
+				trace ("]] PAR ->> piv:["+pivot_val+"] par:["+par_ind+"]\n");
 				
 				
 				// restore prev pivot
 				Arrays.swapElements(in_arr, m, r-1);
-				trace ("]] RES(i/r-1) ->> arr:["+in_arr+"]")
+				trace ("]] RES(i/r-1) ->> arr:["+in_arr+"]");
 				
 				
 				

@@ -307,7 +307,7 @@ package cc.gullinbursti.sorting {
 			
 			
 			// send back the list
-			return (sort_arr)
+			return (sort_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

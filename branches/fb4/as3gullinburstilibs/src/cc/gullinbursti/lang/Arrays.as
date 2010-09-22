@@ -409,7 +409,7 @@ package cc.gullinbursti.lang {
 				subset_arr.push(slice_arr);
 			}
 			*/
-			trace ("FIN: ["+subset_arr.length+"]")
+			trace ("FIN: ["+subset_arr.length+"]");
 			
 			// return the sub array
 			return (subset_arr);
@@ -456,7 +456,7 @@ package cc.gullinbursti.lang {
 					
 					// loop thru each element & convert
 					for (var j:int=0; j<itm_str.length; j++)
-						itm_arr.push(in_arr[i].charCodeAt(j));
+						itm_arr.push(String(in_arr[i]).charCodeAt(j));
 					
 					// push into array
 					convert_arr.push(itm_arr);

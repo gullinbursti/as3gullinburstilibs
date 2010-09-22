@@ -23,8 +23,8 @@ package cc.gullinbursti.dataorgs.trees {
 			id = leafID;
 			
 			if (val_obj) {
-				val_num = val_obj.num;
-				val_str = val_obj.str;
+				val_num = int(val_obj.num);
+				val_str = String(val_obj.str);
 			}
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		

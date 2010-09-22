@@ -17,9 +17,9 @@ package cc.gullinbursti.audio.generate {
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 		
 		// <*] class constructor [*>
-		public function SquareWave() {
+		public function SquareWave(f:Number, bit:uint=BIT_RATE, samp:Number=SAMPLE_RATE) {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			super();
+			super(f, bit, samp);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>

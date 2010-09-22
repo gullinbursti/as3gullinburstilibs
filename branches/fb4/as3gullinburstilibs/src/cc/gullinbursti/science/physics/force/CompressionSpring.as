@@ -32,7 +32,7 @@ package cc.gullinbursti.science.physics.force {
 		
 		public function applyForce(amt:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (len - (amt / rate))
+			return (len - (amt / rate));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public function lengthBy(amt:Number):Number {

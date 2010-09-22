@@ -198,7 +198,7 @@ package cc.gullinbursti.utils {
 			if (color > 0xffffff)
 				return (color >> 16 & 0xff);
 			
-			return (color >> 16)
+			return (color >> 16);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public static function greenChannel(color:uint):uint {
@@ -229,7 +229,7 @@ package cc.gullinbursti.utils {
 		
 		public static function randGrey(min:uint=0xff, max:uint=0xff):uint {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-			var val:uint = randChannel(min, max)
+			var val:uint = randChannel(min, max);
 			
 			return (toRGB(val, val, val));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯

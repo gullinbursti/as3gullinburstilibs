@@ -66,7 +66,7 @@ package cc.gullinbursti.ui {
 			//_txt.thickness = 100;
 			
 			_txt.setTextFormat(txtFrmt_new);
-			_txt.defaultTextFormat = txtFrmt_new
+			_txt.defaultTextFormat = txtFrmt_new;
 			
 			_txt.text = txtCopy;
 			
@@ -195,7 +195,7 @@ package cc.gullinbursti.ui {
 		
 		public function setMaxChars (val:int):void {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			_txt.maxChars = val
+			_txt.maxChars = val;
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public function setTxtAlign (alignType:String):void {

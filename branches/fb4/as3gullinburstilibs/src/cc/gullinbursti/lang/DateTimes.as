@@ -482,7 +482,7 @@ package cc.gullinbursti.lang {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// date for the last day of the month
-			var end_date:Date = new Date(date.getFullYear(), date.getMonth(), daysInMonth(date))
+			var end_date:Date = new Date(date.getFullYear(), date.getMonth(), daysInMonth(date));
 			
 			return (end_date.getDay());
 			

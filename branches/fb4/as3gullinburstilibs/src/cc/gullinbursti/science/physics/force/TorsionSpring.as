@@ -24,7 +24,7 @@ package cc.gullinbursti.science.physics.force {
 		public function TorsionSpring(k:Number, l:Number, deg:Number=0) {
 			
 			super(k, l);
-			ang = deg
+			ang = deg;
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>

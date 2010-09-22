@@ -30,7 +30,7 @@ package cc.gullinbursti.vo  {
 			evt_name = evtType;
 			isWheeling = isWheel;
 			
-			mouseEvt = e as MouseEvent
+			mouseEvt = e as MouseEvent;
 			wheel_delta = e.delta;
 			
 			local_pt.offset(e.localX, e.localY);

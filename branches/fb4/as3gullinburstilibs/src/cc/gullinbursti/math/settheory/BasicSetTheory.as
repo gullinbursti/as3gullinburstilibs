@@ -183,7 +183,7 @@ package cc.gullinbursti.math.settheory {
 			
 			// loop thru the args & append vals
 			for (i=0; i<args.length; i++)
-				chain_arr = Arrays.chain(true, chain_arr, args[i])
+				chain_arr = Arrays.chain(true, chain_arr, args[i]);
 			
 			// loop thru array 1st time
 			for (i=0; i<chain_arr.length; i++) {
@@ -366,7 +366,7 @@ package cc.gullinbursti.math.settheory {
 			}
 			
 			
-			return (coord_arr)
+			return (coord_arr);
 		}
 		
 	}

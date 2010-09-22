@@ -37,7 +37,7 @@ package cc.gullinbursti.fx {
 		private var dir:int;
 		private var tween_state:String;
 		private var dur:Number;
-		private var toHue_val:Number
+		private var toHue_val:Number;
 		
 		private var colr_mtx:ColorMatrix;
 		private var evt_sprite:Sprite;

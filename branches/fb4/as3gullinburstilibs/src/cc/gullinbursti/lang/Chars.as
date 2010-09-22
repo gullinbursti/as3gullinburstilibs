@@ -453,7 +453,7 @@ package cc.gullinbursti.lang {
 				//while (!isFound || j < basicLatin_arr.length-1) {
 				for (i=0; i<basicLatin_arr.length; i++) {
 					
-					trace ("  -:]"+i+"[ FOUND:["+(char_str.charCodeAt() == basicLatin_arr[i][2])+"] >> CHAR:["+char_str.charAt()+"]="+char_str.charCodeAt()+" // ASCII("+i+") CHAR:["+basicLatin_arr[i][0]+"]="+basicLatin_arr[i][2])
+					trace ("  -:]"+i+"[ FOUND:["+(char_str.charCodeAt() == basicLatin_arr[i][2])+"] >> CHAR:["+char_str.charAt()+"]="+char_str.charCodeAt()+" // ASCII("+i+") CHAR:["+basicLatin_arr[i][0]+"]="+basicLatin_arr[i][2]);
 					
 					// test char's unicode val against ascii array
 					if (char_str.charCodeAt() == basicLatin_arr[i][2])
@@ -497,7 +497,7 @@ package cc.gullinbursti.lang {
 			
 			// just convert the char to upper case
 			else
-				char_str = char_str.toUpperCase()
+				char_str = char_str.toUpperCase();
 			
 			// loop thru the allowed ascii char's	
 			for (i=0; i<basicAlpha.length; i++) {

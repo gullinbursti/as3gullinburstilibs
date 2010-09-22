@@ -28,7 +28,6 @@ package cc.gullinbursti.science.weather {
 			
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
-<<<<<<< .mine
 		
 		
 		
@@ -65,7 +64,5 @@ package cc.gullinbursti.science.weather {
 			return (0.0817 * (3.71 * Math.sqrt(spd) + 5.81 - 0.25 * spd) * (temp - 91.4) + 91.4);
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-=======
->>>>>>> .r57
 	}
 }

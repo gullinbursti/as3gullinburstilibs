@@ -1,8 +1,8 @@
 package cc.gullinbursti.audio.generate {
-	import cc.gullinbursti.lang.Numbers;
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.lang.Numbers;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
@@ -20,7 +20,7 @@ package cc.gullinbursti.audio.generate {
 		public static const BIT_RATE:uint = 4096;
 		
 		protected var bounds_arr:Array;
-		protected var freq:Numberl
+		protected var freq:Number;
 		protected var sample_rate:uint;
 		protected var bit_rate:uint;
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
@@ -36,13 +36,14 @@ package cc.gullinbursti.audio.generate {
 		
 		
 		public function clone(wave:ISoundWave):ISoundWave {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (new AbstractWave())
+		// ]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (new AbstractWave(freq, sample_rate, bit_rate));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public function invert(wave:ISoundWave):ISoundWave {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (new AbstractWave())
+			// ]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+
+			return (new AbstractWave(freq, sample_rate, bit_rate));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public function invertSample(val:Number):Number {

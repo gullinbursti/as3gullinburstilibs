@@ -9,7 +9,7 @@ package cc.gullinbursti.audio.fx {
 	 * @author Gullinbursti
 	 */
 	// <[!] class delaration [!]>
-	public class BitCompress {
+	public class BitCrusher {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -21,7 +21,7 @@ package cc.gullinbursti.audio.fx {
 		 */
 		// <*] class constructor [*>
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		public function BitCompress() {
+		public function BitCrusher() {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>

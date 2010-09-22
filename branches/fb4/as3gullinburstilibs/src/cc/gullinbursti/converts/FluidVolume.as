@@ -49,8 +49,8 @@ package cc.gullinbursti.converts {
 			return (vol * 3.785412);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		// l = gal * 0.264172037284185
-		public static function gallonsToLiters(vol:Number):Number {
+		// gal = l * 0.264172037284185
+		public static function litersToGallonss(vol:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			return (vol * 0.264172037284185);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯

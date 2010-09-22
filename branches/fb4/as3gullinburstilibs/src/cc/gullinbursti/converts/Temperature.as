@@ -77,7 +77,7 @@ package cc.gullinbursti.converts {
 		// °R = ((°K + 273) * (9 / 5)) + 32) - 459.67
 		public static function kelvinToRankine(temp:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (celciusToRankine(kelvinToCelsius(temp));	
+			return (celciusToRankine(kelvinToCelsius(temp)));	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

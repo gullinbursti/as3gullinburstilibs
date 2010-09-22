@@ -32,7 +32,7 @@ package cc.gullinbursti.fx {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
 			if (!briteRange)
-				briteRange_pt = BRITE_BOUNDS.clone()
+				briteRange_pt = BRITE_BOUNDS.clone();
 				
 			else
 				briteRange_pt = briteRange.clone();

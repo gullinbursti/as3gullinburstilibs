@@ -110,7 +110,7 @@ package cc.gullinbursti.math.discrete {
 				
 				// the nomimator is the 1st prev
 				if (denom_last2.y == nom)
-					return (true)
+					return (true);
 			}
 			
 			
