@@ -33,7 +33,7 @@ package {
 			
 			for (var i:int=0; i<10; i++) {
 				//for (var j:int=0; j<100; j++) {
-					var lehmer_rnd:Number = Randomness.generateInt()
+					var lehmer_rnd:Number = Randomness.generateInt();
 					//trace (i, lehmer_rnd)
 				//}
 			}
@@ -81,10 +81,10 @@ package {
 			//var search_str:String = Strings.genRndASCII(32);
 			
 			for (var i:int=0; i<16; i++)
-				trace ("genRndASCII:["+Strings.genRndASCII(0, true, true)+"]")
+				trace ("genRndASCII:["+Strings.genRndASCII(0, true, true)+"]");
 			
 				
-			trace ("truncate:["+Strings.truncate(Strings.genRndASCII(50, true, true), 5, "…")+"]")
+			trace ("truncate:["+Strings.truncate(Strings.genRndASCII(50, true, true), 5, "…")+"]");
 		}
 		
 		

@@ -3,6 +3,7 @@
 	<name>as3gullinburstilibs_harness</name>
 	<comment></comment>
 	<projects>
+		<project>as3gullinburstilibs</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -10,8 +11,21 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>com.powerflasher.fdt.core.FlashBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
+		<nature>com.powerflasher.fdt.core.FlashNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>as3gullinburstilibs</name>
+			<type>2</type>
+			<locationURI>as3gullinburstilibs</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
