@@ -523,26 +523,30 @@ package cc.gullinbursti.lang {
 			// return the array
 			return (ind_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
+
 		
 		/**
 		 * Randomizes an array's elements
 		 * @param _arr input array
 		 * 
 		 */		
-		public static function scrambleIndexes(in_arr:Array):void {//Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+		public static function scrambleIndexes(in_arr:Array):Array {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+			
+			var rnd_arr:Array = Arrays.xerox(in_arr, true);
 			
 			// loop thru array…
-			for (var i:int=(in_arr.length-1); i>0; i--) {
+			for (var i:int=(rnd_arr.length-1); i>0; i--) {
 				
 				// swap the loop index w/ an index 0 thru i-1
-				Arrays.swapElements(in_arr, i, Randomness.generateInt(0, i-1));
+				Arrays.swapElements(rnd_arr, i, Randomness.generateInt(0, i-1));
 			}
 			
 			// swap the 1st index w/ an other
-			Arrays.swapElements(in_arr, i, Randomness.generateInt(1, in_arr.length-1));
+			Arrays.swapElements(rnd_arr, i, Randomness.generateInt(1, rnd_arr.length-1));
 			
+			
+			return (rnd_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -586,18 +590,10 @@ package cc.gullinbursti.lang {
 			if (!range)
 				range = new Point(0, len);
 			
-			// make a new array
-			var val_arr:Array = new Array();
-			
-			// push rand vals
-			for (var i:int=0; i<len; i++)
-				val_arr.push(Randomness.generateInt(range.x, range.y));
-			
-			
 			// return the filled array
-			return (val_arr);
-			
+			return (scrambleIndexes(genIndexedVals(len)));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 		
 		
 		/**
