@@ -84,8 +84,10 @@ package cc.gullinbursti.lang {
 			for (var i:int=len; i>-1; i--) {
 				
 				// found value, drop it
-				if (in_arr[i] === val)
+				if (in_arr[i] === val) {
 					in_arr.splice(i, 1);
+					break;
+				}
 			}					
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		

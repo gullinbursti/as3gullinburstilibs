@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.powerflasher.fdt.ui.CompcGroup">
+<stringAttribute key="LAUNCHER_DEPENDENCIES" value="[Self]"/>
+<stringAttribute key="OUTPUT" value="bin/as3gullinburstilibs.swc"/>
+<stringAttribute key="PROJECT_NAME" value="as3gullinburstilibs"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/as3gullinburstilibs"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+</launchConfiguration>
