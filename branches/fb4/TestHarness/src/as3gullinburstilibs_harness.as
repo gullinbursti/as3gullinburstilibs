@@ -40,7 +40,7 @@ package {
 			
 			var epoch_ms:Number = DateTimes.epoch(null, true) * 10000;//new Date().getTime();
 			
-			trace ("\n", epoch_ms, Numbers.dropDecimal(epoch_ms));
+			trace ("\n", epoch_ms);
 		}
 		
 		private function arrayTests():void {
