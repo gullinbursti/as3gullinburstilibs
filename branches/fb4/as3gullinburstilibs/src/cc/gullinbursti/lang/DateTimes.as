@@ -52,7 +52,7 @@ package cc.gullinbursti.lang {
 	 * 
 	 * @author Gullinbursti
 	 */
-	 // <[!] class delaration [¡]>
+	// <[!] class delaration [¡]>
 	public class DateTimes {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<flexLibProperties includeAllClasses="false" version="1">
+<flexLibProperties includeAllClasses="false" useMultiPlatformConfig="false" version="1">
   <includeClasses>
     <classEntry path="cc.gullinbursti.math.discrete.networks.Hamilton"/>
     <classEntry path="cc.gullinbursti.utils.Color"/>
@@ -115,6 +115,7 @@
     <classEntry path="cc.gullinbursti.science.ai.Heuristics"/>
     <classEntry path="cc.gullinbursti.lang.ByteArrays"/>
     <classEntry path="cc.gullinbursti.lang.Bits"/>
+    <classEntry path="cc.gullinbursti.lang.Matrices"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
