@@ -3,6 +3,7 @@ package {
 	import cc.gullinbursti.lang.Arrays;
 	import cc.gullinbursti.lang.Chars;
 	import cc.gullinbursti.lang.DateTimes;
+	import cc.gullinbursti.lang.Ints;
 	import cc.gullinbursti.lang.Numbers;
 	import cc.gullinbursti.lang.Strings;
 	import cc.gullinbursti.math.BasicMath;
@@ -18,9 +19,8 @@ package {
 		
 		public function as3gullinburstilibs_harness() {
 			
-			numberTests();
-			
-			//stringTests();
+			//numberTests();
+			stringTests();
 			//arrayTests();
 		}
 		
@@ -78,13 +78,11 @@ package {
 		
 		private function stringTests():void {
 			
-			//var search_str:String = Strings.genRndASCII(32);
 			
-			for (var i:int=0; i<16; i++)
-				trace ("genRndASCII:["+Strings.genRndASCII(0, true, true)+"]");
+			//trace (DateTimes.timestampAsCountdown(new Date(2, 11, 30, 3, 55, 23)));
 			
-				
-			trace ("truncate:["+Strings.truncate(Strings.genRndASCII(50, true, true), 5, "…")+"]");
+			trace (Ints.formatDbl(1));
+			
 		}
 		
 		
