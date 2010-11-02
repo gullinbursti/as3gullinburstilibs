@@ -364,6 +364,13 @@ package cc.gullinbursti.lang {
 		 * U+20AC = €
 		 **/
 		
+		
+		public static const PLURAL_SUFFIX:Array = [
+			["S", 83, 0x0053], 
+			["s", 115, 0x0073], 
+			["", ""]
+		];
+		
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		

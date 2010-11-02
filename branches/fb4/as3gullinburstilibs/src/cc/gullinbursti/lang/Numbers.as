@@ -72,7 +72,6 @@ package cc.gullinbursti.lang {
 			if (Math.abs(float) == MAX_SHIFT)
 				return (-Bits.lShift(float, 0));
 			
-			
 			// bitwise left shift
 			return (Bits.lShift(float, 0));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
@@ -114,6 +113,28 @@ package cc.gullinbursti.lang {
 			return (float * -1);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		
+		
+		public static function toPhrase(float:Number):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			return (Ints.toPhrase(float << 0));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * Prepends a leading '0' to a <code>Number</code> if needed 
+		 * @param float the <code>Number</code> to use
+		 * @return 
+		 * 
+		 */		
+		public static function formatDbl(float:Number):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			return (Ints.formatDbl(float << 0));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**

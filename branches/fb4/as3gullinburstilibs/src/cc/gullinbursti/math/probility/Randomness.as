@@ -61,6 +61,7 @@ package cc.gullinbursti.math.probility {
 	public class Randomness extends Numbers {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		//TODO: implement some more add'l random generation techniques
+		// http://www.mathcom.com/corpdir/techinfo.mdir/q210.html
 		
 		
 		//] class properties ]>

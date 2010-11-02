@@ -488,13 +488,32 @@ package cc.gullinbursti.lang {
 		public static function toProperNoun(val:String):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
+			
+			if (val.length > 0)
+				return (val.charAt(0).toUpperCase() + (val.substring(0, val.length)).toLowerCase());
+			
+			return (val);
+			
+			/*
 			var ret_str:String = val.charAt(0).toUpperCase();
 			
-			for (var i:int=0; i<val.length; i++)
+			for (var i:int=1; i<val.length; i++)
 				ret_str += val.charAt(i).toLowerCase();
 			
 			return (ret_str);
+			*/
 			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function pluralize(in_str:String, caps:Boolean=false):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			
+			if (caps)
+				return (in_str + Chars.PLURAL_SUFFIX[0][0]);
+			
+			return (in_str + Chars.PLURAL_SUFFIX[1][0]);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -589,9 +608,8 @@ package cc.gullinbursti.lang {
 			*/
 			
 			
-			while (ret_str.length < in_str.length + amt) {
+			while (ret_str.length < in_str.length + amt)
 				ret_str = "0" + ret_str;
-			}
 			
 			
 			return (ret_str);

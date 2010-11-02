@@ -112,7 +112,18 @@ package cc.gullinbursti.lang {
 			["AEDT", 	 11],
 			["NZST", 	 12]
 		);
-
+		
+		
+		public static const YEARS:String = "YEARS";
+		public static const MONTHS:String = "MONTHS";
+		public static const DAYS:String = "DAYS";
+		public static const HOURS:String = "HOURS";
+		public static const MINUTES:String = "MINUTES";
+		public static const SECONDS:String = "SECONDS";
+		public static const MILLISECS:String = "MILLISECS";
+		public static const TIMEZONE:String = "TIMEZONE";
+		
+		
 		
 		// ISO 
 		private static const ATOM:String 	= "Y-m-d\TH:i:sP"; // [2005-08-15T15:52:01+00:00]
@@ -468,7 +479,6 @@ package cc.gullinbursti.lang {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			return (date.getDay());
-			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -485,7 +495,6 @@ package cc.gullinbursti.lang {
 			var end_date:Date = new Date(date.getFullYear(), date.getMonth(), daysInMonth(date));
 			
 			return (end_date.getDay());
-			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -530,13 +539,13 @@ package cc.gullinbursti.lang {
 		 * @return int
 		 */
 		public static function getSwatchInternetTime(date:Date):int {
-			
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
 			// get passed seconds for the day
 			var secs_tot:int = (date.getUTCHours() * 3600) + (date.getUTCMinutes() * 60) + (date.getUTCSeconds()) + 3600; // caused of the BMT Meridian
 			
 			// 1day = 1000 .beat ... 1 second = 0.01157 .beat 		
 			return (Math.round(secs_tot * 0.01157));
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
@@ -546,7 +555,7 @@ package cc.gullinbursti.lang {
 		 * @return Boolean
 		 */
 		public static function isAM(date:Date):Boolean {
-			
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
 			if (date.getHours() > 12)
 				return (false);
 			
@@ -561,7 +570,7 @@ package cc.gullinbursti.lang {
 		 * @return Boolean
 		 */
 		public static function isWeekday(date:Date):Boolean {
-			
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
 			// the day of week index
 			var day:int = date.getDay();
 			
@@ -577,10 +586,150 @@ package cc.gullinbursti.lang {
 		 * @return Boolean
 		 */
 		public static function isWeekend(date:Date):Boolean {
-			
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			return (!isWeekday(date));			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		
+		/**
+		 * Returns the time in a phrase <i>two years, one month, zero days, 
+		 * three hours, zero minutes, and five seconds.</i>
+		 * 
+		 * @param date <code>Date</date> obj (1900 = zero years) 
+		 * @return String 
+		 */
+		public static function timestampAsCountdown(date:Date):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var phrase_str:String = toPhraseSegment(date.fullYear - 1900, YEARS);
+				phrase_str += ", " + toPhraseSegment(date.month, MONTHS);
+				phrase_str += ", " + toPhraseSegment(date.date, DAYS);
+				phrase_str += ", " + toPhraseSegment(date.hours, HOURS);
+				phrase_str += ", " + toPhraseSegment(date.minutes, MINUTES);
+				phrase_str += ", and " + toPhraseSegment(date.seconds, SECONDS);
+			
+			return (phrase_str + ".");
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * Returns the part of time as a phrase <i>three minutes</i> 
+		 * @param val the number to use
+		 * @param seg part of time
+		 * @param nums use digits
+		 * @return A worded phrase
+		 * 
+		 */		
+		public static function toPhraseSegment(val:int, seg:String, nums:Boolean=false):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// phrased msg
+			var phrase_str:String = "";
+			
+			// use digits
+			if (nums) 
+				phrase_str = val.toString();
+			
+			// use words
+			else
+				phrase_str = Numbers.toPhrase(val);
+			
+			
+			// add part name
+			phrase_str += " " + seg.substring(0, seg.length - 1).toLowerCase();
+			
+			
+			// add an 's'
+			if (val != 1)
+				phrase_str = Strings.pluralize(phrase_str);
+			
+			
+			return (phrase_str);			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * Returns a date ready for a MySQL db 
+		 * @param date
+		 * @return String
+		 * 
+		 */		
+		public static function toMysql(date:Date):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var delim_str:String = "-";
+			var mysql_str:String = date.fullYear.toString() + delim_str;
+				mysql_str += Ints.formatDbl(date.month + 1) + delim_str;
+				mysql_str += Ints.formatDbl(date.day);
+				mysql_str += " ";
+			
+			delim_str = ":";
+			mysql_str += Ints.formatDbl(date.hours) + delim_str;
+			mysql_str += Ints.formatDbl(date.minutes) + delim_str;
+			mysql_str += Ints.formatDbl(date.seconds);
+			
+			/*
+			if (date.month < 10)
+				mysql_str += "0" + (date.month + 1).toString() + "-";
+			
+			else
+				mysql_str += (date.month + 1).toString() + "-";
+			
+			
+			if (date.date < 10)
+				mysql_str += "0" + date.date.toString() + "-";
+				
+			else
+				mysql_str += date.date.toString() + "-";
+			
+			mysql_str += " ";
+			
+			if (date.hours < 10)
+				mysql_str += "0" + date.hours.toString() + ":";
+				
+			else
+				mysql_str += date.hours.toString() + ":";
+			
+			
+			if (date.minutes < 10)
+				mysql_str += "0" + date.minutes.toString() + ":";
+				
+			else
+				mysql_str += date.minutes.toString() + ":";
+			
+			
+			if (date.seconds < 10)
+				mysql_str += "0" + date.seconds.toString();
+				
+			else
+				mysql_str += date.seconds.toString();
+			*/
+			
+			
+			return (mysql_str);			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * Returns a date parsed from a MySQL db 
+		 * @param date_str
+		 * @return Date
+		 * 
+		 */		
+		public static function fromMysql(date_str:String):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var patt_regx:RegExp = /[: -]/g;
+			date_str = date_str.replace(patt_regx, ',');
+			
+			var date_arr:Array = date_str.split(',');
+			
+			return (new Date(date_arr[0], date_arr[1] - 1, date_arr[2], date_arr[3], date_arr[4], date_arr[5]));			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
@@ -607,8 +756,6 @@ package cc.gullinbursti.lang {
 			// same date
 			else
 				return (0);
-			
-			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
