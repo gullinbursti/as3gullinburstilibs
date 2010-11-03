@@ -7,6 +7,7 @@ package {
 	import cc.gullinbursti.lang.Numbers;
 	import cc.gullinbursti.lang.Strings;
 	import cc.gullinbursti.math.BasicMath;
+	import cc.gullinbursti.math.algebra.Matrices;
 	import cc.gullinbursti.math.geom.BasicGeom;
 	import cc.gullinbursti.math.probility.Randomness;
 	import cc.gullinbursti.sorting.*;
@@ -20,8 +21,10 @@ package {
 		public function as3gullinburstilibs_harness() {
 			
 			//numberTests();
-			stringTests();
+			//stringTests();
 			//arrayTests();
+			
+			matrixTests();
 		}
 		
 		
@@ -108,6 +111,41 @@ package {
 			trace ("ASC SORTED:",BasicSorting.isAcsendSorted(asc_arr));
 			trace ("DSC SORTED:",BasicSorting.isDesendSorted(dsc_arr));
 			
+		}
+		
+		
+		
+		private function bitmapTests():void {
+			
+		}
+		
+		
+		private function matrixTests():void {
+			
+			var blur_arr:Array = new Array(
+				[0,  1,  2,  4,  8,  4,  2,  1,  0], 
+				[1,  2,  4,  8, 16,  8,  4,  2,  1], 
+				[2,  4,  8, 16, 32, 16,  8,  4,  2],  
+				[4,  8, 16, 32, 64, 32, 16,  8,  4], 
+				[8, 16, 32, 64,128, 64, 32, 16,  8],  
+				[4,  8, 16, 32, 64, 32, 16,  8,  4], 
+				[2,  4,  8, 16, 32, 16,  8,  4,  2],
+				[1,  2,  4,  8, 16,  8,  4,  2,  1], 
+				[0,  1,  2,  4,  8,  4,  2,  1,  0]
+			);
+			
+			
+			blur_arr = [
+				[1, 3, 3], 
+				[1, 4, 3], 
+				[1, 3, 4]
+			];
+			
+			
+			
+			var prod_arr:Array = Matrices.invert(blur_arr);
+			
+			trace (prod_arr);
 		}
 	}
 }
