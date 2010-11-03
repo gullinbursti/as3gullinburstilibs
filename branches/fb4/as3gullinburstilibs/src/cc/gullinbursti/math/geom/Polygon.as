@@ -27,5 +27,17 @@ package cc.gullinbursti.math.geom {
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
+		
+		
+		public static function define(sides:int, rad:int, ratio:Number=1.0):PolygonVO {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			return (new PolygonVO(sides, rad, ratio));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function scale(polygon:PolygonVO):PolygonVO {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			return (polygon);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

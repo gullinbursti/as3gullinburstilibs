@@ -36,7 +36,6 @@ package cc.gullinbursti.events {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 			return (new AMFEvent(type, data_obj, bubbles, cancelable));
-		
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

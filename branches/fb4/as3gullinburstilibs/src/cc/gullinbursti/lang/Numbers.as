@@ -114,6 +114,44 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public static function middle(val1:int, val2:int, val3:int):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if ((val1 > val2) && (val1 > val3)) {
+				if (val2 > val3)
+					return (val2);
+					 
+				else
+					return (val3);
+					
+			} else if ((val2 > val1) && (val2 > val3)) {
+				
+				if (val1 > val3)
+					return (val1);
+					
+				else
+					return (val3);
+					
+			} else if (val1 > val2)
+				return (val1);
+				
+			else
+				return (val2);
+				
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function limitWrap(val:int, range:Point):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			while (val > range.y) 
+				val -= (range.y - range.x);
+				
+			while (val < range.x) 
+				val += (range.y - range.x);
+			
+			
+			return (val);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public static function toPhrase(float:Number):String {

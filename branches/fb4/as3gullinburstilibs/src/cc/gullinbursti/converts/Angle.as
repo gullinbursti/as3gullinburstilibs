@@ -2,6 +2,7 @@ package cc.gullinbursti.converts {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import flash.geom.Point;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
@@ -50,6 +51,19 @@ package cc.gullinbursti.converts {
 			 */
 		
 			return (val * (180 / Math.PI));	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function cartToPolar(coord:Point):Point {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (new Point());	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function polarToCart(rad:Number, theta:Number):Point {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (Point.polar(rad, degreesToRadians(theta)));	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 
 	}

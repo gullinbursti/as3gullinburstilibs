@@ -139,6 +139,7 @@ package cc.gullinbursti.math.discrete {
 			return (gcf);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
 		public static function gr8CommonFactorByModulus(val_arr:Array):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			

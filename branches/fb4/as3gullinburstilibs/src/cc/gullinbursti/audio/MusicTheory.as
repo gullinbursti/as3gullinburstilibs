@@ -17,7 +17,6 @@ package cc.gullinbursti.audio {
 		protected static var wholeNoteFreq_arr:Array = new Array();
 		protected static var halfNoteFreq_arr:Array = new Array();
 		
-		//private var note_arr:Array = new Array([261.63, 277.18], [293.66, 311.13], [329.63, 369.99], [349.23, 415.30], [392.00, 392.00], [440.00, 466.16], [493.88, 493.88]);
 		private static const octave_arr:Array = new Array(
 		//	 0C     1C#    2D     3D#    4E     5F     6F#    7G     8G#    9A     10A#   11B
 			[16.35, 17.32, 18.35, 19.45, 20.60, 21.83, 23.12, 24.50, 25.96, 27.50, 29.14, 30.87], // 0

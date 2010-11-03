@@ -1,8 +1,12 @@
 package cc.gullinbursti.math.algebra {
 	
+	//] includes [!]>
+	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import flash.geom.Matrix;
 	import flash.geom.Point;
+	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
+	// <[!] class delaration [!]>
 	public class Matrices extends BasicAlgebra {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		//TODO: define & implement some matrix operations

@@ -16,23 +16,21 @@
 
 package cc.gullinbursti.math.geom {
 	
-	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.converts.Angle;
+	import cc.gullinbursti.math.BasicMath;
+	import cc.gullinbursti.math.algebra.Fractions;
+	import flash.geom.Point;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
+	
 	
 	
 	/**
 	 * 
 	 * @author Gullinbursti
-	 */
-	//] includes [!]>
-	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-	import cc.gullinbursti.math.BasicMath;
-	
-	import flash.geom.Point;
-	
-	 // <[!] class delaration [¡]>
+	 */	
+	// <[!] class delaration [¡]>
 	public class BasicGeom extends BasicMath {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		//TODO: define & implement some add'l geometry functions
@@ -52,15 +50,10 @@ package cc.gullinbursti.math.geom {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
-		public static function midPt(pt1:Point, pt2:Point):Point {
+		
+		public static function ditanceBetweenPts(pt1:Point, pt2:Point):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
-			/**
-			 * c = 2πr
-			 * 
-			 */
-			
-			return (new Point());
+			return (Point.distance(pt1, pt2));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -76,9 +69,20 @@ package cc.gullinbursti.math.geom {
 				else
 					diff -= 360;
 			}
-				
 			
 			return (diff);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function angleBetweenPts(pt1:Point, pt2:Point, degrees:Boolean=true):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+
+			var ang:Number = Math.atan2((pt2.y - pt1.y), (pt2.x - pt1.x));
+			
+			if (degrees)
+				return (Angle.radiansToDegrees(ang));
+			
+			return (ang);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

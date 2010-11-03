@@ -44,6 +44,7 @@ http://en.wikipedia.org/wiki/MIT_license/
 
 
 package cc.gullinbursti.lang {
+	import cc.gullinbursti.audio.fx.WahPetal;
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -51,7 +52,6 @@ package cc.gullinbursti.lang {
 	import cc.gullinbursti.math.probility.Randomness;
 	
 	import flash.geom.Point;
-
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
@@ -204,6 +204,11 @@ package cc.gullinbursti.lang {
 				}
 			}
 			
+			
+			/*
+			var regex_pat:RegExp = /^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+			return Boolean(val.match(regex_pat));
+			*/
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -346,6 +351,11 @@ package cc.gullinbursti.lang {
 			}
 			
 			return (new_str);
+			
+			/*
+			var regex_pat:RegExp = new RegExp("\\" + find_str + "\\", "g");
+			return (src_str.replace(regex_pat, replace_str));
+			*/
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -469,6 +479,22 @@ package cc.gullinbursti.lang {
 				words_arr[i] = toProperNoun(words_arr[i]);
 			
 			return (words_arr.join(" "));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function slug(in_str:String, wspace:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var out_str:String = "";
+			var word_arr:Array = in_str.split(wspace);
+			
+			for (var i:int=0; i<word_arr.length-1; i++)
+				out_str += (word_arr[i] as String) + wspace;
+				
+			out_str += word_arr[i] as String;
+			
+			
+			return (out_str);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
