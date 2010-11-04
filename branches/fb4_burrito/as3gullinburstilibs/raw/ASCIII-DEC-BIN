@@ -1,0 +1,183 @@
+<tr><td>Null</td><td>0</td><td>00000000</td></tr>
+<tr><td>Start heading</td><td>1</td><td>00000001</td></tr>
+<tr><td>Start text</td><td>2</td><td>00000010</td></tr>
+<tr><td>End text</td><td>3</td><td>00000011</td></tr>
+<tr><td>End transmission</td><td>4</td><td>00000100</td></tr>
+<tr><td>Enquiry</td><td>5</td><td>00000101</td></tr>
+<tr><td>Acknowledge</td><td>6</td><td>00000110</td></tr>
+<tr><td>Bell</td><td>7</td><td>00000111</td></tr>
+<tr><td>Backspace</td><td>8</td><td>00001000</td></tr>
+<tr><td>Horizontal tab</td><td>9</td><td>00001001</td></tr>
+<tr><td>Line feed</td><td>10</td><td>00001010</td></tr>
+<tr><td>Vertical tab</td><td>11</td><td>00001011</td></tr>
+<tr><td>Form feed</td><td>12</td><td>00001100</td></tr>
+<tr><td>Carriage return</td><td>13</td><td>00001101</td></tr>
+<tr><td>Shift out</td><td>14</td><td>00001110</td></tr>
+<tr><td>Shift in</td><td>15</td><td>00001111</td></tr>
+<tr><td>Data link escape</td><td>16</td><td>00010000</td></tr>
+<tr><td>Device control 1 (XON)</td><td>17</td><td>00010001</td></tr>
+<tr><td>Device control 2</td><td>18</td><td>00010010</td></tr>
+<tr><td>Device control 3 (XOFF)</td><td>19</td><td>00010011</td></tr>
+<tr><td>Device control 4</td><td>20</td><td>00010100</td></tr>
+<tr><td>Negative acknowledge</td><td>21</td><td>00010101</td></tr>
+<tr><td>Synchronous idle</td><td>22</td><td>00010110</td></tr>
+<tr><td>End transmission block</td><td>23</td><td>00010111</td></tr>
+<tr><td>Cancel</td><td>24</td><td>00011000</td></tr>
+<tr><td>End of medium</td><td>25</td><td>00011001</td></tr>
+<tr><td>Substitute</td><td>26</td><td>00011010</td></tr>
+<tr><td>Escape</td><td>27</td><td>00011011</td></tr>
+<tr><td>File separator</td><td>28</td><td>00011100</td></tr>
+<tr><td>Group separator</td><td>29</td><td>00011101</td></tr>
+<tr><td>Record separator</td><td>30</td><td>00011110</td></tr>
+<tr><td>Unit separator</td><td>31</td><td>00011111</td></tr>
+<tr><td>Space</td><td>32</td><td>00100000</td></tr>
+<tr><td>Delete</td><td>127</td><td>01111111</td></tr> 
+<tr><td>B</td><td>66</td><td>01000010</td></tr>
+<tr><td>C</td><td>67</td><td>01000011</td></tr>
+<tr><td>D</td><td>68</td><td>01000100</td></tr>
+<tr><td>E</td><td>69</td><td>01000101</td></tr>
+<tr><td>F</td><td>70</td><td>01000110</td></tr>
+<tr><td>G</td><td>71</td><td>01000111</td></tr>
+<tr><td>H</td><td>72</td><td>01001000</td></tr>
+<tr><td>I</td><td>73</td><td>01001001</td></tr>
+<tr><td>J</td><td>74</td><td>01001010</td></tr>
+<tr><td>K</td><td>75</td><td>01001011</td></tr>
+<tr><td>L</td><td>76</td><td>01001100</td></tr>
+<tr><td>M</td><td>77</td><td>01001101</td></tr>
+<tr><td>N</td><td>78</td><td>01001110</td></tr>
+<tr><td>O</td><td>79</td><td>01001111</td></tr>
+<tr><td>P</td><td>80</td><td>01010000</td></tr>
+<tr><td>Q</td><td>81</td><td>01010001</td></tr>
+<tr><td>R</td><td>82</td><td>01010010</td></tr>
+<tr><td>S</td><td>83</td><td>01010011</td></tr>
+<tr><td>T</td><td>84</td><td>01010100</td></tr>
+<tr><td>U</td><td>85</td><td>01010101</td></tr>
+<tr><td>V</td><td>86</td><td>01010110</td></tr>
+<tr><td>W</td><td>87</td><td>01010111</td></tr>
+<tr><td>X</td><td>88</td><td>01011000</td></tr>
+<tr><td>Y</td><td>89</td><td>01011001</td></tr>
+<tr><td>Z</td><td>90</td><td>01011010</td></tr>
+<tr><td>a</td><td>97</td><td>01100001</td></tr>
+<tr><td>b</td><td>98</td><td>01100010</td></tr>
+<tr><td>c</td><td>99</td><td>01100011</td></tr>
+<tr><td>d</td><td>100</td><td>01100100</td></tr>
+<tr><td>e</td><td>101</td><td>01100101</td></tr>
+<tr><td>f</td><td>102</td><td>01100110</td></tr>
+<tr><td>g</td><td>103</td><td>01100111</td></tr>
+<tr><td>h</td><td>104</td><td>01101000</td></tr>
+<tr><td>i</td><td>105</td><td>01101001</td></tr>
+<tr><td>j</td><td>106</td><td>01101010</td></tr>
+<tr><td>k</td><td>107</td><td>01101011</td></tr>
+<tr><td>l</td><td>108</td><td>01101100</td></tr>
+<tr><td>m</td><td>109</td><td>01101101</td></tr>
+<tr><td>n</td><td>110</td><td>01101110</td></tr>
+<tr><td>o</td><td>111</td><td>01101111</td></tr>
+<tr><td>p</td><td>112</td><td>01110000</td></tr>
+<tr><td>q</td><td>113</td><td>01110001</td></tr>
+<tr><td>r</td><td>114</td><td>01110010</td></tr>
+<tr><td>s</td><td>115</td><td>01110011</td></tr>
+<tr><td>t</td><td>116</td><td>01110100</td></tr>
+<tr><td>u</td><td>117</td><td>01110101</td></tr>
+<tr><td>v</td><td>118</td><td>01110110</td></tr>
+<tr><td>w</td><td>119</td><td>01110111</td></tr>
+<tr><td>x</td><td>120</td><td>01111000</td></tr>
+<tr><td>y</td><td>121</td><td>01111001</td></tr>
+<tr><td>z</td><td>122</td><td>01111010</td></tr>
+<tr><td>!</td><td>33</td><td>00100001</td></tr>
+<tr><td>"</td><td>34</td><td>00100010</td></tr>
+<tr><td>#</td><td>35</td><td>00100011</td></tr>
+<tr><td>$</td><td>36</td><td>00100100</td></tr>
+<tr><td>%</td><td>37</td><td>00100101</td></tr>
+<tr><td>&</td><td>38</td><td>00100110</td></tr>
+<tr><td>'</td><td>39</td><td>00100111</td></tr>
+<tr><td>(</td><td>40</td><td>00101000</td></tr>
+<tr><td>)</td><td>41</td><td>00101001</td></tr>
+<tr><td>*</td><td>42</td><td>00101010</td></tr>
+<tr><td>+</td><td>43</td><td>00101011</td></tr>
+<tr><td>,</td><td>44</td><td>00101100</td></tr>
+<tr><td>-</td><td>45</td><td>00101101</td></tr>
+<tr><td>.</td><td>46</td><td>00101110</td></tr>
+<tr><td>/</td><td>47</td><td>00101111</td></tr>
+<tr><td>:</td><td>58</td><td>00111010</td></tr>
+<tr><td>;</td><td>59</td><td>00111011</td></tr>
+<tr><td><</td><td>60</td><td>00111100</td></tr>
+<tr><td>=</td><td>61</td><td>00111101</td></tr>
+<tr><td>></td><td>62</td><td>00111110</td></tr>
+<tr><td>?</td><td>63</td><td>00111111</td></tr>
+<tr><td>@</td><td>64</td><td>01000000</td></tr>
+<tr><td>[</td><td>91</td><td>01011011</td></tr>
+<tr><td>\</td><td>92</td><td>01011100</td></tr>
+<tr><td>]</td><td>93</td><td>01011101</td></tr>
+<tr><td>^</td><td>94</td><td>01011110</td></tr>
+<tr><td>_</td><td>95</td><td>01011111</td></tr>
+<tr><td>`</td><td>96</td><td>01100000</td></tr>
+<tr><td>{</td><td>123</td><td>01111011</td></tr>
+<tr><td>¦</td><td>124</td><td>01111100</td></tr>
+<tr><td>}</td><td>125</td><td>01111101</td></tr>
+<tr><td>~</td><td>126</td><td>01111110</td></tr>
+<tr><td>0</td><td>48</td><td>00110000</td></tr>
+<tr><td>1</td><td>49</td><td>00110001</td></tr>
+<tr><td>2</td><td>50</td><td>00110010</td></tr>
+<tr><td>3</td><td>51</td><td>00110011</td></tr>
+<tr><td>4</td><td>52</td><td>00110100</td></tr>
+<tr><td>5</td><td>53</td><td>00110101</td></tr>
+<tr><td>6</td><td>54</td><td>00110110</td></tr>
+<tr><td>7</td><td>55</td><td>00110111</td></tr>
+<tr><td>8</td><td>56</td><td>00111000</td></tr>
+<tr><td>9</td><td>57</td><td>00111001</td></tr>
+<tr><td>Ç</td><td>128</td><td>10000000</td></tr>
+<tr><td>ü</td><td>129</td><td>10000001</td></tr>
+<tr><td>é</td><td>130</td><td>10000010</td></tr>
+<tr><td>â</td><td>131</td><td>10000011</td></tr>
+<tr><td>ä</td><td>132</td><td>10000100</td></tr>
+<tr><td>à</td><td>133</td><td>10000101</td></tr>
+<tr><td>å</td><td>134</td><td>10000110</td></tr>
+<tr><td>ç</td><td>135</td><td>10000111</td></tr>
+<tr><td>ê</td><td>136</td><td>10001000</td></tr>
+<tr><td>ë</td><td>137</td><td>10001001</td></tr>
+<tr><td>è</td><td>138</td><td>10001010</td></tr>
+<tr><td>ï</td><td>139</td><td>10001011</td></tr>
+<tr><td>î</td><td>140</td><td>10001100</td></tr>
+<tr><td>ì</td><td>141</td><td>10001101</td></tr>
+<tr><td>Ä</td><td>142</td><td>10001110</td></tr>
+<tr><td>Å</td><td>143</td><td>10001111</td></tr>
+<tr><td>É</td><td>144</td><td>10010000</td></tr>
+<tr><td>æ</td><td>145</td><td>10010001</td></tr>
+<tr><td>Æ</td><td>146</td><td>10010010</td></tr>
+<tr><td>ô</td><td>147</td><td>10010011</td></tr>
+<tr><td>ö</td><td>148</td><td>10010100</td></tr>
+<tr><td>ò</td><td>149</td><td>10010101</td></tr>
+<tr><td>û</td><td>150</td><td>10010110</td></tr>
+<tr><td>ù</td><td>151</td><td>10010111</td></tr>
+<tr><td>ÿ</td><td>152</td><td>10011000</td></tr>
+<tr><td>Ö</td><td>153</td><td>10011001</td></tr>
+<tr><td>Ü</td><td>154</td><td>10011010</td></tr>
+<tr><td>¢</td><td>155</td><td>10011011</td></tr>
+<tr><td>£</td><td>156</td><td>10011100</td></tr>
+<tr><td>¥</td><td>157</td><td>10011101</td></tr>
+<tr><td>Pt</td><td>158</td><td>10011110</td></tr>
+<tr><td>ƒ</td><td>159</td><td>10011111</td></tr>
+<tr><td>á</td><td>160</td><td>10100000</td></tr>
+<tr><td>í</td><td>161</td><td>10100001</td></tr>
+<tr><td>ó</td><td>162</td><td>10100010</td></tr>
+<tr><td>ú</td><td>163</td><td>10100011</td></tr>
+<tr><td>ñ</td><td>164</td><td>10100100</td></tr>
+<tr><td>Ñ</td><td>165</td><td>10100101</td></tr>
+<tr><td>ª</td><td>166</td><td>10100110</td></tr>
+<tr><td>°</td><td>167</td><td>10100111</td></tr>
+<tr><td>¿</td><td>168</td><td>10101000</td></tr>
+<tr><td>¬</td><td>170</td><td>10101010</td></tr>
+<tr><td>½</td><td>171</td><td>10101011</td></tr>
+<tr><td>¼</td><td>172</td><td>10101100</td></tr>
+<tr><td>¡</td><td>173</td><td>10101101</td></tr>
+<tr><td>«</td><td>174</td><td>10101110</td></tr>
+<tr><td>»</td><td>175</td><td>10101111</td></tr>
+<tr><td>ß</td><td>225</td><td>11100001</td></tr>
+<tr><td>µ</td><td>230</td><td>11100110</td></tr>
+<tr><td>ø</td><td>237</td><td>11101101</td></tr>
+<tr><td>±</td><td>241</td><td>11110001</td></tr>
+<tr><td>÷</td><td>246</td><td>11110110</td></tr>
+<tr><td>°</td><td>248</td><td>11111000</td></tr>
+<tr><td>·</td><td>249</td><td>11111001</td></tr>
+<tr><td>.</td><td>250</td><td>11111010</td></tr>
+<tr><td>²</td><td>253</td><td>11111101</td></tr>

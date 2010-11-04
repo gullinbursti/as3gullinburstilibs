@@ -1,0 +1,224 @@
+Geometric formulas and theorems (middle) some commonly used mathematical formula 
+
+
+1 had two points and only a straight line 
+2, the shortest line between two points 
+3, the supplementary angle with the same angle or isometric 
+4 with the same angle or isometric to the complement of 
+5 have been a little known and only a straight line and vertical line 
+6 point and a straight line on the external connection points of all segments in the shortest vertical line segment 
+After 7 straight parallel axiom outside that has one and only one straight line parallel with this 
+8 If two lines are parallel and the third line, two lines are parallel to each other 
+9, corresponding angles are equal, the two parallel lines 
+Within the wrong angle equal to 10, two straight parallel 
+Complementary with the adjacent interior angle of 11, two straight parallel 
+12, two parallel lines, corresponding angles are equal 
+13, two parallel lines, alternate angles are equal within 
+14, two parallel lines with adjacent complementary angles 
+Theorem 15 on both sides of the triangle is greater than the third side 
+16 inference on both sides of the triangle is less than the third side difference 
+17, the three angles of a triangle and the theorem of the triangle equal 180 ° angles and 
+18 inferred a right triangle the two acute angle over each other 
+19 Corollary 2 triangles and it is not adjacent exterior angle is equal to two angles and 
+20 Corollary 3 a triangle exterior angle is greater than any one and it is not adjacent angles 
+21 congruent triangles correspond to the edge angle equal to the corresponding 
+22 corner edge axiom (SAS) have both sides and their corresponding angles equal to two triangles congruent 
+23 angle corner axiom (ASA) with corners and edges of their corresponding folders equal two triangles congruent 
+24 inference (AAS) with corners and edges which correspond to the same corner of the two triangles congruent 
+25 axiom Collage side (SSS) with the corresponding three sides equal two triangles congruent 
+26 hypotenuse, right angle side axiom (HL) with bevel edge and a right angle right triangle equal in the two congruent 
+27 Theorem 1 line in the corner of the split point to the same angular distance on both sides 
+28 Theorem 2-1 angle from both sides of the same point, in this corner of the split line 
+29 angle to the angle bisector is equidistant on both sides of the set of all points 
+30 isosceles triangle isosceles triangle theorem of the nature of the two bottom corners are equal (that is, on the equiangular equilateral) 
+31 inferred a vertex angle bisector of an isosceles triangle and perpendicular to the bottom edge of the bottom edge split 
+Bisector of an isosceles triangle of the vertex 32, the bottom edge of the middle and the bottom edge of the coincidence of high mutual 
+33 Corollary 3 equilateral triangle all angles are equal, and each angle is equal to 60 ° 
+Judgement Theorem 34 isosceles triangle if one angle equal to two, then these two are on the edge angle is also equal (equiangular equilateral) 
+35 inferred a three angle are equal is equilateral triangle 
+36 Corollary 2 has an angle equal to 60 ° of the isosceles triangle is equilateral 
+37 In the right triangle, if one acute angle is 30 ° so it's angle on the hypotenuse is equal to half the edge 
+38 right-angled triangle the hypotenuse is equal to the hypotenuse on the middle half of 
+Theorem of perpendicular bisector line 39 points and this line segment equal to the distance between the two endpoints 
+40 inverse and a line equidistant from the two ends point, in this segment of the perpendicular bisector line 
+41 vertical line bisector and line can be seen as equal from the two end points of the set of all points 
+42 Theorem 1 on a straight line symmetrical shape of the two graphics are congruent 
+43 Theorem 2 If two graphics on a straight-line symmetry, then the axis of symmetry is the vertical line connecting the corresponding bisector 
+44 Theorem 3 2 graphics on the symmetry of a straight line, if their corresponding intersection line or extension cord, then the intersection of the symmetry axis 
+45 inverse of the corresponding point if the two graphics are the same in a straight line connecting the vertical split, then the two graphics on this line symmetry 
+Two right angle sides 46 Pythagorean right triangle a, b of the square and is equal to the square of the hypotenuse c, ie a ^ 2 + b ^ 2 = c ^ 2 
+47 Pythagorean theorem of the inverse triangle triangular if long a, b, c a relationship a ^ 2 + b ^ 2 = c ^ 2, then the triangle is a right triangle 
+48 Theorem quadrilateral equal 360 ° angles and 
+49 quadrilateral exterior angle equal to 360 ° 
+50 polygon interior angle theorem n-gon of the interior angles is equal to (n-2) × 180 ° 
+51 deduction equal to any multilateral exterior angle and 360 ° 
+52 parallelogram nature of Theorem 1 equal to the parallelogram diagonal 
+53 parallelogram nature of Theorem 2 on the side of the parallelogram are equal 
+54 inference sandwiched between two parallel lines parallel to the line equivalent 
+55 parallelogram nature of the Theorem 3 diagonal parallelogram divided equally with each other 
+56 Parallelogram Theorem 1 determine the two groups were equal to the angle of the quadrilateral is a parallelogram 
+57 parallelogram determined Theorem 2 groups were equal on the side of a quadrilateral is a parallelogram 
+58 Judgement Theorem 3 diagonal parallelogram divided equally among the quadrilateral is a parallelogram 
+59 parallelogram determined Theorem 4 on the side of a set of parallel equal quadrilateral is a parallelogram 
+Theorem 1 of 60 rectangular nature of the four corners of the rectangle are right angles 
+61 rectangular nature of the diagonal of the rectangle equal to Theorem 2 
+62 has three rectangular determine Theorem 1 is the right angle corner is the rectangular quadrilateral 
+63 Judgement Theorem 2 diagonal rectangular parallelogram is equal rectangular 
+64-diamond nature of the Theorem 1 the four sides are equal diamond
+65 diamond-shaped diamond of diagonal nature of Theorem 2, perpendicular to each other, and each diagonal tie a diagonal 
+66 diamond-shaped area = diagonal half of the product, that is S = (a × b) ÷ 2 
+67 Diamond Theorem 1 determine the four sides of a quadrilateral is a rhombus are equal 
+68 diamond decision theorem 2 diagonal parallelogram perpendicular to each other is diamond 
+69 square nature of the Theorem 1 the four corners of a square are right angles, four sides are equal 
+Theorem 2 square 70 square nature of the two diagonal are equal, and perpendicular to each other equally, and each diagonal tie a diagonal 
+71 Theorem 1 on the center of symmetry of the two graphs are congruent 
+72 Theorem 2, the two graphics on the center of symmetry, symmetry line connecting the center of symmetry have been, and are equally symmetrical center 
+73 inverse of the corresponding point if the two graphics have been a connection point, and is it equally, then the two graphics on this symmetry 
+74 isosceles trapezoid isosceles trapezoidal nature of the theorems in the same bottom two corners on the same 
+75 isosceles trapezoid are equal the two diagonal 
+76 isosceles trapezoid theorems determine the end of the two at the same angle equal trapezoid is isosceles trapezoid 
+77 diagonal equal trapezoid is isosceles trapezoid 
+78 parallel line divided if a group of parallel lines were cut in a straight line on the same line segment, then the other straight line intercepted the line is also equal 
+79 1 After deduction of Lumbar trapezoidal midpoint and end of a parallel line, will be another equally waist 
+80 Corollary 2 through the side of the midpoint of the triangle parallel with the other side of the line, the third side will be equally 
+Theorem 81 triangle triangle median line median line parallel to the third side and equal to half of its 
+Theorem 82 trapezoid trapezoidal median line median line parallel to the bottom two, and equal to half of the two bottom and L = (a + b) ÷ 2 S = L × h 
+83 (1) If the ratio of the basic properties of a: b = c: d, then ad = bc 
+If ad = bc, then a: b = c: d 
+84 (2) the nature of cooperation than if the a / b = c / d, then (a ± b) / b = (c ± d) / d 
+85 (3) geometric properties if a / b = c / d = ... = m / n (b + d + ... + n ≠ 0), then 
+(A + c + ... + m) / (b + d + ... + n) = a / b 
+86 sub-parallel line segments proportional to the theorem of three parallel lines cut two straight line segments from the corresponding proportion 
+87 inference triangle parallel to the other side of the cut line on both sides (or both sides of the extension line), obtained in proportion to the corresponding segment 
+88 Theorem If a line cut on both sides of the triangle (or both sides of the extension line) from the corresponding line segments proportional, then this line parallel to the third side of triangle 
+89 parallel to the side of the triangle, and the other on both sides of the intersection of the straight line, which intercepted the triangular triangular triangular triangular correspond with the original proportion 
+Theorem 90 lines parallel to the side of the triangle and other side (or both sides of the extension line) intersect, a triangle formed by the triangle similar to the original 
+91 similar to the triangle corners determine the corresponding equivalent theorem 1, the two triangles similar to the (ASA) 
+92 hypotenuse right triangle is divided into two high on the right triangle and triangle similar to the original 
+93 determination on both sides of Theorem 2 is proportional to the corresponding angles are equal and the two similar triangles (SAS) 
+94 Theorem 3 determine the corresponding three sides in proportion, the two similar triangles (SSS) 
+95 Theorem If the hypotenuse of a right triangle and a right angle right triangle's hypotenuse and another side and a right angle is proportional to the corresponding edge, then the two right-angled triangle similarity 
+96 nature of Theorem 1 corresponding to a high ratio of similar triangles, corresponding to the center line than the corresponding angle bisector similar than are equal to more than 
+97 nature of Theorem 2 is equal to the ratio of the circumference of similar triangles similarity ratio 
+98 nature of the Theorem 3 similar similar triangle area ratio equal to the square of the ratio of 
+Any acute angle of the sine of 99 is equal to its complement of the cosine value of the cosine of any acute angle is equal to the sine of the complement of its 
+Any acute angle 100 is equal to the tangent of the complement of the cotangent of its value, the cotangent value of any acute angle is equal to the tangent of the complement of its 
+101 circle is the distance between fixed points equals the set of fixed length 
+102 inside the circle can be seen as less than the radius from the center of the circle the set of points 
+103 outside the circle can be seen as greater than the radius from the center of the circle set of points 
+104 or so round the circle with radius equal 
+Is equal to the distance of 105 fixed-length fixed-point locus of points, is designated as the center, fixed-length to radius of circle 
+106 and the distance between the two ends of the known segment equal to the locus is a vertical line segment bisector article 
+107 to a known angle from the same point on both sides of the track, is the angle bisector 
+108-2 equidistant parallel lines locus of points, and the two parallel lines are parallel and equidistant in a straight line 
+Theorem 109 is not a straight line of three points determine a circle. 
+Vertical Path Theorem 110 the diameter perpendicular to the string split this string by string and tie the two arcs on 
+111 inference 1 ① split string (not diameter) of the diameter perpendicular to the string, and string tie the string on the two arc ② vertical bisector through the center of a circle, and tie the two strings are on the right arc ③ split a string arc diameter, the vertical split string and tie a string by the arc on the other 
+112 Corollary 2 parallel strings of two circular arcs the same folder 
+113 center of a circle as the circle is the center of symmetry symmetry
+114 theorems in the same circle or other circular, the equivalent of the central angle is equal to the arc, the equivalent of the string, the string on the heart strings from the same 
+115 deduction in the same round or in the round, if the two central angle, the two arcs, two string or two strings of the chord in the hearts from the same volume as a group they amount corresponding to the other groups are equal 
+Theorem 116 is an arc on the circumference of the angle it on the central angle is equal to half the 
+1 117 deduction or other arc with the arc on the circumference of the same angle; round with a round or so, the equivalent of the circumferential angle of the arc is also equal to the 
+118 Corollary 2 semicircle (or diameter) of the circumference of the angle is right angle; 90 ° angle of the circle is the diameter of the string 
+119 Corollary 3 If the side of the middle triangle is equal to half the side, then the triangle is a right triangle 
+120 Theorem circle inscribed quadrilateral diagonal complementary, and any exterior angle is equal to its angle within 
+121 ① ⊙ O line L and intersects the d <r 
+② ⊙ O tangent line L, and d = r 
+③ straight line L and ⊙ O phase from the d> r 
+After 122 Tangent's decision theorem and the outer end of the radius perpendicular to the radius of this tangent line is round 
+The nature of the theorem of tangent 123 tangent circle perpendicular to the radius through the tangent point 
+124 through the center of the circle and deduce a straight line perpendicular to the tangent point will be cut through 
+Through the cut point of 125 Corollary 2 and the line will be perpendicular to the tangent through the center of a circle 
+Tangent length of 126 theorems from outside the circle round the two tangent point lead, their tangent appearance, etc. 
+This is the center of a circle and tangent of the angle between the two equally connection 
+127 circle circumscribed quadrilateral and the two groups on the same side 
+128 Xian Qiejiao Theorem Xian Qiejiao arc is equal to its folder on the circumferential angle 
+129 deduction if the arc two Xian Qiejiao the same folder, then this is also equal to two Xianqie Jiao 
+130 intersection of the two strings intersect the circle theorem of string, divided into two segments by the intersection of the product of equal length 
+131 deduction and the diameter of the vertical intersection if the string, then the string is half the diameter of its points into two segments by the proportion of items 
+Cutting Line Theorem 132 point lead outside from the circle tangent and secant circle, tangent to the secant long is this intersection of two line segments and circle the proportion of long items 
+133 point deduction from the circle outside the circle of the two cited secant, secant and point to each point of intersection of two circle segments equal to the product of long 
+If the two circles tangent to 134, then cut with center line at a certain point 
+135 ① outer two circles from the d> R + r ② two circles circumscribed d = R + r 
+③ two circles intersect Rr <d <R+r(R> r) 
+④ two-circle cut d = Rr (R> r) ⑤ two circles containing d <Rr(R> r) 
+136 Theorem intersection of the two circles with center line perpendicular bisector of the two circles public String 
+137 Theorem of the circle into n (n ≥ 3): 
+⑴ followed a link from all points of the polygon is the circle inscribed n-gon ⑵ circle through the points for the tangent to the adjacent intersection of the tangent points in the polygon is the circle circumscribed n-gon is 
+138 Theorem any regular polygon has a circumscribed circle and an inscribed circle, the two circles are concentric circles 
+139 is n-gon for each interior angle is equal to (n-2) × 180 ° / n 
+Theorem 140 is n-gon of radius and apothem the positive n-gon into a congruent right triangle 2n 
+N-gon 141 is the area of Sn = pnrn / 2 p n-gon that is the perimeter 
+142 triangle area √ 3a / 4 a side said 
+143 If a vertex is surrounded by n k-edge-shaped angle, angle, and these should be 
+360 °, so k × (n-2) 180 ° / n = 360 ° into (n-2) (k-2) = 4 
+144 arc-length formula: L = n Wu R/180 
+145 fan-shaped area formula: S fan = n Wu R ^ 2 / 360 = LR / 2 
+146 within the common tangent length = d-(Rr) grandfather tangent length = d-(R + r) 
+(There are, we help to add it) 
+
+Utility: common mathematical formula formula formula expression classification 
+
+Multiplication and for style points a2-b2 = (a + b) (ab) a3 + b3 = (a + b) (a2-ab + b2) a3-b3 = (ab (a2 + ab + b2) 
+
+Triangle inequality | a + b | ≤ | a | + | b | | ab | ≤ | a | + | b | | a | ≤ b <=>-b ≤ a ≤ b 
+
+| Ab | ≥ | a | - | b | - | a | ≤ a ≤ | a | 
+
+Quadratic equation solution-b + √ (b2-4ac) / 2a-b-√ (b2-4ac) / 2a 
+
+The relationship between roots and coefficients of X1 + X2 =- b / a X1 * X2 = c / a Note: Vieta theorem 
+
+Discriminant 
+b2-4ac = 0 Note: The equation has two equal real roots 
+b2-4ac> 0 Note: The equation has two unequal real roots 
+b2-4ac <0 Note: The equation has no real roots, there are complex conjugate roots 
+
+Trigonometric formula 
+
+Corners and formulas 
+sin (A + B) = sinAcosB + cosAsinB sin (AB) = sinAcosB-sinBcosA 
+cos (A + B) = cosAcosB-sinAsinB cos (AB) = cosAcosB + sinAsinB 
+tan (A + B) = (tanA + tanB) / (1-tanAtanB) tan (AB) = (tanA-tanB) / (1 + tanAtanB) 
+ctg (A + B) = (ctgActgB-1) / (ctgB + ctgA) ctg (AB) = (ctgActgB +1) / (ctgB-ctgA) 
+
+Double angle formula 
+tan2A = 2tanA / (1-tan2A) ctg2A = (ctg2A-1) / 2ctga 
+cos2a = cos2a-sin2a = 2cos2a-1 = 1-2sin2a 
+
+Half-angle formula 
+sin (A / 2) = √ ((1-cosA) / 2) sin (A / 2) =- √ ((1-cosA) / 2) 
+cos (A / 2) = √ ((1 + cosA) / 2) cos (A / 2) =- √ ((1 + cosA) / 2) 
+tan (A / 2) = √ ((1-cosA) / ((1 + cosA)) tan (A / 2) =- √ ((1-cosA) / ((1 + cosA)) 
+ctg (A / 2) = √ ((1 + cosA) / ((1-cosA)) ctg (A / 2) =- √ ((1 + cosA) / ((1-cosA)) 
+
+And the difference of product 
+2sinAcosB = sin (A + B) + sin (AB) 2cosAsinB = sin (A + B)-sin (AB)
+2cosAcosB = cos (A + B)-sin (AB)-2sinAsinB = cos (A + B)-cos (AB) 
+sinA + sinB = 2sin ((A + B) / 2) cos ((AB) / 2 cosA + cosB = 2cos ((A + B) / 2) sin ((AB) / 2) 
+tanA + tanB = sin (A + B) / cosAcosB tanA-tanB = sin (AB) / cosAcosB 
+ctgA + ctgBsin (A + B) / sinAsinB-ctgA + ctgBsin (A + B) / sinAsinB 
+
+The top n certain number of items and 
+1 +2 +3 +4 +5 +6 +7 +8 +9 + ... + n = n (n +1) / 2 1 +3 +5 +7 +9 +11 +13 +15 + ... + (2n -1) = n2 
+2 +4 +6 +8 +10 +12 +14 + ... + (2n) = n (n +1) 12 +22 +32 +42 +52 +62 +72 +82 + ... + n2 = n (n + 1) (2n +1) / 6 
+13 +23 +33 +43 +53 +63 + ... n3 = n2 (n +1) 2 / 4 1 * 2 +2 * 3 +3 * 4 +4 * 5 +5 * 6 +6 * 7 + ... + n (n +1) = n (n +1) (n +2) / 3 
+
+Sine a / sinA = b / sinB = c / sinC = 2R Note: where indicated the triangle circumcircle radius R 
+
+Cosine b2 = a2 + c2-2accosB Note: Point B is a side a and side c of the angle 
+
+Standard equation of a circle (xa) 2 + (yb) 2 = r2 Note: (a, b) is the center coordinates of the general equation of the circle x2 + y2 + Dx + Ey + F = 0 Note: D2 + E2-4F> 0 
+The standard parabolic equation y2 = 2px y2 =- 2px x2 = 2py x2 =- 2py 
+
+Straight prism lateral area S = c * h oblique prism lateral area S = c '* h 
+Is a pyramid lateral area S = 1/2c * h 'is bevel side of the area of S = 1 / 2 (c + c') h ' 
+Round table-side area of S = 1 / 2 (c + c ') l = pi (R + r) l 
+//ball surface area S = 4pi * r2 
+Cylindrical side of the area S = c * h = 2pi * h tapered side of the area of S = 1 / 2 * c * l = pi * r * l 
+
+Formula of length l = a * ra is the central angle in radians r> 0 fan-shaped area of the formula s = 1 / 2 * l * r 
+
+//Cone volume formula V = 1 / 3 * S * H the cone volume formula V = 1 / 3 * pi * r2h 
+Oblique prism volume V = S'L Note: one, S 'is a straight cross-sectional area, L is longer side edge cylinder volume formula V = s * h cylinder V = pi * r2h

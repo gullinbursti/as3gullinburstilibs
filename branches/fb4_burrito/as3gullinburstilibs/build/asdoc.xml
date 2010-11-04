@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<project name="Build ASDocs" basedir="../">
+
+	<!-- CLEAN DOCS -->
+	<target name="cleanDocs" description="Cleans out the documentation directory.">
+		<echo>Cleaning '${docs.dir}'...</echo>
+		<delete includeemptydirs="true">
+			<fileset dir="${docs.dir}" includes="**/*" />
+		</delete>
+	</target>
+
+	<!-- GENERATE DOCUMENTATION -->
+	<target name="generateDocs" description="Generates application documentation using ASDoc."
+		depends="cleanDocs">
+		<echo>Generating documentation...</echo>
+		<exec executable="${FLEX_HOME}/bin/asdoc.exe" failOnError="true">
+			<arg line="-source-path ${src.dir}" />
+			<arg line="-doc-sources ${src.dir}" />
+			<arg line="-main-title ${docs.title}" />
+			<arg line="-window-title ${docs.title}" />
+			<arg line="-footer ${docs.footer}" />
+			<arg line="-output ${docs.dir}" />
+		</exec>
+	</target>
+
+</project>

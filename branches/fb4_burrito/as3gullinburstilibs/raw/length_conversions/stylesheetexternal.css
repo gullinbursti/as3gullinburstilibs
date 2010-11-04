@@ -1,0 +1,37 @@
+/*
+  $Id: stylesheet.css 1739 2007-12-20 00:52:16Z hpdl $
+
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
+
+  Copyright (c) 2003 osCommerce
+
+  Released under the GNU General Public License
+*/
+.infoBox {
+	background: #b6b7cb;
+}
+
+.infoBoxContents {
+	background: #f8f8f9;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 10px;
+}
+
+.infoBoxNotice {
+	background: #FF8E90;
+}
+
+.infoBoxNoticeContents {
+	background: #FFE6E6;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 10px;
+}
+
+TD.infoBoxHeading {
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	background: #bbc3d3;
+	color: #ffffff;
+}

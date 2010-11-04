@@ -1,0 +1,169 @@
+Humidity Formulas
+
+If you want to do your own calculations or program a computer, this page contains various formulas used for calculating relative humidity, dewpoint temperature, and other quantities such as air density, absolute humidity, and the height of cumulus cloud bases, which are related to the moisture content of air. These represent fairly advanced mathematics and will be useful only to those who understand the basic concepts of dewpoint and relatively humidity, and the necessary mathematics. The humidity definition page provides some basic definitions for various terms dealing with atmospheric moisture.
+
+Note: In all the formulas here, / means to divide, * means to multiply, ** means the following term is an exponent (i.e. 10**(4) means 10 to the 4th power), - means to subtract, + means to add. A number followed by a "x10" to some exponent is in scientific notation to conserve space. The standard rules of algebra apply to all the formulas.
+
+Heat Index, apparent temperature
+
+The heat index and the summer simmer index are used to measure the amount of discomfort during the summer months when heat and humidity often combine to make it feel hotter than it actually is. The heat index is usually used for afternoon high temperatures while the summer simmer index is used for overnight low temperatures. Below are the detailed equations that are used to calculate the apparent temperatures in the heat index and the summer simmer index.
+
+Heat Index: If you know the relative humidity and the dry air temperature, then you can use the following equation to calculate the heat index.
+
+(1) Heat index(HI), or apparent temperature(AI)= -42.379 + 2.04901523(Tf) + 10.14333127(RH) - 0.22475541(Tf)(RH) - 6.83783x10**(-3)*(Tf**(2)) - 5.481717x10**(-2)*(RH**(2)) + 1.22874x10**(-3)*(Tf**(2))*(RH) + 8.5282x10**(-4)*(Tf)*(RH**(2)) - 1.99x10**(-6)*(Tf**(2))*(RH**(2))
+
+Note: In order for the Heat Index formula to work correctly, you must use the relative humidity in percent form. In other words, if the relative humidity is 65%, use 65 for RH in the formula, not .65.
+
+Summer Simmer Index: If you know the relative humidity and the dry air temperature, then you can use the following equation to calculate the summer simmer index.
+
+(2) Summer simmer index(SSI)= 1.98(Tf - (0.55 - 0.0055(RH))(Tf-58)) - 56.83
+
+Tf= air temperature in degrees Fahrenheit, RH= relative humidity expressed as a whole number
+
+How altitude affects humidity calculations
+
+As altitude is gained, air pressure decreases. The discussion here covers the affects of this pressure decrease on the humidity formulas on this page.
+
+Pressure decreases with height in the first 100 kilometers above the earth's surface according to the formula P(z)=P(sea level)*exp(-z/H).
+
+P(z)= pressure at height z, P(sea level)= sea level pressure(~1013 millibars), z= height in meters, H= scale height(~7 kilometers)
+
+Our evaluation of the humidity formulas on this page using different altitudes, shows that the relative humidity remains constant with pressure changes. The actual vapor pressure and the saturated vapor pressure both change, but they change by the same factor. This keeps relative humidity constant. The pressure coefficient in the formulas below for the standard atmosphere is 6.11. Applying the pressure formula above for 7000 feet of altitude, yields a pressure coefficient of 4.5. This lower coefficient reduces both actual vapor pressure and saturation vapor pressure, but does not change relative humidity.
+
+The dewpoint temperature is affected by the higher altitude since it is affected by pressure. Using the saturation vapor pressure values from the formula below, you can divide the formula value by the ratio of the sea level pressure coefficient to the modified coefficient. For example, at 7000 feet of altitude the ratio is 6.11/4.5, or 1.38. Before using the formula value for saturated vapor pressure in the dewpoint procedure, you divide the formula value by 1.38.
+
+Relative humidity from temperature and dewpoint
+
+If you know the temperature and the dewpoint, and want to obtain relative humidity, the formulas are as follows:
+
+First, to convert the temperature and the dewpoint from Fahrenheit to Celsius, use the following formulas.
+
+(3) Tc=5.0/9.0*(Tf-32.0)
+
+(4) Tdc=5.0/9.0*(Tdf-32.0)
+
+Tc=air temperature in degrees Celsius, Tf=air temperature in degrees Fahrenheit
+
+Tdc=dewpoint temperature in degrees Celsius
+
+Tdf=dewpoint temperature in degrees Fahrenheit
+
+Note: If your temperature and dewpoint are already in degrees Celsius, you can skip the first step and proceed to the second.
+
+The next set of formulas assumes a standard atmospheric pressure. These formulas will calculate saturation vapor pressure(Es) and actual vapor pressure(E) in millibars.
+
+(5) Es=6.11*10.0**(7.5*Tc/(237.7+Tc))
+
+(6) E=6.11*10.0**(7.5*Tdc/(237.7+Tdc))
+
+Once you have the saturation vapor pressure and the actual vapor pressure, relative humidity can be computed by dividing the actual vapor pressure by the saturation vapor pressure and then multiplying by 100 to convert the quantity to a percent.
+
+(7) Relative Humidity(RH) in percent =(E/Es)*100
+
+For example, if you have a station report that included an air temperature of 85 degrees Fahrenheit and a dewpoint of 65 degrees Fahrenheit and you wanted to compute the relative humidity, you would proceed as follows.
+
+First, convert the Fahrenheit values to Celsius using formulas (3) and (4). The values you get should be Tc=29.4 and Tdc=18.3
+
+Next, calculate the saturation vapor pressure and the actual vapor pressure using formulas (5) and (6) respectively. The values you get should be Es=40.9 and E=21.0
+
+Finally, calculate relative humidity using formula (7). The final answer should be RH=51.3 %(percent).
+
+Note: Due to the rounding of decimal places, your answer may be slightly different from the above answer, but it should be within 2%.
+
+Dewpoint from relative humidity and temperature
+
+If you know the relative humidity and the air temperature, and want to calculate the dewpoint, the formulas are as follows.
+
+First, if your air temperature is in degrees Fahrenheit, then you must convert it to degrees Celsius by using the Fahrenheit to Celsius formula.
+
+(8) Tc=5.0/9.0*(Tf-32.0)
+
+The next step is to obtain the saturation vapor pressure(Es) using formula (5) as before when air temperature is known.
+
+(5) Es=6.11*10.0**(7.5*Tc/(237.7+Tc))
+
+The next step is to use the saturation vapor pressure and the relative humidity to compute the actual vapor pressure(E) of the air. This can be done with the following formula.
+
+(9) E=(RH*Es)/100
+
+RH=relative humidity of air expressed as a percent.(i.e. 80%)
+
+Now you are ready to use the following formula to obtain the dewpoint temperature.
+
+Note: ln( ) means to take the natural log of the variable in the parentheses
+
+(10) Tdc=(-430.22+237.7*ln(E))/(-ln(E)+19.08)
+
+If you wish, you can convert the Celsius dewpoint back into the Fahrenheit scale using the following formula.
+
+(11) Tdf=(9.0/5.0)*Tdc+32
+
+For example, if you have a weather station that gave you an air temperature of 60 degrees Fahrenheit and a relative humidity of 47%(percent) and you wanted to compute the dewpoint temperature, you would proceed as follows.
+
+First, convert the air temperature to degrees Celsius by using formula (8). You should get Tc=15.6
+
+Next, using formula (5) again, compute the saturation vapor pressure for an air temperature of 15.6 degrees Celsius. You should get 17.7.
+
+Next, compute the actual vapor pressure by using formula (9). You should get E=8.3
+
+Finally, you can compute the dewpoint temperature by using formula (10). You should get Tdc=4.3
+
+If you want to convert this dewpoint temperature back into degrees Fahrenheit, you can do so by using formula (11). You should get Tdf=39.7
+
+Note: Due to the rounding of decimal places, your answer may be slightly different from the above answer, but it should be within two degrees.
+
+Relative humidity from temperature and wet bulb temperature
+
+If you know the air temperature and the wet bulb temperature, you first want to calculate the actual mixing ratio of the air(W) using the following formula.
+
+(12) W=[(Tc-Twb)(Cp)-Lv(Eswb/P)]/[-(Tc-Twb)(Cpv)-Lv]
+
+W=actual mixing ratio of air
+
+Cp=specific heat of dry air at constant pressure(J/g)~1.005 J/g
+
+Cpv= specific heat of water vapor at constant pressure(J/g)~4.186 J/g
+
+Lv=Latent heat of vaporization(J/g)~2500 J/g
+
+Tc=air temperature in degrees Celsius
+
+Twb=wet bulb temperature in degrees Celsius
+
+Eswb=saturation vapor pressure at the wet bulb temperature(mb)
+
+P=atmospheric pressure at surface~1013 mb at sea-level
+
+Once you have the actual vapor pressure, you can use the following formula to calculate the saturation mixing ratio for the air.
+
+(13) Ws=Es/P
+
+Once you have the actual mixing ratio and the saturation mixing ratio, you can use the following formula to calculate relative humidity.
+
+(14) Relative Humidity(RH) in percent=(W/Ws)*100
+
+Note: The latent heat of vaporization(Lv) varies slightly with temperature. The value given above is an approximate value for the standard atmosphere at 0 degrees Celsius.
+
+Note: Due to the large numbers of approximations using these formulas, your final answer may vary by as much as 10 percent.
+
+Air density and absolute humidity
+
+In order to calculate air density, you will have to use the Ideal Gas Law equation. Before you can use the gas law equation, you must first convert your temperature in degrees Celsius to degrees Kelvin by simply adding 273 to the Celsius temperature reading. (Tk=Tc+273) Also, you must convert pressure in kPa to Pa by simply multiplying your reading in kPa by 1000. (1 kPa=1000 Pa). If your pressure reading or calculation is in millibars, then you convert it to Pa by multiplying the reading in millibars by 100. (1 mb=100 Pa)
+
+(15) The gas law equation: D=P/(T*R)
+
+P= pressure in Pascals (Pa)
+
+D=density(kg/m3)
+
+T=temperature in degrees Kelvin
+
+R=gas constant for air=287 (J/kg*Kelvin)
+
+Rw=gas constant for water vapor= 461.5 (J/kg*Kelvin)
+
+This gas law formula will give you the air density for a given temperature and pressure.
+
+Absolute humidity is the density of water vapor in the air (kg/m3). To calculate absolute humidity, you must first use the dewpoint temperature and formula number (6) to calculate vapor pressure in millibars. Then convert the vapor pressure in millibars to Pa by multiplying by 100. Once you have the vapor pressure in Pa, you can use the gas law discussed above to calculate water vapor density(i.e. absolute humidity) by substituting Rw in place of R and by using the vapor pressure in the gas law formula, rather than the total atmospheric pressure that you would use to calculate air density.
+
+Note: You must use Rw, the gas constant for water vapor, when you calculate absolute humidity since you are calculating the effect of pure water vapor. The normal air constant, R, will not work properly when calculating absolute humidity.
