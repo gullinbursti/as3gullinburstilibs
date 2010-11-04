@@ -1,5 +1,5 @@
 package cc.gullinbursti.converts {
-	import cc.gullinbursti.utils.ColorUtilz;
+	import cc.gullinbursti.lang.Colors;
 
 	//] includes [!]>
 	// ]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -104,9 +104,9 @@ package cc.gullinbursti.converts {
 			var F:Number;
 			var n:Number;
 			
-			var r:uint = cc.gullinbursti.utils.ColorUtilz.redAmt(rgb);
-			var g:uint = cc.gullinbursti.utils.ColorUtilz.greenAmt(rgb);
-			var b:uint = cc.gullinbursti.utils.ColorUtilz.blueAmt(rgb);
+			var r:uint = cc.gullinbursti.lang.Colors.redAmt(rgb);
+			var g:uint = cc.gullinbursti.lang.Colors.greenAmt(rgb);
+			var b:uint = cc.gullinbursti.lang.Colors.blueAmt(rgb);
 			
 			
 			var range:Point = new Point();
@@ -172,9 +172,9 @@ package cc.gullinbursti.converts {
 			var v:Number = 0;
 			var hue:Number = 0;
 			
-			var r:uint = cc.gullinbursti.utils.ColorUtilz.redAmt(rgb);
-			var g:uint = cc.gullinbursti.utils.ColorUtilz.greenAmt(rgb);
-			var b:uint = cc.gullinbursti.utils.ColorUtilz.blueAmt(rgb);
+			var r:uint = cc.gullinbursti.lang.Colors.redAmt(rgb);
+			var g:uint = cc.gullinbursti.lang.Colors.greenAmt(rgb);
+			var b:uint = cc.gullinbursti.lang.Colors.blueAmt(rgb);
 			
 			range.y = Math.max(r, g, b);
 			range.x = Math.min(r, g, b);
@@ -199,9 +199,9 @@ package cc.gullinbursti.converts {
 			var sat:Number;
 			var lumi:Number;
 			
-			var r:uint = ColorUtilz.redAmt(rgb);
-			var g:uint = ColorUtilz.greenAmt(rgb);
-			var b:uint = ColorUtilz.blueAmt(rgb);
+			var r:uint = Colors.redAmt(rgb);
+			var g:uint = Colors.greenAmt(rgb);
+			var b:uint = Colors.blueAmt(rgb);
 			
 			range.y = Math.max(r, Math.max(g, b));
 			range.x = Math.min(r, Math.min(g, b));

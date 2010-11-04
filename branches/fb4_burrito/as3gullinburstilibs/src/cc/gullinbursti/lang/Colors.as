@@ -1,13 +1,13 @@
-package cc.gullinbursti.utils {
+package cc.gullinbursti.lang {
 	
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-	import cc.gullinbursti.lang.Bits;
-	import cc.gullinbursti.lang.Arrays;
 	import cc.gullinbursti.math.probility.Randomness;
 	
 	import flash.display.BitmapDataChannel;
+	import cc.gullinbursti.utils.Bitwise;
+
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/*
@@ -20,7 +20,7 @@ package cc.gullinbursti.utils {
 	*/
 	
 	// <[!] class delaration [!]>
-	public class ColorUtilz extends Bitwise {
+	public class Colors extends Bitwise {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -193,7 +193,7 @@ package cc.gullinbursti.utils {
 		
 		
 		// <*] class constructor [*>
-		public function ColorUtilz() {/*..\(^_^)/..*/}
+		public function Colors() {/*..\(^_^)/..*/}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>

@@ -5,7 +5,7 @@
  * Class	:	Strings.as		
  * Version	: 	1.0
  * 
- * Author	:	Matt Holcombe (gullinbursti)
+ * Author	:	Matt Holcombe (gullinbursti) <code.gullinbursti.cc>
  * Created	:	06-04-09
  * 
  * Purpose	:	Performs various operations on Strings.

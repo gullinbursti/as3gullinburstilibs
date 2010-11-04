@@ -251,13 +251,14 @@
     <classEntry path="cc.gullinbursti.ui.TextSprite"/>
     <classEntry path="cc.gullinbursti.utils.Audio"/>
     <classEntry path="cc.gullinbursti.utils.Bitwise"/>
-    <classEntry path="cc.gullinbursti.utils.ColorUtilz"/>
+    <classEntry path="cc.gullinbursti.lang.Colors"/>
     <classEntry path="cc.gullinbursti.utils.Key"/>
     <classEntry path="cc.gullinbursti.utils.SI"/>
     <classEntry path="cc.gullinbursti.utils.UniqueID"/>
     <classEntry path="cc.gullinbursti.vo.AbstractUserInputVO"/>
     <classEntry path="cc.gullinbursti.vo.KeyboardVO"/>
     <classEntry path="cc.gullinbursti.vo.MouseVO"/>
+    <classEntry path="cc.gullinbursti.lang.Keys"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
