@@ -5,6 +5,7 @@ package {
 	import cc.gullinbursti.lang.DateTimes;
 	import cc.gullinbursti.lang.Ints;
 	import cc.gullinbursti.lang.Shapes;
+	import cc.gullinbursti.lang.Strings;
 	import cc.gullinbursti.math.BasicMath;
 	import cc.gullinbursti.math.algebra.Matrices;
 	import cc.gullinbursti.math.probility.Randomness;
@@ -31,6 +32,9 @@ package {
 			//matrixTests();
 			//shapeTests();
 			colorTests();
+			
+			
+			trace (Strings.uniqueID());
 		}
 		
 		
@@ -98,8 +102,8 @@ package {
 		
 		private function colorTests():void {
 			
-			trace (0xf04a3bc9, 0xf0000000, Colors.alphaAmt(0xf04a3bc9));
-			hdlHolder_Click();
+			//trace (0xf04a3bc9, 0xf0000000, Colors.alphaAmt(0xf04a3bc9));
+			redraw();
 		}
 		
 		
@@ -144,10 +148,7 @@ package {
 
 
 		private function hdlHolder_Click(e:MouseEvent=null):void {
-			holder_sprite.graphics.clear();
-			holder_sprite.graphics.beginFill(Colors.rndRGB());
-			holder_sprite.graphics.drawCircle(0, 0, 128);
-			holder_sprite.graphics.endFill();
+			redraw();
 		}
 		
 		
@@ -223,6 +224,18 @@ package {
 			
 			holder_sprite.buttonMode = holder_sprite.useHandCursor = true;
 			holder_sprite.addEventListener(MouseEvent.CLICK, hdlHolder_Click);
+		}
+		
+		private function redraw():void {
+			
+			var color:uint = Colors.rndRGB();
+			
+			trace ("Colors.rndRGB:["+Colors.redAmt(color)+" "+Colors.greenAmt(color)+" "+Colors.blueAmt(color)+"] ("+color+")");
+			
+			holder_sprite.graphics.clear();
+			holder_sprite.graphics.beginFill(color);
+			holder_sprite.graphics.drawCircle(0, 0, 128);
+			holder_sprite.graphics.endFill();
 		}
 	}
 }
