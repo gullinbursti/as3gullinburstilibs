@@ -379,6 +379,18 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public static function utcDate(date:Date=null):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			return (new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCMinutes(), date.getUTCSeconds(), date.getUTCMilliseconds()));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		
 		/**
 		 * Returns true if the <code>Date</code> object is a leap year.
 		 * 

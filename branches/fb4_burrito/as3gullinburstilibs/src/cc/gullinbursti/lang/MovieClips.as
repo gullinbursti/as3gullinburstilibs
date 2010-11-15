@@ -11,7 +11,7 @@ package cc.gullinbursti.lang {
 	 * @author Gullinbursti
 	 */
 	// <[!] class delaration [¡]>
-	public class MovieClips extends Sprites {
+	public class MovieClips extends DisplayObjs {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		// <*] class constructor [*>

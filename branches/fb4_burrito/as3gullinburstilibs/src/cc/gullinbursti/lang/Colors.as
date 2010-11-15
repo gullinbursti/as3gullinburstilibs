@@ -6,8 +6,6 @@ package cc.gullinbursti.lang {
 	import cc.gullinbursti.math.probility.Randomness;
 	
 	import flash.display.BitmapDataChannel;
-	import cc.gullinbursti.utils.Bitwise;
-
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/*
@@ -20,7 +18,7 @@ package cc.gullinbursti.lang {
 	*/
 	
 	// <[!] class delaration [!]>
-	public class Colors extends Bitwise {
+	public class Colors extends Bits {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -260,6 +258,12 @@ package cc.gullinbursti.lang {
 		public static function blueAmt(color:uint):uint {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			return (color & 0xff);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function saturate(src:uint, mult:Number=0.0):uint {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			return (src * mult);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

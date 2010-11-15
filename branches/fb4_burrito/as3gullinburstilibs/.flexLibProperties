@@ -141,7 +141,7 @@
     <classEntry path="cc.gullinbursti.lang.Numbers"/>
     <classEntry path="cc.gullinbursti.lang.Objects"/>
     <classEntry path="cc.gullinbursti.lang.Shapes"/>
-    <classEntry path="cc.gullinbursti.lang.Sprites"/>
+    <classEntry path="cc.gullinbursti.lang.DisplayObjs"/>
     <classEntry path="cc.gullinbursti.lang.Strings"/>
     <classEntry path="cc.gullinbursti.lang.TextFields"/>
     <classEntry path="cc.gullinbursti.lang.URLs"/>
@@ -249,16 +249,13 @@
     <classEntry path="cc.gullinbursti.ui.AbstractImageSprite"/>
     <classEntry path="cc.gullinbursti.ui.ScrollBarUI"/>
     <classEntry path="cc.gullinbursti.ui.TextSprite"/>
-    <classEntry path="cc.gullinbursti.utils.Audio"/>
-    <classEntry path="cc.gullinbursti.utils.Bitwise"/>
     <classEntry path="cc.gullinbursti.lang.Colors"/>
-    <classEntry path="cc.gullinbursti.utils.Key"/>
-    <classEntry path="cc.gullinbursti.utils.SI"/>
-    <classEntry path="cc.gullinbursti.utils.UniqueID"/>
     <classEntry path="cc.gullinbursti.vo.AbstractUserInputVO"/>
     <classEntry path="cc.gullinbursti.vo.KeyboardVO"/>
     <classEntry path="cc.gullinbursti.vo.MouseVO"/>
     <classEntry path="cc.gullinbursti.lang.Keys"/>
+    <classEntry path="cc.gullinbursti.audio.calc.Summate"/>
+    <classEntry path="cc.gullinbursti.converts.SI"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

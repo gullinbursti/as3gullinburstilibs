@@ -34,22 +34,6 @@ package cc.gullinbursti.lang {
 		
 		
 		
-		public static function xeroxDisplayObject(dispObj:DisplayObject):BitmapData {
-		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._	
-			
-			// bounding rectangle
-			var bounds_rect:Rectangle = dispObj.getBounds(dispObj);
-			
-			// a new bmp data
-			var bmpData:BitmapData = new BitmapData(int(bounds_rect.width + 0.5), int(bounds_rect.height + 0.5), true, 0x00);
-				bmpData.draw(dispObj, new Matrix(1, 0, 0, 1, -bounds_rect.x, -bounds_rect.y));
-			
-			return (bmpData);
-			
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		
 		public static function extractChannel(src_bmpData:BitmapData, channel:String):BitmapData {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._	
 			
@@ -352,6 +336,31 @@ package cc.gullinbursti.lang {
 					bmpData.setPixel32(i % bmpData.width, i / bmpData.width, Color.compARGBToHex(0x00, r, g, b)); 
 			}
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
+		
+		
+		public static function avgColor(src:BitmapData, bounds:Rectangle=null, samples:Point=null):uint {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			var color:uint;
+			
+			if (!bounds)
+				bounds = src.rect;
+			
+			if (!samples)
+				samples = new Point(4, 4);
+			
+			
+			for (var i:int=0; i<samples.x; i++) {
+				for (var j:int=0; j<samples.y; i++) {
+					color += src.getPixel32(bounds.x, bounds.y);
+				}
+			}
+			
+			color /= i * j;
+			
+			return (color);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 		
 		public static function toCGA(src_bmpData:BitmapData, isGrey:Boolean=false, isAlpha:Boolean=false):void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._

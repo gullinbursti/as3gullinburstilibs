@@ -45,13 +45,12 @@ http://en.wikipedia.org/wiki/MIT_license/
 
 package cc.gullinbursti.lang {
 	import cc.gullinbursti.audio.fx.WahPetal;
-	
-	//] includes [!]>
-	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.math.BasicMath;
 	import cc.gullinbursti.math.probility.ListScrambler;
 	import cc.gullinbursti.math.probility.Randomness;
 	
 	import flash.geom.Point;
+
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
@@ -736,6 +735,16 @@ package cc.gullinbursti.lang {
 			return (fName_str + " " + lName_str);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		public static function uniqueID():String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var offset_date:Date = new Date(1981, 6, 10, 2, 10);
+			var baseID:int = Math.abs(Numbers.dropDecimal(DateTimes.utcDate().valueOf() - 0));//offset_date.valueOf()));
+			
+			trace ("baseID:["+baseID+"]");
+			return (BasicMath.changeBase(baseID, 64));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public static function htmlLink(link_str:String, href:String, target:String="_blank"):String {
