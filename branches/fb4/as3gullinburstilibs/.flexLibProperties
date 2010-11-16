@@ -2,7 +2,6 @@
 <flexLibProperties includeAllClasses="false" useMultiPlatformConfig="false" version="1">
   <includeClasses>
     <classEntry path="cc.gullinbursti.math.discrete.networks.Hamilton"/>
-    <classEntry path="cc.gullinbursti.utils.Color"/>
     <classEntry path="cc.gullinbursti.math.geom.matroids.BasicMatroidTheory"/>
     <classEntry path="cc.gullinbursti.math.calculus.Differential"/>
     <classEntry path="cc.gullinbursti.math.settheory.Ring"/>
