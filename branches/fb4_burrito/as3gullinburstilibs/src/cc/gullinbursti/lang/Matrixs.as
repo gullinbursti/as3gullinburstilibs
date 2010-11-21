@@ -55,7 +55,7 @@ package cc.gullinbursti.lang {
 	 */
 	
 	// <[!] class delaration [¡]>
-	public class Matrices {
+	public class Matrixs {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -64,7 +64,7 @@ package cc.gullinbursti.lang {
 		
 		
 		// <*] class constructor [*>
-		public function Matrices() {/* …\(^_^)/… */}
+		public function Matrixs() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>

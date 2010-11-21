@@ -48,11 +48,13 @@ package cc.gullinbursti.math {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.lang.Bits;
 	import cc.gullinbursti.lang.Numbers;
 	import cc.gullinbursti.math.discrete.Factorization;
 	import cc.gullinbursti.math.settheory.BasicSetTheory;
 	
 	import flash.geom.Point;
+
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
 	
 	/**
@@ -331,7 +333,7 @@ package cc.gullinbursti.math {
 				
 			
 			// return 1/2
-			return (val * 0.5);
+			return (Bits.rShift(val, 1));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

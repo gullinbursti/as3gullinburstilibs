@@ -2,10 +2,13 @@ package cc.gullinbursti.lang {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-	import cc.gullinbursti.math.probility.Randomness;
 	import cc.gullinbursti.converts.Angle;
-	import flash.geom.Point;
+	import cc.gullinbursti.math.probility.Randomness;
+	
+	import flash.display.BitmapData;
 	import flash.display.Shape;
+	import flash.geom.Point;
+
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	// <[!] class delaration [!]>
@@ -48,7 +51,7 @@ package cc.gullinbursti.lang {
 			pos_offset.x *= ratio;
 			pos_offset.y *= ratio;
 			
-			trace("ang_tot:["+ang_tot+"] ang_seg:["+ang_seg+"");	
+			trace("ang_tot:["+ang_tot+"] ang_seg:["+ang_seg+""+Colors.BLUE);	
 				
 			var shape:Shape = new Shape();
 				shape.rotation = -180;
@@ -75,6 +78,53 @@ package cc.gullinbursti.lang {
 			
 			shape.graphics.endFill();
 			
+			return (shape);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function tri3Color(pt1:Point, fill1:uint, pt2:Point, fill2:uint, pt3:Point, fill3:uint):Shape {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+				     
+			// create 2x2 canvas
+			var bmpData:BitmapData = new BitmapData(2 , 2, true);
+			
+			// copy colors to bitmap, 4th is avg
+			bmpData.setVector(bmpData.rect, Vector.<uint>([
+				fill1, 
+				fill2, 
+				fill3, 
+				Bits.rShift(fill2 + fill3, 1)
+			]));
+ 			
+			
+			var shape:Shape = new Shape();
+				shape.graphics.beginBitmapFill(bmpData, null, false, true);		
+				shape.graphics.drawTriangles(
+	
+					// x,y -coordinates
+					Vector.<Number>([
+						pt1.x, pt1.y, 
+						pt2.x, pt2.y, 
+						pt3.x, pt3.y
+					]),
+		
+					// indices
+					Vector.<int>([
+						0, 
+						1, 
+						2
+					]),
+					
+					// texture coordinates
+					Vector.<Number>([
+						0, 
+						0, 
+						1,0, 
+						0,1
+					])
+				);
+				
+				
 			return (shape);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
