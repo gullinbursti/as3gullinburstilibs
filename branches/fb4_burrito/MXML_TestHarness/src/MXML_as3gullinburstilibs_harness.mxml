@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- -=[ START OF APPLICATION UI ]=- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+<s:Application 
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx" 
+	
+	backgroundColor="#c2c7d3" 
+	minWidth="960" minHeight="600" 
+			   
+	creationComplete="hdlApp_CreationComplete(event)" 
+	addedToStage="hdlApp_AddedToStage(event)">
+	<!-- ////////////////////////////////////////////////// -->
+	
+	
+	<!-- -=[ CSS STYLE SHEET ]=- -->
+	<fx:Style source="default.css" />
+	<!-- /////////////////////////////// -->
+	
+	
+	<!-- -=[ FX OBJS ]=- -->
+	<fx:Declarations>
+	</fx:Declarations>
+	<!-- /////////////////////////////// -->
+	
+	
+	<!-- -=[ MXML SCRIPT ]=- -->
+	<fx:Script>
+		<![CDATA[
+			
+		// *~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~._
+		// *~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			//] includes [!]>
+			//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+			import cc.gullinbursti.lang.*;
+			import cc.gullinbursti.math.BasicMath;
+			import cc.gullinbursti.math.algebra.Matrices;
+			import cc.gullinbursti.math.geom.Polyhedron;
+			import cc.gullinbursti.math.probility.Randomness;
+			import cc.gullinbursti.math.settheory.BasicSetTheory;
+			import cc.gullinbursti.sorting.*;
+			
+			import flash.events.Event;
+			import flash.events.MouseEvent;
+			import flash.events.SampleDataEvent;
+			import flash.events.TimerEvent;
+			import flash.geom.Point;
+			import flash.geom.Rectangle;
+			import flash.media.Sound;
+			import flash.utils.ByteArray;
+			import flash.utils.Timer;
+			//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
+			
+			
+			//] class properties ]>
+			//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+			private static const SAMPLE_RATE:uint = 44100;
+			private static const RESOLUTION:uint = 2048;
+			
+			private var _testCases:TestCases = new TestCases();
+			
+			private var _lOscill_shape:Shape;
+			private var _rOscill_shape:Shape;
+			private var _lvlsGraph_shape:Shape;
+			
+			private var _graph_dim:Rectangle = new Rectangle(0, 0, 480, 300);
+			
+			private var _snd:Sound = new Sound();
+			private var _wave_ang:Number = 0;
+			private var _note_ind:int = 0;
+			private var _note_tmr:Timer = new Timer(500);
+			
+			private var _note_rel:Number = 1;
+			//[¡]~=~=~=~=~=~=~=~=~=~=~=~=~=~[!]~=~=~=~=~=~=~=~=~=~=~=~=~=~[¡].
+			
+			
+			
+			private function basicWave(freq:Point, isStereo:Boolean=true):Point {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				
+				_wave_ang++;
+				
+				if (!isStereo)
+					freq.y = freq.x;
+				
+				// attk
+				freq.x *= 1;
+				freq.y *= 1;
+				
+				// decay
+				freq.x *= 1;
+				freq.y *= 1;
+				
+				// sustain
+				freq.x *= 1;
+				freq.y *= 1;
+				
+				// release
+				freq.x *= _note_rel;
+				freq.y *= _note_rel;
+				
+				return (freq);
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			
+			private function noise(freq:Point=null, isStereo:Boolean=true):Point {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				//trace ("[:_:] Application.noise("+freq+") [:_:]");
+				
+				if (!freq)
+					freq = new Point(-1, 1);
+				
+				var samp_pt:Point = new Point();
+					samp_pt.x = Randomness.generateFloat(freq.x, freq.y, 10);
+					samp_pt.y = Randomness.generateFloat(freq.x, freq.y, 10);
+				
+				return (basicWave(samp_pt, isStereo));
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			private function sine(freq:Number=440, isStereo:Boolean=true):Point {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				//trace ("[:_:] Application.sine("+freq+") [:_:]");
+				
+				//var samp_pt:Point = new Point(Math.sin(phase * freq), Math.sin(phase * freq));
+				
+				var phase:Number = _wave_ang / SAMPLE_RATE * Math.PI * 2;
+				var samp_pt:Point = new Point(Math.sin(phase * 440 * Math.pow(2, _note_ind / 12)), Math.sin(phase * 440 * Math.pow(2, _note_ind / 12)));
+				
+				return (basicWave(samp_pt, isStereo));
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			private function square(freq:Number=440, isStereo:Boolean=true):Point {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				//trace ("[:_:] Application.square("+freq+") [:_:]");
+				
+				var phase:Number = _wave_ang / SAMPLE_RATE * Math.PI * 2;
+				var samp_pt:Point = new Point(Math.sin(phase * freq), Math.sin(phase * freq));
+				
+				return (basicWave(samp_pt, isStereo));
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			
+			
+			private function write(ind:int, ba:ByteArray, samps:Point):void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				//trace ("[:_:] Application.write(["+ind+"] "+samps+") [:_:]");
+				
+				ba.writeFloat(samps.x); // left
+				ba.writeFloat(samps.y); // right
+				
+				if (ind % 3 == 0) {
+					drawOscills(ind, samps);
+					drawLvls(ind, samps);
+				}
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			
+			
+			
+			
+			
+			
+			
+			private function startAudioGen():void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				_snd = new Sound();
+				_snd.addEventListener(SampleDataEvent.SAMPLE_DATA, hdlSound_SampleData);
+				_snd.play();
+				
+				_note_tmr.addEventListener(TimerEvent.TIMER, hdlTimer_Tick);
+				_note_tmr.start();
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			
+			private function hdlSound_SampleData(e:SampleDataEvent):void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				//trace ("[>=<] Application.hdlSound_SampleData() [>=<]");
+				
+				refreshGraphs();
+				
+				// 2048 - 8192 --> samples to write
+				for(var i:int=0; i<RESOLUTION; i++)
+					write(i, e.data, sine());
+				
+				// release mult
+				//_note_rel *= 0.8;
+				
+				// release + vibrato
+				_note_rel *= 0.8 + (Math.cos(_wave_ang * 0.005) * 0.2);
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			private function hdlTimer_Tick(e:TimerEvent):void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				
+				_note_rel = 1.0;
+				_note_ind = Randomness.generateInt(-5, 15);
+				_note_tmr.delay = 125 * Randomness.diceRoller(8);
+				
+				trace ("[>=<] Application.hdlTimer_Tick(_note_ind:["+_note_ind+"] _note_tmr.delay:["+_note_tmr.delay+"]) [>=<]");
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			
+			
+			private function refreshGraphs():void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				//trace ("[:_:] Application.refreshGraphs() [:_:]");
+				
+				_lOscill_shape.graphics.clear();
+				_lOscill_shape.graphics.moveTo(0, cnvOsilloscope.height * 0.5);
+				
+				_rOscill_shape.graphics.clear();
+				_rOscill_shape.graphics.moveTo(0, cnvOsilloscope.height * 0.5);
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			private function drawOscills(ind:int, samps:Point):void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				//trace ("[:_:] Application.drawOscills(["+ind+"] "+samps+") [:_:]");
+				
+				_lOscill_shape.graphics.lineStyle(1, 0xcc0000);
+				_lOscill_shape.graphics.lineTo(ind / RESOLUTION * _graph_dim.width, (cnvOsilloscope.height * 0.5) - samps.x * (_graph_dim.height * 0.5));
+				
+				_rOscill_shape.graphics.lineStyle(1, 0x00cc00);
+				_rOscill_shape.graphics.lineTo(ind / RESOLUTION * _graph_dim.width, (cnvOsilloscope.height * 0.5) - samps.y * (_graph_dim.height * 0.5));
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			
+			private function drawLvls(ind:int, samps:Point):void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				
+				var l_dist:int = (_graph_dim.height * 0.5) * (samps.x + 1);
+				var r_dist:int = (_graph_dim.height * 0.5) * (samps.y + 1);
+				
+				//trace ("[:_:] Application.drawOscills("+l_dist+", "+r_dist+") [:_:]");
+				
+				_lvlsGraph_shape.graphics.clear();
+				
+				_lvlsGraph_shape.graphics.beginFill(0xcc0000);
+				_lvlsGraph_shape.graphics.drawRect(0, l_dist + (cnvLevels.height - _graph_dim.height), 16, _graph_dim.height - l_dist);
+				
+				_lvlsGraph_shape.graphics.beginFill(0x00cc00);
+				_lvlsGraph_shape.graphics.drawRect(16, r_dist + (cnvLevels.height - _graph_dim.height), 16, _graph_dim.height - r_dist);
+			}
+			
+			
+			
+			
+			private function hdlApp_CreationComplete(e:Event):void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				trace ("[>=<] Application.hdlApp_CreationComplete() [>=<]");
+				
+				_lOscill_shape = new Shape();
+				_rOscill_shape = new Shape();
+				
+				_lvlsGraph_shape = new Shape();
+				
+				cnvOsilloscope.rawChildren.addChild(_lOscill_shape);
+				cnvOsilloscope.rawChildren.addChild(_rOscill_shape);
+				
+				cnvLevels.rawChildren.addChild(_lvlsGraph_shape);
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			private function hdlApp_AddedToStage(e:Event):void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				trace ("[>=<] Application.hdlApp_AddedToStage() [>=<]");
+				
+				//_testCases.numberTests();
+				//_testCases.stringTests();
+				//_testCases.arrayTests();
+				//_testCases.matrixTests();
+				//_testCases.shapeTests();
+				//_testCases.colorTests();
+				
+				startAudioGen();
+				
+				this.addEventListener(Event.RESIZE, hdlApp_StageResize);
+				this.addEventListener(Event.ENTER_FRAME, hdlApp_EnterFrame);
+			}
+			
+			private function hdlApp_EnterFrame(e:Event):void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				//trace ("[>=<] Application.hdlApp_EnterFrame() [>=<]");
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			private function hdlApp_StageResize(e:Event):void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				trace ("[>=<] Application.hdlApp_StageResize("+stage.stageWidth+", "+stage.stageHeight+") [>=<]");
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+		//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*·¯
+
+		]]>
+	</fx:Script>
+	<!-- /////////////////////////////// -->
+	
+	
+	<!-- -=[ OUTPUT UI ]=- -->
+	<s:Group id="grpOutput" width="100%">
+		<mx:VBox>
+			<s:HGroup id="grpGraphs">
+				<mx:Canvas id="cnvOsilloscope" width="480" height="320" />
+				<mx:Canvas id="cnvLevels" x="480" width="32" height="320" />
+			</s:HGroup>
+			<s:HGroup id="grpRendering">
+				<mx:Canvas id="cnvDrawing" width="100%" height="512" />
+			</s:HGroup>
+		</mx:VBox>
+	</s:Group>
+	<!-- //////////////////// -->
+	<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+	
+</s:Application>
+<!-- -=[ END OF APPLICATION UI ]=- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
