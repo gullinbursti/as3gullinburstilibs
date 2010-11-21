@@ -1,15 +1,11 @@
 package {
 	
-	import cc.gullinbursti.utils.ColorUtilz;
-	import cc.gullinbursti.lang.Arrays;
-	import cc.gullinbursti.lang.DateTimes;
-	import cc.gullinbursti.lang.Ints;
-	import cc.gullinbursti.lang.Shapes;
+	import cc.gullinbursti.lang.*;
 	import cc.gullinbursti.math.BasicMath;
 	import cc.gullinbursti.math.algebra.Matrices;
 	import cc.gullinbursti.math.probility.Randomness;
 	import cc.gullinbursti.sorting.*;
-
+	
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.geom.Point;
@@ -42,8 +38,8 @@ package {
 			
 			for (var i:int=0; i<10; i++) {
 				//for (var j:int=0; j<100; j++) {
-					var lehmer_rnd:Number = Randomness.generateInt();
-					//trace (i, lehmer_rnd)
+				var lehmer_rnd:Number = Randomness.generateInt();
+				//trace (i, lehmer_rnd)
 				//}
 			}
 			
@@ -98,8 +94,8 @@ package {
 		
 		private function colorTests():void {
 			
-			trace (0xf04a3bc9, 0xf0000000, ColorUtilz.alphaAmt(0xf04a3bc9));
-			hdlHolder_Click();
+			//trace (0xf04a3bc9, 0xf0000000, Colors.alphaAmt(0xf04a3bc9));
+			redraw();
 		}
 		
 		
@@ -107,24 +103,24 @@ package {
 			
 			/*
 			Tweener.addCaller(this, {
-				count:1,
-				
-				time:4, 
-				ease:"linear", 
-				onUpdate:function():void {
-					holder_sprite.addChild(Shapes.renderPolyhedron(cnt++, 128));
-				}, 
-				
-				onComplete:function():void {
-					holder_sprite.graphics.lineStyle(1, 0xff3366);
-					holder_sprite.graphics.moveTo(0, -160);
-					holder_sprite.graphics.lineTo(0, 160);
-					holder_sprite.graphics.moveTo(-160, 0);
-					holder_sprite.graphics.lineTo(160, 0);
-				
-					holder_sprite.graphics.drawCircle(0, 0, 128);
-					holder_sprite.graphics.endFill();	
-				}
+			count:1,
+			
+			time:4, 
+			ease:"linear", 
+			onUpdate:function():void {
+			holder_sprite.addChild(Shapes.renderPolyhedron(cnt++, 128));
+			}, 
+			
+			onComplete:function():void {
+			holder_sprite.graphics.lineStyle(1, 0xff3366);
+			holder_sprite.graphics.moveTo(0, -160);
+			holder_sprite.graphics.lineTo(0, 160);
+			holder_sprite.graphics.moveTo(-160, 0);
+			holder_sprite.graphics.lineTo(160, 0);
+			
+			holder_sprite.graphics.drawCircle(0, 0, 128);
+			holder_sprite.graphics.endFill();	
+			}
 			});
 			*/
 			
@@ -135,19 +131,17 @@ package {
 			holder_sprite.graphics.lineTo(0, 160);
 			holder_sprite.graphics.moveTo(-160, 0);
 			holder_sprite.graphics.lineTo(160, 0);
-		
+			
 			holder_sprite.graphics.drawCircle(0, 0, 128);
 			holder_sprite.graphics.endFill();	
-						
+			
+			
 		}
-
-
-
+		
+		
+		
 		private function hdlHolder_Click(e:MouseEvent=null):void {
-			holder_sprite.graphics.clear();
-			holder_sprite.graphics.beginFill(ColorUtilz.rndRGB());
-			holder_sprite.graphics.drawCircle(0, 0, 128);
-			holder_sprite.graphics.endFill();
+			redraw();
 		}
 		
 		
@@ -209,20 +203,32 @@ package {
 			
 			trace(prod_arr);
 		}
-
-
-
+		
+		
+		
 		private function scaffold():void {
 			
 			cnt = 11;
 			holder_sprite = new Sprite();
 			holder_sprite.x = 256;
 			holder_sprite.y = 256;
-				
+			
 			this.addChild(holder_sprite);
 			
 			holder_sprite.buttonMode = holder_sprite.useHandCursor = true;
 			holder_sprite.addEventListener(MouseEvent.CLICK, hdlHolder_Click);
+		}
+		
+		private function redraw():void {
+			
+			var color:uint = Colors.rndRGB();
+			
+			trace ("Colors.rndRGB:["+Colors.redAmt(color)+" "+Colors.greenAmt(color)+" "+Colors.blueAmt(color)+"] ("+color+")");
+			
+			holder_sprite.graphics.clear();
+			holder_sprite.graphics.beginFill(color);
+			holder_sprite.graphics.drawCircle(0, 0, 128);
+			holder_sprite.graphics.endFill();
 		}
 	}
 }
