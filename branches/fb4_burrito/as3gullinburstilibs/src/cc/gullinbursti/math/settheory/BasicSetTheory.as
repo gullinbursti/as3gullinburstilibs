@@ -2,8 +2,8 @@ package cc.gullinbursti.math.settheory {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-	import cc.gullinbursti.math.BasicMath;
 	import cc.gullinbursti.lang.Arrays;
+	import cc.gullinbursti.math.BasicMath;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
 	
 	/**
@@ -68,7 +68,24 @@ package cc.gullinbursti.math.settheory {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// integer #'s (Z set no decimals) {-5, -2, 4, 12, 50}
+		// perfect #'s {6, 28, 496, 8128}
+		public static function perfects(max:int, min:int=1):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			// TODO: Implement perfect number seq [http://en.wikipedia.org/wiki/Perfect_number]
+			
+			var val_arr:Array = new Array();
+			var prime_arr:Array = BasicSetTheory.primes(max, min);
+			
+			trace (prime_arr);
+			
+			for (var i:int=0; i<prime_arr.length; i++)
+				val_arr.push(Math.pow(2, i - 1) * (Math.pow(2, i) - 1));
+			
+			return (val_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		// integer #'s (Z set no decimals) {-3, -2, -1, 0, 1}
 		public static function integers(min:int, max:int):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
@@ -84,6 +101,86 @@ package cc.gullinbursti.math.settheory {
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		// integer #'s (2^(2^n)) +1 {3, 5, 17, 257, 65537, 4294967297, 18446744073709551617}
+		public static function fermats(min:int, max:int):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// list of ints
+			var set_arr:Array = new Array();
+			
+			// push vals
+			for (var i:int=min; i<=max; i++)
+				set_arr.push(Math.pow(2, Math.pow(2, i)) + 1);	
+		
+			return (set_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		// [http://en.wikipedia.org/wiki/Pierpont_prime]
+		public static function pierpontPrimes(min:int, max:int):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			// TODO: Implement Pierpont primes seq [[http://en.wikipedia.org/wiki/Pierpont_prime]]
+			
+			// list of ints
+			var set_arr:Array = new Array();
+			
+			return (set_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function eulerTotients(val:Number):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// holds the totients
+			var val_arr:Array = new Array();
+			
+			// loop from 1 to the val
+			for (var i:int=1; i<val; i++) {
+				
+				// append coprimes
+				if (BasicMath.isCoprime([val, i]))
+					val_arr.push(i);
+			}
+			
+			return (val_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function powerfuls(max:int, min:int=1):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			// TODO: Implement powerfuls # seq
+			
+			// holds the totients
+			var val_arr:Array = new Array();
+			
+			// loop from 1 to the val
+			for (var i:int=min; i<max; i++) {
+				
+				// append coprimes
+				if (BasicMath.isCoprime([0, i]))
+					val_arr.push(i);
+			}
+			
+			return (val_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function wagstaffPrimes(max:int, min:int=1):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// holds the totients
+			var val_arr:Array = new Array();
+			
+			// holds prime #'s up to the val
+			var prime_arr:Array = primes(max, min);
+			
+			// calc wagstaff primes
+			for (var i:int=min; i<prime_arr.length; i++)
+				val_arr.push(BasicMath.wagstaffPrime(prime_arr[i]));
+			
+			return (val_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		// prime #'s {2, 3, 5, 7, 11, 13} using the “Sieve of Eratosthenes”
 		public static function primes(max:int, min:int=2):Array {

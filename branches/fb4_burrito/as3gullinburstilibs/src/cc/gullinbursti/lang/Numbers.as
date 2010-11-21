@@ -162,6 +162,13 @@ package cc.gullinbursti.lang {
 		
 		
 		
+		public static function isInt(float:Number):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			return ((Numbers.dropDecimal(float) - float) == 0);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
 		/**
 		 * Prepends a leading '0' to a <code>Number</code> if needed 
 		 * @param float the <code>Number</code> to use

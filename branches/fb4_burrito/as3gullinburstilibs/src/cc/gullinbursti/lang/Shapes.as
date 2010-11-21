@@ -3,6 +3,7 @@ package cc.gullinbursti.lang {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.converts.Angle;
+	import cc.gullinbursti.math.geom.Polyhedron;
 	import cc.gullinbursti.math.probility.Randomness;
 	
 	import flash.display.BitmapData;
@@ -27,9 +28,12 @@ package cc.gullinbursti.lang {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
-		public static function renderPolyhedron(sides:int, rad:int, ratio:Number=1.0, stroke:Point=null, fill:Point=null):Shape {
+		public static function renderPolyhedron(name:String, rad:Number, ratio:Number=1.0, stroke:Point=null, fill:Point=null):Shape {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-
+			
+			var sides:int = Polyhedron.name2Sides(name);
+			
+			
 			if (sides < 3)
 				return (new Shape());
 			
@@ -47,12 +51,11 @@ package cc.gullinbursti.lang {
 				pos_offset.x = Math.sin(Angle.degreesToRadians(ang_offset)) * rad;
 				pos_offset.y = Math.cos(Angle.degreesToRadians(ang_offset)) * rad;
 			
-			
 			pos_offset.x *= ratio;
 			pos_offset.y *= ratio;
 			
-			trace("ang_tot:["+ang_tot+"] ang_seg:["+ang_seg+""+Colors.BLUE);	
-				
+			trace("seg_len:["+Point.distance(pos_offset, new Point(Math.sin(Angle.degreesToRadians(ang_seg)) * rad, Math.cos(Angle.degreesToRadians(ang_seg)) * rad))+"] ang_seg:["+ang_seg+"]");	
+			
 			var shape:Shape = new Shape();
 				shape.rotation = -180;
 				shape.graphics.moveTo(pos_offset.x, pos_offset.y);
@@ -72,8 +75,6 @@ package cc.gullinbursti.lang {
 				
 				shape.graphics.lineTo(pos_offset.x, pos_offset.y);
 				ang_offset += ang_seg;
-				
-				
 			}
 			
 			shape.graphics.endFill();

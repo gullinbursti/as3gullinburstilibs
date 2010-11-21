@@ -79,6 +79,10 @@ package cc.gullinbursti.math.probility {
 		private static var seed_arr:Array = new Array(); 	//[STREAMS_TOT] = {SEED_STD};  /* current state of each stream   */
 		private static var stream_ind:int = 0;				/* stream index, 0 is the default */
 		private static var isInit:Boolean = false;			/* test for stream initialization */
+		
+		
+		private static const MT:Vector.<int> = new Vector.<int>(624);
+		private static var _seed:int;
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 		
 		
@@ -274,6 +278,42 @@ package cc.gullinbursti.math.probility {
 			var side:int = generateInt(1, sides);
 			
 			return (side);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function mersenneTwister(lower:Number=0, upper:Number=1):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			// TODO: Implement Mersenne Twister method [http://en.wikipedia.org/wiki/Mersenne_Twister]
+			
+			
+			var i:int;
+			var y:int;
+			
+			while (i < 623) {
+				if ((y = (MT[i] & 2147483648) | (MT[(++i) % 624] & 2147483647)) & 1)
+					MT[i] = (MT[(i + 396) % 624] ^ (y >>> 1)) ^ 2567483615;
+					
+				else
+					MT[i] = MT[(i + 396) % 624] ^ (y >>> 1);
+			}
+			
+			
+			var b:int = MT[0];
+			var seed:int = (new Date().getTime() & 0xffffffff) ^ getTimer();
+			var ind:int = 0;
+			
+			while (++i < 624) 
+				b = (MT[i] = (1812433253 * b ^ ((b >>> 30) + i)) & 0xffffffff);
+			
+			y = MT[ind];
+			ind += 1 % 624;
+			y ^= y >>> 11;
+			y ^= (y << 7) & 2636928640;
+			y ^= (y << 15) & 4022730752;
+			
+			
+			return (uint(y ^ (y >>> 18)) / (uint.MAX_VALUE + Number.MIN_VALUE));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

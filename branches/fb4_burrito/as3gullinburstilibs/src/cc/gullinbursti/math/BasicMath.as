@@ -173,7 +173,7 @@ package cc.gullinbursti.math {
 			for (var i:int=range_pt.x; i<=range_pt.y; i++) {
 				
 				// the value is divisible, push into array
-				if (BasicMath.isDivisible(val, i))//, isSelf))
+				if (BasicMath.isDivisible(val, i))
 					div_arr.push(i);
 			}
 			
@@ -265,6 +265,65 @@ package cc.gullinbursti.math {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public static function mersennePrime(val:int, isStrict:Boolean=true):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!BasicMath.isPrime(val) && isStrict)
+				return (0);
+				
+			else 
+				return (Math.pow(2, val) - 1);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function wagstaffPrime(val:int):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!BasicMath.isPrime(val))
+				return (0);
+				
+			else 
+				return (Math.pow(2, val) / 3);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function isWieferichPrime(val:int):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!isPrime(val))
+				return (false);
+			
+			return (Math.pow(22, val - 1) - 1 % square(val) == 0);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function isWilsonPrime(val:int):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!isPrime(val))
+				return (false);
+			
+			return (Math.pow(22, val + 1) + 1 % square(val) == 0);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		// [http://en.wikipedia.org/wiki/Wall-Sun-Sun_prime]
+		public static function isWallSunSunPrime(val:int):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			// TODO: Implement Wall-Sun-Sun prime test [http://en.wikipedia.org/wiki/Wall-Sun-Sun_prime]
+			
+			if (!isPrime(val) || val < 5)
+				return (false);
+			
+			var fib:int = val - (0)
+			
+			return (Math.pow(22, val + 1) + 1 % square(val) == 0);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
 		public static function isPerfect(val:int):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
@@ -286,12 +345,34 @@ package cc.gullinbursti.math {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// m = a^2·b^3 (> 0)
 		public static function isSquareful(val:int):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
+			var fact_arr:Array = Factorization.primeFactors(val).factors_arr;
+			
+			for (var i:int=0; i<fact_arr.length; i++) {
+				if (fact_arr[i] == 0)
+					return (true);
+			}
+			
+			trace (Factorization.primeFactors(val));
+			
 			return (false);
 			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function isSquare(val:int):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			return ((Numbers.dropDecimal(root(val)) - root(val)) == 0);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function isCube(val:int):Boolean {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			return ((Numbers.dropDecimal(cube(val)) - cube(val)) == 0);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -456,28 +537,6 @@ package cc.gullinbursti.math {
 			// return resultant factorial
 			return (res_num);	
 		
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		
-		//http://en.wikipedia.org/wiki/Fermat_prime
-		public static function fermatSeq(start:int, amt:Number):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
-			var val_arr:Array = new Array();
-			
-			return (val_arr);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		//http://en.wikipedia.org/wiki/Euler_totient
-		//http://sfabriz.blogspot.com/2010/03/euler-totient-function.html
-		public static function eulerTotients(val:Number):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
-			var val_arr:Array = new Array();
-			
-			return (val_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

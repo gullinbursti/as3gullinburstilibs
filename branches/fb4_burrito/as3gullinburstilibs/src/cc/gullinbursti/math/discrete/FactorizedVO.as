@@ -36,10 +36,9 @@ package cc.gullinbursti.math.discrete {
 				factors_arr = factors;
 				//factors_tot = factors_arr.length;
 			
-			} else {
+			} else
 				factors_arr = new Array();
 				
-			}
 			
 			factors_tot = factors_arr.length;
 			
@@ -61,7 +60,6 @@ package cc.gullinbursti.math.discrete {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			factors_arr = Arrays.sortByNumber(factors_arr);
-			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 

@@ -20,7 +20,8 @@ package cc.gullinbursti.lang {
 		
 		//] class properties ]>
 		// ]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-
+		public static const MAX_DIM:Rectangle = new Rectangle(0, 0, 2880, 2800);
+		
 		public static const ALPHA:String = "ALPHA";
 		public static const RED:String = "RED";
 		public static const GREEN:String = "GREEN";

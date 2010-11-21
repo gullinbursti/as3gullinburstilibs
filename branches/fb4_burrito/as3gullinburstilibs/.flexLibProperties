@@ -109,7 +109,9 @@
     <classEntry path="cc.gullinbursti.science.ai.Heuristics"/>
     <classEntry path="cc.gullinbursti.lang.ByteArrays"/>
     <classEntry path="cc.gullinbursti.lang.Bits"/>
+    <classEntry path="cc.gullinbursti.lang.Colors"/>
     <classEntry path="cc.gullinbursti.lang.Matrixs"/>
+    <classEntry path="cc.gullinbursti.net.apis.Twitter"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

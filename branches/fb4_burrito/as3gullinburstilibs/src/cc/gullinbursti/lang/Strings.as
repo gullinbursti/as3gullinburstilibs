@@ -50,6 +50,7 @@ package cc.gullinbursti.lang {
 	import cc.gullinbursti.math.probility.Randomness;
 	
 	import flash.geom.Point;
+	import flash.utils.ByteArray;
 
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
@@ -463,6 +464,29 @@ package cc.gullinbursti.lang {
 			
 			return (rnd_str);
 			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function encBase64(val:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var ba:ByteArray = new ByteArray();
+				ba.writeUTFBytes(val);
+			
+			
+			return (ByteArrays.encBase64(ba));
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function decBase64(val:String):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// Decode data to ByteArray
+			var ba:ByteArray = ByteArrays.decBase64(val);
+			
+			// Convert to string and return
+			return (ba.readUTFBytes(ba.length));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
