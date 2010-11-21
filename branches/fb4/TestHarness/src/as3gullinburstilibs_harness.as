@@ -3,10 +3,13 @@ package {
 	import cc.gullinbursti.lang.*;
 	import cc.gullinbursti.math.BasicMath;
 	import cc.gullinbursti.math.algebra.Matrices;
+	import cc.gullinbursti.math.geom.Polyhedron;
 	import cc.gullinbursti.math.probility.Randomness;
+	import cc.gullinbursti.math.settheory.BasicSetTheory;
 	import cc.gullinbursti.sorting.*;
 	
 	import flash.display.Sprite;
+	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.geom.Point;
 	
@@ -18,15 +21,16 @@ package {
 		
 		
 		public function as3gullinburstilibs_harness() {
-			scaffold();
+			scaffold(new Point(320, 240));
 			
+			//draw();
 			
-			//numberTests();
+			numberTests();
 			//stringTests();
 			//arrayTests();
 			//matrixTests();
 			//shapeTests();
-			colorTests();
+			//colorTests();
 		}
 		
 		
@@ -36,16 +40,7 @@ package {
 			var int_rnd:Number = Randomness.generateInt(100, 300);
 			var tot_arr:Array = [0, 0]; 
 			
-			for (var i:int=0; i<10; i++) {
-				//for (var j:int=0; j<100; j++) {
-				var lehmer_rnd:Number = Randomness.generateInt();
-				//trace (i, lehmer_rnd)
-				//}
-			}
-			
-			var epoch_ms:Number = DateTimes.epoch(null, true) * 10000;//new Date().getTime();
-			
-			trace ("\n", epoch_ms);
+			trace ("BasicMath.mersenneTwister()", Randomness.mersenneTwister());			
 		}
 		
 		private function arrayTests():void {
@@ -124,7 +119,7 @@ package {
 			});
 			*/
 			
-			holder_sprite.addChild(Shapes.renderPolyhedron(5, 128));
+			holder_sprite.addChild(Shapes.renderPolyhedron(Polyhedron.PENTAGON, 128));
 			
 			holder_sprite.graphics.lineStyle(1, 0xff3366);
 			holder_sprite.graphics.moveTo(0, -160);
@@ -206,12 +201,15 @@ package {
 		
 		
 		
-		private function scaffold():void {
+		private function scaffold(pos:Point=null):void {
+			
+			if (!pos)
+				pos = new Point();
 			
 			cnt = 11;
 			holder_sprite = new Sprite();
-			holder_sprite.x = 256;
-			holder_sprite.y = 256;
+			holder_sprite.x = pos.x;
+			holder_sprite.y = pos.y;
 			
 			this.addChild(holder_sprite);
 			
@@ -219,12 +217,40 @@ package {
 			holder_sprite.addEventListener(MouseEvent.CLICK, hdlHolder_Click);
 		}
 		
+		
+		private function draw():void {
+			
+			var xp:Number = 0;
+			var yp:Number = 0;
+			var t:Number = 0;
+			var a:Number = 15;
+			var b:Number = 3;
+			x = stage.stageWidth / 2;
+			y = stage.stageHeight / 2;
+			 
+			holder_sprite.graphics.lineStyle(0, 0x000000);
+			holder_sprite.addEventListener(Event.ENTER_FRAME, function (e:Event):void {
+				
+				var p:Number = ((a + b) / b) * t
+				
+				xp = (a + b) * Math.cos(t) - b * Math.cos(p);
+				yp = (a + b) * Math.sin(t) - b * Math.sin(p);
+				    
+				if (t == 0)
+					holder_sprite.graphics.moveTo(xp, yp);
+				
+				else
+					holder_sprite.graphics.lineTo(xp, yp);
+				
+				t += 0.05;
+			});	
+		}
+		
 		private function redraw():void {
 			
 			var color:uint = Colors.rndRGB();
 			
 			trace ("Colors.rndRGB:["+Colors.redAmt(color)+" "+Colors.greenAmt(color)+" "+Colors.blueAmt(color)+"] ("+color+")");
-			
 			holder_sprite.graphics.clear();
 			holder_sprite.graphics.beginFill(color);
 			holder_sprite.graphics.drawCircle(0, 0, 128);
