@@ -1,0 +1,22 @@
+/* 
+Include CSS to eliminate any default margins/padding and set the height of the html element and 
+the body element to 100%, because Firefox, or any Gecko based browser, interprets percentage as 
+the percentage of the height of its parent container, which has to be set explicitly. Initially, 
+don't display flashContent div so it won't show if JavaScript disabled.
+*/
+
+html, body	{
+	height: 100%;
+}
+
+body {
+	margin: 0; 
+	padding: 0; 
+	overflow: auto; 
+	text-align: center; 
+	background-color: ${bgcolor}; 
+}   
+
+#flashContent {
+	display: none;
+}
