@@ -29,11 +29,12 @@
 	<fx:Script>
 		<![CDATA[
 			
-		// *~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~._
-		// *~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*_
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*.
 			
-			//] includes [!]>
-			//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+			
+			import caurina.transitions.Tweener;
+			
 			import cc.gullinbursti.lang.*;
 			import cc.gullinbursti.math.BasicMath;
 			import cc.gullinbursti.math.algebra.Matrices;
@@ -58,51 +59,44 @@
 			//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 			private static const SAMPLE_RATE:uint = 44100;
 			private static const RESOLUTION:uint = 2048;
+			private static const BASE_FREQ:uint = SAMPLE_RATE / RESOLUTION;
 			
 			private var _testCases:TestCases = new TestCases();
 			
 			private var _lOscill_shape:Shape;
 			private var _rOscill_shape:Shape;
 			private var _lvlsGraph_shape:Shape;
+			private var _rLvls_shape:Shape;
+			private var _lLvls_shape:Shape;
 			
-			private var _graph_dim:Rectangle = new Rectangle(0, 0, 480, 300);
+			private var _graph_dim:Rectangle = new Rectangle(0, 0, 480, 240);
 			
 			private var _snd:Sound = new Sound();
+			private var _snd_pos:Number = 0;
 			private var _wave_ang:Number = 0;
+			private var _wave_phase:Number = 0;
+			
 			private var _note_ind:int = 0;
 			private var _note_tmr:Timer = new Timer(500);
 			
 			private var _note_rel:Number = 1;
+			
+			private var _amplitude:Number;
+			private var _playing:Boolean;
+			private var _total:Number;
+			private var _attack:Number = 0.02;
+			private var _decay:Number = 0.25;
+			private var _sustain:Number = 0.2;
+			private var _release:Number = 0.37;
+			
+			private var _ad:Number = 0; // amp delta
+			private var _td:Number = 0; // time delta
+			
+			private var _pwm_phase:Number = 0;
 			//[¡]~=~=~=~=~=~=~=~=~=~=~=~=~=~[!]~=~=~=~=~=~=~=~=~=~=~=~=~=~[¡].
+
+			private var _note_amp:Number = 1;
 			
-			
-			
-			private function basicWave(freq:Point, isStereo:Boolean=true):Point {
-			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-				
-				_wave_ang++;
-				
-				if (!isStereo)
-					freq.y = freq.x;
-				
-				// attk
-				freq.x *= 1;
-				freq.y *= 1;
-				
-				// decay
-				freq.x *= 1;
-				freq.y *= 1;
-				
-				// sustain
-				freq.x *= 1;
-				freq.y *= 1;
-				
-				// release
-				freq.x *= _note_rel;
-				freq.y *= _note_rel;
-				
-				return (freq);
-			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 			
 			
 			private function noise(freq:Point=null, isStereo:Boolean=true):Point {
@@ -123,48 +117,210 @@
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 				//trace ("[:_:] Application.sine("+freq+") [:_:]");
 				
-				//var samp_pt:Point = new Point(Math.sin(phase * freq), Math.sin(phase * freq));
+				_wave_phase = _wave_ang / SAMPLE_RATE * Math.PI * 2;
 				
-				var phase:Number = _wave_ang / SAMPLE_RATE * Math.PI * 2;
-				var samp_pt:Point = new Point(Math.sin(phase * 440 * Math.pow(2, _note_ind / 12)), Math.sin(phase * 440 * Math.pow(2, _note_ind / 12)));
+				//var samp_pt:Point = new Point(Math.sin(_wave_phase * freq), Math.sin(_wave_phase * freq));
+				var samp_pt:Point = new Point(Math.sin(_wave_phase * 440 * Math.pow(2, _note_ind / 12)), Math.sin(_wave_phase * 440 * Math.pow(2, _note_ind / 12)));
 				
 				return (basicWave(samp_pt, isStereo));
 			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
 			
 			private function square(freq:Number=440, isStereo:Boolean=true):Point {
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-				//trace ("[:_:] Application.square("+freq+") [:_:]");
 				
-				var phase:Number = _wave_ang / SAMPLE_RATE * Math.PI * 2;
-				var samp_pt:Point = new Point(Math.sin(phase * freq), Math.sin(phase * freq));
+				var sample:Number = -_note_amp;
 				
-				return (basicWave(samp_pt, isStereo));
+				if (_wave_phase < Math.PI)
+					sample = _note_amp;
+				
+				//_wave_phase += ((Math.PI * 2) * freq) / SAMPLE_RATE;
+				_wave_phase += ((Math.PI * 2) * 440 * Math.pow(2, _note_ind / 12)) / SAMPLE_RATE;
+				
+				if (_wave_phase > (Math.PI * 2))
+					_wave_phase -= (Math.PI * 2)
+				
+						
+				return (basicWave(new Point(sample, sample), isStereo));
 			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 			
 			
+			private function sawTooth(freq:Number=440, isStereo:Boolean=true):Point {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				
+				var amp:Number = 1.0;
+				var sample:Number = amp - (amp / Math.PI) * _wave_phase;
+				
+				//_wave_phase += ((Math.PI * 2) * 440) / SAMPLE_RATE;
+				_wave_phase += ((Math.PI * 2) * 440 * Math.pow(2, _note_ind / 12)) / SAMPLE_RATE;
+				
+				if (_wave_phase >= (Math.PI * 2))
+					_wave_phase -= (Math.PI * 2); 
+				
+				
+				return (basicWave(new Point(sample, sample), isStereo));
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			
+			private function triangle(freq:Number=440, isStereo:Boolean=true):Point {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				
+				var amp:Number = 1.0;
+				var sample:Number = -amp + (2 * amp / Math.PI) * _wave_phase;
+				
+				if (_wave_phase >= Math.PI)
+					sample = (3 * amp) - (2 * amp / Math.PI) * _wave_phase;
+				
+				//_wave_phase += ((Math.PI * 2) * freq) / SAMPLE_RATE;
+				_wave_phase += ((Math.PI * 2) * 440 * Math.pow(2, _note_ind / 12)) / SAMPLE_RATE;
+				
+				if (_wave_phase > (Math.PI * 2))
+					_wave_phase -= (Math.PI * 2);
+				
+				
+				return (basicWave(new Point(sample, sample), isStereo));
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			/* protected var _amplitude                :Number = 1;
+			protected var _pulsewidthlow    :Number = Math.PI + 0.9;
+			protected var _pulsewidthhigh   :Number = Math.PI - 0.9;
+			protected var _pwmamp                   :Number = 1;
+			protected var _pwmspeed                 :Number = 0x1200 * 0.5;
+			protected var _ampmodspeed              :Number = 0x1000 * 0.5;
+			protected var _pwmphase                 :Number = 0;*/
+			
+			private function pulseMod(ind:uint, isStereo:Boolean=true):Point {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				
+				/*var pulsewidth:Number;
+				var ampmod:Number;
+				var sample:Number;
+				
+				pulsewidth = Math.sin (ind / 0x5) * _pulsewidthhigh + _pulsewidthlow;
+				sample = 1 + (_pwmphase < pulsewidth ? _amplitude : -_amplitude);
+				
+				_pwmphase = _pwmphase + (((Math.PI * 2) / SAMPLE_RATE) * BASE_FREQ);
+				_pwmphase = _pwmphase > (Math.PI * 2) ? _pwmphase - (Math.PI * 2) : _pwmphase;
+				
+				ampmod = Math.sin (ind / (10 + _ampmodspeed)); */
+				
+				
+				
+				var base_amp:Number = 0.5; // 1.0 = flat
+				var spd:Number = 0x00ff * 0.8;
+				var wave_mods:uint = 0x08; // 0.0 == infiniti
+				
+				var range_pwm:Point = new Point(Math.PI + 0.9, Math.PI - 0.9);
+				
+				var wid_pwm:Number = Math.sin(ind /wave_mods) * range_pwm.y + range_pwm.x;
+				var sample:Number = -base_amp;
+				
+				if (_pwm_phase < wid_pwm)
+					sample = base_amp;
+				
+				sample++;
+				
+				_pwm_phase += ((Math.PI * 2) / SAMPLE_RATE) * BASE_FREQ;
+				
+				if (_pwm_phase > (Math.PI * 2))
+					_pwm_phase -= (Math.PI * 2);
+				
+				var amp_mod:Number = Math.sin(ind / (10 + spd));
+				
+				
+				return (new Point(sample * amp_mod * base_amp, sample * amp_mod * base_amp));
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			
+			private function basicWave(freq:Point, isStereo:Boolean=true):Point {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				
+				_wave_ang++;
+				
+				if (!isStereo)
+					freq.y = freq.x;
+				
+				
+				return (freq);
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			
+			private function env(samps:Point):Point {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				
+				// -- attack
+				if (_snd_pos < _attack)
+					_amplitude = _snd_pos / _attack; 
+				
+				
+				// -- decay / sustain
+				if (_snd_pos < _total - _release) {
+					_ad = _amplitude - _sustain;
+					_td = (_decay + _attack)  - _snd_pos;
+					_amplitude -= _ad / _td;
+				}
+				
+				// -- release
+				if (_snd_pos > _attack + _decay && _snd_pos < _total) {
+					_ad = _amplitude;
+					_td = _total - _snd_pos;
+					_amplitude -= _ad / _td;
+				}
+				
+				
+				samps.x *= _amplitude;
+				samps.y *= _amplitude;
+				
+				
+				return (samps);
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+
+
+			private function postProcess(ind:int, samps:Point):void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				
+				// env
+				samps = env(samps);
+				
+				
+				// pwm
+				//samps = pulseMod(ind);
+				
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+
+
 			
 			private function write(ind:int, ba:ByteArray, samps:Point):void {
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 				//trace ("[:_:] Application.write(["+ind+"] "+samps+") [:_:]");
 				
+				postProcess(ind, samps);
+				
 				ba.writeFloat(samps.x); // left
 				ba.writeFloat(samps.y); // right
 				
-				if (ind % 3 == 0) {
-					drawOscills(ind, samps);
-					drawLvls(ind, samps);
-				}
+				updGraphs(ind, samps);
 			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 			
 			
 			
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*·¯
 			
 			
 			
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*.
+			//* *\[ BEGIN HERE ]/*
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*_
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~.
 			
 			
 			private function startAudioGen():void {
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				
+				_amplitude = 0;
+				_total = _attack + _decay + _release;
+				
 				_snd = new Sound();
 				_snd.addEventListener(SampleDataEvent.SAMPLE_DATA, hdlSound_SampleData);
 				_snd.play();
@@ -174,16 +330,18 @@
 			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 			
 			
+			
+			
 			private function hdlSound_SampleData(e:SampleDataEvent):void {
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 				//trace ("[>=<] Application.hdlSound_SampleData() [>=<]");
 				
-				refreshGraphs();
-				
 				// 2048 - 8192 --> samples to write
-				for(var i:int=0; i<RESOLUTION; i++)
-					write(i, e.data, sine());
-				
+				for(var i:int=0; i<RESOLUTION; i++) {
+					_snd_pos = i + e.position;
+					
+					write(i, e.data, triangle());
+				}
 				// release mult
 				//_note_rel *= 0.8;
 				
@@ -198,52 +356,103 @@
 				_note_ind = Randomness.generateInt(-5, 15);
 				_note_tmr.delay = 125 * Randomness.diceRoller(8);
 				
-				trace ("[>=<] Application.hdlTimer_Tick(_note_ind:["+_note_ind+"] _note_tmr.delay:["+_note_tmr.delay+"]) [>=<]");
+				//trace ("[>=<] Application.hdlTimer_Tick(_note_ind:["+_note_ind+"] _note_tmr.delay:["+_note_tmr.delay+"]) [>=<]");
 			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 			
 			
 			
-			private function refreshGraphs():void {
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*\
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*_
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*-
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*/
+			
+			
+			private function updGraphs(ind:int, samps:Point, skip:int=4):void {
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-				//trace ("[:_:] Application.refreshGraphs() [:_:]");
+				//trace ("[:_:] Application.updGraphs() [:_:]");
+				
+				if (skip % 4 == 0) {
+					refreshLvls(ind, samps);
+					refreshOscills(ind, samps);
+				}
+				
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
+			
+			private function refreshOscills(ind:int, samps:Point):void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				//trace ("[:_:] Application.refreshOscills() [:_:]");
 				
 				_lOscill_shape.graphics.clear();
-				_lOscill_shape.graphics.moveTo(0, cnvOsilloscope.height * 0.5);
+				_lOscill_shape.graphics.moveTo(0, _graph_dim.height * 0.5);
 				
 				_rOscill_shape.graphics.clear();
-				_rOscill_shape.graphics.moveTo(0, cnvOsilloscope.height * 0.5);
+				_rOscill_shape.graphics.moveTo(0, _graph_dim.height * 0.5);
+				
+				
+				drawOscills(ind, samps);
 			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			
 			
 			private function drawOscills(ind:int, samps:Point):void {
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 				//trace ("[:_:] Application.drawOscills(["+ind+"] "+samps+") [:_:]");
 				
-				_lOscill_shape.graphics.lineStyle(1, 0xcc0000);
-				_lOscill_shape.graphics.lineTo(ind / RESOLUTION * _graph_dim.width, (cnvOsilloscope.height * 0.5) - samps.x * (_graph_dim.height * 0.5));
+				_lOscill_shape.graphics.lineStyle(1, 0x346188);
+				_lOscill_shape.graphics.lineTo((ind / (RESOLUTION * 1) * (_graph_dim.width * 1)), (cnvOsilloscope.height * 0.25) - samps.x * (_graph_dim.height * 0.25));
 				
-				_rOscill_shape.graphics.lineStyle(1, 0x00cc00);
-				_rOscill_shape.graphics.lineTo(ind / RESOLUTION * _graph_dim.width, (cnvOsilloscope.height * 0.5) - samps.y * (_graph_dim.height * 0.5));
+				_rOscill_shape.graphics.lineStyle(1, 0xa0123b);
+				_rOscill_shape.graphics.lineTo((ind / (RESOLUTION * 1) * (_graph_dim.width * 1)), (cnvOsilloscope.height * 0.25) - samps.y * (_graph_dim.height * 0.25));
 			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 			
+			
+			private function refreshLvls(ind:int, samps:Point):void {
+			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+				/* 
+				Tweener.addTween(_lLvls_shape, {
+					y:cnvLevels.height,
+					scaleY:0,
+					time:0.1,
+					transition:"easeincirc"
+				});
+				
+				Tweener.addTween(_rLvls_shape, {
+					y:cnvLevels.height,
+					scaleY:0,
+					time:0.1,
+					transition:"easeincirc"
+				});
+				 */
+				
+				_rLvls_shape.scaleY = 0;
+				_rLvls_shape.y = cnvLevels.height;
+				
+				_lLvls_shape.scaleY = 0;
+				_lLvls_shape.y = cnvLevels.height;
+				
+				drawLvls(ind, samps);
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 			
 			private function drawLvls(ind:int, samps:Point):void {
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 				
-				var l_dist:int = (_graph_dim.height * 0.5) * (samps.x + 1);
-				var r_dist:int = (_graph_dim.height * 0.5) * (samps.y + 1);
+				_lLvls_shape.scaleY = (samps.x + 1) * 0.5;
+				_lLvls_shape.y = cnvOsilloscope.height - _lLvls_shape.height;
 				
-				//trace ("[:_:] Application.drawOscills("+l_dist+", "+r_dist+") [:_:]");
-				
-				_lvlsGraph_shape.graphics.clear();
-				
-				_lvlsGraph_shape.graphics.beginFill(0xcc0000);
-				_lvlsGraph_shape.graphics.drawRect(0, l_dist + (cnvLevels.height - _graph_dim.height), 16, _graph_dim.height - l_dist);
-				
-				_lvlsGraph_shape.graphics.beginFill(0x00cc00);
-				_lvlsGraph_shape.graphics.drawRect(16, r_dist + (cnvLevels.height - _graph_dim.height), 16, _graph_dim.height - r_dist);
-			}
+				_rLvls_shape.scaleY = (samps.y + 1) * 0.5;
+				_rLvls_shape.y = cnvOsilloscope.height - _rLvls_shape.height;
+			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 			
 			
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*·¯
+			
+			
+			
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*.
+			//* *\[ APPLICATION EVT HDL'rs ]/*
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*_
+			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~.
 			
 			
 			private function hdlApp_CreationComplete(e:Event):void {
@@ -252,13 +461,26 @@
 				
 				_lOscill_shape = new Shape();
 				_rOscill_shape = new Shape();
+				_rOscill_shape.y = cnvLevels.height * 0.5
 				
-				_lvlsGraph_shape = new Shape();
+				_lLvls_shape = new Shape();
+				_rLvls_shape = new Shape();
+				
+				
+				_lLvls_shape.graphics.beginFill(0x346188);
+				_lLvls_shape.graphics.drawRect(0, 0, 16, cnvLevels.height);
+				_lLvls_shape.graphics.endFill();
+				
+				_rLvls_shape.x = 16;
+				_rLvls_shape.graphics.beginFill(0xbc2748);
+				_rLvls_shape.graphics.drawRect(0, 0, 16, cnvLevels.height);
+				_rLvls_shape.graphics.endFill();
 				
 				cnvOsilloscope.rawChildren.addChild(_lOscill_shape);
 				cnvOsilloscope.rawChildren.addChild(_rOscill_shape);
 				
-				cnvLevels.rawChildren.addChild(_lvlsGraph_shape);
+				cnvLevels.rawChildren.addChild(_lLvls_shape);
+				cnvLevels.rawChildren.addChild(_rLvls_shape);
 			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 			
 			private function hdlApp_AddedToStage(e:Event):void {
@@ -297,13 +519,13 @@
 	
 	
 	<!-- -=[ OUTPUT UI ]=- -->
-	<s:Group id="grpOutput" width="100%">
+	<s:Group id="grpOutput" width="100%" height="100%">
 		<mx:VBox>
-			<s:HGroup id="grpGraphs">
+			<s:HGroup id="grpGraphs" height="480">
 				<mx:Canvas id="cnvOsilloscope" width="480" height="320" />
 				<mx:Canvas id="cnvLevels" x="480" width="32" height="320" />
 			</s:HGroup>
-			<s:HGroup id="grpRendering">
+			<s:HGroup id="grpRendering" width="100%">
 				<mx:Canvas id="cnvDrawing" width="100%" height="512" />
 			</s:HGroup>
 		</mx:VBox>

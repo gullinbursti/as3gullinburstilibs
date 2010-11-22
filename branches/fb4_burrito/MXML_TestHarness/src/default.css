@@ -12,15 +12,15 @@
 #cnvOsilloscope {
 	borderStyle: solid;
 	borderThickness: 1;
-	borderColor: #181a1e;
+	borderColor: #2f373c;
 	
-	backgroundColor: #364663;
+	backgroundColor: #eeddc4;
 }
 
 #cnvLvls {
 	borderStyle: solid;
 	borderThickness: 1;
-	borderColor: #181a1e;
+	borderColor: #2f373c;
 	
-	backgroundColor: #364663;
+	backgroundColor: #b09e8c;
 }
