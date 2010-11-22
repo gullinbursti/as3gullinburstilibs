@@ -112,6 +112,9 @@
     <classEntry path="cc.gullinbursti.lang.Colors"/>
     <classEntry path="cc.gullinbursti.lang.Matrixs"/>
     <classEntry path="cc.gullinbursti.net.apis.Twitter"/>
+    <classEntry path="cc.gullinbursti.audio.BasicSoundWave"/>
+    <classEntry path="cc.gullinbursti.audio.synthesis.AudioWaveform"/>
+    <classEntry path="cc.gullinbursti.audio.delegators.ByteStream_Sythed"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

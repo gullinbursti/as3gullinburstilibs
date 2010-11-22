@@ -16,7 +16,7 @@ package cc.gullinbursti.audio {
 	 * @author Gullinbursti
 	 */
 	// <[!] class delaration [!]>
-	public class BasicAudioWave extends MusicTheory {
+	public class BaseAudioWave extends MusicTheory {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -29,7 +29,7 @@ package cc.gullinbursti.audio {
 		 * 
 		 */
 		// <*] class constructor [*>
-		public function BasicAudioWave() {/* …\(^_^)/… */}
+		public function BaseAudioWave() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
