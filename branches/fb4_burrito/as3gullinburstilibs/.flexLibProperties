@@ -114,7 +114,7 @@
     <classEntry path="cc.gullinbursti.net.apis.Twitter"/>
     <classEntry path="cc.gullinbursti.audio.BasicSoundWave"/>
     <classEntry path="cc.gullinbursti.audio.synthesis.AudioWaveform"/>
-    <classEntry path="cc.gullinbursti.audio.delegators.ByteStream_Sythed"/>
+    <classEntry path="cc.gullinbursti.audio.delegators.SynthSoundDelegator"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

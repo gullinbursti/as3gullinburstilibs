@@ -11,17 +11,17 @@ package cc.gullinbursti.audio.delegators {
 	/**
 	 * 
 	 * @author:		Gullinbursti
-	 * @class:		ByteStream_Sythed
+	 * @class:		SynthSoundDelegator
 	 * @package:	cc.gullinbursti.audio.delegators
 	 * @created:	7:09:49 PM Nov 21, 2010
 	 */
-	public class ByteStream_Sythed extends ByteArrays {
+	public class SynthSoundDelegator extends ByteArrays {
 		
 		protected var _isPlaying:Boolean;
 		protected var _byte_arr:ByteArray;
 		protected var _snd_obj:Sound;
 				
-		public function ByteStream_Sythed(snd:Sound, ba:ByteArray, playing:Boolean=false) {
+		public function SynthSoundDelegator(snd:Sound, ba:ByteArray, playing:Boolean=false) {
 			
 			_snd_obj = snd;
 			_byte_arr = ba;
