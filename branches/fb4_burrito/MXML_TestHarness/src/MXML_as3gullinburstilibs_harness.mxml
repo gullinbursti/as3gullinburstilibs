@@ -28,13 +28,9 @@
 	<!-- -=[ MXML SCRIPT ]=- -->
 	<fx:Script>
 		<![CDATA[
-			
-			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*_
-			//*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*.
-			
-			
 			import caurina.transitions.Tweener;
 			
+			import cc.gullinbursti.audio.delegators.SynthSoundDelegator;
 			import cc.gullinbursti.lang.*;
 			import cc.gullinbursti.math.BasicMath;
 			import cc.gullinbursti.math.algebra.Matrices;
@@ -97,6 +93,8 @@
 
 			private var _note_amp:Number = 1;
 			
+			
+			private var _sythSoundDelegator:SynthSoundDelegator;
 			
 			
 			private function noise(freq:Point=null, isStereo:Boolean=true):Point {
@@ -286,6 +284,10 @@
 				// pwm
 				//samps = pulseMod(ind);
 				
+				
+				// vibrato
+				//_note_rel += (Math.cos(_wave_ang * 0.005) * 0.2);
+				
 			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 
 
@@ -321,9 +323,22 @@
 				_amplitude = 0;
 				_total = _attack + _decay + _release;
 				
-				_snd = new Sound();
-				_snd.addEventListener(SampleDataEvent.SAMPLE_DATA, hdlSound_SampleData);
-				_snd.play();
+				//_snd = new Sound();
+				//_snd.addEventListener(SampleDataEvent.SAMPLE_DATA, hdlSound_SampleData);
+				//_snd.play();
+				
+				_sythSoundDelegator = new SynthSoundDelegator();
+				
+				Tweener.addCaller(this, {
+					count:1,
+					time:1,
+					
+					onComplete:function():void {
+						_sythSoundDelegator.togglePlayback();
+					}
+				});
+				
+				
 				
 				_note_tmr.addEventListener(TimerEvent.TIMER, hdlTimer_Tick);
 				_note_tmr.start();
@@ -336,17 +351,17 @@
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 				//trace ("[>=<] Application.hdlSound_SampleData() [>=<]");
 				
+				refreshOscills();
+				
 				// 2048 - 8192 --> samples to write
 				for(var i:int=0; i<RESOLUTION; i++) {
 					_snd_pos = i + e.position;
 					
-					write(i, e.data, triangle());
+					write(i, e.data, sawTooth());
 				}
+				
 				// release mult
 				//_note_rel *= 0.8;
-				
-				// release + vibrato
-				_note_rel *= 0.8 + (Math.cos(_wave_ang * 0.005) * 0.2);
 			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 			
 			private function hdlTimer_Tick(e:TimerEvent):void {
@@ -373,13 +388,13 @@
 				
 				if (skip % 4 == 0) {
 					refreshLvls(ind, samps);
-					refreshOscills(ind, samps);
+					drawOscills(ind, samps);
 				}
 				
 			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 			
 			
-			private function refreshOscills(ind:int, samps:Point):void {
+			private function refreshOscills():void {
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 				//trace ("[:_:] Application.refreshOscills() [:_:]");
 				
@@ -390,7 +405,7 @@
 				_rOscill_shape.graphics.moveTo(0, _graph_dim.height * 0.5);
 				
 				
-				drawOscills(ind, samps);
+				//drawOscills(ind, samps);
 			}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 			
 			
@@ -398,8 +413,9 @@
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 				//trace ("[:_:] Application.drawOscills(["+ind+"] "+samps+") [:_:]");
 				
+				//i / 2048 * stage.stageWidth, stage.stageHeight / 2 - sample * stage.stageHeight / 8
 				_lOscill_shape.graphics.lineStyle(1, 0x346188);
-				_lOscill_shape.graphics.lineTo((ind / (RESOLUTION * 1) * (_graph_dim.width * 1)), (cnvOsilloscope.height * 0.25) - samps.x * (_graph_dim.height * 0.25));
+				_lOscill_shape.graphics.lineTo(ind / RESOLUTION * _graph_dim.width, cnvOsilloscope.height * 0.25 - samps.x * _graph_dim.height * 0.25);
 				
 				_rOscill_shape.graphics.lineStyle(1, 0xa0123b);
 				_rOscill_shape.graphics.lineTo((ind / (RESOLUTION * 1) * (_graph_dim.width * 1)), (cnvOsilloscope.height * 0.25) - samps.y * (_graph_dim.height * 0.25));
@@ -408,21 +424,6 @@
 			
 			private function refreshLvls(ind:int, samps:Point):void {
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-				/* 
-				Tweener.addTween(_lLvls_shape, {
-					y:cnvLevels.height,
-					scaleY:0,
-					time:0.1,
-					transition:"easeincirc"
-				});
-				
-				Tweener.addTween(_rLvls_shape, {
-					y:cnvLevels.height,
-					scaleY:0,
-					time:0.1,
-					transition:"easeincirc"
-				});
-				 */
 				
 				_rLvls_shape.scaleY = 0;
 				_rLvls_shape.y = cnvLevels.height;
