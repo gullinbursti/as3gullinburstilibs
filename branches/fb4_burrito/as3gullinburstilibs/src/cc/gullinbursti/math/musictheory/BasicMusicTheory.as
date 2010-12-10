@@ -1,4 +1,4 @@
-package cc.gullinbursti.audio {
+package cc.gullinbursti.math.musictheory {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -9,7 +9,7 @@ package cc.gullinbursti.audio {
 	 * @author Gullinbursti
 	 */
 	// <[!] class delaration [!]>
-	public class MusicTheory {
+	public class BasicMusicTheory {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -37,7 +37,7 @@ package cc.gullinbursti.audio {
 		 * 
 		 */
 		// <*] class constructor [*>
-		public function MusicTheory() {/* …\(^_^)/… */}
+		public function BasicMusicTheory() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>

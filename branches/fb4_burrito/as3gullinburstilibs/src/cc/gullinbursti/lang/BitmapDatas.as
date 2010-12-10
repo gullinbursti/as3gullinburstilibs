@@ -363,6 +363,20 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public static function rotate():void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			/*var imgMatrix:Matrix = img.transform.matrix; 
+			var centerX:Number = img.width / 2; 
+			var centerY:Number = img.height / 2; 
+			var centerPoint:Point = new Point(centerX, centerY); 
+			var transformPoint:Point= imgMatrix.transformPoint(centerPoint); 
+			
+			imgMatrix.translate(-transformPoint.x, -transformPoint.y);
+			imgMatrix.rotate(angle * Math.PI / 180);
+			imgMatrix.translate(transformPoint.x, transformPoint.y);
+			img.transform.matrix = imgMatrix;*/
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 		public static function toCGA(src_bmpData:BitmapData, isGrey:Boolean=false, isAlpha:Boolean=false):void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			 reduceChannels(src_bmpData, 0, isGrey, isAlpha);

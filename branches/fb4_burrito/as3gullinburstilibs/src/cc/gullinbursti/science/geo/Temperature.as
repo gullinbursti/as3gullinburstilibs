@@ -1,4 +1,4 @@
-package cc.gullinbursti.science.weather {
+package cc.gullinbursti.science.geo {
 	import cc.gullinbursti.converts.Speed;
 	import cc.gullinbursti.math.BasicMath;
 	import cc.gullinbursti.math.geom.BasicGeom;

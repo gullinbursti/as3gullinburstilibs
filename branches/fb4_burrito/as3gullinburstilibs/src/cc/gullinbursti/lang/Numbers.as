@@ -14,7 +14,7 @@ package cc.gullinbursti.lang {
 	 * @author Gullinbursti
 	 */
 	 // <[!] class delaration [¡]>
-	public class Numbers extends Ints {
+	public class Numbers {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -74,6 +74,19 @@ package cc.gullinbursti.lang {
 			
 			// bitwise left shift
 			return (Bits.lShift(float, 0));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function isBetween(val:Number, lower:Number, upper:Number, isInclusive:Boolean=true):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// include bounds
+			if (isInclusive)
+				return (val >= lower && val <= upper);
+			
+			// 
+			return (val > lower && val < upper);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

@@ -7,7 +7,7 @@
 
 
 	<path id="flextasks.classpath">
-		<fileset dir="${FLEX_HOME}/ant/lib">
+		<fileset dir="${FLEX_HOME}/../ant/lib">
 			<include name="*.jar" />
 		</fileset>
 	</path>

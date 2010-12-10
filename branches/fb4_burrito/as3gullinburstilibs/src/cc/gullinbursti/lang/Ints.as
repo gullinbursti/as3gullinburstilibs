@@ -11,7 +11,7 @@ package cc.gullinbursti.lang {
 	 * @author Gullinbursti
 	 */
 	// <[!] class delaration [!]>
-	public class Ints {
+	public class Ints extends Numbers {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
@@ -122,6 +122,17 @@ package cc.gullinbursti.lang {
 				
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		public static function isBetween(val:Number, lower:Number, upper:Number, isInclusive:Boolean=true):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// include bounds
+			if (isInclusive)
+				return (val >= lower && val <= upper);
+			
+			// 
+			return (val > lower && val < upper);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public static function limitWrap(val:int, range:Point):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._

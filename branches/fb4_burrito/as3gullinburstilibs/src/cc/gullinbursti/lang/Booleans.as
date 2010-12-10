@@ -18,7 +18,7 @@ package cc.gullinbursti.lang {
 		
 		public static function invert(bool:Boolean):Boolean {
 			
-			return (bool = !bool);
+			return (!bool);
 		}
 	}
 }

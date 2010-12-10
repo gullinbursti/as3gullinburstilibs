@@ -344,14 +344,17 @@
    <framework>halo</framework>
    <!-- include-classes: a list of classes to include in the output SWC-->
    <include-classes>
-      <class>cc.gullinbursti.audio.BasicSoundWave</class>
-      <class>cc.gullinbursti.audio.MusicTheory</class>
       <class>cc.gullinbursti.audio.delegators.SynthSoundDelegator</class>
-      <class>cc.gullinbursti.audio.synthesis.AudioWaveform</class>
+      <class>cc.gullinbursti.audio.generate.SoundWavelet</class>
+      <class>cc.gullinbursti.audio.waveforms.AbstractAudioWaveform</class>
+      <class>cc.gullinbursti.audio.waveforms.IAudioWaveform</class>
+      <class>cc.gullinbursti.audio.waveforms.NoiseAudioWaveform</class>
+      <class>cc.gullinbursti.audio.waveforms.SinusoidAudioWaveform</class>
       <class>cc.gullinbursti.collections.Collection</class>
       <class>cc.gullinbursti.converts.Angle</class>
       <class>cc.gullinbursti.converts.Avoirdupois</class>
       <class>cc.gullinbursti.converts.DryVolume</class>
+      <class>cc.gullinbursti.converts.Explos</class>
       <class>cc.gullinbursti.converts.Pressure</class>
       <class>cc.gullinbursti.converts.Radix</class>
       <class>cc.gullinbursti.converts.Troy</class>
@@ -416,6 +419,11 @@
       <class>cc.gullinbursti.math.geom.Sphere</class>
       <class>cc.gullinbursti.math.geom.Triangle</class>
       <class>cc.gullinbursti.math.geom.matroids.BasicMatroidTheory</class>
+      <class>cc.gullinbursti.math.musictheory.BasicMusicTheory</class>
+      <class>cc.gullinbursti.math.musictheory.Chords</class>
+      <class>cc.gullinbursti.math.musictheory.Harmony</class>
+      <class>cc.gullinbursti.math.musictheory.Melody</class>
+      <class>cc.gullinbursti.math.musictheory.Scales</class>
       <class>cc.gullinbursti.math.probility.Randomness</class>
       <class>cc.gullinbursti.math.settheory.BasicSetTheory</class>
       <class>cc.gullinbursti.math.settheory.Functions</class>
@@ -433,13 +441,14 @@
       <class>cc.gullinbursti.science.ai.Pathfinding</class>
       <class>cc.gullinbursti.science.astro.BasicAstronomy</class>
       <class>cc.gullinbursti.science.chemistry.BasicChem</class>
+      <class>cc.gullinbursti.science.geo.BasicGeology</class>
+      <class>cc.gullinbursti.science.geo.Clouds</class>
+      <class>cc.gullinbursti.science.geo.Precip</class>
+      <class>cc.gullinbursti.science.geo.Temperature</class>
       <class>cc.gullinbursti.science.physics.BasicPhysics</class>
       <class>cc.gullinbursti.science.physics.Gravity</class>
       <class>cc.gullinbursti.science.quantum.BasicQuantumMechanics</class>
       <class>cc.gullinbursti.science.thermo.BasicThermo</class>
-      <class>cc.gullinbursti.science.weather.Clouds</class>
-      <class>cc.gullinbursti.science.weather.Precip</class>
-      <class>cc.gullinbursti.science.weather.Temperature</class>
       <class>cc.gullinbursti.searching.BasicSearching</class>
       <class>cc.gullinbursti.searching.ISearcher</class>
       <class>cc.gullinbursti.sorting.Asinine</class>

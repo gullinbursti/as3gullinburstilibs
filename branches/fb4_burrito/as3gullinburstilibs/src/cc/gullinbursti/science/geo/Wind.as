@@ -1,4 +1,4 @@
-package cc.gullinbursti.science.weather {
+package cc.gullinbursti.science.geo {
 	import cc.gullinbursti.math.BasicMath;
 	
 	//] includes [!]>

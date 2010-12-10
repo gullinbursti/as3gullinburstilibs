@@ -1,4 +1,4 @@
-package cc.gullinbursti.science.weather {
+package cc.gullinbursti.science.geo {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
@@ -9,33 +9,23 @@ package cc.gullinbursti.science.weather {
 	 * @author Gullinbursti
 	 */
 	// <[!] class delaration [!]>
-	public class Clouds extends BasicWeather {
+	public class Precip extends BasicWeather {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-		
-		// basic types
-		public static const BASIC_CLOUDS:Array = new Array(
-			["Cirrus"], 
-			["Stratus"],
-			["Cummulus"], 
-			["Nimbus"], 
-			["Fog"]
-		);
-		
-		// median types
-		public static const PREFIXES:Array = new Array(
-			["Alto"] 
-		);
-		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 		
 		// <*] class constructor [*>
-		public function Clouds() {/* …\(^_^)/… */}
+		public function Precip() {/* …\(^_^)/… */}
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
 	}
 }
+
+
+
+
+	
