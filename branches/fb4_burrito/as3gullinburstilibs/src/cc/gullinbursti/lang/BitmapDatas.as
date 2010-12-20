@@ -1,7 +1,5 @@
 package cc.gullinbursti.lang {
 	
-	
-	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.converts.Color;
@@ -32,8 +30,8 @@ package cc.gullinbursti.lang {
 		// <*] class constructor [*>
 		public function BitmapDatas() {/*..\(^_^)/..*/}
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		
-		
+		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
+		//]~=~=~=~=~=~=~=~=~=[>
 		
 		public static function extractChannel(src_bmpData:BitmapData, channel:String):BitmapData {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._	

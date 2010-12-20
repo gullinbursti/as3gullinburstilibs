@@ -1,0 +1,12 @@
+relative humidity:
+((Math.exp((17.67 * cDewPt) / (243.5 + cDewPt)))/(Math.exp((17.67 * cTemp) / (243.5 + cTemp))) * 100)
+
+
+heat index:
+var t2=temp*temp;
+var t3=t2*temp;
+var rh2=rh*rh;
+var rh3=rh2*rh;
+
+//Fahrenheit conversion
+var index =16.923+0.185212*temp+5.37941*rh-0.100254*temp*rh+ 0.941695e-2*t2+0.728898e-2*rh2+0.345372e-3*t2*rh- 0.814971e-3*temp*rh2+0.102102e-4*t2*rh2- 0.38646e-4*t3+0.291583e-4*rh3+0.142721e-5*t3*rh+ 0.197483e-6*temp*rh3-0.218429e-7*t3*rh2+ 0.843296e-9*t2*rh3-0.481975e-10*t3*rh3;

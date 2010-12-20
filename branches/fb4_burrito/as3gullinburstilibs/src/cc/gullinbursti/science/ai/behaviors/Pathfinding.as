@@ -1,7 +1,8 @@
-package cc.gullinbursti.science.ai {
+package cc.gullinbursti.science.ai.behaviors {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.science.ai.BasicAI;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
 	
 	/**

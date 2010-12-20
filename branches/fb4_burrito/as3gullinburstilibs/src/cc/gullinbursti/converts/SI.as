@@ -1,8 +1,8 @@
 package cc.gullinbursti.converts {
-	import cc.gullinbursti.math.BasicMath;
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.math.BasicMath;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	

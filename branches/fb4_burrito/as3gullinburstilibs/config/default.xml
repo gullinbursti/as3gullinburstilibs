@@ -53,7 +53,7 @@
       </extensions>
       <!-- compiler.external-library-path: list of SWC files or directories to compile against but to omit from linking-->
       <external-library-path>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/player/10.1/playerglobal.swc</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\libs\player\10.1\playerglobal.swc</path-element>
       </external-library-path>
       <fonts>
          <!-- compiler.fonts.advanced-anti-aliasing: enables advanced anti-aliasing for embedded fonts, which provides greater clarity for small fonts.-->
@@ -79,7 +79,7 @@
          </local-font-paths>
          -->
          <!-- compiler.fonts.local-fonts-snapshot: File containing system font data produced by flex2.tools.FontSnapshot.-->
-         <local-fonts-snapshot>${flexlib}/macFonts.ser</local-fonts-snapshot>
+         <local-fonts-snapshot>${flexlib}/winFonts.ser</local-fonts-snapshot>
          <!-- compiler.fonts.managers: Compiler font manager classes, in policy resolution order-->
          <managers>
             <manager-class>flash.fonts.JREFontManager</manager-class>
@@ -126,20 +126,20 @@
       <keep-generated-actionscript>false</keep-generated-actionscript>
       <!-- compiler.library-path: list of SWC files or directories that contain SWC files-->
       <library-path>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/framework.swc</path-element>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/textLayout.swc</path-element>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/spark.swc</path-element>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/sparkskins.swc</path-element>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/rpc.swc</path-element>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/osmf.swc</path-element>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/mx/mx.swc</path-element>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/datavisualization.swc</path-element>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/flash-integration.swc</path-element>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/flex.swc</path-element>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/spark_dmv.swc</path-element>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/utilities.swc</path-element>
-         <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/locale/{locale}</path-element>
-         <path-element>/Volumes/Skuld/labor/dev/as3/flex_builder/burrito/projects/personal/libraries/as3gullinburstilibs/as3gullinburstilibs/libs</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\libs\framework.swc</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\libs\textLayout.swc</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\libs\spark.swc</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\libs\sparkskins.swc</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\libs\rpc.swc</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\libs\osmf.swc</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\libs\mx\mx.swc</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\libs\datavisualization.swc</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\libs\flash-integration.swc</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\libs\flex.swc</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\libs\spark_dmv.swc</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\libs\utilities.swc</path-element>
+         <path-element>C:\Program Files\Adobe\Adobe Flash Builder Burrito\sdks\4.5.0\frameworks\locale\{locale}</path-element>
+         <path-element>D:\labor\dev\as3\fb_burrito\projs\personal\libs\as3gullinburstilibs\libs</path-element>
       </library-path>
       <!-- compiler.locale: specifies the locale for internationalization-->
       <locale>
@@ -213,8 +213,8 @@
       <show-unused-type-selector-warnings>true</show-unused-type-selector-warnings>
       <!-- compiler.source-path: list of path elements that form the roots of ActionScript class hierarchies-->
       <source-path>
-         <path-element>/Volumes/Skuld/labor/dev/as3/flex_builder/burrito/projects/personal/libraries/as3gullinburstilibs/as3gullinburstilibs/src</path-element>
-         <path-element>/Volumes/Skuld/labor/dev/as3/flex_builder/burrito/projects/personal/libraries/as3gullinburstilibs/as3gullinburstilibs/src</path-element>
+         <path-element>D:\labor\dev\as3\fb_burrito\projs\personal\libs\as3gullinburstilibs\src</path-element>
+         <path-element>D:\labor\dev\as3\fb_burrito\projs\personal\libs\as3gullinburstilibs\src</path-element>
       </source-path>
       <!-- compiler.strict: runs the AS3 compiler in strict error checking mode.-->
       <strict>true</strict>
@@ -355,8 +355,10 @@
       <class>cc.gullinbursti.converts.Avoirdupois</class>
       <class>cc.gullinbursti.converts.DryVolume</class>
       <class>cc.gullinbursti.converts.Explos</class>
+      <class>cc.gullinbursti.converts.Length</class>
       <class>cc.gullinbursti.converts.Pressure</class>
       <class>cc.gullinbursti.converts.Radix</class>
+      <class>cc.gullinbursti.converts.Speed</class>
       <class>cc.gullinbursti.converts.Troy</class>
       <class>cc.gullinbursti.dataorgs.trees.AbstractLeaf</class>
       <class>cc.gullinbursti.dataorgs.trees.AbstractTree</class>
@@ -376,6 +378,7 @@
       <class>cc.gullinbursti.lang.Numbers</class>
       <class>cc.gullinbursti.lang.Objects</class>
       <class>cc.gullinbursti.lang.Shapes</class>
+      <class>cc.gullinbursti.lang.SharedObjects</class>
       <class>cc.gullinbursti.lang.Strings</class>
       <class>cc.gullinbursti.lang.TextFields</class>
       <class>cc.gullinbursti.logic.BasicLogic</class>
@@ -438,13 +441,12 @@
       <class>cc.gullinbursti.renderers.TextShadowDrawer</class>
       <class>cc.gullinbursti.science.ai.BasicAI</class>
       <class>cc.gullinbursti.science.ai.Heuristics</class>
-      <class>cc.gullinbursti.science.ai.Pathfinding</class>
+      <class>cc.gullinbursti.science.ai.behaviors.Pathfinding</class>
       <class>cc.gullinbursti.science.astro.BasicAstronomy</class>
       <class>cc.gullinbursti.science.chemistry.BasicChem</class>
-      <class>cc.gullinbursti.science.geo.BasicGeology</class>
-      <class>cc.gullinbursti.science.geo.Clouds</class>
-      <class>cc.gullinbursti.science.geo.Precip</class>
-      <class>cc.gullinbursti.science.geo.Temperature</class>
+      <class>cc.gullinbursti.science.earth.BasicGeology</class>
+      <class>cc.gullinbursti.science.earth.Clouds</class>
+      <class>cc.gullinbursti.science.earth.Precip</class>
       <class>cc.gullinbursti.science.physics.BasicPhysics</class>
       <class>cc.gullinbursti.science.physics.Gravity</class>
       <class>cc.gullinbursti.science.quantum.BasicQuantumMechanics</class>

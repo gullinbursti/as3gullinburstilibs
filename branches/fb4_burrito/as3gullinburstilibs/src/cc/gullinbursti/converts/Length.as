@@ -80,18 +80,11 @@ package cc.gullinbursti.converts {
 			return (len * (1/12));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		
-		
 		// ft = in * 12
 		public static function feetToInches(len:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			return (len * 12);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		
-		
-		
 		
 		// in = cm * 0.3937
 		public static function centimetersToInches(len:Number):Number {
@@ -174,19 +167,19 @@ package cc.gullinbursti.converts {
 		//lat = mi * 69.125 
 		public static function nauticalToLatitude(len:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (nauticalToStatute(len) * 69.125);	
+			return (statuteToLatitude(nauticalToStatute(len)));	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		//lat = mi * 69.125 
+		//lat = mi * (1/69.125) 
 		public static function latitudeToStatute(len:Number):Number {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			return (len * 0.014466546112116);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		//lat = mi * 69.125 
 		public static function latitudeToNautical(len:Number):Number {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (statuteToNautical(len * 0.014466546112116));
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (statuteToNautical(latitudeToStatute(len)));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		// nautical mi = statute mi * 0.868976241900648 

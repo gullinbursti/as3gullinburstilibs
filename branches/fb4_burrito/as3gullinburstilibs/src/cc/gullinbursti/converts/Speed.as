@@ -70,17 +70,17 @@ package cc.gullinbursti.converts {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// knots = mph * ???
+		// knots = mph * 0.868976241091
 		public static function mphToKnots(spd:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (Length.statuteToNautical(spd));	
+			return (spd * 0.868976241091);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		// mph = knots * ???
+		// mph = knots * 1.1507794490957538966042759682414
 		public static function knotsToMph(spd:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (Length.nauticalToStatute(spd));	
+			return (spd * 1.1507794490957538966042759682414);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

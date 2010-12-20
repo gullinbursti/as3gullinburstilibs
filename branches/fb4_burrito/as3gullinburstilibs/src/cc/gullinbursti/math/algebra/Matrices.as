@@ -30,10 +30,11 @@ package cc.gullinbursti.math.algebra {
 		public static function genIdenty(dim:Point):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
+			var col_arr:Array;
 			var ident_arr:Array = new Array();
 			
 			for (var j:int=0; j<dim.y; j++) {
-				var col_arr:Array = new Array();
+				col_arr = new Array();
 				
 				for (var i:int=0; i<dim.x; i++)
 					col_arr.push(int(i == j));
