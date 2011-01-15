@@ -13,6 +13,7 @@ package cc.gullinbursti.science.ai {
 	public class BasicAI {
 	//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 		//TODO: implement add'l basic AI methods
+		//TODO: implement swarming intel [http://en.wikipedia.org/wiki/Swarm_Intelligence] (http://www.red3d.com/cwr/boids/)
 		
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.

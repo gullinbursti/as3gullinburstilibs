@@ -1,0 +1,707 @@
+
+    e = 6.11 * exp [5417.7530 * ((1/273.16) - (1/dewpoint in kelvins))] 
+    h = (0.5555)*(e - 10.0)
+    humidex = (air temperature in Celsius) + h
+
+
+
+
+
+
+  The _Temp, Humidity & Dew Point_  ONA (Often Needed Answers)
+
+
+Table-of-contents:
+1)  Introduction.
+2)  Formulae.
+3)  Examples.
+4)  Literature.
+5)  Committment.
+6)  Outlook.
+7)  Signature.
+
+
+A plain text version of this text can also be found on:
+http://mmf.ruc.dk/~bek/relhum.htm
+
+
+1)
+Introduction:
+
+From the discussions on the newsgroup sci.geo.meteorology this is a
+collection of some formulae and texts that reflect on connections
+of temperature, humidity and dew point temperature (BeK):
+
+Air will normally contain a certain amount of water vapour. The
+maximum amount of water vapour, that air can contain, depends on
+the temperature and, for certain temperature ranges, also on whether
+the air is near to a water or ice surface. If you have a closed con-
+tainer with water and air (like a beaker) then there an equilibrium
+will develop, where the air will contain as much vapour as it can.
+The air will then be saturated with respect to water vapour.
+The real world outside is not closed, so that the air normally will
+contain less vapour as it could. Sources of vapour are evaporation
+processes from water and ice surfaces and transpiration from plants
+and respiration from animals. The expression "evapotranspiration"
+takes into consideration plants' large share of evaporation over
+land areas.
+Sinks of water vapour are clouds or condensation on surfaces.
+Dew is created when a surface temperature has such a low temperature
+that the air chills to the dew point and the water vapour condenses.
+Physically at the dew point temperature the vapour loses the energy
+that it gained at evaporation, the latent energy, again.
+
+The precipitable water (total column water vapor) is strongly
+correlated (r > 0.9) with the surface dew point on most days.
+Exceptions to the rule include days when a cold front has passed
+and during other transient events. (Kerry Andersen)
+
+
+NET readings :
+http://covis2.atmos.uiuc.edu/guide/wmaps/general/rhdef.html
+http://njnie.dl.stevens-tech.edu/curriculum/oceans/rel.html
+http://www.mtc.com.my/fpub/lib/drying/ch11.htm
+
+
+
+2)
+Formulae:
+
+Enough for dry physical theories; here comes the practice.
+
+For some people skipping this and going directly to the examples
+would be the most rewarding. Especially as they treat the conversion
+of relative humidity and psychrometer temperatures. (BeK)
+
+Vapor pressure (e) is the fraction of the ambient pressure that is
+due to the fraction of water vapor in the air.
+Saturation vapor pressure (es) is the maximum vapor pressure that the
+air can support (non supersaturated) at a given temperature.
+
+e  can vary from 0 (verrry dry) to the maximum, es.
+es is a function of temperature es(T).
+
+
+Relative humidity (RH) is 100% times the ratio of the environmental
+vapour pressure, e(T), to the saturation vapour pressure es(T).
+
+        RH = 100% * e(T)/es(T)
+
+
+The environmental vapour pressure is the saturation vapour pressure
+at the dew point or
+
+        e(T) = es(Td)
+
+so RH becomes
+
+        RH = 100% * es(Td)/es(T)
+
+In other words: if you have a parcel of air and cool it until the
+water vapor in it condenses then you have reached the saturation point.
+At this point you will measure the same vapour pressure as in your
+original air probe.
+
+
+
+Some more elaborate expressions follow here:
+
+es0 = reference saturation vapor pressure (es at a certain temp,
+                                           usually 0 deg C)
+    = 6.11 hPa
+
+T0  = reference temperature (273.15 Kelvin,  Kelvin = degree C +
+                                                      273.15)
+
+Td  = dew point temperature (Kelvin)
+
+T   = temperature (Kelvin)
+
+lv  = latent heat of vaporization of water (2.5 * 10^6 joules
+                                                       per kilogram)
+
+Rv  = gas constant for water vapor (461.5 joules* Kelvin / kilogram)
+
+e  = es0 * exp( lv/Rv * (1/T0 - 1/Td))
+es = es0 * exp( lv/Rv * (1/T0 - 1/T))
+
+RH= e/es * (100%) = relative humidity !!!!
+
+So just above is the answer to many questions in the direction of
+how to calculate the relative humidity if you have the dew point
+and air temperature.
+
+
+
+There are some simple and more complicated formulas for the
+saturation vapour pressure at a given temperature.
+
+A simple first guess (assuming the latent heat of vaporization is
+constant with temperature) would be:
+
+        log10(es) = 9.4041 - 2354/T
+or
+           ln(es) = 21.564 - 5420/T
+
+where T is in Kelvin (i.e., 273.15+T(C)). {After inverting the
+logarithms es in given in hPa.}
+
+Another approximation (Magnus' formula) would be
+
+        log10(es) = -2937.4/T - 4.9283*log10(T) + 23.5470
+
+
+
+In the following the input gets a little more complicated. Here we
+also shall distinguish between the saturation vapour pressure over
+ice or water. Both are different, as the molecular forces bind much
+more in an ice crystal than in a water bobble. So the saturation
+pressure esW will be larger than esI (W for water, I for ice).
+
+ 1.  Vapor pressure (e):
+
+                             dew point temperature in degrees C.
+                            /
+     e  = 6.1078 * 10 ** ((TD * A)/(TD + B)) in hPa
+
+
+ 2.  Saturated vapor pressure (es):
+
+
+     es = 6.1078 * 10 ** ((T * A)/(T + B))
+                            \
+                             temperature in C
+
+                   A =   7.5 } for use in vapor pressure
+                   B = 237.3 } with respect to WATER
+
+                 * A =   9.5 } for use in vapor pressure
+                   B = 265.5 } with respect to ICE
+
+
+
+ 3.  Absolute virtual temperature (TV):
+
+                                 vapor pressure
+                                /
+     TV = (T + 273.15)/(1-0.379*e/Press)
+                                    \
+                                     total pressure
+
+     TV does take into consideration that you could try to condense
+     all the water vapour in your air parcel and use the condensation
+     heat to warm up the air. This is a first way to distinguish
+     different air parcels that may have the same temperature but
+     have different relative humidity.
+
+
+
+ 4.  Mixing ratio (W):
+                                 vapor pressure
+                                /
+                        .62197 e                      grams water
+                    W = --------                      -------------
+                           P - e                      grams dry air
+                            \                              |
+                             total pressure                |
+                                                   Thus 12 g/Kg comes
+out
+                                                   as .012
+
+
+ 5.  Wet Bulb
+     Vapor Pressure
+     Dew Point               (P365, Smithsonian for first part)
+
+     Ew - e
+     ------      = .000660 (1 + .00115 T )
+     Press (T-Tw)                       w
+
+ Therefore:
+
+            e = Ew - Press (T-T ) (.000660) (1 + .00115 T )
+                               w                        w
+           Tw = Wet bulb temperature (degrees C.)
+           Ew = Saturated vapor pressure at temperature Tw
+            e = Vapor pressure in air
+        Press = Total barometric pressure (units same as Ew, e)
+            T = Air temperature (degrees C.)
+
+ e is the vapor pressure in the air, which is the vapor pressure at
+ the dew point temperature.  To solve for the dew point temperature,
+ use the formula:
+
+            e = 6.1078 * 10 ** ((Td * A)/(Td + B)) in hPa
+
+                 let C = log   (e/6.1078)
+                            10
+
+ Then:
+
+            C T  + C B = A T
+               d            d
+
+                    B*C
+               T =  ---     Dew point in degrees C
+                d   A-C
+                                           where A =   7.5
+                                                 B = 237.3
+
+
+
+
+All the above saturation pressure temperature relationships are
+relatively uncomplicated. Here one that is more mindboggling:
+
+A saturation-pressure-curve which is valid for a total pressure of
+1000 hPa. "This curve was computed by approximating the standard
+steam table for pure water using the least square method by a
+Bulgarian colleague. I experienced it to be quite exact, but I'd
+be glad to be corrected." (Dr Haessler)
+
+Psat  = 610.710701 + 44.4293573*t + 1.41696846*t^2 +
+        0.0274759545*t^3 + 2.61145937E-4*t^4 + 2.85993708E-6*t^5
+
+The pressure is in Pa, the temperature in degrees Celsius (C).
+
+
+Relative Humidity then is:
+
+Phi = Psteam/Psat = (Ptot/Psat)*x / ((Rair/Rsteam)+x),
+
+where x is the absolute humidity in kilogramm water per kilogramm
+of dry air,
+Rair and Rsteam are the specific gas constants for air and steam,
+where
+Rair/Rsteam has a value of 0.622.
+
+For the handling:
+1. Calculate the saturation pressure at Your dew point, giving Your
+   steam pressure.
+2. Calculate the saturation pressure at Your temperature.
+3. Divide'em (see above) to get Your relative humidity.
+4. Calculate Your absolute humidity, if desired.
+5. Mail me for further informations, if necessary.
+6. The reverse way is possible.
+
+For the pressure dependence of relative humidity:
+If air and steam behave as ideal gases, there is no pressure
+dependence.
+This is so around 1000 hPa (+-100hPa, approx.).
+
+
+NET reading :
+http://www.mindspring.com/~pjm/pmtherm.html (free psychrometer program)
+http://nwselp.epcc.edu/elp/wxcalcsc.html (Perl-scripts)
+
+
+CAUTIONS:
+
+Good psychrometers
+
+a) Air velocity
+
+k (and A) don't really become (sorta) independent of the air velocity
+past your wet bulb until velocities above 3 meters/ second.
+Velocities greater than 1 m/s are sufficient at temperatures of 60 C
+or more.
+The worse your arrangement, (less adiabatic, i.e. the more extraneous
+energy radiates/conducts into the water) the steeper k over velocity
+becomes for lower velocities. So you can compensate poor design to
+some extent by cranking up that fan.
+
+k and A are really device-dependent. This k (and A, of course)
+strictly refers to the "Assmann psychrometer" only - two radiation
+shields, thermal insulation, fan downstream from the thermometers. k
+should be similar for any well-made psychrometer.
+
+b) Adiabatic wet bulb
+
+Shield it from radiative & conductive errors, i.e. all energy to
+vaporize the water must come from the air and thus be reflected in
+thetaf.
+
+In wetting the wet bulb, use distilled water. Salty scale on your
+"sock" can change the vapor pressure, and will really mess
+measurements near zero. Use enough water to hit steady-state
+conditions well before you start to dry out.
+
+If you use a wick for continuous wetting, make it long enough so that
+conductive errors are minimized, and it is cooled to the wet bulb
+temperature by the time it gets near the thermometer. Make sure enough
+water can reach the wet bulb, so don't overdo the "long enough" part.
+
+Don't get anything but the wet bulb wet. Getting the radiation shield
+or the thermal insulation wet will introduce errors.
+
+Keep direct sunlight off. A great way to pump heat into your
+"adiabatic" system. Don't ever paint the outside black. Many
+commercial humidity meters are a pretty black finish. They will be
+sensitive to indirect sunlight (and other radiative sources). Humidity
+measurements are VERY sensitive to temperature!
+
+c) Supercooled water and ice below freezing
+
+Your measurement will become screwy below freezing, as you cannot
+really distinguish between supercooled water (evaporation) and ice
+(sublimation) in your wet bulb, and the vapor pressures differ. And
+Lueck says supercooled water can be present as low as -12 C. It
+suggests manually scraping the wet bulb to ensure that supercooled
+water turns to ice.
+
+And note that humidity measurements never are terribly accurate, 2%
+error in absolute hum. are pretty good, depending on where you are in
+terms of temp and water content. Anything that reads "relative
+humidity=52.783 %" is guessing (if you paid less than 100k$...:-)
+
+Thomas Prufer
+
+
+Wet bulb temperature is really defined by the psychrometer and is not
+an atmospheric water vapor property (compared with Td which has a firm
+definition)!!!!   The above computations assume the standard
+psychrometer equation, but the psychrometer constant (0.00066*P in
+kPa/C) is a theoretical value that is not always matched even by very
+good psycrchrometers.  PLEASE note this psychrometer constant depends
+directly on atmospheric pressure so it's value is not a "universal"
+constant!
+
+Terry Howell
+
+
+NET readings:
+http://www.uswcl.ars.ag.gov/exper/relhumeq.htm
+http://nwselp.epcc.edu/elp/rhsc.html
+http://storm.atmos.uiuc.edu/covis2/visualizer/help/general/rh.dwp.html
+
+
+
+3)
+Examples
+
+1. EXAMPLE      X M P L    X M P L    X M P L    X M P L    X M P L
+>My problem is the following. I want to calculate wetbulb temperature
+>(Tw) where my input is drybulb temperature (T) and relative humidity
+>(rH). (Pieter Haasbroek)
+
+Pieter:
+
+Your problem can be solved explicitly using the methods from Jensen et
+al. (1990) ASCE Manual No. 70 (see pages 176 & 177) using the
+following steps and equations:
+
+1)  compute e as [es(T)*rH/100]
+    where es(T) = 0.611*EXP(17.27*T/(T+237.3)) in kPa
+    T is drybulb temp in C
+
+    e = (rH/100)* 0.611*EXP(17.27*T/(T+237.3))
+    where e is ambient vapor pressure in kPa
+
+2)  compute dewpoint temperature (Td)
+    Td = [116.9+237.3ln(e)]/[16.78-ln(e)] in C
+
+3)  compute wet bulb temperature (Tw)
+    Tw = [(GAMMA*T)+(DELTA*Td)]/(GAMMA+DELTA)
+    GAMMA = 0.00066*P where P is ambient barometric pressure in kPa
+    DELTA = 4098*e/(Td+237.3)^2
+
+This method should be close, especially when Tw is close to Td (DELTA
+should be evaluated at (Tw+Td)/2.
+
+For example:
+
+ T = 25C
+rH = 50%
+assume elev is sea level and P = 100 kPa.
+
+1)  es(25) = 0.611*EXP(17.27*25/(25+237.3)) = 3.17 kPa
+    e = (50/100)* es(25) = 1.58 kPa
+
+2)  Td = [116.9+237.3*ln(1.30)]/[16.78-ln(1.30)] = 13.85 C
+
+3)  GAMMA = 0.00066*100 = 0.066 kPa/C
+    DELTA = 4098*(1.58)/(13.85+237.3)^2 = 0.103 kPa/C
+    Tw = [(0.066*25)+(0.103*13.85)]/(0.066+0.103) = 18.21 C
+
+CHECK ANSWER:
+
+    EW(Tw) = 0.611*EXP(17.27*18.21/(18.21+237.3)) = 2.09 kPa
+    e  = EW(Tw) - GAMMA*(T-Tw)
+    e  = 1.58 - 0.066*(25-18.21) = 1.64 kPa
+
+The exact answer for Tw is about 17.95C
+    EW(18.0) = 2.07 kPa;  e = 1.60 kPa
+    EW(17.9) = 2.05 kPa;  e = 1.58 kPa
+    EW(17.95) = 2.06 kPa; e = 1.59 kPa
+
+Thus,
+    ERROR  e = [(1.64 - 1.58)/1.58]*100 = 3.1%
+    ERROR Tw = [(18.2-17.95)/17.95]*100 = 1.4%
+
+
+
+2. EXAMPLE      X M P L    X M P L    X M P L    X M P L
+>Hello:-
+>I am looking for the algorithm to convert wet/dry bulb temperatures to /
+>from rH (and moisture content as well, for that matter).
+>I know the Psychometric charts, but they are difficult to use accurately
+>in software. Anyone have a pointer to appropriate equations?
+>Thanks in advance! (Spehro Pefhany)
+
+Answer
+(I shall find a formula in SI units, please be patient, BeK)
+
+pw = psf  - p * A * (theta - thetaf)
+
+theta: dry bulb temp., Kelvin or Celsius
+thetaf: wet bulb temp.,   "
+psf: Saturation pressure at temp thetaf, see 1.), in Torr (mm Hg)
+pw: Vapor pressure of ambient air, in Torr (mm Hg)
+p: pressure of ambient air, in Torr
+A: optimally (see below) 0.66 * 10e-3 * (1/C)
+
+3.) The short way round:
+
+We're in your backyard: p = 755 Torr, 0 C < theta < 50 C.
+
+pw = psf - k (theta - thetaf)
+
+phi = pw/psf
+
+phi: relative humidity.
+k= p*A = 0.5 Torr/degree
+
+Higher temperatures:
+   thetaf about 60 C: k is about 0.52
+   thetaf about 80 C: k is about 0.53
+
+
+(Formula suggested by A. Sprung, 1888)
+
+
+
+3. EXAMPLE      X M P L    X M P L    X M P L    X M P L
+This question is _often_ asked:
+>I have the air pressure (p), the temperature (T) and the 
+>relative humidity (rH) and want to calculate the specific humidity
+>(i.e. the mass of water vapour to the humid air)?
+
+First: This air pressure that you have, is actually the total pressure,
+i.e. it is the sum of the pressure of the dry air (pair) PLUS the share
+from the water vapour (pw).
+
+Then calculate the saturation pressure (es) from one of the formulas given
+above.
+
+Then multiply by the relative humidity (rh). This gives you the ambient
+water vapour pressure, (e).
+
+Then the specific humidity is given by the following formula:
+
+        R
+         L        e
+rho =  --- -----------------
+        R   p + e(R / R - 1)
+         W         L   W
+
+
+WHERE:
+        R / R  = 0.62197   (see the example for the mixing ratio)
+         L   W
+
+
+
+4. EXAMPLE      X M P L    X M P L    X M P L    X M P L
+> Could somebody send or post the method, or fomula, used to calculate
+> dewpoints.  I have hunted the local library but am unable to find it.
+
+Here it is:
+
+Td = B / ln(A * 0.622 / w p)
+
+where:
+
+B = 5420 K
+A = 2.53 E8 kPa
+
+w = water vapor mixig ratio
+p = local pressure
+
+
+
+5. EXAMPLE      X M P L    X M P L    X M P L    X M P L
+>I'm wondering if anyone could please give me the formula for the
+>calculation of dewpoint temperature given relative humidity, current
+>temperature, and station pressure
+
+First calculate the saturation vap. pres. es (Pa) at temperature T
+(oC):
+
+es = 610.78 * exp {A T / (T + B) }  
+
+where es in Pa, A = 17.2694 and B = 237.3 for T>0 otherwise 265.5.
+Then calculate the actual vapour pressure e (Pa) using 
+
+e = rH / 100 * es
+
+where rH is the rel.hum in %. Finally invert the equation for es since
+e = es(Td). The dewpoint temperature Td (oC) is then obtained from
+
+Td = B  f / { 1 - f  }
+
+where 
+
+f = ln ( e / 610.78 ) / A
+
+(Based on Monteith and Unsworth, 1990, Principles of Environmental
+Physics, sec.ed., Arnold, London, 291pp.  ISBN 0-7131-2931-X. 
+Note however that their equation 2.25 for Td is wrong)
+N.J. Bink
+
+
+
+6. EXAMPLE      X M P L    X M P L    X M P L    X M P L
+I need some help with calculating RH. Our control system allows us to read
+> dry bulb temp and enter the specific humidity (g/kg of dry air). We are
+> looking for a formula to calculate a RH setpoint to use for control. As
+> the dry bulb temp changes the system would calculate the new RH setpoint
+> to maintain the same specific humidity.
+
+I propose and easy solution.
+We start with the formula for the mixing ratio:
+
+        0.622 * e
+   w = -----------
+         p - e
+
+
+and transform it with the formulas for the Saturation vapor pressure (es),
+resulting in:
+
+           w0 * p 
+  rH = ----------------
+        es(T)*(1 + w0)
+
+where:
+p is the total measured pressure and
+w0 is the specific humidity (w) at the start of the run, which is
+supposed to stay constant.
+To give an example with the same starting conditions as in the example
+above, see the following table:
+
+rel.
+err.      w'         rh'      es(T)       T
+1.1%      0.016      60%      2.645      22
+1.3%      0.016      56%      2.810      23
+1.4%      0.016      53%      2.985      24
+1.6%      0.016      50%      3.169      25
+1.8%      0.016      47%      3.363      26
+2.1%      0.016      44%      3.567      27
+2.3%      0.016      42%      3.781      28
+
+As you can see w' equals w0, but the relative humidity changes of course.
+
+
+
+
+NB
+By now you should be able to solve your undergraduate humidity calculations
+really by yourselves. But, looking at the text for the mixing ration, given
+above, most of you could have gained knowledge of this formula by
+yourselves, I guess.
+
+
+
+4)
+Literature hints:
+
+For the book and paper aficionados of the readers check out this:
+
+'If your really interested in this stuff, I (Kerry Anderson) suggest
+the book "Atmospheric Thermodynamics" by Irabarne and Godson."'
+But unfortunately I learned this book is out of stock
+(amazon.com). Instead I could recommend:
+"Fundamentals of Atmospheric Dynamics and Thermodynamics"
+Paperback, Amazon.com Price: $29.00; Published by
+World Scientific Pub Co. Publication date: May 1992
+ISBN: 9971978873
+
+"Most introductory texts on meteorology will have one
+ or two paragraphs on the matter." (K Anderson)
+
+"(Based on Monteith and Unsworth, 1990, Principles of Environmental
+Physics, sec.ed., Arnold, London, 291pp.  ISBN 0-7131-2931-X. 
+Note however that their equation 2.25 for Td is wrong)."
+N.J. Bink
+
+"My sources (other than experience) are all German books
+(Thomas Prufer):"
+(ue equals u&uml;, BeK)
+Lueck, Winfired: Feuchtigkeit - Grundlagen, Messen, Regeln.
+Muenchen: R. Oldenbourg, 1964. Good basics.
+
+Sonntag, D.: Hygrometrie: Ein Handbuch der Feuchtigkeitsmessung in
+Luft und anderen Gasen. (6 vols.) Berlin: Akademie, 1966 - 1968
+Also contains a very detailed description of nearly everything on the
+market in 1966-68.
+
+Heinze, D.: Einheitliche, methodische Beschreibung von
+Gasfeuchte-Messverfahren. Dissertation an der Technischen Hochschule
+Ilmenau, 1980
+Comprehensive block and signal diagrams with the Laplace functions (!)
+of nearly all humidity measurement methods. Nearly unobtainable,
+unfortunately.
+(Thomas Prufer)
+
+
+
+
+5)
+Committment:
+This ONA was collected and provided to you by Bernd Kuemmel
+(bek@mmf.ruc.dk).
+
+I admit to have used especially the willing help and the contributions
+of the of the following people:
+
+Pierre-Alain Dorange, Forrest M. Mims III, Kerry Anderson, Len Padilla,
+Ralf Haessler, Pieter Haasbroek, Terry Howell, David F Palmer, Thomas 
+Prufer, N.J. Bink, Richard Harvey, Spehro Pefhany, and of course -
+Ilana Stern
+
+during the ongoing improvement of the ONA.
+
+
+                         Yours sincerely
+
+                          Bernd Kuemmel
+
+
+
+6)
+Outlook:
+
+I have put other peoples warnings on psychrometers now before the 
+examples, I have also included some NET readings peeking to other sites with
+information on the subject, BeK.
+
+
+7)
+Signature:
+       Bernd Kuemmel + bek@mmf.ruc.dk + VOX: +45 46 75 77 81 * 2275
+       IMFUFA, Roskilde University Centre, PB 260, DK-4000 Roskilde
+         Disclaimer: They do not necessarily agree with all this.
+
+
+
+[ Usenet FAQs | Web FAQs | Documents | RFC Index ]
+
+Send corrections/additions to the FAQ Maintainer:
+Bernd Kuemmel <BEK@mmf.ruc.dk>
+
+
+
+
+Last Update June 29 2010 @ 07:59 AM
+
+Copyright � 2010 Advameg, Inc.  |   Terms of Use

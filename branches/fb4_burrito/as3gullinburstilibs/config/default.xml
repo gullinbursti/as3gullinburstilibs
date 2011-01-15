@@ -368,19 +368,25 @@
       <class>cc.gullinbursti.games.vo.SpriteVO</class>
       <class>cc.gullinbursti.iterators.RandIterator</class>
       <class>cc.gullinbursti.lang.Arrays</class>
+      <class>cc.gullinbursti.lang.BitmapDatas</class>
       <class>cc.gullinbursti.lang.Bits</class>
+      <class>cc.gullinbursti.lang.Booleans</class>
       <class>cc.gullinbursti.lang.ByteArrays</class>
       <class>cc.gullinbursti.lang.Chars</class>
       <class>cc.gullinbursti.lang.Colors</class>
       <class>cc.gullinbursti.lang.DateTimes</class>
       <class>cc.gullinbursti.lang.Ints</class>
+      <class>cc.gullinbursti.lang.Keys</class>
       <class>cc.gullinbursti.lang.Matrixs</class>
+      <class>cc.gullinbursti.lang.MovieClips</class>
       <class>cc.gullinbursti.lang.Numbers</class>
       <class>cc.gullinbursti.lang.Objects</class>
       <class>cc.gullinbursti.lang.Shapes</class>
       <class>cc.gullinbursti.lang.SharedObjects</class>
       <class>cc.gullinbursti.lang.Strings</class>
       <class>cc.gullinbursti.lang.TextFields</class>
+      <class>cc.gullinbursti.lang.URLs</class>
+      <class>cc.gullinbursti.lang.XMLs</class>
       <class>cc.gullinbursti.logic.BasicLogic</class>
       <class>cc.gullinbursti.math.BasicMath</class>
       <class>cc.gullinbursti.math.algebra.AbstractPolynomial</class>

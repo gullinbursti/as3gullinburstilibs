@@ -3,6 +3,7 @@ package cc.gullinbursti.lang {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.converts.Color;
+	import cc.gullinbursti.math.probility.Randomness;
 	
 	import flash.display.BitmapData;
 	import flash.display.BitmapDataChannel;
@@ -10,6 +11,7 @@ package cc.gullinbursti.lang {
 	import flash.geom.Matrix;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
+
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	// <[!] class delaration [!]>
@@ -24,6 +26,8 @@ package cc.gullinbursti.lang {
 		public static const RED:String = "RED";
 		public static const GREEN:String = "GREEN";
 		public static const BLUE:String = "BLUE";
+		
+		private static const SEED_MAX:int = 2048;
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 		
 		
@@ -360,6 +364,27 @@ package cc.gullinbursti.lang {
 			return (color);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		public static function generatePerlinNoise(octaves:int=2, isGreyscale:Boolean=true, basePt:Point=null, dim:Rectangle=null):BitmapData {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			if (!dim)
+				dim = new Rectangle(0, 0, 128, 128);
+			
+			if (!basePt)
+				basePt = new Point(8, 8);
+			
+			var offset_arr:Array = new Array();
+			
+			for (var i:int=0; i<octaves; i++)
+				offset_arr.push(new Point(Randomness.generateSign(), Randomness.generateSign()));
+			
+			
+			var out_bmpData:BitmapData = new BitmapData(dim.width, dim.height, false);
+				out_bmpData.perlinNoise(basePt.x, basePt.y, octaves, Randomness.generateInt(0, SEED_MAX), false, true, 10, isGreyscale, offset_arr);
+			
+			return (out_bmpData);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public static function rotate():void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._

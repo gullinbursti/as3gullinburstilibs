@@ -2,11 +2,15 @@ package cc.gullinbursti.fx {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.lang.Numbers;
+	import cc.gullinbursti.math.probility.Randomness;
+	
 	import flash.display.BitmapData;
 	import flash.display.BitmapDataChannel;
 	import flash.filters.DisplacementMapFilter;
 	import flash.filters.DisplacementMapFilterMode;
 	import flash.geom.Point;
+
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
@@ -51,7 +55,7 @@ package cc.gullinbursti.fx {
 			str_pt = new Point(xStr, yStr);
 			comp_pt = new Point(BitmapDataChannel.RED, BitmapDataChannel.GREEN);
 			map_pt = new Point(xMap, yMap);
-			noise_seed =  Math.random() * seed_max << 0;
+			noise_seed = Randomness.generateInt(0, seed_max);
 			
 			offsetPts_arr = new Array();
 			offsetInc_arr = new Array();
