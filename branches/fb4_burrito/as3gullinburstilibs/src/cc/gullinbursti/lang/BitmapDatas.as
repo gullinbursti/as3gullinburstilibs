@@ -113,7 +113,14 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		
+		/**
+		 * 
+		 * @param src_bmpData
+		 * @param channel1
+		 * @param channel2
+		 * @return 
+		 * 
+		 */		
 		public static function swapChannels(src_bmpData:BitmapData, channel1:String, channel2:String):BitmapData {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._	
 

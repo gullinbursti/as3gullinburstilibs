@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
-<project name="Build Project" basedir="../" default="zip">
+<project name="Build Project" basedir="." default="compileTests">
 
 	<!-- Define variables/paths used in this build script -->
 	<property file="./build/project.properties" />
 	<property file="./build/build.properties" />
-
-
+	
 	<path id="flextasks.classpath">
-		<fileset dir="${FLEX_HOME}/../ant/lib">
-			<include name="*.jar" />
+		<fileset dir="${basedir}/lib">
+			<include name="**/*.jar" />
 		</fileset>
 	</path>
-	<typedef resource="flexTasks.tasks" classpathref="flextasks.classpath" />
+	
+	<taskdef resource="flexTasks.tasks" classpath="${sdk_dir}/ant/lib/flexTasks.jar" />
 
 	<!-- <antcall target="compile_swc_runtime" /> -->
 
