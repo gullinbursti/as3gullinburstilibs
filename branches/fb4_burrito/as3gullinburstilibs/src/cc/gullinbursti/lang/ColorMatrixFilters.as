@@ -74,6 +74,21 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
 		
 		
+		public static function contrast(amt:int=0):ColorMatrixFilter {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			amt = Math.min(Math.max(amt, -1), 1) * 2;
+			
+			return (new ColorMatrixFilter(
+				[amt,   0,   0, 0, (amt * 64),
+				   0, amt,   0, 0, (amt * 64),
+				   0,   0, amt, 0, (amt * 64),
+				   0,   0,   0, 1, 0]
+			));
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
+		
+		
 		public static function greyscale():ColorMatrixFilter {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			

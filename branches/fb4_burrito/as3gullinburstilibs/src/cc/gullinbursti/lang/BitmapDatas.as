@@ -85,6 +85,14 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
 		
 		
+		public static function contrast(src_bmpData:BitmapData, amt:Number=0):void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			// apply filter
+			src_bmpData.applyFilter(src_bmpData, src_bmpData.rect, ORIGIN, ColorMatrixFilters.contrast(amt));
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
+		
 		
 		public static function saturate(src_bmpData:BitmapData, amt:Number=0):void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
