@@ -286,34 +286,40 @@ package cc.gullinbursti.math.probility {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			// TODO: Implement Mersenne Twister method [http://en.wikipedia.org/wiki/Mersenne_Twister]
 			
+			var rnd_arr:Array = new Array();
+				rnd_arr = [SEED_STD];
+				
 			
-			var i:int;
-			var y:int;
+			var i:int; 
+			var val:Number;
+			var ind:Number = generateInt(0, 622);
 			
-			while (i < 623) {
-				if ((y = (MT[i] & 2147483648) | (MT[(++i) % 624] & 2147483647)) & 1)
-					MT[i] = (MT[(i + 396) % 624] ^ (y >>> 1)) ^ 2567483615;
+			
+			for (i=1; i<623; i++)
+				rnd_arr.push(((0x6C078965 * rnd_arr[i-1]) + 1) & 0xffffffff);
+			
+			
+			
+			if (ind >= 623) {
+				ind = 0;
+				
+				for (i=0; i<623; i++) {
+					val = 0x80000000 & rnd_arr[i] + 0x7ffffddd & (rnd_arr[(i+1) % 624]);
+					rnd_arr[i] = rnd_arr[(i+397) % 624] ^ (val >> 1);
 					
-				else
-					MT[i] = MT[(i + 396) % 624] ^ (y >>> 1);
+					if ((val % 2) != 0)
+						rnd_arr[i] ^= 0x9908b0df;
+				}
 			}
 			
-			
-			var b:int = MT[0];
-			var seed:int = (new Date().getTime() & 0xffffffff) ^ getTimer();
-			var ind:int = 0;
-			
-			while (++i < 624) 
-				b = (MT[i] = (1812433253 * b ^ ((b >>> 30) + i)) & 0xffffffff);
-			
-			y = MT[ind];
-			ind += 1 % 624;
-			y ^= y >>> 11;
-			y ^= (y << 7) & 2636928640;
-			y ^= (y << 15) & 4022730752;
+			val = rnd_arr[ind++];
+			val ^= (val >> 11);
+			val ^= (val << 7) & 0x9d2c5680;
+			val ^= (val << 15) & 0xefc60000;
+			val ^= (val >> 18);
 			
 			
-			return (uint(y ^ (y >>> 18)) / (uint.MAX_VALUE + Number.MIN_VALUE));
+			return (val);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
