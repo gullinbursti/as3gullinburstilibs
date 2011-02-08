@@ -373,7 +373,9 @@
       <class>cc.gullinbursti.lang.Booleans</class>
       <class>cc.gullinbursti.lang.ByteArrays</class>
       <class>cc.gullinbursti.lang.Chars</class>
+      <class>cc.gullinbursti.lang.ColorMatrixFilters</class>
       <class>cc.gullinbursti.lang.Colors</class>
+      <class>cc.gullinbursti.lang.ConvolutionFilters</class>
       <class>cc.gullinbursti.lang.DateTimes</class>
       <class>cc.gullinbursti.lang.Ints</class>
       <class>cc.gullinbursti.lang.Keys</class>

@@ -132,6 +132,8 @@
     <classEntry path="cc.gullinbursti.vo.AbstractUserInputVO"/>
     <classEntry path="cc.gullinbursti.vo.KeyboardVO"/>
     <classEntry path="cc.gullinbursti.vo.MouseVO"/>
+    <classEntry path="cc.gullinbursti.lang.ColorMatrixFilters"/>
+    <classEntry path="cc.gullinbursti.lang.ConvolutionFilters"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

@@ -37,7 +37,7 @@ package cc.gullinbursti.converts {
 			 */
 		
 		
-			return (val * (Math.PI / 180));	
+			return (val * 0.0174532925);	
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

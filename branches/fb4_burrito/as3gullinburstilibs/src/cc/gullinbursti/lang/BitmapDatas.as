@@ -2,12 +2,16 @@ package cc.gullinbursti.lang {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.converts.Angle;
 	import cc.gullinbursti.converts.Color;
+	import cc.gullinbursti.math.algebra.Matrices;
 	import cc.gullinbursti.math.probility.Randomness;
 	
 	import flash.display.BitmapData;
 	import flash.display.BitmapDataChannel;
+	import flash.display.BlendMode;
 	import flash.display.DisplayObject;
+	import flash.filters.ColorMatrixFilter;
 	import flash.geom.Matrix;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
@@ -21,11 +25,30 @@ package cc.gullinbursti.lang {
 		//] class properties ]>
 		// ]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 		public static const MAX_DIM:Rectangle = new Rectangle(0, 0, 2880, 2800);
+		private static const ORIGIN:Point = new Point();
 		
-		public static const ALPHA:String = "ALPHA";
-		public static const RED:String = "RED";
-		public static const GREEN:String = "GREEN";
-		public static const BLUE:String = "BLUE";
+		private static const R_LUM:Number = 0.212671; //0.3086;
+		private static const G_LUM:Number = 0.715160; //0.6094;
+		private static const B_LUM:Number = 0.072169; //0.0820;
+		private static const A_LUM:Number = 0.0;
+		
+		private static const LUM_MATRIX:Array = new Array(
+			R_LUM, G_LUM, B_LUM,
+			R_LUM, G_LUM, B_LUM,
+			R_LUM, G_LUM, B_LUM
+		);
+		
+		private static const SAT_MATRIX:Array = new Array(
+			 0.787, -0.715, -0.072,
+			-0.212,  0.285, -0.072,
+			-0.213, -0.715,  0.928
+		);
+		
+		private static const HUE_MATRIX:Array = new Array(
+			-0.213, -0.715,  0.928,
+			 0.143,  0.140, -0.283,
+			-0.787,  0.715,  0.072
+		);
 		
 		private static const SEED_MAX:int = 2048;
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
@@ -37,79 +60,113 @@ package cc.gullinbursti.lang {
 		//]~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=[>
 		//]~=~=~=~=~=~=~=~=~=[>
 		
-		public static function extractChannel(src_bmpData:BitmapData, channel:String):BitmapData {
+		
+		public static function greyscale(src_bmpData:BitmapData):void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			src_bmpData.applyFilter(src_bmpData, src_bmpData.rect, ORIGIN, ColorMatrixFilters.greyscale());
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
+		
+		
+		public static function negative(src_bmpData:BitmapData):void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			src_bmpData.applyFilter(src_bmpData, src_bmpData.rect, ORIGIN, ColorMatrixFilters.negative());
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
+		
+		
+		public static function briten(src_bmpData:BitmapData, amt:int=0):void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			src_bmpData.applyFilter(src_bmpData, src_bmpData.rect, ORIGIN, ColorMatrixFilters.briten(amt));
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
+		
+		
+		
+		public static function saturate(src_bmpData:BitmapData, amt:Number=0):void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			// apply filter
+			src_bmpData.applyFilter(src_bmpData, src_bmpData.rect, ORIGIN, ColorMatrixFilters.saturate(amt));
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
+		
+		
+		public static function hue(src_bmpData:BitmapData, amt:Number=0):void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			src_bmpData.applyFilter(src_bmpData, src_bmpData.rect, ORIGIN, ColorMatrixFilters.hue(amt));
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function extractChannel(src_bmpData:BitmapData, channel:uint, isMap:Boolean=false):BitmapData {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._	
 			
 			// a new bmp data
-			var out_bmpData:BitmapData = new BitmapData(src_bmpData.width, src_bmpData.height, true, 0x00);
+			var out_bmpData:BitmapData = new BitmapData(src_bmpData.width, src_bmpData.height, true, 0xff000000);
+				out_bmpData.copyChannel(src_bmpData, src_bmpData.rect, ORIGIN, channel, channel);
 			
-			
-			switch (channel) {
-				
-				case ALPHA:
-					out_bmpData.copyChannel(src_bmpData, src_bmpData.rect, new Point(0, 0), BitmapDataChannel.ALPHA, BitmapDataChannel.ALPHA);
-					break;
-				
-				case RED:
-					out_bmpData.copyChannel(src_bmpData, src_bmpData.rect, new Point(0, 0), BitmapDataChannel.RED, BitmapDataChannel.RED);
-					break;
-				
-				case GREEN:
-					out_bmpData.copyChannel(src_bmpData, src_bmpData.rect, new Point(0, 0), BitmapDataChannel.GREEN, BitmapDataChannel.GREEN);
-					break;
-				
-				case BLUE:
-					out_bmpData.copyChannel(src_bmpData, src_bmpData.rect, new Point(0, 0), BitmapDataChannel.BLUE, BitmapDataChannel.BLUE);
-					break;
-			}
+			// convert to greyscale if a depth map 
+			if (isMap)
+				greyscale(out_bmpData);
 			
 			return (out_bmpData);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		
-		public static function dropChannel(src_bmpData:BitmapData, channel:String):BitmapData {
+		public static function dropChannel(src_bmpData:BitmapData, channel:uint):void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._	
 			
-			// array of channels to copy
-			var chan_arr:Array = new Array();
-				chan_arr.push(BitmapDataChannel.ALPHA);
-				chan_arr.push(BitmapDataChannel.RED);
-				chan_arr.push(BitmapDataChannel.GREEN);
-				chan_arr.push(BitmapDataChannel.BLUE);
 			
-			// destination pt
-			var dest_pt:Point = new Point();
+			var filter:ColorMatrixFilter;
 				
-			// a new bmp data
-			var out_bmpData:BitmapData = new BitmapData(src_bmpData.width, src_bmpData.height, true, 0x00);
-			
 			
 			switch (channel) {
 				
-				case ALPHA:
-					chan_arr.splice(0, 1);
+				case BitmapDataChannel.ALPHA:
+					filter = new ColorMatrixFilter(
+						[1, 0, 0, 0, 0,
+						 0, 1, 0, 0, 0,
+						 0, 0, 1, 0, 0,
+						 0, 0, 0, 0, 0]
+					);
 					break;
 				
-				case RED:
-					chan_arr.splice(1, 1);
+				case BitmapDataChannel.RED:
+					filter = new ColorMatrixFilter(
+						[0, 0, 0, 0, 0,
+						 0, 1, 0, 0, 0,
+						 0, 0, 1, 0, 0,
+						 0, 0, 0, 1, 0]
+					);
 					break;
 				
-				case GREEN:
-					chan_arr.splice(2, 1);
+				case BitmapDataChannel.GREEN:
+					filter = new ColorMatrixFilter(
+						[1, 0, 0, 0, 0,
+						 0, 0, 0, 0, 0,
+						 0, 0, 1, 0, 0,
+						 0, 0, 0, 1, 0]
+					);
 					break;
 				
-				case BLUE:
-					chan_arr.splice(3, 1);
+				case BitmapDataChannel.BLUE:
+					filter = new ColorMatrixFilter(
+						[1, 0, 0, 0, 0,
+						 0, 1, 0, 0, 0,
+						 0, 0, 0, 0, 0,
+						 0, 0, 0, 1, 0]
+					);
 					break;
 			}
 			
+			src_bmpData.applyFilter(src_bmpData, src_bmpData.rect, ORIGIN, filter);
 			
-			for (var i:int = 0; i < chan_arr.length; i++)
-				out_bmpData.copyChannel(src_bmpData, src_bmpData.rect, dest_pt, int(chan_arr[i]), int(chan_arr[i]));
-			
-			
-			return (out_bmpData);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -121,10 +178,10 @@ package cc.gullinbursti.lang {
 		 * @return 
 		 * 
 		 */		
-		public static function swapChannels(src_bmpData:BitmapData, channel1:String, channel2:String):BitmapData {
+		public static function swapChannels(src_bmpData:BitmapData, src_channel:uint, dest_channel:uint):BitmapData {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._	
 
-			if (channel1 == channel2)
+			if (src_channel == dest_channel)
 				return (src_bmpData);
 			
 			
@@ -141,24 +198,24 @@ package cc.gullinbursti.lang {
 				chann_arr.push(BitmapDataChannel.BLUE);
 				
 			
-			switch (channel1) {
+			switch (src_channel) {
 				
-				case ALPHA:
+				case BitmapDataChannel.ALPHA:
 					Arrays.purgeValue(chann_arr, BitmapDataChannel.ALPHA);
 					swap_pt.x = BitmapDataChannel.ALPHA;
 					break;
 				
-				case RED:
+				case BitmapDataChannel.RED:
 					Arrays.purgeValue(chann_arr, BitmapDataChannel.RED);
 					swap_pt.x = BitmapDataChannel.RED;
 					break;
 				
-				case GREEN:
+				case BitmapDataChannel.GREEN:
 					Arrays.purgeValue(chann_arr, BitmapDataChannel.GREEN);
 					swap_pt.x = BitmapDataChannel.GREEN;
 					break;
 				
-				case BLUE:
+				case BitmapDataChannel.BLUE:
 					Arrays.purgeValue(chann_arr, BitmapDataChannel.BLUE);
 					swap_pt.x = BitmapDataChannel.BLUE;
 					break;
@@ -166,24 +223,24 @@ package cc.gullinbursti.lang {
 			
 			
 			
-			switch (channel2) {
+			switch (dest_channel) {
 				
-				case ALPHA:
+				case BitmapDataChannel.ALPHA:
 					Arrays.purgeValue(chann_arr, BitmapDataChannel.ALPHA);
 					swap_pt.y = BitmapDataChannel.ALPHA;
 					break;
 				
-				case RED:
+				case BitmapDataChannel.RED:
 					Arrays.purgeValue(chann_arr, BitmapDataChannel.RED);
 					swap_pt.y = BitmapDataChannel.RED;
 					break;
 				
-				case GREEN:
+				case BitmapDataChannel.GREEN:
 					Arrays.purgeValue(chann_arr, BitmapDataChannel.GREEN);
 					swap_pt.y = BitmapDataChannel.GREEN;
 					break;
 				
-				case BLUE:
+				case BitmapDataChannel.BLUE:
 					Arrays.purgeValue(chann_arr, BitmapDataChannel.BLUE);
 					swap_pt.y = BitmapDataChannel.BLUE;
 					break;
@@ -195,7 +252,7 @@ package cc.gullinbursti.lang {
 			
 			// copy the rest
 			for (var i:int=0; i<chann_arr.length; i++)
-				out_bmpData.copyChannel(src_bmpData, src_bmpData.rect, dest_pt, int(chann_arr[i]), int(chann_arr[i]));
+				out_bmpData.copyChannel(src_bmpData, src_bmpData.rect, ORIGIN, int(chann_arr[i]), int(chann_arr[i]));
 			
 			
 			return (out_bmpData);
@@ -334,9 +391,71 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public static function generatePerlinNoise(octaves:int=2, isGreyscale:Boolean=true, basePt:Point=null, dim:Rectangle=null):BitmapData {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			if (!dim)
+				dim = new Rectangle(0, 0, 128, 128);
+			
+			if (!basePt)
+				basePt = new Point(8, 8);
+			
+			var offset_arr:Array = new Array();
+			
+			for (var i:int=0; i<octaves; i++)
+				offset_arr.push(new Point(Randomness.generateSign(), Randomness.generateSign()));
+			
+			
+			var out_bmpData:BitmapData = new BitmapData(dim.width, dim.height, false);
+				out_bmpData.perlinNoise(basePt.x, basePt.y, octaves, Randomness.generateInt(0, SEED_MAX), false, true, 10, isGreyscale, offset_arr);
+			
+			return (out_bmpData);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function rotate(src_bmpData:BitmapData, amt:Number):void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			var center_pt:Point = new Point(src_bmpData.width * 0.5, src_bmpData.height * 0.5);
+			var out_bmpData:BitmapData = new BitmapData(src_bmpData.width, src_bmpData.height, true, 0x00000000);
+			
+			var mtx:Matrix = new Matrix();
+				mtx.translate(-center_pt.x, -center_pt.y);
+				mtx.rotate(Angle.degreesToRadians(amt));
+				mtx.translate(center_pt.x, center_pt.y);
+			
+			out_bmpData.draw(src_bmpData, mtx);
+			src_bmpData.draw(out_bmpData);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function flip(src_bmpData:BitmapData, isVertical:Boolean=true):void {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			var out_bmpData:BitmapData = new BitmapData(src_bmpData.width, src_bmpData.height, true, 0x00000000);
+			var mtx:Matrix = new Matrix();
+			
+			
+			if (isVertical) {
+				mtx.scale(1, -1);
+				mtx.translate(0, src_bmpData.height);
+			
+			} else {
+				mtx.scale(-1, 1);
+				mtx.translate(src_bmpData.width, 0);
+			}
+			
+			
+			out_bmpData.draw(src_bmpData, mtx);
+			src_bmpData.draw(out_bmpData);
+				
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
 		public static function chroma(bmpData:BitmapData, red:uint, green:uint, blue:uint):void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-		
+			
 			for (var i:int=0; i<bmpData.width*bmpData.height; i++) {  
 				var r:int = bmpData.getPixel32(i % bmpData.width, i / bmpData.width) + 0;  
 				var g:int = bmpData.getPixel32(i % bmpData.width, i / bmpData.width) + 1;  
@@ -346,6 +465,7 @@ package cc.gullinbursti.lang {
 					bmpData.setPixel32(i % bmpData.width, i / bmpData.width, Color.compARGBToHex(0x00, r, g, b)); 
 			}
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 
+		
 		
 		
 		public static function avgColor(src:BitmapData, bounds:Rectangle=null, samples:Point=null):uint {
@@ -371,41 +491,6 @@ package cc.gullinbursti.lang {
 			return (color);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		
-		public static function generatePerlinNoise(octaves:int=2, isGreyscale:Boolean=true, basePt:Point=null, dim:Rectangle=null):BitmapData {
-		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-			
-			if (!dim)
-				dim = new Rectangle(0, 0, 128, 128);
-			
-			if (!basePt)
-				basePt = new Point(8, 8);
-			
-			var offset_arr:Array = new Array();
-			
-			for (var i:int=0; i<octaves; i++)
-				offset_arr.push(new Point(Randomness.generateSign(), Randomness.generateSign()));
-			
-			
-			var out_bmpData:BitmapData = new BitmapData(dim.width, dim.height, false);
-				out_bmpData.perlinNoise(basePt.x, basePt.y, octaves, Randomness.generateInt(0, SEED_MAX), false, true, 10, isGreyscale, offset_arr);
-			
-			return (out_bmpData);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		public static function rotate():void {
-		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
-			/*var imgMatrix:Matrix = img.transform.matrix; 
-			var centerX:Number = img.width / 2; 
-			var centerY:Number = img.height / 2; 
-			var centerPoint:Point = new Point(centerX, centerY); 
-			var transformPoint:Point= imgMatrix.transformPoint(centerPoint); 
-			
-			imgMatrix.translate(-transformPoint.x, -transformPoint.y);
-			imgMatrix.rotate(angle * Math.PI / 180);
-			imgMatrix.translate(transformPoint.x, transformPoint.y);
-			img.transform.matrix = imgMatrix;*/
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public static function toCGA(src_bmpData:BitmapData, isGrey:Boolean=false, isAlpha:Boolean=false):void {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._

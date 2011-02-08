@@ -30,16 +30,12 @@ package cc.gullinbursti.math.algebra {
 		public static function genIdenty(dim:Point):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			var col_arr:Array;
 			var ident_arr:Array = new Array();
 			
 			for (var j:int=0; j<dim.y; j++) {
-				col_arr = new Array();
 				
 				for (var i:int=0; i<dim.x; i++)
-					col_arr.push(int(i == j));
-				
-				ident_arr.push(col_arr);
+					ident_arr.push(int(i == j));
 			}
 			
 			
@@ -71,7 +67,7 @@ package cc.gullinbursti.math.algebra {
 		
 		
 		public static function multiply(mtx1_arr:Array, mtx2_arr:Array):Array {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			var i:int;
 			var j:int;
@@ -119,5 +115,84 @@ package cc.gullinbursti.math.algebra {
 			
 			return (prod_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function add(mtx1:Array, mtx2:Array):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var sum_arr:Array = new Array();
+			
+			for(var i:int=0; i<mtx1.length; i++)
+				sum_arr.push(mtx1[i] + mtx2[i]);
+			
+			
+			return (sum_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+			
+		public static function multiplyFactor(mtx_arr:Array, factor:Number):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var prod_arr:Array = new Array();
+			
+			for (var i:int=0; i<mtx_arr.length; i++) {
+				var itm:Number = mtx_arr[i];
+				
+				if (itm == 0)
+					prod_arr.push(0);
+				
+				else
+					prod_arr.push(factor * itm);
+			}
+			
+			return (prod_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function concat(dim:Point, mtx1:Array, mtx2:Array):Array {
+			
+			var concat_arr:Array = new Array();
+			
+			var col:int = 0;
+			var row:int = 0;
+			
+			for (var i:int=0; i<(dim.x*dim.y); i++) {
+				col = i % dim.x;
+				row = i / dim.x;
+				
+				concat_arr.push((mtx1[row*dim.x] * mtx2[col]) + (mtx1[(row*dim.x)+1] * mtx2[dim.x+col]) + (mtx1[(row*dim.x)+2] * mtx2[(dim.x*2)+col]));
+			}
+			
+			
+			/*
+			concat_arr[0] = (mtx1[0] * mtx2[0]) + (mtx1[1] * mtx2[5]) + (mtx1[2] * mtx2[10]);
+			concat_arr[1] = (mtx1[0] * mtx2[1]) + (mtx1[1] * mtx2[6]) + (mtx1[2] * mtx2[11]);
+			concat_arr[2] = (mtx1[0] * mtx2[2]) + (mtx1[1] * mtx2[7]) + (mtx1[2] * mtx2[12]);
+			concat_arr[3] = (mtx1[0] * mtx2[3]) + (mtx1[1] * mtx2[8]) + (mtx1[2] * mtx2[13]);
+			concat_arr[4] = (mtx1[0] * mtx2[4]) + (mtx1[1] * mtx2[9]) + (mtx1[2] * mtx2[14]);
+				
+			concat_arr[5] = (mtx1[5] * mtx2[0]) + (mtx1[6] * mtx2[5]) + (mtx1[7] * mtx2[10]);
+			concat_arr[6] = (mtx1[5] * mtx2[1]) + (mtx1[6] * mtx2[6]) + (mtx1[7] * mtx2[11]);
+			concat_arr[7] = (mtx1[5] * mtx2[2]) + (mtx1[6] * mtx2[7]) + (mtx1[7] * mtx2[12]);
+			concat_arr[8] = (mtx1[5] * mtx2[3]) + (mtx1[6] * mtx2[8]) + (mtx1[7] * mtx2[13]);
+			concat_arr[9] = (mtx1[5] * mtx2[4]) + (mtx1[6] * mtx2[9]) + (mtx1[7] * mtx2[14]);
+				
+			concat_arr[10] = (mtx1[10] * mtx2[0]) + (mtx1[11] * mtx2[5]) + (mtx1[12] * mtx2[10]);
+			concat_arr[11] = (mtx1[10] * mtx2[1]) + (mtx1[11] * mtx2[6]) + (mtx1[12] * mtx2[11]);
+			concat_arr[12] = (mtx1[10] * mtx2[2]) + (mtx1[11] * mtx2[7]) + (mtx1[12] * mtx2[12]);
+			concat_arr[13] = (mtx1[10] * mtx2[3]) + (mtx1[11] * mtx2[8]) + (mtx1[12] * mtx2[13]);
+			concat_arr[14] = (mtx1[10] * mtx2[4]) + (mtx1[11] * mtx2[9]) + (mtx1[12] * mtx2[14]);
+				
+			concat_arr[15] = (mtx1[15] * mtx2[0]) + (mtx1[16] * mtx2[5]) + (mtx1[17] * mtx2[10]);
+			concat_arr[16] = (mtx1[15] * mtx2[1]) + (mtx1[16] * mtx2[6]) + (mtx1[17] * mtx2[11]);
+			concat_arr[17] = (mtx1[15] * mtx2[2]) + (mtx1[16] * mtx2[7]) + (mtx1[17] * mtx2[12]);
+			concat_arr[18] = (mtx1[15] * mtx2[3]) + (mtx1[16] * mtx2[8]) + (mtx1[17] * mtx2[13]);
+			concat_arr[19] = (mtx1[15] * mtx2[4]) + (mtx1[16] * mtx2[9]) + (mtx1[17] * mtx2[14]);
+			*/
+			
+			return (concat_arr);
+			
+		}
 	}
 }

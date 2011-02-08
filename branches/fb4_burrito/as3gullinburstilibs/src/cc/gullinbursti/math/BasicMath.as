@@ -443,8 +443,16 @@ package cc.gullinbursti.math {
 		
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		public static function powr2(val:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// a exponent of 2
+			return (Math.pow(2, val));
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 		public static function powr10(val:Number):Number {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// a exponent of 10
 			return (Math.pow(10, val));
@@ -452,7 +460,7 @@ package cc.gullinbursti.math {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		public static function e(val:Number, exp:int):Number {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// scientific notation w/ coefficient
 			return (val * powr10(exp));
