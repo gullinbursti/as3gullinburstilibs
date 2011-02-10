@@ -1,7 +1,17 @@
 package {
+	import caurina.transitions.Tweener;
+	
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
+	import flash.display.BitmapDataChannel;
+	import flash.display.BlendMode;
+	import flash.display.Shape;
+	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	
 	import mx.containers.Canvas;
+	
+	import spark.primitives.BitmapImage;
 	
 	
 	/**
@@ -22,6 +32,8 @@ package {
 		
 		import flash.geom.Point;
 		
+		public var cnt:Number=-100;
+		
 		public function TestCases() {
 		}
 		
@@ -32,7 +44,8 @@ package {
 			var int_rnd:Number = Randomness.generateInt(100, 300);
 			var tot_arr:Array = [0, 0]; 
 			
-			trace ("BasicMath.mersenneTwister()", Randomness.mersenneTwister());			
+			for (var i:int=0; i<100; i++)
+				trace ("BasicMath.mersenneTwister("+i+")", Randomness.mersenneTwister());			
 		}
 		
 		public function arrayTests():void {
@@ -86,45 +99,35 @@ package {
 		}
 		
 		
+		public function filterTests(canvas:Canvas):void {
+			
+			canvas.filters = [ConvolutionFilters.blur(2)];
+		}
+		
+		
 		public function shapeTests(canvas:Canvas):void {
-			
-			/*
-			Tweener.addCaller(this, {
-			count:1,
-			
-			time:4, 
-			ease:"linear", 
-			onUpdate:function():void {
-			canvas.rawChildren.addChild(Shapes.renderPolyhedron(cnt++, 128));
-			}, 
-			
-			onComplete:function():void {
-			canvas.graphics.lineStyle(1, 0xff3366);
-			canvas.graphics.moveTo(0, -160);
-			canvas.graphics.lineTo(0, 160);
-			canvas.graphics.moveTo(-160, 0);
-			canvas.graphics.lineTo(160, 0);
-			
-			canvas.graphics.drawCircle(0, 0, 128);
-			canvas.graphics.endFill();	
-			}
-			});
-			*/
 			
 			canvas.addEventListener(MouseEvent.CLICK, function (e:MouseEvent=null):void {
 				redraw(canvas);
 			});
 			
-			canvas.rawChildren.addChild(Shapes.renderPolyhedron(Polyhedron.PENTAGON, 128));
+			var guide_shape:Shape = new Shape();
+				guide_shape.x = 256;
+				guide_shape.y = 256;
+				guide_shape.graphics.lineStyle(1, 0xff3366);
+				guide_shape.graphics.moveTo(0, -160);
+				guide_shape.graphics.lineTo(0, 160);
+				guide_shape.graphics.moveTo(-160, 0);
+				guide_shape.graphics.lineTo(160, 0);
+				guide_shape.graphics.drawCircle(0, 0, 128);
+				guide_shape.graphics.endFill();
+				
+			var shape:Shape = Shapes.renderPolyhedron(Polyhedron.OCTAGON, 128);
+				shape.x = 256;
+				shape.y = 256;
 			
-			canvas.graphics.lineStyle(1, 0xff3366);
-			canvas.graphics.moveTo(0, -160);
-			canvas.graphics.lineTo(0, 160);
-			canvas.graphics.moveTo(-160, 0);
-			canvas.graphics.lineTo(160, 0);
-			
-			canvas.graphics.drawCircle(0, 0, 128);
-			canvas.graphics.endFill();	
+			canvas.rawChildren.addChild(shape);
+			canvas.rawChildren.addChild(guide_shape);
 		}
 		
 		public function arraySorting():void {
@@ -151,8 +154,74 @@ package {
 			
 		}
 		
-		public function bitmapTests():void {
+		public function bitmapTests(src_bmpData:BitmapData, out_cnv:Canvas):void {
+			var src_sprite:Sprite = new Sprite();
+				src_sprite.x = 0;
 			
+			var red_sprite:Sprite = new Sprite();
+				red_sprite.x = 0;	
+				red_sprite.y = 150;
+				
+			var green_sprite:Sprite = new Sprite();
+				green_sprite.x = 112;
+				green_sprite.y = 150;
+			
+			var blue_sprite:Sprite = new Sprite();
+				blue_sprite.x = 224;
+				blue_sprite.y = 150;
+			
+			var alpha_sprite:Sprite = new Sprite();
+				alpha_sprite.x = 336;
+				alpha_sprite.y = 150;
+				
+			var rot_sprite:Sprite = new Sprite();
+				rot_sprite.x = 112;
+			
+			var greyscale_sprite:Sprite = new Sprite();
+				greyscale_sprite.x = 224;
+			
+				
+			/*var red_bmpData:BitmapData = src_bmpData.clone();
+			var green_bmpData:BitmapData = src_bmpData.clone();
+			var blue_bmpData:BitmapData = src_bmpData.clone();
+			var alpha_bmpData:BitmapData = src_bmpData.clone();
+			*/
+				
+			var red_bmpData:BitmapData = BitmapDatas.extractChannel(src_bmpData, BitmapDataChannel.RED, true);
+			var green_bmpData:BitmapData = BitmapDatas.extractChannel(src_bmpData, BitmapDataChannel.GREEN, true);
+			var blue_bmpData:BitmapData = BitmapDatas.extractChannel(src_bmpData, BitmapDataChannel.BLUE, true);
+			var alpha_bmpData:BitmapData = BitmapDatas.extractChannel(src_bmpData, BitmapDataChannel.ALPHA, true);
+			
+			var greyscale_bmpData:BitmapData = src_bmpData.clone();
+			var rot_bmpData:BitmapData = src_bmpData.clone();
+			
+			/*BitmapDatas.dropChannel(red_bmpData, BitmapDataChannel.RED);
+			BitmapDatas.dropChannel(green_bmpData, BitmapDataChannel.GREEN);
+			BitmapDatas.dropChannel(blue_bmpData, BitmapDataChannel.BLUE);
+			BitmapDatas.dropChannel(alpha_bmpData, BitmapDataChannel.ALPHA);*/
+			
+			BitmapDatas.greyscale(greyscale_bmpData);
+			BitmapDatas.saturate(rot_bmpData, 0.5);
+			//BitmapDatas.hue(rot_bmpData, 0);
+			 
+			
+			
+			src_sprite.addChild(new Bitmap(src_bmpData));
+			red_sprite.addChild(new Bitmap(red_bmpData));
+			green_sprite.addChild(new Bitmap(green_bmpData));
+			blue_sprite.addChild(new Bitmap(blue_bmpData));
+			alpha_sprite.addChild(new Bitmap(alpha_bmpData));
+			rot_sprite.addChild(new Bitmap(rot_bmpData));
+			greyscale_sprite.addChild(new Bitmap(greyscale_bmpData));
+			
+			
+			out_cnv.rawChildren.addChild(src_sprite);
+			out_cnv.rawChildren.addChild(red_sprite);
+			out_cnv.rawChildren.addChild(green_sprite);
+			out_cnv.rawChildren.addChild(blue_sprite);
+			out_cnv.rawChildren.addChild(alpha_sprite);
+			out_cnv.rawChildren.addChild(rot_sprite);
+			out_cnv.rawChildren.addChild(greyscale_sprite);
 		}
 		
 		
@@ -172,16 +241,17 @@ package {
 			
 			
 			blur_arr = [
-				[1, 3, 3], 
-				[1, 4, 3], 
-				[1, 3, 4]
+				3, 1, 3,
+				1, 2, 1,
+				4, 1, 3
 			];
 			
 			
+			var indent_arr:Array = Matrices.genIdenty(new Point(3, 3));
+			//var prod_arr:Array = Matrices.invert(blur_arr);
+			var concat_arr:Array = Matrices.concat(new Point(3, 3), blur_arr, indent_arr);
 			
-			var prod_arr:Array = Matrices.invert(blur_arr);
-			
-			trace(prod_arr);
+			trace(concat_arr);
 		}
 		
 		

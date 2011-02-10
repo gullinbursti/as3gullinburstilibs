@@ -24,3 +24,9 @@
 	
 	backgroundColor: #b09e8c;
 }
+
+#cnvOutput {
+	borderThickness: 1;
+	borderColor: #2f373c;
+	backgroundColor: #eeddc4;
+}

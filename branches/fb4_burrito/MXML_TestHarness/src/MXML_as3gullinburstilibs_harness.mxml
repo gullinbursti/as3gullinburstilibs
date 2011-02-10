@@ -488,14 +488,24 @@
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 				trace ("[>=<] Application.hdlApp_AddedToStage() [>=<]");
 				
-				//_testCases.numberTests();
+				_testCases.numberTests();
 				//_testCases.stringTests();
 				//_testCases.arrayTests();
 				//_testCases.matrixTests();
-				//_testCases.shapeTests();
+				//_testCases.shapeTests(cnvOutput);
 				//_testCases.colorTests();
 				
-				startAudioGen();
+				//startAudioGen();
+				grpOutput.visible = false;
+				
+				
+				//var bmpData:BitmapData = bmpImgMalmo.bitmapData.clone();
+				//cnvOutput.rawChildren.addChild(new Bitmap(bmpData));
+				
+				//_testCases.bitmapTests(bmpImgMalmo.bitmapData.clone(), cnvOutput);
+				bmpImgMalmo.visible = false;
+				
+				//_testCases.filterTests(cnvOutput);
 				
 				this.addEventListener(Event.RESIZE, hdlApp_StageResize);
 				this.addEventListener(Event.ENTER_FRAME, hdlApp_EnterFrame);
@@ -531,6 +541,9 @@
 			</s:HGroup>
 		</mx:VBox>
 	</s:Group>
+	
+	<mx:Canvas id="cnvOutput" width="100%" height="100%" />
+	<s:BitmapImage id="bmpImgMalmo" source="@Embed('assets/malmo.png')" width="112" height="150" />
 	<!-- //////////////////// -->
 	<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 	
