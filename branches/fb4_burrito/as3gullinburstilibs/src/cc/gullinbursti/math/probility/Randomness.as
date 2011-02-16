@@ -148,7 +148,7 @@ package cc.gullinbursti.math.probility {
 		 * @return A floating point number from <code>lower</code> to <code>upper</code>.
 		 * 
 		 */		
-		public static function generateFloat(lower:Number=0, upper:Number=1, precision:int=2):Number {
+		public static function generateFloat(lower:Number=0, upper:Number=1, precision:int=5):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// range of values
@@ -161,7 +161,7 @@ package cc.gullinbursti.math.probility {
 			
 			// set # of decimals
 			if (precision != Number.MAX_VALUE)
-				return (Numbers.setPrecision(rnd, precision));
+				return (Numbers.decimalPrecision(rnd, precision));
 			
 			// rnd floating pt #
 			return (rnd);
@@ -182,7 +182,7 @@ package cc.gullinbursti.math.probility {
 			var div:int = MODULUS / MULTIPLIER;
 			var mod:int = MODULUS % MULTIPLIER;
 			
-			var seed:int = Numbers.dropDecimal(Numbers.stripUpperDigits(DateTimes.epoch(null, true) * 1000, 9));
+			var seed:int = Numbers.dropDecimal(Numbers.stripUpperDigits(DateTimes.asUnixEpoch(null, true) * 1000, 9));
 			
 			// formula
 			//var val:int = MULTIPLIER * (seed_arr[stream_ind] % div) - mod * (seed_arr[stream_ind] / div);
@@ -400,7 +400,7 @@ package cc.gullinbursti.math.probility {
 				x = x % MODULUS;
 			
 			else if (x < 0)                                 
-				x = DateTimes.epoch() % MODULUS;
+				x = DateTimes.asUnixEpoch() % MODULUS;
 			
 			else                              
 				x = SEED_STD;

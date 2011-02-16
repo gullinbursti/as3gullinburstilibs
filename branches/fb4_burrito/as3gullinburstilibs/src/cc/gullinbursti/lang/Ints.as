@@ -2,7 +2,10 @@ package cc.gullinbursti.lang {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.math.BasicMath;
+	
 	import flash.geom.Point;
+
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	/**
@@ -146,18 +149,40 @@ package cc.gullinbursti.lang {
 			return (val);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		public static function digitPlace(val:int, position:int=0, isSigned:Boolean=true):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var exp:int = 1 / BasicMath.powr10(position);
+			var digit:Number = val * exp;
+			
+			trace (":["+val+"]: ["+digit+"]");
+			
+			for (var i:int=0; i<position; i++) {
+				exp = BasicMath.powr10(i);
+				digit -= val * exp;
+				trace ("<"+i+"> ["+digit+"] ["+exp+"]");
+			}
+			
+			if (!isSigned)
+				return (Math.abs(digit));
+			
+			return (digit);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
 		/**
 		 * Prepends a leading '0' to an <code>int</code> if needed 
 		 * @param float the <code>int</code> to use
 		 * @return 
 		 * 
 		 */	
-		public static function formatDbl(val:int):String {
+		public static function formatDblDigit(val:int):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// add leading zero if smaller than ten
 			if (val < 10)
-				return (Strings.prependZeroes(1, val.toString()));
+				return (Strings.prependZeroes(val.toString(), 1));
 			
 			
 			return (val.toString());
@@ -166,17 +191,52 @@ package cc.gullinbursti.lang {
 		
 		
 		/**
-		 * Converts an <code>int</code> to it's inverse. 
-		 * @param float The input <code>int</code> to convert.
+		 * Returns the opposite of a <code>Number</code> (<code>⁺γ + ⁻γ = 0</code>). 
+		 * @param float The input <code>Number</code> to convert.
 		 * @return The inverse (negated) value.
 		 * 
 		 */
-		public static function invert(val:int):int {
+		public static function additiveInverse(val:int):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/**
+			 * Inverse element of a number states:
+			 * 
+			 *  ⁺γ + ⁻γ = 0 
+			 *  
+			 **/
 			
 			// the val multiplied by ¯1
 			return (val * -1);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns the multiplicative inverse of a <code>Number</code>. (ᵠ⁄₁ · ¹⁄ᵩ = ¹⁄₁).
+		 * @param float A <code>Number</code> to reciprocate.
+		 * @return The inverse value of a <code>Number</code>.
+		 * 
+		 */		
+		public static function reciprocal(val:int):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/**
+			 * Multiplicative inverse function states:
+			 * 
+			 *  ¹⁄ᵪ · ˣ⁄₁ = ¹⁄₁ 
+			 * Where χ is a non-zero number.
+			 * 
+			 **/
+			
+			// zero has unique quasi-inverse
+			if (val == 0)
+				return (0);
+			
+			return (1 / val);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
 		
 		
 		public static function toPhrase(val:int):String {

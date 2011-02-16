@@ -46,6 +46,8 @@ package cc.gullinbursti.lang {
 	
 	import cc.gullinbursti.math.BasicMath;
 	
+	import flash.geom.Point;
+	
 	
 	
 	/**
@@ -59,19 +61,53 @@ package cc.gullinbursti.lang {
 		//] class properties ]>
 		//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 		private static const MONTH_NAMES:Array = new Array(
-			"January",
-			"February",
-			"March",
-			"April",
-			"May",
-			"June",
-			"July",
-			"August",
-			"September",
-			"October",
-			"November",
-			"December"
+			["January", "Jan"],
+			["February", "Feb"], 
+			["March", "Mar"], 
+			["April", "Apr"], 
+			["May", "May"], 
+			["June", "Jun"], 
+			["July", "Jul"], 
+			["August", "Aug"], 
+			["September", "Sep"], 
+			["October", "Oct"], 
+			["November", "Nov"], 
+			["December", "Dec"] 
 		);
+		
+		
+		private static const HEBREW_MONTHS:Array = new Array(
+			"Nisan",
+			"Iyyar", 
+			"Sivan", 
+			"Tammuz", 
+			"Av", 
+			"Elul", 
+			"Tishri", 
+			"Heshvan", 
+			"Kislev", 
+			"Teveth", 
+			"Shevat", 
+			"Adar", 
+			"Veadar"
+		);
+		
+		
+		private static const ISLAM_MONTHS:Array = new Array(
+			"Muharram",
+			"Safar", 
+			"Rabi`al-Awwal", 
+			"Rabi`ath-Thani", 
+			"Jumada l-Ula", 
+			"Jumada t-Tania", 
+			"Rajab", 
+			"Sha`ban", 
+			"Ramadan", 
+			"Shawwal", 
+			"Dhu l-Qa`da", 
+			"Dhu l-Hijja"
+		);
+		
 		
 		// weekdays: name // abrev // 1=Mon / 7=Sun
 		private static const WEEK_DAYS:Array = new Array(
@@ -114,29 +150,46 @@ package cc.gullinbursti.lang {
 		);
 		
 		
-		public static const YEARS:String = "YEARS";
-		public static const MONTHS:String = "MONTHS";
-		public static const DAYS:String = "DAYS";
-		public static const HOURS:String = "HOURS";
-		public static const MINUTES:String = "MINUTES";
-		public static const SECONDS:String = "SECONDS";
-		public static const MILLISECS:String = "MILLISECS";
-		public static const TIMEZONE:String = "TIMEZONE";
+		private static const YEARS:String = "YEARS";
+		private static const MONTHS:String = "MONTHS";
+		private static const DAYS:String = "DAYS";
+		private static const HOURS:String = "HOURS";
+		private static const MINUTES:String = "MINUTES";
+		private static const SECONDS:String = "SECONDS";
+		private static const MILLISECS:String = "MILLISECS";
+		private static const TIMEZONE:String = "TIMEZONE";
 		
 		
 		
 		// ISO 
-		private static const ATOM:String 	= "Y-m-d\TH:i:sP"; // [2005-08-15T15:52:01+00:00]
-		private static const COOKIE:String 	= "l, d-M-y H:i:s T"; // [Monday, 15-Aug-05 15:52:01 UTC]
-		private static const ISO8601:String = "Y-m-d\TH:i:sO"; // [2005-08-15T15:52:01+0000]
-		private static const RFC822:String 	= "D, d M y H:i:s O"; // [Mon, 15 Aug 05 15:52:01 +0000]
-		private static const RFC850:String 	= "l, d-M-y H:i:s T"; // [Monday, 15-Aug-05 15:52:01 UTC]
-		private static const RFC1036:String = "D, d M y H:i:s O"; // [Mon, 15 Aug 05 15:52:01 +0000]
-		private static const RFC1123:String = "D, d M Y H:i:s O"; // [Mon, 15 Aug 2005 15:52:01 +0000]
-		private static const RFC2822:String = "D, d M Y H:i:s O"; // [Mon, 15 Aug 2005 15:52:01 +0000]
-		private static const RFC3339:String = "Y-m-d\TH:i:sP"; // [2005-08-15T15:52:01+00:00) (ATOM]
-		private static const RSS:String 	= "D, d M Y H:i:s O"; // [Mon, 15 Aug 2005 15:52:01 +0000]
-		private static const W3C:String 	= "Y-m-d\TH:i:sP"; // [2005-08-15T15:52:01+00:00]
+		private static const ATOM_RFC3339:String 	= "Y-m-d\TH:i:sP"; 		// [2005-08-15T15:52:01+00:00]
+		private static const ATOM_W3C:String 		= "Y-m-d\TH:i:s"; 		// [2005-08-15T15:52:01Z]
+		private static const COOKIE:String 			= "l, d-M-y H:i:s T"; 	// [Monday, 15-Aug-05 15:52:01 UTC]
+		private static const ISO8601:String 		= "Y-m-d\TH:i:sO"; 		// [2005-08-15T15:52:01+0000]
+		private static const RFC822:String 			= "D, d M y H:i:s O"; 	// [Mon, 15 Aug 05 15:52:01 +0000]
+		private static const RFC850:String 			= "l, d-M-y H:i:s T"; 	// [Monday, 15-Aug-05 15:52:01 UTC]
+		private static const RFC1036:String 		= "D, d M y H:i:s O"; 	// [Mon, 15 Aug 05 15:52:01 +0000]
+		private static const RFC1123:String 		= "D, d M Y H:i:s O"; 	// [Mon, 15 Aug 2005 15:52:01 +0000]
+		private static const RFC2822:String 		= "D, d M Y H:i:s O"; 	// [Mon, 15 Aug 2005 15:52:01 +0000]
+		private static const RSS10:String 			= "Y-m-d\TH:i:sP"; 		// [2005-08-15T15:52:01+00:00]
+		private static const RSS20:String 			= "D, d M Y H:i:s O"; 	// [Mon, 15 Aug 2005 15:52:01 +0000]
+		
+		
+		// swatch time
+		private static const BEATS_YEAR:int = 365000;
+		private static const BEATS_WEEK:int = 7000;
+		private static const BEATS_DAY:int = 1000;
+		private static const BEATS_HOUR:Number = 41 + (2 / 3);
+		private static const BEATS_MINUTE:Number = 0.694444444444444;
+		private static const BEATS_SECOND:Number = 0.011574074074074;
+		private static const BEATS_MILLISEC:Number = 0.000011574074074074;
+		
+		
+		private static const MOD_JULIAN_DAY:Number = 2400000.5;
+		private static const HEBREW_EPOCH:Number = 347995.5;
+		private static const ISLAM_EPOCH:int = 1948085;
+		private static const ISLAM_DAY_MONTHS:Number = 10631 / 30;
+		
 		// <[=-=-=-=-=-=-=-=-=-=-=-=][=-=-=-=-=-=-=-=-=-=-=-=]>
 /**
  * 
@@ -206,15 +259,26 @@ package cc.gullinbursti.lang {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
+		
+		
 		/**
-		 * 
-		 * @param epoch_time
+		 * Changes a local <code>Date</code> object into UTC 
+		 * @param date
 		 * @return 
-		 */
-		public static function unixToDate(epoch_time:int):Date {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
-			return (new Date(epoch_time * 1000));
+		 * 
+		 */		
+		public static function asUTC(date:Date=null):Date {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// current date
+			if (!date)
+				date = new Date();
+			
+			// define new date in UTC
+			return (new Date(date.toUTCString()));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
 		
 		
 		/**
@@ -224,8 +288,8 @@ package cc.gullinbursti.lang {
 		 * @return The time in integer seconds w/ or w/out millisecond decimal precision.
 		 * 
 		 */		
-		public static function epoch(date:Date=null, isMilli:Boolean=false):Number {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		public static function asUnixEpoch(date:Date=null, isMilli:Boolean=false):Number {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// use the current datetime
 			if (!date)
@@ -238,35 +302,71 @@ package cc.gullinbursti.lang {
 			
 			// millisecs as decimal
 			if (isMilli)
-				return (epoch_ms / 1000);
+				return (epoch_ms * 0.001);
 			
-				
+			
 			// as integer seconds
-			return (Numbers.dropDecimal(epoch_ms / 1000));
+			return (Numbers.dropDecimal(epoch_ms * 0.001));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		
 		/**
-		 * Converts an ISO-8601 formated string to a <code>Date</code> object. 
+		 * Returns the Julian day from a <code>Date</code> object.
 		 * 
-		 * @param date_str
-		 * @return Date
+		 * @param date Date
+		 * @return Number
 		 */
-		 
-		// "Y-m-d\TH:i:sO" [2005-08-15T15:52:01+0000]
-		public static function iso8601ToDate(date_str:String):Date {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+		public static function asJulianDay(date:Date=null, isModified:Boolean=false):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			var year:int = String(date_str.split(" ")[0]).split("-")[0];
-			var month:int = String(date_str.split(" ")[0]).split("-")[1];
-			var day:int = String(date_str.split(" ")[0]).split("-")[2];
+			/**
+			 * interval of time in days and fractions of a day since January 1, 4713 BC UTC @ Noon
+			 **/
 			
-			var hour:int = String(date_str.split(" ")[1]).split(":")[0];
-			var min:int = String(date_str.split(" ")[1]).split(":")[1];
-			var sec:int = String(date_str.split(" ")[1]).split(":")[2];
+			if (!date)
+				date = new Date();
+				
+			var year:int = date.getFullYear();
+			var month:int = date.getMonth() + 1;
+			var day:int = date.getDate(); 
 			
+			if (month < 3) {
+				month += 12;
+				year--;
+			}
 			
-			return (new Date(year, month, day, hour, min, sec));
+			var jul_date:Number = ((365.25 * (year + 4716) << 0) + (30.6001 * (month + 1) << 0) + day + 2 - ((year * 0.01) << 0) + ((((year * 0.01) << 0) * 0.25) << 0) - 1524) - 0.5;
+			var jul_day:Number = jul_date + ((date.getHours() + (date.getMinutes() + (date.getSeconds() + (date.getMilliseconds() * 0.001)) / 60) / 60) / 24); 
+			
+			if (isModified)
+				return (jul_day - MOD_JULIAN_DAY); // 55606.871608796064	
+			
+			return (jul_day); // 2455607.871608796
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function asJulianCalendar(date:Date=null):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (julianToDate(asJulianDay(date), false));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * Formats a <code>Date</code> object to an ATOM date (YYYY-MM-DDTHH:MM:SSZ) 
+		 * @param date
+		 * @return 
+		 * 
+		 */		
+		public static function asAtom(date:Date=null):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			return (date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate() + "T"+date.getUTCHours() + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds() + "Z");
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -277,36 +377,146 @@ package cc.gullinbursti.lang {
 		 * @param date
 		 * @return String
 		 */
-		public static function dateToISO8601(date:Date):String { // (YYYY-MM-DD HH:MM:SS +TZ)
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
-			return (date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+" ");
+		public static function asISO8601(date:Date=null):String { // (YYYY-MM-DD HH:MM:SS +TZ)
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			var month_str:String = Ints.formatDblDigit(date.getMonth() + 1);
+			var day_str:String = Ints.formatDblDigit(date.getDate());
+			
+			var tz_hrs:String = Ints.formatDblDigit((date.getTimezoneOffset() / 60) << 0);
+			var tz_mins:String = Ints.formatDblDigit(date.getTimezoneOffset() - (int(tz_hrs) * 60) << 0);
+			var tz_sign:String = "+";
+			
+			if (date.getTimezoneOffset() > 0)
+				tz_sign = "-";
+			
+			return (date.getFullYear() + "-" + month_str + "-" + day_str + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + tz_sign + tz_hrs + tz_mins);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
-		 * Converts an ATOM formatted <code>String</code> to a <code>Date</code> object.
-		 * [Y-m-d\TH:i:sP] = [2005-08-15T15:52:01+00:00]
+		 * Returns the time zone abreviation (ISO 8601) from a <code>Date</code> object.
 		 * 
-		 * @param date_str
-		 * @return Date
+		 * @param date Date
+		 * @return String
 		 */
-		public static function atomToDate(date_str:String):Date { // 
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+		public static function asISO8601Timezone(date:Date=null):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			var year:String = String(date_str.split("T")[0]).split("-")[0];
-			var month:String = String(date_str.split("T")[0]).split("-")[1];
-			var day:String = String(date_str.split("T")[0]).split("-")[2];
+			if (!date)
+				date = new Date();
 			
-			var time:String = date_str.split("T")[1];
-			var hour:String = time.split(":")[0];
-			var minute:String = time.split(":")[1];
-			var second:String = String(time.split(":")[2]).substr(0, 2);
+			var offset:Number = Math.round(12 + -(date.getTimezoneOffset() / 60));
 			
-			return (new Date(year, month, day, hour, minute, second));
+			if (isDST(date))
+				offset--;
+			
+			return (TIME_ZONES[offset][0]);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		//"Y-m-d\TH:i:sP"; // [2005-08-15T15:52:01+00:00]
+		/**
+		 * Returns a UTC date ready for a MySQL db (YYYY-MM-DD HH:HH:SS.MMMM)
+		 * @param date
+		 * @return String
+		 * 
+		 */		
+		public static function asMySQL(date:Date=null):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			
+			var delim_str:String = "-";
+			
+			var mysql_str:String = date.fullYearUTC.toString() + delim_str;
+				mysql_str += Ints.formatDblDigit(date.monthUTC + 1) + delim_str;
+				mysql_str += Ints.formatDblDigit(date.dateUTC);
+				mysql_str += " ";
+				
+			delim_str = ":";
+			mysql_str += Ints.formatDblDigit(date.hoursUTC) + delim_str;
+			mysql_str += Ints.formatDblDigit(date.minutesUTC) + delim_str;
+			mysql_str += Ints.formatDblDigit(date.secondsUTC);
+			mysql_str += "." + date.millisecondsUTC;
+			
+			
+			return (mysql_str);			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * Returns the beats of the swatch internet time from a <code>Date</code> object.
+		 * 
+		 * @param date Date
+		 * @return int
+		 */
+		public static function asSwatchInternetTime(date:Date=null):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+			
+			if (!date)
+				date = new Date();
+			
+			// get passed seconds for the day
+			var secs_tot:int = (date.getUTCHours() * 3600) + (date.getUTCMinutes() * 60) + (date.getUTCSeconds()) + 3600; // caused of the BMT Meridian
+			
+			// 1day = 1000 .beat ... 1 second = 0.01157 .beat 		
+			return ("@" + Math.round(secs_tot * 0.01157));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function asHebrewDate(date:Date=null):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+			
+			if (!date)
+				date = new Date();
+			
+			
+			return (date.toString());
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function asIslamDate(date:Date=null, isKuwaiti:Boolean=true):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+			
+			/**
+			 * Common (non-leap) years have 354 days. Leap years have 355 days.
+			 * Odd-numbered months of the year have 30 days. Even-numbered months have 29 days. Exception: the 12th month of a leap year has 30 days.
+			 * Eleven of every thirty years are leap years. The leap years are the years which are congruent modulo 30 to any of these numbers: 2, 5, 7, 10, 13, 15, 18, 21, 24, 26, 29. Thus, a 30-year cycle always lasts exactly (354×30)+11 = 10631 days.
+			 * Correlation with Gregorian calendar: the 1st of January 2000 (a Saturday) corresponds to the 25th of Ramadan 1420. (Ramadan is the ninth month of the Islamic lunar year.)
+			 * 
+			 * [http://www.phys.uu.nl/~vgent/islam/islam_tabcal_main.htm]
+			 **/
+			
+			
+			if (!date)
+				date = new Date();
+			
+			
+			var leap_mult:Number = 8.01 / 60;
+			var j_ghost:Number = asJulianDay(date) - ISLAM_EPOCH;
+			var m_ghost:int = (j_ghost / 10631);
+			var y_ghost:int;
+			
+			j_ghost -= (10631 * m_ghost);
+			y_ghost = ((j_ghost - leap_mult) / ISLAM_DAY_MONTHS) << 0;			
+			j_ghost -= ((y_ghost * ISLAM_DAY_MONTHS) + leap_mult) << 0;
+			
+			var year:int = (30 * m_ghost) + y_ghost;
+			var month:int = Math.min(12, ((j_ghost + 28.5001) / 29.5) << 0);
+			var day:int = j_ghost - Math.floor(29.5001 * month - 29);
+			
+			var date_str:String = day.toString() + " " + ISLAM_MONTHS[month - 1];
+			
+			return (date_str + " @ " + Ints.formatDblDigit(date.getHours()) + ":" + Ints.formatDblDigit(date.getMinutes()) + ":" + Ints.formatDblDigit(date.getSeconds()) + ":" + date.getMilliseconds().toString() + " " + year.toString());
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		
@@ -317,9 +527,13 @@ package cc.gullinbursti.lang {
 		 * @param date
 		 * @return String
 		 */
-		public static function longDate(date:Date):String {
+		public static function asLongDate(date:Date=null):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (DateTimes.dayOfWeek(date)+", "+DateTimes.monthName(date)+" "+date.getDate()+", "+date.getFullYear());
+			
+			if (!date)
+				date = new Date();
+			
+			return (DateTimes.dayOfWeek(date) + ", " + DateTimes.monthName(date) + " " + date.getDate() + ", " + date.getFullYear());
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -330,80 +544,274 @@ package cc.gullinbursti.lang {
 		 * @param date
 		 * @return 
 		 */
-		public static function shortDate(date:Date):String {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return ((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear());
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		/**
-		 * Returns the name of the month from a <code>Date</code> object.
-		 * 
-		 * @param date Date
-		 * @param isAbbreviated Boolean
-		 * @return String
-		 */
-		public static function monthName(date:Date, isAbbreviated:Boolean=false):String {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (MONTH_NAMES[date.getMonth()]);	
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		/**
-		 * Returns the weekday's name from a <code>Date</code> object.
-		 * 
-		 * @param date Date
-		 * @param isAbbreviated Boolean
-		 * @return String
-		 */
-		public static function dayOfWeek(date:Date, isAbbreviated:Boolean=false):String {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (WEEK_DAYS[date.getDay()][int(isAbbreviated)]);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		/**
-		 * Returns the time zone abreviation (ISO 8601) from a <code>Date</code> object.
-		 * 
-		 * @param date Date
-		 * @return String
-		 */
-		public static function iso8601TZ(date:Date):String {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			var offset:Number = Math.round(11 + -(date.getTimezoneOffset() / 60));
-			
-			if (isDST(date))
-				offset--;
-				
-			return (TIME_ZONES[offset][0]);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		public static function utcDate(date:Date=null):Date {
+		public static function asShortDate(date:Date=null):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			if (!date)
 				date = new Date();
 			
-			return (new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCMinutes(), date.getUTCSeconds(), date.getUTCMilliseconds()));
+			return ((date.getMonth() + 1) + "/" + date.getDate() + "/"+date.getFullYear());
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		
+		/**
+		 * Converts an ATOM formatted <code>String</code> to a <code>Date</code> object.
+		 * [Y-m-d\TH:i:sP] = [2005-08-15T15:52:01+00:00] // [Y-m-d\TH:i:s] = [2005-08-15T15:52:01Z]
+		 * 
+		 * @param date_str
+		 * @return Date
+		 */
+		public static function atomToDate(atomDate_str:String=null):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+			
+			if (!atomDate_str)
+				atomDate_str = "0000-00-00T00:00:00Z";
+			
+			var date_str:String = String(atomDate_str.split("T")[0]);
+			var time_str:String = String(atomDate_str.split("T")[1]);
+			
+			var year:int = int(date_str.split("-")[0]);
+			var month:int = int(date_str.split("-")[1]) - 1;
+			var day:int = int(date_str.split("-")[2]);
+			
+			var hour:int = int(time_str.split(":")[0]);
+			var minute:int = int(time_str.split(":")[1]);
+			var second:int = int(String(time_str.split(":")[2]).substr(0, 2));
+			
+			var tz_mult:int = -int(time_str.charAt(8) + "1");
+			var tz_hrs:int = -int(String(time_str.split(":")[2]).substr(3, 2)) * int(time_str.charAt(8) + "1");
+			var tz_mins:int = -int(time_str.split(":")[3]) * int(time_str.charAt(8) + "1");
+			
+			
+			// last character denotes utc
+			if (date_str.charAt(atomDate_str.length - 1) == "Z")
+				return (new Date(Date.UTC(year, month, day, hour, minute, second)));
+			
+			
+			return (new Date(Date.UTC(year, month, day, hour + tz_hrs, minute + tz_mins, second)));
+				
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
 		
 		/**
-		 * Returns true if the <code>Date</code> object is a leap year.
+		 * Converts an ISO-8601 formated string (YYYY-MM-DDTHH:MM:SS-0800) to a <code>Date</code> object. 
 		 * 
-		 * @param date Date
-		 * @return Boolean
+		 * @param date_str
+		 * @return Date
 		 */
-		public static function isLeapYear(date:Date):Boolean {
+		
+		// "Y-m-d\TH:i:sO" [2005-08-15T15:52:01+0000]
+		public static function iso8601ToDate(isoDate_str:String=null):Date {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			if ((date.getFullYear() % 4 == 0) && ((date.getFullYear() % 100 != 0) || (date.getFullYear() % 400 == 0)))
-				return (true);
 			
+			if (!isoDate_str)
+				isoDate_str = "0000-00-00T00:00:00";
+			
+			var date_str:String = String(isoDate_str.split("T")[0]);
+			var time_str:String = String(isoDate_str.split("T")[1]);
+			
+			var year:int = date_str.split("-")[0];
+			var month:int = date_str.split("-")[1] - 1;
+			var day:int = date_str.split("-")[2];
+			
+			var hour:int = time_str.split(":")[0];
+			var min:int = time_str.split(":")[1];
+			var sec:int = int(String(time_str.split(":")[2]).substr(0, 2));
+			
+			var tz_hrs:int = -int(isoDate_str.substr(20, 2)) * int(isoDate_str.charAt(19) + "1");
+			
+			
+			return (new Date(Date.UTC(year, month, day, hour + tz_hrs, min + -int(isoDate_str.substr(22)), sec)));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * Returns a date parsed from a MySQL db (YYYY-MM-DD HH:MM:SS.MMMM)
+		 * @param date_str
+		 * @return Date
+		 * 
+		 */		
+		public static function mysqlToDate(date_str:String=null):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date_str)
+				date_str = "0000-00-00 00:00:00";
+			
+			var patt_regx:RegExp = /[: -]/g;
+			date_str = date_str.replace(patt_regx, ',');
+			
+			var date_arr:Array = date_str.split(',');
+			
+			return (new Date(date_arr[0], date_arr[1] - 1, date_arr[2], date_arr[3], date_arr[4], date_arr[5], date_str.split(".")[1]));			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function swatchTimeToDate(beats:String="@0", isSwatchTZ:Boolean=true):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var curr_date:Date = new Date();
+			var remain:Number = Number(beats.substr(1));
+			
+			var years:int = (remain / BEATS_YEAR) << 0;
+			remain -= (years * BEATS_YEAR) << 0;
+			
+			var weeks:int = (remain / BEATS_WEEK) << 0;
+			remain -= (weeks * BEATS_WEEK) << 0;
+			
+			var days:int = (remain / BEATS_DAY) << 0;
+			remain -= (days * BEATS_DAY);
+			
+			var hours:int = (remain / BEATS_HOUR) << 0;
+			remain -= (hours * BEATS_HOUR);
+			
+			var mins:int = (remain / BEATS_MINUTE) << 0;
+			remain -= (mins * BEATS_MINUTE);
+			
+			var secs:int = (remain / BEATS_SECOND) << 0;
+			remain -= (secs * BEATS_SECOND);
+			
+			var ms:int = (remain / BEATS_MILLISEC) << 0;
+			
+			
+			if (isSwatchTZ)
+				return (new Date(Date.UTC(curr_date.getFullYear() + years, curr_date.getMonth(), curr_date.getDate() + days, hours + int(isDST()) - 1, mins, secs, ms)));
+			
+				
+			return (new Date(curr_date.getFullYear() + years, curr_date.getMonth(), curr_date.getDate() + days, hours + int(isDST()) - 1, mins, secs, ms));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Converts a UNIX timestamp to a <code>DateM</code> object.
+		 * @param epoch_time
+		 * @return 
+		 */
+		public static function unixEpochToDate(epoch_time:Number=0, isMilli:Boolean=false, isLocal:Boolean=false):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (isLocal)
+				epoch_time += new Date().getTimezoneOffset() * 60;
+			
+			if (isMilli)
+				return (new Date(epoch_time));
+			
+			return (new Date(epoch_time * 1000));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * Converts a Julian date to a <code>Date</code> Object. 
+		 * @param date
+		 * @return 
+		 * 
+		 */		
+		public static function julianToDate(date:Number=int.MAX_VALUE, isGregorian:Boolean=true):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (date == int.MAX_VALUE)
+				date = asJulianDay();
+			
+			
+			// date attribs
+			var year:int;
+			var month:int;
+			var day:int;
+			var hour:int;
+			var min:int;
+			var sec:int;
+			var msec:int;
+			
+			date += 0.5;
+			
+			// julian day & time
+			var j_day:int = date << 0;
+			var j_time:Number = Numbers.decimalPlace(date);
+			
+			// ghost vals
+			var j_ghost:int;
+			var d_ghost:int;
+			var y_ghost:int = ((j_day - 1867216.25) / 36524.25) << 0;
+			
+			// later than 12pm, 15-OCT-1582, calc leap yrs
+			if (isGregorian && j_day >= 2299161)
+				j_day += 1 + y_ghost - ((y_ghost * 0.25) << 0);
+			
+			
+			
+			// calc date
+			j_ghost = j_day + 1524;
+			year = ((j_ghost - 122.1) / 365.25) << 0;
+			d_ghost = (year * 365.25) << 0;
+			month = ((j_ghost - d_ghost) / 30.6001) << 0;
+			day = j_ghost - d_ghost - ((30.6001 * month) << 0) + j_time;
+			
+			// change decimal day into seconds
+			j_time *= (24 * 60 * 60);
+			
+			// time attribs
+			hour = (j_time / 3600) << 0;
+			j_time -= (hour * 3600);
+			min = (j_time / 60) << 0;
+			j_time -= (min * 60);
+			sec = j_time + 0.0001;
+			msec = Numbers.decimalPlace(sec) * 1000;
+			
+			// month offset
+			if (month < 14)
+				month--;
 			else
-				return (false);
+				month -= 13;
+			
+			// year offset
+			if (month > 2)
+				year -= 4716;
+			else
+				year -= 4715;
+			
+			
+			
+			return (new Date(year << 0, month - 1, day, hour, min, sec, msec));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function hebrewToDate(year:int, month_str:String, day:int, time:String="00:00:00.000"):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+			
+			var time_arr:Array = time.split(":");
+			var hour:int = int(time_arr[0]);
+			var min:int = int(time_arr[1]);
+			var sec:int = Numbers.dropDecimal(int(time_arr[2]));
+			var msec:int = Numbers.decimalPlace(int(time_arr[2]) * 1000) << 0;
+			
+			
+			var y_date:int = 0;
+			var m_date:int = 0;
+			var d_date:int = 0;
+			
+			return (new Date(y_date, m_date, d_date, hour, min, sec, msec));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function islamToDate(year:int, month_str:String, day:int, time:String="00:00:00.000"):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+			
+			var time_arr:Array = time.split(":");
+			var hour:int = int(time_arr[0]);
+			var min:int = int(time_arr[1]);
+			var sec:int = Numbers.dropDecimal(int(time_arr[2]));
+			var msec:int = Numbers.decimalPlace(int(time_arr[2]) * 1000) << 0;
+			
+			
+			var y_date:int = 0;
+			var m_date:int = 0;
+			var d_date:int = 0;
+			
+			return (new Date(y_date, m_date, d_date, hour, min, sec, msec));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -414,8 +822,12 @@ package cc.gullinbursti.lang {
 		 * @param date
 		 * return int
 		 */		
-		private function dayOfYear(date:Date):int {
+		public function dayOfYear(date:Date=null):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
 			
 			var firstDayOfYear:Date = new Date(date.getFullYear(), 0, 1);
 			var millisecs_offset:Number = date.getTime() - firstDayOfYear.getTime();
@@ -431,8 +843,12 @@ package cc.gullinbursti.lang {
 		 * @param date
 		 * @return int
 		 */
-		private function weekOfYear(date:Date):int {
+		public function weekOfYear(date:Date=null):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
 			
 			// number of passed days
 			var dayOfYear:Number = dayOfYear(date);
@@ -443,7 +859,7 @@ package cc.gullinbursti.lang {
 			// remove days of the 1st & current wk for acurate passed weeks
 			var fullWeeks:Number = (dayOfYear - (WEEK_DAYS[date.getDay()][2] + (7 - WEEK_DAYS[firstDay.getDay()][2]))) / 7;  
 			
-
+			
 			// if 1st wk of this yr has > 3 for the date
 			if (WEEK_DAYS[firstDay.getDay()][2] <= 4)
 				fullWeeks++;
@@ -458,13 +874,188 @@ package cc.gullinbursti.lang {
 		
 		
 		/**
+		 * Returns the name of the month from a <code>Date</code> object.
+		 * 
+		 * @param date Date
+		 * @param isAbbreviated Boolean
+		 * @return String
+		 */
+		public static function monthName(date:Date=null, isAbbreviated:Boolean=false):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			
+			return (MONTH_NAMES[date.getMonth()][int(isAbbreviated)]);	
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns the 1st day of a month from a <code>Date</code> object.
+		 * 
+		 * @param date Date
+		 * @return int
+		 */
+		public static function monthFirstDay(date:Date=null):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			
+			return (date.getDay());
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns the last day of a month from a <code>Date</code> object.
+		 * 
+		 * @param date Date
+		 * @return int
+		 */
+		public static function monthLastDay(date:Date=null):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			
+			// date for the last day of the month
+			var end_date:Date = new Date(date.getFullYear(), date.getMonth(), daysInMonth(date));
+			
+			return (end_date.getDay());
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns days in a month from a <code>Date</code> object.
+		 * 
+		 * @param date Date
+		 * @return int
+		 */
+		public static function daysInMonth(date:Date=null):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			
+			return (new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate());
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns the weekday's name from a <code>Date</code> object.
+		 * 
+		 * @param date Date
+		 * @param isAbbreviated Boolean
+		 * @return String
+		 */
+		public static function dayOfWeek(date:Date=null, isAbbreviated:Boolean=false):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			
+			return (WEEK_DAYS[date.getDay()][int(isAbbreviated)]);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns the hours in a <code>Date</code> object as a value between 1 & 12. 
+		 * @param date
+		 * @return 
+		 * 
+		 */		
+		public static function shortHour(date:Date=null):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			
+			// get the 24 hour amount
+			var hour:int = date.getHours();
+			
+			// is midnight
+			if (hour == 0)
+				return (12);
+			
+			// 1pm or later
+			else if (hour > 12)
+				return (hour - 12);
+			
+			
+			// am
+			return (hour);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function easterDate(year:int=-1):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (year == -1)
+				year = new Date().getFullYear();
+			
+			var a:int = year % 19;
+			var b:int = year % 4;
+			var c:int = year % 7;
+			var k:int = (year / 100) << 0;
+			var p:int = ((13 + 8 * k) / 25) << 0;
+			var q:int = (k / 4) << 0;
+			var M:int = (15 - p + k - q) % 30;
+			var N:int = (4 + k - q) % 7;
+			var d:int = ((19 * a) + M) % 30;
+			var e:int = ((2 * b) + (4 * c) + (6 * d) + N) % 7;
+			
+			//trace ("a:["+a+"] b:["+b+"] c:["+c+"] k:["+k+"] p:["+p+"] q:["+q+"] M:["+M+"] N:["+N+"] :["+d+"] :["+e+"]");
+			
+			if (d == 29 && e == 6)
+				return (new Date(year, 3, 19));
+			
+			if (d == 28 && e== 6 && ((11 * M) + 11) % 30 < 19)
+				return (new Date(year, 3, 18));
+			
+			
+			return (new Date(year, 2, 22 + d + e));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns true if the <code>Date</code> object is a leap year.
+		 * 
+		 * @param date Date
+		 * @return Boolean
+		 */
+		public static function isLeapYear(date:Date=null):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			if ((date.getFullYear() % 4 == 0) && ((date.getFullYear() % 100 != 0) || (date.getFullYear() % 400 == 0)))
+				return (true);
+				
+			else
+				return (false);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
 		 * Returns true if the <code>Date</code> object is under Daylight Savings Time.
 		 * 
 		 * @param date Date
 		 * @return Boolean
 		 */
-		public static function isDST(date:Date):Boolean {
+		public static function isDST(date:Date=null):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
 			var offset_cur:Number = date.getTimezoneOffset();
 			var offset_ref:Number;
 			
@@ -481,83 +1072,57 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		/**
-		 * Returns the 1st day of a month from a <code>Date</code> object.
-		 * 
-		 * @param date Date
-		 * @return int
-		 */
-		public static function monthStartDay(date:Date):int {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
-			return (date.getDay());
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
-		
-		/**
-		 * Returns the last day of a month from a <code>Date</code> object.
-		 * 
-		 * @param date Date
-		 * @return int
-		 */
-		public static function monthLastDay(date:Date):int {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
-			// date for the last day of the month
-			var end_date:Date = new Date(date.getFullYear(), date.getMonth(), daysInMonth(date));
-			
-			return (end_date.getDay());
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		/**
-		 * Returns the Julian day from a <code>Date</code> object.
-		 * 
-		 * @param date Date
-		 * @return Number
-		 */
-		public static function julianDay(date:Date):Number {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-		
-			var y:int = date.getFullYear();
-			var m:int = date.getMonth() + 1;
-			var d:int = date.getDate(); 
-			
-			if (m < 3) {
-				m += 12;
-				y--;
-			}
-				
-			return (Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + d + 2 - Math.floor(y / 100) + Math.floor(Math.floor(y / 100) / 4) - 1524);
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		/**
-		 * Returns days in a month from a <code>Date</code> object.
-		 * 
-		 * @param date Date
-		 * @return int
-		 */
-		public static function daysInMonth(date:Date):int {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate());
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		/**
-		 * Returns the beats of the swatch internet time from a <code>Date</code> object.
-		 * 
-		 * @param date Date
-		 * @return int
-		 */
-		public static function getSwatchInternetTime(date:Date):int {
+		public static function dstStart(year:int=-1):Date {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
-			// get passed seconds for the day
-			var secs_tot:int = (date.getUTCHours() * 3600) + (date.getUTCMinutes() * 60) + (date.getUTCSeconds()) + 3600; // caused of the BMT Meridian
 			
-			// 1day = 1000 .beat ... 1 second = 0.01157 .beat 		
-			return (Math.round(secs_tot * 0.01157));
+			if (year == -1)
+				year = new Date().getFullYear();
+			
+			var date:Date = new Date(year, 0, 1);
+			var offset_pt:Point = new Point(date.getTimezoneOffset(), date.getTimezoneOffset());
+			
+			for (var i:int=0; i<12; i++) {
+				for (var j:int=1; j<daysInMonth(date); j++) {
+					date.setMonth(i, j);
+					offset_pt.x = date.getTimezoneOffset();
+					
+					if (offset_pt.x != offset_pt.y && offset_pt.x < offset_pt.y)
+						return (date);
+											
+					offset_pt.y = date.getTimezoneOffset();
+				}
+			}
+			
+			return (new Date(year));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function dstEnd(year:int=-1):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+			
+			if (year == -1)
+				year = new Date().getFullYear();
+			
+			var date:Date = new Date(year, 0, 1);
+			var offset_pt:Point = new Point(date.getTimezoneOffset(), date.getTimezoneOffset());
+			
+			for (var i:int=dstStart(year).getMonth()+1; i<12; i++) {
+				for (var j:int=1; j<=daysInMonth(date); j++) {
+					date.setMonth(i, j);
+					offset_pt.x = date.getTimezoneOffset();
+					
+					if (offset_pt.x != offset_pt.y && offset_pt.x > offset_pt.y)
+						return (date);
+					
+					offset_pt.y = date.getTimezoneOffset();
+				}
+			}
+			
+			return (new Date(year));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 		
 		
 		/**
@@ -566,8 +1131,13 @@ package cc.gullinbursti.lang {
 		 * @param Date
 		 * @return Boolean
 		 */
-		public static function isAM(date:Date):Boolean {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+		public static function isAM(date:Date=null):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			
 			if (date.getHours() > 12)
 				return (false);
 			
@@ -581,8 +1151,13 @@ package cc.gullinbursti.lang {
 		 * @param Date
 		 * @return Boolean
 		 */
-		public static function isWeekday(date:Date):Boolean {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._	
+		public static function isWeekday(date:Date=null):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			
 			// the day of week index
 			var day:int = date.getDay();
 			
@@ -597,8 +1172,13 @@ package cc.gullinbursti.lang {
 		 * @param Date
 		 * @return Boolean
 		 */
-		public static function isWeekend(date:Date):Boolean {
+		public static function isWeekend(date:Date=null):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			
 			return (!isWeekday(date));			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
@@ -611,8 +1191,12 @@ package cc.gullinbursti.lang {
 		 * @param date <code>Date</date> obj (1900 = zero years) 
 		 * @return String 
 		 */
-		public static function timestampAsCountdown(date:Date):String {
+		public static function timestampAsCountdown(date:Date=null):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
 			
 			var phrase_str:String = toPhraseSegment(date.fullYear - 1900, YEARS);
 				phrase_str += ", " + toPhraseSegment(date.month, MONTHS);
@@ -634,7 +1218,7 @@ package cc.gullinbursti.lang {
 		 * @return A worded phrase
 		 * 
 		 */		
-		public static function toPhraseSegment(val:int, seg:String, nums:Boolean=false):String {
+		private static function toPhraseSegment(val:int, seg:String, nums:Boolean=false):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// phrased msg
@@ -664,87 +1248,6 @@ package cc.gullinbursti.lang {
 		
 		
 		/**
-		 * Returns a date ready for a MySQL db 
-		 * @param date
-		 * @return String
-		 * 
-		 */		
-		public static function toMysql(date:Date):String {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
-			var delim_str:String = "-";
-			var mysql_str:String = date.fullYear.toString() + delim_str;
-				mysql_str += Ints.formatDbl(date.month + 1) + delim_str;
-				mysql_str += Ints.formatDbl(date.day);
-				mysql_str += " ";
-			
-			delim_str = ":";
-			mysql_str += Ints.formatDbl(date.hours) + delim_str;
-			mysql_str += Ints.formatDbl(date.minutes) + delim_str;
-			mysql_str += Ints.formatDbl(date.seconds);
-			
-			/*
-			if (date.month < 10)
-				mysql_str += "0" + (date.month + 1).toString() + "-";
-			
-			else
-				mysql_str += (date.month + 1).toString() + "-";
-			
-			
-			if (date.date < 10)
-				mysql_str += "0" + date.date.toString() + "-";
-				
-			else
-				mysql_str += date.date.toString() + "-";
-			
-			mysql_str += " ";
-			
-			if (date.hours < 10)
-				mysql_str += "0" + date.hours.toString() + ":";
-				
-			else
-				mysql_str += date.hours.toString() + ":";
-			
-			
-			if (date.minutes < 10)
-				mysql_str += "0" + date.minutes.toString() + ":";
-				
-			else
-				mysql_str += date.minutes.toString() + ":";
-			
-			
-			if (date.seconds < 10)
-				mysql_str += "0" + date.seconds.toString();
-				
-			else
-				mysql_str += date.seconds.toString();
-			*/
-			
-			
-			return (mysql_str);			
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		
-		/**
-		 * Returns a date parsed from a MySQL db 
-		 * @param date_str
-		 * @return Date
-		 * 
-		 */		
-		public static function fromMysql(date_str:String):Date {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
-			var patt_regx:RegExp = /[: -]/g;
-			date_str = date_str.replace(patt_regx, ',');
-			
-			var date_arr:Array = date_str.split(',');
-			
-			return (new Date(date_arr[0], date_arr[1] - 1, date_arr[2], date_arr[3], date_arr[4], date_arr[5]));			
-		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
-		
-		
-		/**
 		 * Compares two <code>Date</code> objects & returns:
 		 * d1 > d2 -≫ -1
 		 * d1 = d2 -≫  0
@@ -754,15 +1257,18 @@ package cc.gullinbursti.lang {
 		 * @param date2 Date
 		 * @return int
 		 */
-		public static function compare(date1:Date, date2:Date):int {
+		public static function compare(date1:Date, date2:Date=null):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
+			if (!date2)
+				date2 = new Date();
+			
 			// 1st date is after the 2nd
-			if (DateTimes.dateDiff(date1, date2) > 0)
+			if (DateTimes.difference(date1, date2) > 0)
 				return (-1);
 			
 			// 1st date is before 2nd
-			else if (DateTimes.dateDiff(date1, date2) < 0)
+			else if (DateTimes.difference(date1, date2) < 0)
 				return (1);
 			
 			// same date
@@ -780,15 +1286,58 @@ package cc.gullinbursti.lang {
 		 * @param isSigned Boolean
 		 * @return int
 		 */
-		public static function dateDiff(date1:Date, date2:Date, isSigned:Boolean=true):int {
+		public static function difference(date1:Date, date2:Date=null, isSigned:Boolean=true):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date2)
+				date2 = new Date();
 			
 			// actual date matters
 			if (isSigned)
-				return (date1.valueOf() - date2.valueOf());
+				return (date2.valueOf() - date1.valueOf());
 				
 			else
-				return (Math.abs(date1.valueOf() - date2.valueOf()));
+				return (Math.abs(date2.valueOf() - date1.valueOf()));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Calculates the time elapsed between two <code>Date</code> objects. 
+		 * @param start_date
+		 * @param end_date
+		 * @param isSigned
+		 * @return 
+		 * 
+		 */		
+		public static function elapsedSince(start_date:Date, end_date:Date=null, isSigned:Boolean=true):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// use current date
+			if (!end_date)
+				end_date = new Date();
+			
+			
+			// difference in ms
+			var diff:Number = difference(start_date, end_date, isSigned);
+			
+			return (new Date(diff));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		private static function monthIndex(name_str:String):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			for (var i:int=0; i<MONTH_NAMES.length; i++) {
+				if ((MONTH_NAMES[i][0] as String).toUpperCase() == name_str.toUpperCase() || (MONTH_NAMES[i][1] as String).toLocaleUpperCase() == name_str.toUpperCase())
+					return (i);
+			}
+			
+			return (-1);
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
 	}
 }

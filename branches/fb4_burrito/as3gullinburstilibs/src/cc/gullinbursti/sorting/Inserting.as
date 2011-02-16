@@ -200,14 +200,14 @@ package cc.gullinbursti.sorting {
 		 * 
 		 */	
 		public static function shellSort(in_arr:Array, isAscending:Boolean=true):Array {
-		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			//TODO: implement shell sort algorithm
 			
 			/*
-				Not stable
-				O(1) extra space
-				O(n ³⸍²) time as shown (see below)
-				Adaptive: O(n·lg(n)) time when nearly sorted
+			Not stable
+			O(1) extra space
+			O(n ³⸍²) time as shown (see below)
+			Adaptive: O(n·lg(n)) time when nearly sorted
 			*/
 			
 			/**
@@ -220,9 +220,28 @@ package cc.gullinbursti.sorting {
 			 * 	end
 			 */
 			
-			// sorted array
-			var sort_arr:Array = Arrays.xerox(in_arr, true); 
 			
+			var sort_arr:Array = Arrays.xerox(in_arr, true);
+			var len:int = sort_arr.length;
+			var inc:int = (len / 2) << 0;
+			
+			while (inc) {
+				var tmp:Number;
+				var j:int;
+				
+				for (var i:int=inc; i<len; i++) {
+					tmp = sort_arr[i];
+					j = i;
+					
+					while (j >= inc && sort_arr[(j - inc) << 0] > tmp) {
+						sort_arr[j] = sort_arr[(j - inc) << 0];
+						j = (j - inc) << 0;
+					}
+					sort_arr[j] = tmp;
+				}
+				
+				inc = (inc / 2.2) << 0;
+			}
 			
 			
 			// return the sorted list

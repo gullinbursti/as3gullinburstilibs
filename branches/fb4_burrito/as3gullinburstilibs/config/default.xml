@@ -139,7 +139,7 @@
          <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/spark_dmv.swc</path-element>
          <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/utilities.swc</path-element>
          <path-element>/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/locale/{locale}</path-element>
-         <path-element>/Volumes/Ratatoskr/labor/dev/as3/fb4_burrito/projs/personal/libraries/as3gullinburstilibs/libs</path-element>
+         <path-element>/Volumes/Skuld/labor/dev/as3/flex_builder/burrito/projects/personal/libraries/as3gullinburstilibs/as3gullinburstilibs/libs</path-element>
       </library-path>
       <!-- compiler.locale: specifies the locale for internationalization-->
       <locale>
@@ -213,8 +213,8 @@
       <show-unused-type-selector-warnings>true</show-unused-type-selector-warnings>
       <!-- compiler.source-path: list of path elements that form the roots of ActionScript class hierarchies-->
       <source-path>
-         <path-element>/Volumes/Ratatoskr/labor/dev/as3/fb4_burrito/projs/personal/libraries/as3gullinburstilibs/src</path-element>
-         <path-element>/Volumes/Ratatoskr/labor/dev/as3/fb4_burrito/projs/personal/libraries/as3gullinburstilibs/src</path-element>
+         <path-element>/Volumes/Skuld/labor/dev/as3/flex_builder/burrito/projects/personal/libraries/as3gullinburstilibs/as3gullinburstilibs/src</path-element>
+         <path-element>/Volumes/Skuld/labor/dev/as3/flex_builder/burrito/projects/personal/libraries/as3gullinburstilibs/as3gullinburstilibs/src</path-element>
       </source-path>
       <!-- compiler.strict: runs the AS3 compiler in strict error checking mode.-->
       <strict>true</strict>

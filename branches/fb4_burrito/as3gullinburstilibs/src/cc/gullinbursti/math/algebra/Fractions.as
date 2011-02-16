@@ -3,6 +3,7 @@ package cc.gullinbursti.math.algebra {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.math.discrete.Factorization;
+	
 	import flash.geom.Point;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
 	
@@ -35,6 +36,15 @@ package cc.gullinbursti.math.algebra {
 			
 			// divide by it
 			return (new Point(fract.x / gcf, fract.y / gcf));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function inverse(fract:Point):Point {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// flip it
+			return (new Point(1, fract.x / fract.y));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 	}

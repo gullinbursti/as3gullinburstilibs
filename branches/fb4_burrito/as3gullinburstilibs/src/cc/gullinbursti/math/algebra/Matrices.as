@@ -43,7 +43,62 @@ package cc.gullinbursti.math.algebra {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		/**
+		 * Constructs an <code>Array</code> representation of a matrix, all filled w/ zeroes. 
+		 * @param dim The w/h of the matrix.
+		 * @return A list w × h elements consisting of zero values.
+		 * 
+		 */		
+		public static function genZeroMatrix(dim:Point):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/**
+			 * ⎡0 0 0⎤
+			 * ⎢0 0 0⎢
+			 * ⎣0 0 0⎦
+			 **/ 
+			
+			// array rep of the matrix
+			var ident_arr:Array = new Array();
+			
+			// loop thru rows x cols, and push zero into each element
+			for (var i:int=0; i<dim.x * dim.y; i++)
+				ident_arr.push(0);
+			
+			// send it back
+			return (ident_arr);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
+		/**
+		 * Constructs a the additive identity (zero) matrix represented by an <code>Array</code>.
+		 * @param dim The w/h of the matrix.
+		 * @return A list w × h elements as the identity.
+		 * 
+		 */		
+		public static function additiveIdent(dim:Point):Array {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/**
+			 * Additive identity of a matrix states:
+			 * 
+			 *  ⎡1 2 1⎤   ⎡0 0 0⎤   ⎡0 0 0⎤
+			 *  ⎢1 1 4⎢ + ⎢0 0 0⎢ = ⎢0 0 0⎢
+			 *  ⎣2 0 3⎦   ⎣0 0 0⎦   ⎣0 0 0⎦
+			 * 
+
+			 **/
+			
+			// use the zero matrix generator
+			return (genZeroMatrix(dim));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		/**
+		 * Generates the identity matrix represented as an <code>Array</code> for a given dimension. 
+		 * @param mtx The matrix as 1-dim list to create identity for.
+		 * @return A list of 
+		 * 
+		 */		
 		public static function invert(mtx:Array):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			

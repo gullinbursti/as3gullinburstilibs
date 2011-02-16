@@ -59,7 +59,7 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function invert(bin_str:String):String {
+		public static function additiveInverse(bin_str:String):String {
 			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			return binXOR(bin_str, ("11111111111111111111111111111111").substr(0, bin_str.length));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯

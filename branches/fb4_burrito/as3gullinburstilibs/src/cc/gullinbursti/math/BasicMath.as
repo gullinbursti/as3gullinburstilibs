@@ -410,7 +410,7 @@ package cc.gullinbursti.math {
 			
 			// round the result
 			if (isRounded)
-				return (Numbers.setPrecision(val * 0.5, precision));
+				return (Numbers.decimalPrecision(val * 0.5, precision));
 				
 			
 			// return 1/2
@@ -468,12 +468,21 @@ package cc.gullinbursti.math {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		/**
+		 * Calculates the ⁿ√ of a value.
+		 * @param val A Number
+		 * @param root 
+		 * @return 
+		 * 
+		 */
+		
 		public static function root(val:Number, root:int=2):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			// raise to 1/root
-			return (Math.pow(val, (1/root)));
-		
+			// raise to ¹⁄root
+			return (Math.pow(val, (1 / root)));
+			
+			//root.
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

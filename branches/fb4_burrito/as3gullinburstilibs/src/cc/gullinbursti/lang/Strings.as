@@ -390,8 +390,9 @@ package cc.gullinbursti.lang {
 			return (char_arr);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		
 		public static function pad(in_str:String, char_str:String, amt:int, isLeft:Boolean=true):String {
-			
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			var ret_str:String = in_str;
 			
 			while (ret_str.length < in_str.length + (amt * char_str.length)) {
@@ -404,14 +405,12 @@ package cc.gullinbursti.lang {
 			}
 			
 			return (ret_str);
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public static function remove(in_str:String, search_str:String):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
 			return(findNReplace(in_str, search_str, ""));
-			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -608,53 +607,25 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		
-		
-		public static function prependZeroes(amt:int, in_str:String):String {
+		public static function appendZeroes(in_str:String, amt:int):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			var ret_str:String = in_str;
 			
-			/*var digits:int = 0;
-			var amt:int = 0;
 			
-			var base_cnt:int = 1;
+			while (ret_str.length < in_str.length + amt)
+				ret_str += "0";
 			
 			
-			if (val < 10)
-				digits = 1; 
-				
-			else if (val < 100)
-				digits = 2;
-				
-			else if (val < 1000)
-				digits = 3;
+			return (ret_str);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function prependZeroes(in_str:String, amt:int):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			else if (val < 10000)
-				digits = 4;
-				
-			else if (val < 100000)
-				digits = 5;
-				
-			else if (val < 1000000)
-				digits = 6;
-				
-			else if (val < 10000000)
-				digits = 7;
-				
-			else if (val < 100000000)
-				digits = 8;
-				
-			else if (val < 1000000000)
-				digits = 9;
-				
-			amt = ret_len - digits;
-			
-			if (amt > 0) {
-				for (var i:int=0; i<amt; i++)
-					ret_str = "0" + ret_str;
-			}
-			*/
+			var ret_str:String = in_str;
 			
 			
 			while (ret_str.length < in_str.length + amt)
@@ -764,7 +735,7 @@ package cc.gullinbursti.lang {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			var offset_date:Date = new Date(1981, 6, 10, 2, 10);
-			var baseID:int = Math.abs(Numbers.dropDecimal(DateTimes.utcDate().valueOf() - 0));//offset_date.valueOf()));
+			var baseID:int = Math.abs(Numbers.dropDecimal(DateTimes.asUTC().valueOf() - 0));//offset_date.valueOf()));
 			
 			trace ("baseID:["+baseID+"]");
 			return (BasicMath.changeBase(baseID, 64));

@@ -40,19 +40,9 @@ package cc.gullinbursti.lang {
 		 * @return A <code>Number</code> w/ a set # of decomal places.
 		 * 
 		 */		
-		public static function setPrecision(float:Number, places:int=2):Number {
+		public static function decimalPrecision(float:Number, places:int=2):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
-			// get the decimal val of places (1/10^places)
-			var fract:Number = 1 / BasicMath.powr10(places);
-			
-			// the fract < val
-			if (fract <= float)
-				return (dropDecimal(float / fract) * fract);
-			
-			else
-				return (float);
-		
+			return (Number(float.toFixed(places)));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -77,6 +67,11 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public static function extendDecimal(float:Number, places:int):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (float.toFixed(places));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 		
 		public static function isBetween(val:Number, lower:Number, upper:Number, isInclusive:Boolean=true):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
@@ -90,40 +85,189 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		
-		/**
-		 * Strips any decimal places from a <code>Number</code> using a bitwise left shift.
-		 * @param float The input <code>Number</code> to convert.
-		 * @return An <code>int</code> representation of the floating point value.
-		 * 
-		 */		
-		public static function stripUpperDigits(float:Number, digits:int):Number {
+		public static function decimalCount(float:Number):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			var float_str:String = String(float);
-			var int_str:String = float_str.split(".")[0];
-			var dec_str:String = float_str.split(".")[1];
-			var tmp_str:String = float_str;
+			return (String(float).split(".")[1].length);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function wholeDigitCount(float:Number):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (String(float).split(".")[0].length);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+				
+		public static function stripUpperDigits(float:Number, place:int):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			var exp:int = BasicMath.powr10(place);
+			var int_str:String = String(float).split(".")[0];
+			
+			if (int_str.length > String(exp).length)
+				return (Number(int_str.substring(int_str.length - String(exp).length)) + decimalPlace(float));
+			
+			return (float);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function integerPlace(float:Number, position:int=0, isSigned:Boolean=false):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// multipliers
+			var exp:int;
+			var fract:Number;
+			
+			// values
+			var whole:int = dropDecimal(float);
+			var places:int = wholeDigitCount(float);
+			var digit:int = whole;
+			var sub:int = whole;
+			var sum:Number = 0;
 			
 			
-			if (int_str.length > digits)
-				tmp_str = float_str.substring(int_str.length - digits);
+			// special case-- position zero or larger than digits
+			if (position == 0 || position > places)
+				return (whole);
 			
-			return (Number(tmp_str));
+			// dec for string iterate
+			position--;
+			
+			
+			// loop from the top (biggest digit 1st)
+			var i:int = places;
+			while (i-- && i != position) {
+				
+				// upd multipliers
+				exp = BasicMath.powr10(i);
+				fract = 1 / BasicMath.powr10(i);
+				
+				//if (i != position) {
+					
+					// inc the running total & drop off the inc
+					sum += dropDecimal(sub * fract) * exp;
+					sub = whole - sum;
+					//trace ("<"+i+"> sum:["+sum+"] sub:["+sub+"] ["+exp+"] ["+fract+"]");
+					
+				/*} else {
+					digit = dropDecimal(sub * fract);
+					sub = dropDecimal(digit * exp);
+					
+					trace ("<"+i+"> ::SKIPPED::: digit:["+digit+"] // sub:["+sub+"] ["+exp+"] ["+fract+"]");
+				}*/
+			}
+			
+			// get the single digit & actual val
+			digit = dropDecimal(sub * 1 / BasicMath.powr10(position));
+			sub = dropDecimal(digit * BasicMath.powr10(position));
+			
+			//trace ("<"+i+"> ::EXITED::: digit:["+digit+"] // sub:["+sub+"] ["+BasicMath.powr10(position)+"] ["+(1 / BasicMath.powr10(position))+"]");
+			
+			
+			// apply ±
+			if (!isSigned)
+				return (Math.abs(digit));
+			
+			
+			return (digit);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		/**
+		 * (Υ Φ Ψ Ϟ α β γ δ λ φ ψ ϕ ϸ = 0) (<code>Υ Φ Ψ Ϟ α β γ δ λ φ ψ ϕ ϸ = 0</code>) 
+		 * @param float
+		 * @param position
+		 * @param isSigned
+		 * @return 
+		 * 
+		 */		
+		public static function decimalPlace(float:Number, position:int=0, isSigned:Boolean=false):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// move decimal pt over by 10^
+			var exp:int = BasicMath.powr10(position);
+			
+			// strip out just the decimal val
+			var decimal:Number = decimalPrecision(float - dropDecimal(float), decimalCount(float));
+			
+			// calc the val of decimal at position
+			var digit:Number = dropDecimal(decimal * exp) - (dropDecimal(decimal * (exp * 0.1)) * 10);
+			
+			
+			// special case, return full decimal
+			if (position == 0)
+				digit = decimal;
+			
+			
+			// take ± in account
+			if (!isSigned)
+				return (Math.abs(digit));
+			
+			
+			return (digit);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function additiveIdent(float:Number):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/**
+			 * Additive identity of a number states:
+			 * 
+			 *  γ + ϕ = γ 
+			 *  
+			 **/
+			
+			// 
+			return (float - float);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		/**
-		 * Converts a <code>Number</code> to it's inverse. 
+		 * Returns the opposite of a <code>Number</code> (<code>⁺γ + ⁻γ = 0</code>). 
 		 * @param float The input <code>Number</code> to convert.
 		 * @return The inverse (negated) value.
 		 * 
 		 */
-		public static function invert(float:Number):Number {
+		public static function additiveInverse(float:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/**
+			 * Inverse element of a number states:
+			 * 
+			 *  ⁺γ + ⁻γ = 0 
+			 *  
+			 **/
 			
 			// the val multiplied by ¯1
 			return (float * -1);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Returns the multiplicative inverse of a <code>Number</code>. (ᵠ⁄₁ · ¹⁄ᵩ = ¹⁄₁).
+		 * @param float A <code>Number</code> to reciprocate.
+		 * @return The inverse value of a <code>Number</code>.
+		 * 
+		 */		
+		public static function reciprocal(float:Number):Number {
+			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			/**
+			 * Multiplicative inverse function states:
+			 * 
+			 *  ¹⁄ᵪ · ˣ⁄₁ = ¹⁄₁ 
+			 * Where χ is a non-zero number.
+			 * 
+			 **/
+			
+			// zero has unique quasi-inverse
+			if (float == 0)
+				return (0);
+			
+			return (1 / float);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -188,10 +332,10 @@ package cc.gullinbursti.lang {
 		 * @return 
 		 * 
 		 */		
-		public static function formatDbl(float:Number):String {
+		public static function formatDblDigit(float:Number):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			return (Ints.formatDbl(float << 0));
+			return (Ints.formatDblDigit(float << 0));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

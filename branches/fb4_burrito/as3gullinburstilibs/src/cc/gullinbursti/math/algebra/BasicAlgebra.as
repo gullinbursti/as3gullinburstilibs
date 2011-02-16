@@ -2,7 +2,9 @@ package cc.gullinbursti.math.algebra {
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.lang.Numbers;
 	import cc.gullinbursti.math.BasicMath;
+
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~
 	
 	/**
@@ -28,15 +30,30 @@ package cc.gullinbursti.math.algebra {
 		//]~=~=~=~=~=~=~=~=~=[>
 		
 		
-		public static function additiveInverse(val:Number):Number {
+		/**
+		 * Returns the opposite of a <code>Number</code> (<code>⁺γ + ⁻γ = 0</code>). 
+		 * @param float The input <code>Number</code> to convert.
+		 * @return The inverse (negated) value.
+		 * 
+		 */
+		public static function additiveInverse(float:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (-val);
+			return (Numbers.additiveInverse(float));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function reciprocal(val:Number):Number {
+		/**
+		 * Returns the multiplicative inverse of a <code>Number</code>. (ᵠ⁄₁ · ¹⁄ᵩ = ¹⁄₁).
+		 * @param float A <code>Number</code> to reciprocate.
+		 * @return The inverse value of a <code>Number</code>.
+		 * 
+		 */		
+		public static function reciprocal(float:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (1 / val);
+			return (Numbers.reciprocal(float));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
 	}
 }
