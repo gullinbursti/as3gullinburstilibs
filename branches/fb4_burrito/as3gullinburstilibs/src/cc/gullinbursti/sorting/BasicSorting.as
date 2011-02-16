@@ -330,7 +330,7 @@ package cc.gullinbursti.sorting {
 			var pivot_val:Number = piv;
 			
 			if (piv == -1)
-				pivot_val = in_arr[Numbers.dropDecimal((l + r) / 2)];
+				pivot_val = in_arr[Numbers.chopDecimal((l + r) / 2)];
 			 
 			
 			// loop incs

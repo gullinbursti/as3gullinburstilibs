@@ -207,7 +207,7 @@ package cc.gullinbursti.math {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// value 
-			if (val % Math.abs(Numbers.dropDecimal(val)) == 0)
+			if (val % Math.abs(Numbers.chopDecimal(val)) == 0)
 				return (true);
 				
 			else
@@ -365,14 +365,14 @@ package cc.gullinbursti.math {
 		public static function isSquare(val:int):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			return ((Numbers.dropDecimal(root(val)) - root(val)) == 0);
+			return ((Numbers.chopDecimal(root(val)) - root(val)) == 0);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
 		public static function isCube(val:int):Boolean {
 			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			return ((Numbers.dropDecimal(cube(val)) - cube(val)) == 0);
+			return ((Numbers.chopDecimal(cube(val)) - cube(val)) == 0);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -481,9 +481,16 @@ package cc.gullinbursti.math {
 			
 			// raise to ¹⁄root
 			return (Math.pow(val, (1 / root)));
-			
-			//root.
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function nRoot(val:Number, root:int=2):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// raise to ¹⁄root
+			return (Math.pow(val, (1 / root)));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 		
 		
 		public static function summate(val_arr:Array, isSigned:Boolean=true):Number {
@@ -575,7 +582,7 @@ package cc.gullinbursti.math {
 			// loop thru
 			while (val >= radix) {
 				run_str += DIGITS[val % radix];
-				val = Numbers.dropDecimal(val / radix);
+				val = Numbers.chopDecimal(val / radix);
 			}
 			
 			// add last digit

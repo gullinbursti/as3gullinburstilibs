@@ -46,6 +46,7 @@ http://en.wikipedia.org/wiki/MIT_license/
 package cc.gullinbursti.lang {
 	import cc.gullinbursti.audio.fx.WahPetal;
 	import cc.gullinbursti.math.BasicMath;
+	import cc.gullinbursti.math.algebra.Fractions;
 	import cc.gullinbursti.math.probility.ListScrambler;
 	import cc.gullinbursti.math.probility.Randomness;
 	
@@ -636,7 +637,7 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function genRndASCII(amt:int=0, isMultiCased:Boolean=true, isSpaces:Boolean=false):String {
+		public static function genRndCharsASCII(amt:int=0, isMultiCased:Boolean=true, isSpaces:Boolean=false):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			
@@ -675,6 +676,58 @@ package cc.gullinbursti.lang {
 				
 				// pick a random char & append
 				concat_str += char_arr[Arrays.rndIndex(char_arr)];
+			}
+			
+			
+			return (concat_str);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		/**
+		 * Generates a collection of valid random <code>hex</code> characters [0-9] | [[a-f] | A-F]].  
+		 * @param amt The amount of chars to create. If ≤ zero, amt is between 64 & 96.
+		 * @param num_chance The likely ratio (6ᵪ die) of generating a digit.
+		 * @param isUpperCase [a-f|A-F]
+		 * @return A set of random hex vals.
+		 * 
+		 */		
+		public static function genRndCharsHex(amt:int=0, num_chance:int=4, isUpperCase:Boolean=false):String {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			// randomize amount
+			if (amt <= 0)
+				amt = Randomness.generateInt(64, 96);
+			
+			
+			
+			var concat_str:String = "";
+			var roll:int;
+			var ind:int;
+			
+			// character bank
+			var char_arr:Array = new Array();
+			var len:int = LATIN_STD_NUMS.length + 6;
+			
+			// prime the char array w/ numbers [0-9]
+			for (i=0; i<LATIN_STD_NUMS.length; i++)
+				char_arr.push(LATIN_STD_NUMS[i][0][0]);
+				
+			// prime the char array w/ letters [A-F|a-f]
+			for (i=0; i<6; i++)
+				char_arr.push(LATIN_STD_CHARS[i][int(!isUpperCase)][0]);
+			
+			// loop thru amount
+			for (var i:int=0; i<amt; i++) {
+				roll = Randomness.diceRoller();
+				ind = Arrays.rndIndex(LATIN_STD_NUMS);
+				
+				// lost chance for a number
+				if (num_chance < roll)
+					ind = Randomness.generateInt(LATIN_STD_NUMS.length, 5);
+				
+				
+				// append char
+				concat_str += char_arr[ind];
 			}
 			
 			
@@ -735,7 +788,7 @@ package cc.gullinbursti.lang {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			var offset_date:Date = new Date(1981, 6, 10, 2, 10);
-			var baseID:int = Math.abs(Numbers.dropDecimal(DateTimes.asUTC().valueOf() - 0));//offset_date.valueOf()));
+			var baseID:int = Math.abs(Numbers.chopDecimal(DateTimes.asUTC().valueOf() - 0));//offset_date.valueOf()));
 			
 			trace ("baseID:["+baseID+"]");
 			return (BasicMath.changeBase(baseID, 64));

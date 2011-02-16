@@ -306,7 +306,7 @@ package cc.gullinbursti.lang {
 			
 			
 			// as integer seconds
-			return (Numbers.dropDecimal(epoch_ms * 0.001));
+			return (Numbers.chopDecimal(epoch_ms * 0.001));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -785,7 +785,7 @@ package cc.gullinbursti.lang {
 			var time_arr:Array = time.split(":");
 			var hour:int = int(time_arr[0]);
 			var min:int = int(time_arr[1]);
-			var sec:int = Numbers.dropDecimal(int(time_arr[2]));
+			var sec:int = Numbers.chopDecimal(int(time_arr[2]));
 			var msec:int = Numbers.decimalPlace(int(time_arr[2]) * 1000) << 0;
 			
 			
@@ -803,7 +803,7 @@ package cc.gullinbursti.lang {
 			var time_arr:Array = time.split(":");
 			var hour:int = int(time_arr[0]);
 			var min:int = int(time_arr[1]);
-			var sec:int = Numbers.dropDecimal(int(time_arr[2]));
+			var sec:int = Numbers.chopDecimal(int(time_arr[2]));
 			var msec:int = Numbers.decimalPlace(int(time_arr[2]) * 1000) << 0;
 			
 			

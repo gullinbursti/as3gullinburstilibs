@@ -101,7 +101,6 @@ package cc.gullinbursti.math.algebra {
 		 */		
 		public static function invert(mtx:Array):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			
 			return (multiply(mtx, genIdenty(new Point((mtx[0] as Array).length, mtx.length))));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
@@ -186,7 +185,7 @@ package cc.gullinbursti.math.algebra {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 			
-		public static function multiplyFactor(mtx_arr:Array, factor:Number):Array {
+		public static function multiplyByFactor(mtx_arr:Array, factor:Number):Array {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			var prod_arr:Array = new Array();
@@ -206,7 +205,7 @@ package cc.gullinbursti.math.algebra {
 		
 		
 		public static function concat(dim:Point, mtx1:Array, mtx2:Array):Array {
-			
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			var concat_arr:Array = new Array();
 			
 			var col:int = 0;
@@ -247,7 +246,6 @@ package cc.gullinbursti.math.algebra {
 			*/
 			
 			return (concat_arr);
-			
-		}
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }

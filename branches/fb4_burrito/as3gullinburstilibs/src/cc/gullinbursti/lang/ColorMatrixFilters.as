@@ -121,7 +121,7 @@ package cc.gullinbursti.lang {
 			amt = Math.min(Math.max(amt, 0), 2);
 			
 			// add luminosity matrix to the adjusted saturation matrix
-			var sum_arr:Array = Matrices.add(LUM_MATRIX, Matrices.multiplyFactor(SAT_MATRIX, amt));
+			var sum_arr:Array = Matrices.add(LUM_MATRIX, Matrices.multiplyByFactor(SAT_MATRIX, amt));
 			
 			// concatinate w/ the identity
 			var concat_arr:Array = Matrices.concat(new Point(5, 4), 
@@ -147,7 +147,7 @@ package cc.gullinbursti.lang {
 			amt = Math.sin(Angle.degreesToRadians((Math.min(Math.max(-1, amt), 1) + 1) * 180));
 			
 			// add luminosity matrix to the adjusted saturation matrix
-			var sum_arr:Array = Matrices.add(LUM_MATRIX, Matrices.add(Matrices.multiplyFactor(SAT_MATRIX, amt), Matrices.multiplyFactor(HUE_MATRIX, amt)));
+			var sum_arr:Array = Matrices.add(LUM_MATRIX, Matrices.add(Matrices.multiplyByFactor(SAT_MATRIX, amt), Matrices.multiplyByFactor(HUE_MATRIX, amt)));
 			
 			
 			// concatinate w/ the identity

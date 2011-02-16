@@ -120,22 +120,31 @@ package cc.gullinbursti.math.probility {
 		
 		/**
 		 * Generates a random <code>int</code> w/in a given range.
-		 * @param lower the smallest possible #
-		 * @param upper the highest possible #
+		 * @param lower The smallest likely val.
+		 * @param upper The highest likely.
+		 * @param isAdd Use <code>upper</code> as an incrementor.
 		 * 
-		 * @return a random <code>int</code> from <code>lower</code> to <code>upper</code>
-		 **/
-		public static function generateInt(lower:Number=0, upper:Number=100):int {
+		 * @return a random <code>int</code> w/in range.
+		 **/		
+		public static function generateInt(lower:Number=0, upper:Number=100, isAdd:Boolean=false):int {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			lower = Math.min(lower, upper);
-			upper = Math.max(lower, upper);
+			// force inc if smaller
+			if (upper < lower)
+				isAdd = true;
 			
-			if (lower == upper)
+			// exit if vals are equal
+			else if (upper == lower)
 				return (lower);
-				
-			return (Numbers.dropDecimal(generateFloat(lower, upper+1)));
-		
+			
+			
+			// upper is an inc
+			if (isAdd)
+				upper += lower;
+			
+			
+			// generate a float & drop the decimal
+			return (Numbers.chopDecimal(generateFloat(lower, upper + 1)));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -182,7 +191,7 @@ package cc.gullinbursti.math.probility {
 			var div:int = MODULUS / MULTIPLIER;
 			var mod:int = MODULUS % MULTIPLIER;
 			
-			var seed:int = Numbers.dropDecimal(Numbers.stripUpperDigits(DateTimes.asUnixEpoch(null, true) * 1000, 9));
+			var seed:int = Numbers.chopDecimal(Numbers.stripUpperDigits(DateTimes.asUnixEpoch(null, true) * 1000, 9));
 			
 			// formula
 			//var val:int = MULTIPLIER * (seed_arr[stream_ind] % div) - mod * (seed_arr[stream_ind] / div);

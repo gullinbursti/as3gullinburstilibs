@@ -52,7 +52,7 @@ package cc.gullinbursti.lang {
 		 * @return An <code>int</code> representation of the floating point value.
 		 * 
 		 */		
-		public static function dropDecimal(float:Number):Number {
+		public static function chopDecimal(float:Number):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// build in floor method
@@ -120,7 +120,7 @@ package cc.gullinbursti.lang {
 			var fract:Number;
 			
 			// values
-			var whole:int = dropDecimal(float);
+			var whole:int = chopDecimal(float);
 			var places:int = wholeDigitCount(float);
 			var digit:int = whole;
 			var sub:int = whole;
@@ -146,7 +146,7 @@ package cc.gullinbursti.lang {
 				//if (i != position) {
 					
 					// inc the running total & drop off the inc
-					sum += dropDecimal(sub * fract) * exp;
+					sum += chopDecimal(sub * fract) * exp;
 					sub = whole - sum;
 					//trace ("<"+i+"> sum:["+sum+"] sub:["+sub+"] ["+exp+"] ["+fract+"]");
 					
@@ -159,8 +159,8 @@ package cc.gullinbursti.lang {
 			}
 			
 			// get the single digit & actual val
-			digit = dropDecimal(sub * 1 / BasicMath.powr10(position));
-			sub = dropDecimal(digit * BasicMath.powr10(position));
+			digit = chopDecimal(sub * 1 / BasicMath.powr10(position));
+			sub = chopDecimal(digit * BasicMath.powr10(position));
 			
 			//trace ("<"+i+"> ::EXITED::: digit:["+digit+"] // sub:["+sub+"] ["+BasicMath.powr10(position)+"] ["+(1 / BasicMath.powr10(position))+"]");
 			
@@ -190,10 +190,10 @@ package cc.gullinbursti.lang {
 			var exp:int = BasicMath.powr10(position);
 			
 			// strip out just the decimal val
-			var decimal:Number = decimalPrecision(float - dropDecimal(float), decimalCount(float));
+			var decimal:Number = decimalPrecision(float - chopDecimal(float), decimalCount(float));
 			
 			// calc the val of decimal at position
-			var digit:Number = dropDecimal(decimal * exp) - (dropDecimal(decimal * (exp * 0.1)) * 10);
+			var digit:Number = chopDecimal(decimal * exp) - (chopDecimal(decimal * (exp * 0.1)) * 10);
 			
 			
 			// special case, return full decimal
@@ -322,7 +322,7 @@ package cc.gullinbursti.lang {
 		public static function isInt(float:Number):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
-			return ((Numbers.dropDecimal(float) - float) == 0);
+			return ((Numbers.chopDecimal(float) - float) == 0);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -349,7 +349,7 @@ package cc.gullinbursti.lang {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// use method from Ints
-			return (Ints.ordinalSuffix(dropDecimal(float)));
+			return (Ints.ordinalSuffix(chopDecimal(float)));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		

@@ -454,7 +454,7 @@ package cc.gullinbursti.sorting {
 			else {
 				
 				// middle index
-				var m:int = Numbers.dropDecimal((l + r) / 2);
+				var m:int = Numbers.chopDecimal((l + r) / 2);
 				trace ("]] SORT ->> l:["+l+"] m:["+m+"] r:["+r+"] ");
 				
 				
