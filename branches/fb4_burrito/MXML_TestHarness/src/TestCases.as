@@ -197,6 +197,21 @@ package {
 		}
 		
 		
+		public function cryptoTests():void {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			
+			var chars:String = Strings.genRndCharsHex(0xff);
+			
+			trace (chars);
+			
+			
+			
+			
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+
+		
+		
 		public function shapeTests(canvas:Canvas):void {
 			
 			canvas.addEventListener(MouseEvent.CLICK, function (e:MouseEvent=null):void {

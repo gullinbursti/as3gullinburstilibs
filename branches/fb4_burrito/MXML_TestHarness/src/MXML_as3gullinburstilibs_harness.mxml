@@ -488,7 +488,8 @@
 			//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 				trace ("[>=<] Application.hdlApp_AddedToStage() [>=<]");
 				
-				_testCases.numberTests();
+				_testCases.cryptoTests();
+				//_testCases.numberTests();
 				//_testCases.stringTests();
 				//_testCases.arrayTests();
 				//_testCases.matrixTests();
