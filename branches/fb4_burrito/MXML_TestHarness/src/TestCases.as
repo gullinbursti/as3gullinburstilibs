@@ -1,6 +1,8 @@
 package {
 	import caurina.transitions.Tweener;
 	
+	import cc.gullinbursti.math.algebra.BasicAlgebra;
+	
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.BitmapDataChannel;
@@ -8,6 +10,7 @@ package {
 	import flash.display.Shape;
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
+	import flash.utils.getTimer;
 	
 	import mx.containers.Canvas;
 	
@@ -40,12 +43,52 @@ package {
 		
 		public function numberTests():void {
 			
-			var float_rnd:Number = Randomness.generateFloat(1000, 2000, 5);
+			var float_rnd:Number = Randomness.generateFloat(1, 100);
 			var int_rnd:Number = Randomness.generateInt(100, 300);
 			var tot_arr:Array = [0, 0]; 
 			
-			for (var i:int=0; i<100; i++)
-				trace ("BasicMath.mersenneTwister("+i+")", Randomness.mersenneTwister());			
+			//for (var i:int=0; i<100; i++)
+			//	trace ("BasicMath.mersenneTwister("+i+")", Randomness.mersenneTwister());
+			
+			/*
+			for (var i:int=0; i<10; i++) {
+				float_rnd = Randomness.generateFloat(500, 1500, Randomness.generateInt(3, 5));
+				//trace (float_rnd, decimal, Number(float_rnd.toFixed(5)), (int(float_rnd) + Number(decimal.toPrecision(5))), Numbers.setDecimalPrecision(float_rnd, 5))
+				//trace (float_rnd, Numbers.decimalPrecision(float_rnd, 0), Numbers.extendDecimal(float_rnd, 5));
+				trace (float_rnd, "\n[=-=-=-=-=-=-=-=-=-=-=-=-=]")
+				trace (float_rnd, Numbers.extendDecimal(float_rnd, 5), Numbers.decimalPlace(float_rnd, 0));
+				trace (float_rnd, Numbers.extendDecimal(float_rnd, 5), Numbers.decimalPlace(float_rnd, 1));
+				trace (float_rnd, Numbers.extendDecimal(float_rnd, 5), Numbers.decimalPlace(float_rnd, 2));
+				trace (float_rnd, Numbers.extendDecimal(float_rnd, 5), Numbers.decimalPlace(float_rnd, 3));
+				trace (float_rnd, Numbers.extendDecimal(float_rnd, 5), Numbers.decimalPlace(float_rnd, 4));
+				trace (float_rnd, Numbers.extendDecimal(float_rnd, 5), Numbers.decimalPlace(float_rnd, 5));
+				
+				trace (float_rnd, Numbers.integerPlace(float_rnd, 0));
+				trace (float_rnd, Numbers.integerPlace(float_rnd, 1));
+				trace (float_rnd, Numbers.integerPlace(float_rnd, 2));
+				trace (float_rnd, Numbers.integerPlace(float_rnd, 3));
+				trace (float_rnd, Numbers.integerPlace(float_rnd, 4));
+				
+				trace ("[=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=]\n\n");
+			}
+			*/
+			
+			/*
+			trace (int_rnd);
+			trace ("Numbers.reciprocal", Numbers.reciprocal(10));
+			trace ("Ints.reciprocal", Ints.reciprocal(10));
+			trace ("BasicAlgebra.reciprocal", BasicAlgebra.reciprocal(10));
+			
+			
+			trace ("Numbers.additiveInverse", Numbers.additiveInverse(10));
+			trace ("Ints.additiveInverse", Ints.additiveInverse(10));
+			trace ("BasicAlgebra.additiveInverse", BasicAlgebra.additiveInverse(10));
+			*/
+			
+			//trace (int_rnd, int_rnd.toPrecision(5), (int_rnd.toString() + Numbers.decimalPlace(int_rnd).toPrecision(5)), Numbers.setDecimalPrecision(int_rnd, 5))
+			
+			//trace ("Numbers.decimalPlace("+float_rnd+"): ["+Numbers.decimalPlace(float_rnd)+"]")
+			//trace ("Numbers.extendDecimal("+float_rnd+", 3): ["+Numbers.extendDecimal(float_rnd, 3)+"]")
 		}
 		
 		public function arrayTests():void {
@@ -86,7 +129,7 @@ package {
 			
 			//trace (DateTimes.timestampAsCountdown(new Date(2, 11, 30, 3, 55, 23)));
 			
-			trace (Ints.formatDbl(1));
+			trace (Ints.formatDblDigit(1));
 			
 		}
 		
@@ -97,6 +140,55 @@ package {
 			//trace (0xf04a3bc9, 0xf0000000, Colors.alphaAmt(0xf04a3bc9));
 			redraw(canvas);
 		}
+		
+		
+		
+		public function dateTests(canvas:Canvas=null):void {
+			
+			var swatch_val:String = "@248";
+			var date_str:String = "Mon Feb 14 20:55:07 GMT-0800 2011";
+			var utc_str:String = "Tue Feb 15 00:02:13 2011 UTC";
+			var iso8601_str:String = "2005-08-15T15:52:01-0700"; //"2005-08-15T15:52:01-0730";
+			var mysql_str:String = "2005-08-15 15:52:01.051";
+			var atom_str:String = "2005-08-15T15:52:01-07:00"; //"2005-08-15T15:52:01-07:30"; //"2005-08-15T15:52:01Z";
+			
+			var curr_date:Date = new Date();
+			var str_date:Date = new Date(date_str);
+				str_date.setMilliseconds(0);
+				
+			var utc_date:Date = new Date(Date.UTC(curr_date.getFullYear(), curr_date.getMonth(), curr_date.getDate(), curr_date.getHours(), curr_date.getMinutes() + curr_date.getTimezoneOffset(), curr_date.getSeconds(), curr_date.getMilliseconds()));
+			
+			var jul:Number = (str_date.hours+(str_date.minutes+str_date.seconds/60)/60)/24;
+			
+			//trace ("DateTimes.stringToDate("+date_str+"): ["+DateTimes.stringToDate(date_str)+"]");
+			//trace ("DateTimes.asUTC("+curr_date+"): ["+DateTimes.asUTC(curr_date)+"]");
+			
+			//trace ("Date.UTC(): ["+Date.UTC(curr_date.getFullYear(), curr_date.getMonth(), curr_date.getDate(), curr_date.getHours(), curr_date.getMinutes(), curr_date.getSeconds(), curr_date.getMilliseconds())+"]");
+			//trace ("Date.UTC(): ["+utc_date.toString()+"] ["+utc_date.toUTCString()+"]");
+			//trace ("DateTimes.asUTC("+curr_date+"): ["+DateTimes.asUTC(curr_date)+"] ["+DateTimes.asUTC(curr_date).toUTCString()+"]");
+			
+			//trace ("DateTimes.swatchTimeToDate("+val+"): ["+swatch_date+"]");
+			//trace ("DateTimes.asSwatchInternetTime("+str_date+"): ["+DateTimes.asSwatchInternetTime(str_date)+"]");
+			//trace ("DateTimes.swatchTimeToDate("+swatch_val+"): ["+DateTimes.swatchTimeToDate(swatch_val)+"]");
+			
+			//trace ("DateTimes.iso8601ToDate("+iso8601_str+"): ["+DateTimes.iso8601ToDate(iso8601_str)+"] ["+DateTimes.iso8601ToDate(iso8601_str).toUTCString()+"]");
+			//trace ("DateTimes.atomToDate("+atom_str+"): ["+DateTimes.atomToDate(atom_str)+"] ["+DateTimes.atomToDate(atom_str).toUTCString()+"]");
+			
+			//trace ("DateTimes.asJulianDay("+str_date+"): ["+DateTimes.asJulianCalendar(str_date)+"] ["+DateTimes.asJulianDay(str_date, false)+"]");
+			//trace ("DateTimes.asJulianDay("+DateTimes.asJulianDay(str_date, false)+"): ["+DateTimes.julianToDate(DateTimes.asJulianDay(str_date, false))+"]");
+			
+			trace ("DateTimes.asIslamDate("+curr_date+"): ["+DateTimes.asIslamDate(curr_date)+"]");
+			
+			//trace ("DateTimes.easterDate("+str_date.getFullYear()+"): ["+DateTimes.easterDate(str_date.getFullYear())+"]");
+			
+			//trace ("DateTimes.dstStart("+2011+"): ["+DateTimes.dstStart(2011)+"]");
+			//trace ("DateTimes.dstEnd("+2011+"): ["+DateTimes.dstEnd(2011)+"]");
+			
+			//trace ("DateTimes.difference("+2011+"): ["+DateTimes.difference(DateTimes.dstStart(2011), DateTimes.dstEnd(2011))+"]");
+			//trace ("DateTimes.elapsedSince("+2011+"): ["+DateTimes.elapsedSince(DateTimes.dstStart(2011), DateTimes.dstEnd(2011))+"]");
+			//trace ("DateTimes.unixEpochToDate(): ["+DateTimes.unixEpochToDate(DateTimes.difference(DateTimes.dstStart(2011), DateTimes.dstEnd(2011)), true)+"]");
+		}
+		
 		
 		
 		public function filterTests(canvas:Canvas):void {

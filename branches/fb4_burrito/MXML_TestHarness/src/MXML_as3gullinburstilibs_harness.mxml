@@ -494,6 +494,7 @@
 				//_testCases.matrixTests();
 				//_testCases.shapeTests(cnvOutput);
 				//_testCases.colorTests();
+				//_testCases.dateTests();
 				
 				//startAudioGen();
 				grpOutput.visible = false;
