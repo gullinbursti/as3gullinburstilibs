@@ -177,7 +177,7 @@ package {
 			//trace ("DateTimes.asJulianDay("+str_date+"): ["+DateTimes.asJulianCalendar(str_date)+"] ["+DateTimes.asJulianDay(str_date, false)+"]");
 			//trace ("DateTimes.asJulianDay("+DateTimes.asJulianDay(str_date, false)+"): ["+DateTimes.julianToDate(DateTimes.asJulianDay(str_date, false))+"]");
 			
-			trace ("DateTimes.asIslamDate("+curr_date+"): ["+DateTimes.asIslamDate(curr_date)+"]");
+			//trace ("DateTimes.asIslamDate("+curr_date+"): ["+DateTimes.asIslamDate(curr_date)+"]");
 			
 			//trace ("DateTimes.easterDate("+str_date.getFullYear()+"): ["+DateTimes.easterDate(str_date.getFullYear())+"]");
 			
@@ -187,6 +187,12 @@ package {
 			//trace ("DateTimes.difference("+2011+"): ["+DateTimes.difference(DateTimes.dstStart(2011), DateTimes.dstEnd(2011))+"]");
 			//trace ("DateTimes.elapsedSince("+2011+"): ["+DateTimes.elapsedSince(DateTimes.dstStart(2011), DateTimes.dstEnd(2011))+"]");
 			//trace ("DateTimes.unixEpochToDate(): ["+DateTimes.unixEpochToDate(DateTimes.difference(DateTimes.dstStart(2011), DateTimes.dstEnd(2011)), true)+"]");
+			
+			
+			//trace ("DateTimes.midnight(): ["+DateTimes.midnight()+"]");
+			//trace ("DateTimes.endOfDay(): ["+DateTimes.endOfDay()+"]");
+			
+			trace ("DateTimes.secondsToEOD(): ["+DateTimes.secondsToEOD()+"]");
 		}
 		
 		
