@@ -175,6 +175,21 @@ package cc.gullinbursti.lang {
 		private static const RSS20:String 			= "D, d M Y H:i:s O"; 	// [Mon, 15 Aug 2005 15:52:01 +0000]
 		
 		
+		// 
+		private static const MONTHS_IN_YEAR:int = 12;
+		private static const WEEKS_IN_YEAR:int = 52;
+		private static const DAYS_IN_YEAR:Number = 365.25;
+		private static const HOURS_IN_YEAR:Number = 8766;
+		private static const MINUTES_IN_YEAR:Number = 525960;
+		private static const SECONDS_IN_YEAR:Number = 31557600;
+		private static const HOURS_IN_DAY:int = 24;
+		private static const MINUTES_IN_DAY:int = 6240;
+		private static const SECONDS_IN_DAY:int = 86400;
+		private static const MINUTES_IN_HOUR:int = 60;
+		private static const SECONDS_IN_HOUR:int = 3600;
+		private static const SECONDS_IN_MINUTE:int = 60;
+		
+		
 		// swatch time
 		private static const BEATS_YEAR:int = 365000;
 		private static const BEATS_WEEK:int = 7000;
@@ -1020,6 +1035,39 @@ package cc.gullinbursti.lang {
 			
 			
 			return (new Date(year, 2, 22 + d + e));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function midnight(date:Date=null):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			return (new Date(date.getFullYear(), date.getMonth(), date.getDate()));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		public static function endOfDay(date:Date=null):Date {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			return (new Date(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 59, 999));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function secondsToEOD(date:Date=null):Number {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			
+			if (!date)
+				date = new Date();
+			
+			trace ("hrs:["+(difference(date, endOfDay(date)) / 360000)+"]");
+			
+			return (difference(date, endOfDay(date)) / 1000);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
