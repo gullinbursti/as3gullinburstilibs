@@ -233,6 +233,17 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
+		public static function argbAmts(color:uint):Object {
+		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
+			
+			return ([
+				a:alphaAmt(color),
+				r:redAmt(color),
+				g:greenAmt(color),
+				b:blueAmt(color)
+			]);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 	
 		public static function alphaAmt(color:uint):uint {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
