@@ -125,12 +125,9 @@ package {
 		
 		
 		public function stringTests():void {
-			
-			
 			//trace (DateTimes.timestampAsCountdown(new Date(2, 11, 30, 3, 55, 23)));
 			
 			trace (Ints.formatDblDigit(1));
-			
 		}
 		
 		
@@ -207,7 +204,7 @@ package {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			
-			var chars:String = Strings.genRndCharsHex(0xff);
+			var chars:String = Strings.genRndHexChars(0xff);
 			
 			trace (chars);
 			

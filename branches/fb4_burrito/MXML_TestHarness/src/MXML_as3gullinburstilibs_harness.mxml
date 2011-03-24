@@ -490,12 +490,12 @@
 				
 				//_testCases.cryptoTests();
 				//_testCases.numberTests();
-				//_testCases.stringTests();
+				_testCases.stringTests();
 				//_testCases.arrayTests();
 				//_testCases.matrixTests();
 				//_testCases.shapeTests(cnvOutput);
 				//_testCases.colorTests();
-				_testCases.dateTests();
+				//_testCases.dateTests();
 				
 				//startAudioGen();
 				grpOutput.visible = false;

@@ -1,0 +1,32 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+#grpOutput {
+	text-align: center;
+	vertical-align: middle;
+	
+	height: 480;
+}
+
+#cnvOsilloscope {
+	borderStyle: solid;
+	borderThickness: 1;
+	borderColor: #2f373c;
+	
+	backgroundColor: #eeddc4;
+}
+
+#cnvLvls {
+	borderStyle: solid;
+	borderThickness: 1;
+	borderColor: #2f373c;
+	
+	backgroundColor: #b09e8c;
+}
+
+#cnvOutput {
+	borderThickness: 1;
+	borderColor: #2f373c;
+	backgroundColor: #eeddc4;
+}
