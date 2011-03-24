@@ -637,7 +637,7 @@ package cc.gullinbursti.lang {
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
-		public static function genRndCharsASCII(amt:int=0, isMultiCased:Boolean=true, isSpaces:Boolean=false):String {
+		public static function genRndASCIIChars(amt:int=0, isMultiCased:Boolean=true, hasSpaces:Boolean=false):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			
@@ -646,7 +646,7 @@ package cc.gullinbursti.lang {
 			
 			// character bank
 			var char_arr:Array = new Array();
-			var len:int = LATIN_STD_CHARS.length*int(isMultiCased+1);
+			var len:int = LATIN_STD_CHARS.length * int(isMultiCased + 1);
 				
 			// prime the char array w/ letters
 			for (i=0; i<len; i++) {
@@ -662,7 +662,7 @@ package cc.gullinbursti.lang {
 			
 			
 			// allow spaces
-			if (isSpaces)
+			if (hasSpaces)
 				char_arr.push(ASCII_CTRLS[ASCII_CTRLS.length-1][0][0]);
 			
 			
@@ -691,7 +691,7 @@ package cc.gullinbursti.lang {
 		 * @return A set of random hex vals.
 		 * 
 		 */		
-		public static function genRndCharsHex(amt:int=0, num_chance:int=4, isUpperCase:Boolean=false):String {
+		public static function genRndHexChars(amt:int=0, num_chance:int=4, isUpperCase:Boolean=false):String {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			// randomize amount

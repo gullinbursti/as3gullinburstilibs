@@ -236,12 +236,12 @@ package cc.gullinbursti.lang {
 		public static function argbAmts(color:uint):Object {
 		//~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~~*~._
 			
-			return ([
+			return ({
 				a:alphaAmt(color),
 				r:redAmt(color),
 				g:greenAmt(color),
 				b:blueAmt(color)
-			]);
+			});
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 	
