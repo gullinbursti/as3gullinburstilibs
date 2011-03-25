@@ -2,6 +2,7 @@ package {
 	import caurina.transitions.Tweener;
 	
 	import cc.gullinbursti.math.algebra.BasicAlgebra;
+	import cc.gullinbursti.math.discrete.Factorization;
 	
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
@@ -45,6 +46,9 @@ package {
 			
 			var float_rnd:Number = Randomness.generateFloat(1, 100);
 			var int_rnd:Number = Randomness.generateInt(100, 300);
+			var float_std:Number = 0.33;
+			var int_std:Number = 4;
+			
 			var tot_arr:Array = [0, 0]; 
 			
 			//for (var i:int=0; i<100; i++)
@@ -73,12 +77,13 @@ package {
 			}
 			*/
 			
+			trace (float_std, Numbers.asFraction(float_std));
+			
 			/*
 			trace (int_rnd);
 			trace ("Numbers.reciprocal", Numbers.reciprocal(10));
 			trace ("Ints.reciprocal", Ints.reciprocal(10));
 			trace ("BasicAlgebra.reciprocal", BasicAlgebra.reciprocal(10));
-			
 			
 			trace ("Numbers.additiveInverse", Numbers.additiveInverse(10));
 			trace ("Ints.additiveInverse", Ints.additiveInverse(10));
@@ -128,6 +133,20 @@ package {
 			//trace (DateTimes.timestampAsCountdown(new Date(2, 11, 30, 3, 55, 23)));
 			
 			trace (Ints.formatDblDigit(1));
+		}
+		
+		
+		public function factorizingTests():void {
+			
+			trace (Factorization.primeFactors(12));
+		}
+		
+		
+		public function mathTests():void {
+			
+			var val:int = 85;
+			
+			trace ("BasicMath.divisors("+val+"): "+BasicMath.divisors(val));
 		}
 		
 		
@@ -337,31 +356,66 @@ package {
 		
 		public function matrixTests():void {
 			
+			var row:int;
+			var col:int;
+			var size:int = 5;
+			
 			var blur_arr:Array = new Array(
-				[0,  1,  2,  4,  8,  4,  2,  1,  0], 
-				[1,  2,  4,  8, 16,  8,  4,  2,  1], 
-				[2,  4,  8, 16, 32, 16,  8,  4,  2],  
-				[4,  8, 16, 32, 64, 32, 16,  8,  4], 
-				[8, 16, 32, 64,128, 64, 32, 16,  8],  
-				[4,  8, 16, 32, 64, 32, 16,  8,  4], 
-				[2,  4,  8, 16, 32, 16,  8,  4,  2],
-				[1,  2,  4,  8, 16,  8,  4,  2,  1], 
-				[0,  1,  2,  4,  8,  4,  2,  1,  0]
+				[0,  1,  2,  4,   8,  4,  2,  1,  0], 
+				[1,  2,  4,  8,  16,  8,  4,  2,  1], 
+				[2,  4,  8, 16,  32, 16,  8,  4,  2],  
+				[4,  8, 16, 32,  64, 32, 16,  8,  4], 
+				[8, 16, 32, 64, 128, 64, 32, 16,  8],  
+				[4,  8, 16, 32,  64, 32, 16,  8,  4], 
+				[2,  4,  8, 16,  32, 16,  8,  4,  2],
+				[1,  2,  4,  8,  16,  8,  4,  2,  1], 
+				[0,  1,  2,  4,   8,  4,  2,  1,  0]
 			);
 			
 			
-			blur_arr = [
-				3, 1, 3,
-				1, 2, 1,
-				4, 1, 3
-			];
+			var mtx1_arr:Array = new Array(
+				[ 1, -1,  3], 
+				[ 2,  1,  2], 
+				[-2, -2,  1]
+			);
+			
+			var mtx2_arr:Array = new Array(
+				[0, 2, 1], 
+				[3, 1, 0], 
+				[2, 0, 1]
+			);
+			
+			var mtx3_arr:Array = new Array(
+				[13,  2,  3,  4,  5], 
+				[ 6, 14,  7,  8,  9], 
+				[10, 15, 11, 12, 16], 
+				[17, 18, 19, 20, 21], 
+				[22, 23, 24, 25, 26]
+			);
+			
+			var mtx4_arr:Array = new Array(
+				[00, 01, 02, 01, 00], 
+				[01, 02, 04, 02, 01], 
+				[02, 04, 08, 04, 02], 
+				[01, 02, 04, 02, 01], 
+				[00, 02, 04, 02, 00]
+			);
+			
+			var indent_arr:Array = Matrices.genIdenty(new Point(size, size));
+			var invert_arr:Array = Matrices.invert(mtx4_arr);
 			
 			
-			var indent_arr:Array = Matrices.genIdenty(new Point(3, 3));
-			//var prod_arr:Array = Matrices.invert(blur_arr);
-			var concat_arr:Array = Matrices.concat(new Point(3, 3), blur_arr, indent_arr);
+			for (row=0; row<size; row++)	
+				trace ("mtx4_arr["+row+"]\t: ["+mtx4_arr[row]+"]");
 			
-			trace(concat_arr);
+			for (row=0; row<size; row++)
+				trace ("indent_arr["+row+"]\t: ["+indent_arr[row]+"]");
+			
+			for (row=0; row<size; row++)
+				trace ("invert_arr["+row+"]\t: ["+invert_arr[row]+"]");
+			
+			//var mult_arr:Array = Matrices.multiply(mtx1_arr, mtx2_arr);
+			//trace ("Matrices.invert:\n"+invert_arr);
 		}
 		
 		
