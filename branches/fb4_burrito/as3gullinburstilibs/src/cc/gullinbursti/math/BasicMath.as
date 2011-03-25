@@ -193,6 +193,11 @@ package cc.gullinbursti.math {
 			return (BasicMath.divisors(val, isOne, isSelf).shift());
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
+		public static function largestDivisor(val:Number, isOne:Boolean=true, isSelf:Boolean=true):int {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+			return (BasicMath.divisors(val, isOne, isSelf).pop());
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
 		public static function isApproxEqual(val1:Number, val2:Number, places:int=5):Boolean {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 		

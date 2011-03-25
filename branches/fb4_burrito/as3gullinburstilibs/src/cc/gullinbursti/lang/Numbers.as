@@ -3,8 +3,11 @@ package cc.gullinbursti.lang {
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
 	import cc.gullinbursti.math.BasicMath;
+	import cc.gullinbursti.math.algebra.Fractions;
+	import cc.gullinbursti.math.discrete.Factorization;
 	
 	import flash.geom.Point;
+
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	
@@ -42,7 +45,7 @@ package cc.gullinbursti.lang {
 		 */		
 		public static function decimalPrecision(float:Number, places:int=2):Number {
 		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
-			return (Number(float.toFixed(places)));
+			return (Number(float.toPrecision(places)));
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -253,7 +256,7 @@ package cc.gullinbursti.lang {
 		 * 
 		 */		
 		public static function reciprocal(float:Number):Number {
-			//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._
 			
 			/**
 			 * Multiplicative inverse function states:
@@ -267,7 +270,9 @@ package cc.gullinbursti.lang {
 			if (float == 0)
 				return (0);
 			
-			return (1 / float);
+			var recip:Number = 1 / float;
+			
+			return (recip);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 		
 		
@@ -365,6 +370,28 @@ package cc.gullinbursti.lang {
 			
 			// a point containing the swapped vals
 			return (new Point(float2, float1));
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function hasDecimal(float:Number):Boolean {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._		
+			
+			return (float - chopDecimal(float) == 0);
+		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
+		
+		
+		
+		public static function asFraction(float:Number):Point {
+		//]~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~._			
+			
+			var denom:int = BasicMath.powr10(decimalCount(float));
+			var nom:Number = decimalPlace(float) * denom;
+			
+			var fract:Point = Fractions.reduce(new Point(nom, denom)); 
+				fract.x += chopDecimal(float) * fract.y;
+			
+			return (fract);
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯
 	}
 }
