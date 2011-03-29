@@ -303,8 +303,8 @@ package {
 				alpha_sprite.x = 336;
 				alpha_sprite.y = 150;
 				
-			var rot_sprite:Sprite = new Sprite();
-				rot_sprite.x = 112;
+			var clone_sprite:Sprite = new Sprite();
+				clone_sprite.x = 112;
 			
 			var greyscale_sprite:Sprite = new Sprite();
 				greyscale_sprite.x = 224;
@@ -316,23 +316,26 @@ package {
 			var alpha_bmpData:BitmapData = src_bmpData.clone();
 			*/
 				
-			var red_bmpData:BitmapData = BitmapDatas.extractChannel(src_bmpData, BitmapDataChannel.RED, true);
-			var green_bmpData:BitmapData = BitmapDatas.extractChannel(src_bmpData, BitmapDataChannel.GREEN, true);
-			var blue_bmpData:BitmapData = BitmapDatas.extractChannel(src_bmpData, BitmapDataChannel.BLUE, true);
+			var red_bmpData:BitmapData = BitmapDatas.extractChannel(src_bmpData, BitmapDataChannel.RED);
+			var green_bmpData:BitmapData = BitmapDatas.extractChannel(src_bmpData, BitmapDataChannel.GREEN);
+			var blue_bmpData:BitmapData = BitmapDatas.extractChannel(src_bmpData, BitmapDataChannel.BLUE);
 			var alpha_bmpData:BitmapData = BitmapDatas.extractChannel(src_bmpData, BitmapDataChannel.ALPHA, true);
 			
 			var greyscale_bmpData:BitmapData = src_bmpData.clone();
-			var rot_bmpData:BitmapData = src_bmpData.clone();
+			var clone_bmpData:BitmapData = src_bmpData.clone();
 			
 			/*BitmapDatas.dropChannel(red_bmpData, BitmapDataChannel.RED);
 			BitmapDatas.dropChannel(green_bmpData, BitmapDataChannel.GREEN);
 			BitmapDatas.dropChannel(blue_bmpData, BitmapDataChannel.BLUE);
 			BitmapDatas.dropChannel(alpha_bmpData, BitmapDataChannel.ALPHA);*/
 			
-			BitmapDatas.greyscale(greyscale_bmpData);
-			BitmapDatas.saturate(rot_bmpData, 0.5);
+			//BitmapDatas.greyscale(greyscale_bmpData);
+			//BitmapDatas.saturate(rot_bmpData, 0.5);
 			//BitmapDatas.hue(rot_bmpData, 0);
-			 
+			
+			//clone_sprite.filters = [ConvolutionFilters.blur()];
+			//greyscale_sprite.filters = [ConvolutionFilters.blur()];
+			
 			
 			
 			src_sprite.addChild(new Bitmap(src_bmpData));
@@ -340,17 +343,17 @@ package {
 			green_sprite.addChild(new Bitmap(green_bmpData));
 			blue_sprite.addChild(new Bitmap(blue_bmpData));
 			alpha_sprite.addChild(new Bitmap(alpha_bmpData));
-			rot_sprite.addChild(new Bitmap(rot_bmpData));
+			clone_sprite.addChild(new Bitmap(clone_bmpData));
 			greyscale_sprite.addChild(new Bitmap(greyscale_bmpData));
 			
 			
 			out_cnv.rawChildren.addChild(src_sprite);
+			out_cnv.rawChildren.addChild(clone_sprite);
+			out_cnv.rawChildren.addChild(greyscale_sprite);
 			out_cnv.rawChildren.addChild(red_sprite);
 			out_cnv.rawChildren.addChild(green_sprite);
 			out_cnv.rawChildren.addChild(blue_sprite);
 			out_cnv.rawChildren.addChild(alpha_sprite);
-			out_cnv.rawChildren.addChild(rot_sprite);
-			out_cnv.rawChildren.addChild(greyscale_sprite);
 		}
 		
 		

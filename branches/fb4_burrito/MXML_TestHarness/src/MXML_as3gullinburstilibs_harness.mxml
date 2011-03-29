@@ -493,7 +493,7 @@
 				//_testCases.numberTests();
 				//_testCases.stringTests();
 				//_testCases.arrayTests();
-				_testCases.matrixTests();
+				//_testCases.matrixTests();
 				//_testCases.shapeTests(cnvOutput);
 				//_testCases.colorTests();
 				//_testCases.dateTests();
@@ -505,10 +505,10 @@
 				grpOutput.visible = false;
 				
 				
-				//var bmpData:BitmapData = bmpImgMalmo.bitmapData.clone();
-				//cnvOutput.rawChildren.addChild(new Bitmap(bmpData));
+				var bmpData:BitmapData = bmpImgMalmo.bitmapData.clone();
+				cnvOutput.rawChildren.addChild(new Bitmap(bmpData));
 				
-				//_testCases.bitmapTests(bmpImgMalmo.bitmapData.clone(), cnvOutput);
+				_testCases.bitmapTests(bmpImgMalmo.bitmapData.clone(), cnvOutput);
 				bmpImgMalmo.visible = false;
 				
 				//_testCases.filterTests(cnvOutput);
@@ -549,7 +549,7 @@
 	</s:Group>
 	
 	<mx:Canvas id="cnvOutput" width="100%" height="100%" />
-	<s:BitmapImage id="bmpImgMalmo" source="@Embed('assets/malmo.png')" width="112" height="150" />
+	<s:BitmapImage id="bmpImgMalmo" source="@Embed('../assets/png/malmo.png')" width="112" height="150" />
 	<!-- //////////////////// -->
 	<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 	
