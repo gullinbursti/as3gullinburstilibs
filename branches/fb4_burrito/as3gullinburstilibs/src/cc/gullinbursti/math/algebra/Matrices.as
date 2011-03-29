@@ -481,16 +481,25 @@ package cc.gullinbursti.math.algebra {
 			
 			for (var j:int=0; j<mtx_arr.length; j++) {
 					factor_arr = [];
+				
+				if (mtx_arr[0] as Array) {
+					for (var i:int=0; i<(mtx_arr[0] as Array).length; i++) {
+						if (mtx_arr[j][i] == 0)
+							factor_arr.push(0);
 					
-				for (var i:int=0; i<(mtx_arr[0] as Array).length; i++) {
-					if (mtx_arr[j][i] == 0)
-						factor_arr.push(0);
+						else
+							factor_arr.push(factor * mtx_arr[j][i]);
+					}
 				
+					prod_arr.push(factor_arr);
+				
+				} else {
+					if (mtx_arr[j] == 0)
+						prod_arr.push(0);
+							
 					else
-						factor_arr.push(factor * mtx_arr[j][i]);
+						prod_arr.push(factor * mtx_arr[j]);
 				}
-				
-				prod_arr.push(factor_arr);
 			}
 			
 			return (prod_arr);

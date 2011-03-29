@@ -378,6 +378,7 @@
       <class>cc.gullinbursti.lang.Colors</class>
       <class>cc.gullinbursti.lang.ConvolutionFilters</class>
       <class>cc.gullinbursti.lang.DateTimes</class>
+      <class>cc.gullinbursti.lang.DisplacementMapFilters</class>
       <class>cc.gullinbursti.lang.Ints</class>
       <class>cc.gullinbursti.lang.Keys</class>
       <class>cc.gullinbursti.lang.Matrixs</class>

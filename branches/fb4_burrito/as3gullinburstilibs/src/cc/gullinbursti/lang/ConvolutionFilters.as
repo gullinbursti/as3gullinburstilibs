@@ -1,10 +1,10 @@
 package cc.gullinbursti.lang {
-	import cc.gullinbursti.math.BasicMath;
-	
-	import flash.filters.ConvolutionFilter;
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import cc.gullinbursti.math.BasicMath;
+	
+	import flash.filters.ConvolutionFilter;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	
@@ -70,10 +70,14 @@ package cc.gullinbursti.lang {
 			trace (flt_arr);
 			trace (Math.pow(2, -1))
 			
-			return(new ConvolutionFilter(amt, amt,
-				[0, 1, 0,
-				 1, 2, 1,
-				 0, 1, 0]
+			return(new ConvolutionFilter(7, 7,
+				[000, 001, 002, 004, 002, 001, 000,
+				 001, 002, 004, 008, 004, 002, 001,
+				 002, 004, 008, 016, 008, 004, 002,
+				 004, 008, 016, 032, 016, 008, 004,
+				 002, 004, 008, 016, 008, 004, 002,
+				 001, 002, 004, 008, 004, 002, 001,
+				 000, 001, 002, 004, 002, 001, 000], 192
 			));
 			
 		}//]~*~~*~~*~~*~~*~~*~~*~~*~~·¯ 

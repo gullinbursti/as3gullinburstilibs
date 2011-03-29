@@ -135,6 +135,7 @@
     <classEntry path="cc.gullinbursti.lang.ColorMatrixFilters"/>
     <classEntry path="cc.gullinbursti.lang.ConvolutionFilters"/>
     <classEntry path="cc.gullinbursti.lang.Checksums"/>
+    <classEntry path="cc.gullinbursti.lang.DisplacementMapFilters"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
