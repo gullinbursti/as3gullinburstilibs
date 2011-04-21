@@ -1,0 +1,20 @@
+a:link {
+	text-decoration: none;
+	color: black;
+}
+body {
+	color: black;
+	background-color: white;
+}
+a:visited {
+	color: black;
+	text-decoration: none;
+}
+a:hover {
+	color: black;
+	text-decoration: underline;
+}
+a:active {
+	color: black;
+	text-decoration: underline;
+}

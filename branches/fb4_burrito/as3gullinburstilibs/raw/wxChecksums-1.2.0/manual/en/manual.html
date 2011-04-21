@@ -1,0 +1,1336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>wxChecksums manual</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link href="../common/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1><a name="Top"></a>wxChecksums 1.2.0 manual</h1>
+<p>Copyright &copy; 2003-2004 Julien Couot.<br>
+  <a href="http://wxchecksums.sourceforge.net/">http://wxchecksums.sourceforge.net/</a></p>
+<p>This program is free software; you can redistribute it and/or modify 
+  it under the terms of the GNU General Public License as published by the Free 
+  Software Foundation; either version 2 of the License, or (at your option) any 
+  later version.</p>
+<p>This program is distributed in the hope that it will be useful, but <b>WITHOUT 
+  ANY WARRANTY</b>; without even the implied warranty of MERCHANTABILITY or FITNESS 
+  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License along with 
+  this program; if not, write to the Free Software Foundation, Inc., 59 Temple 
+  Place - Suite 330, Boston, MA 02111-1307, USA.</p>
+<hr width="50%" noshade>
+<h2><a name="Contents"></a>Table of contents</h2>
+<dl>
+  <dt><a href="#Introduction">Introduction</a></dt>
+  <dt><a href="#Installation">Installation</a></dt>
+  <dd><a href="#Install_Win">Windows</a></dd>
+  <dd><a href="#Install_Lnx">Linux</a></dd>
+  <dt><a href="#Use">Using wxChecksums</a></dt>
+  <dd><a href="#Use_Checksums">Checksums' files</a></dd>
+  <dd><a href="#Use_ManageFiles">Management of checksums' files</a></dd>
+  <dd><a href="#Use_MultiCheck">Check multiple checksums' files</a></dd>
+  <dd><a href="#Use_BatchCreation">Batch creation of checksums' files</a></dd>
+  <dd><a href="#Use_CmdLine">Invoke wxChecksums from the command line</a></dd>
+  <dd><a href="#Use_Configure">Configuration</a></dd>
+  <dt><a href="#ConfigurationFile">Configuration files</a></dt>
+  <dd><a href="#UserPreferences">User preferences</a></dd>
+  <dd><a href="#AvailableLanguages">Available languages</a></dd>
+  <dt><a href="#License">License</a></dt>
+  <dt><a href="#Author">Author</a></dt>
+  <dt><a href="#Links">Links</a></dt>
+</dl>
+<hr width="50%" noshade>
+<h2><a name="Introduction"></a>Introduction</h2>
+<p>wxChecksums is a program which calculates and verifies <a href="#Note1">checksums<sup><font size="-1">1</font></sup></a>. 
+  So you can check the integrity of one or more files.</p>
+<p>wxChecksums is able to read and write files in SFV and MD5 (files generated 
+  by md5sum) format.</p>
+<p>wxChecksums is available under Windows 9x/Me/2000/XP and Linux.</p>
+<p><u>Note:</u> In this manual some dialogs will be in french because I cannot 
+  have access to a Windows in english language. If you have Windows in english, 
+  all the dialogs should be displayed in english.</p>
+<p><font size="-1"><a href="#Contents">Back to the table of contents</a>.</font></p>
+<hr width="50%" noshade>
+<h2><a name="Installation"></a>Installation</h2>
+<h3><a name="Install_Win"></a>Windows</h3>
+<p>There is three ways to install wxChecksums:</p>
+<ul>
+  <li>With the installer. It will install all the necessary files to run the program, 
+    and will create icons in the Windows' start menu.</li>
+  <li>From a ZIP archive. This method is intended to the advanced users.</li>
+  <li>By compiling the sources. This method is intended to the programmers. The 
+    sources come with instructions to compile wxChecksums.</li>
+</ul>
+<p><u>Note:</u> If you are using Windows NT, Windows 2000 or Windows XP Professional, 
+  launch the installer from an administrator account if you want to create icons 
+  in the start menu for all the users of the machine. If you to wish to create 
+  icons in the start menu only for you, launch the installer from your account.</p>
+<p><u>Note:</u> A shell extension for the Windows' explorer is also available. 
+  It permits you to creates checksums' files directly from the explorer. For more 
+  information, please see the web page of <a href="http://wxchecksums.sourceforge.net/ShellExtForWindows/"><i>wxChecksums 
+  Shell Extension for Microsoft Windows</i></a>.</p>
+<h3><a name="Install_Lnx"></a>Linux</h3>
+<p>A RPM package is provided for Mandrake Linux 9.2. For others Linux distributions, 
+  please compile the source code with the instructions given in the <code>COMPILE.txt</code> 
+  file.</p>
+<p><font size="-1"><a href="#Contents">Back to the table of contents</a>.</font></p>
+<hr width="50%" noshade>
+<h2><a name="Use"></a>Using wxChecksums</h2>
+<h3><a name="Use_Checksums"></a>Checksums' files</h3>
+<p>The checksums' files are files which contain information that check the integrity 
+  of other files. There are various methods to calculate a checksum.</p>
+<p>wxChecksums currently manages two types of files:</p>
+<ul>
+  <li>SFV files. This type of file is popular under Windows and is read and generated 
+    by a lot of programs. The integrity of the files is made by the CRC-32 method.</li>
+  <li>MD5 files. This type of file is generated and read by the Unix command <i>md5sum</i>. 
+    The integrity of the files is made by the MD5 unidirectional hash method.</li>
+</ul>
+<p>The checksums can only check the integrity of the files and cannot repair them. 
+  If you wish a tool allowing you to check the integrity of the files and to repair 
+  them, visit the site of <a href="http://parchive.sourceforge.net/">Parchive</a>.</p>
+<p>The checksums' files store only information to check the integrity of the files, 
+  not the files themselves.</p>
+<h4>Relative and absolute file names</h4>
+<p>The relative file names are file names given from a reference directory. The 
+  absolute file names are file names whose path is completely defined.</p>
+<p>Example:</p>
+<ul>
+  <li><code>my_image.png</code><br>
+    <code>..\my images\my_image.png</code><br>
+    <code>my images\my_image.png</code><br>
+    are relative file names.</li>
+  <li><code>C:\My documents\My images\my_image.png</code><br>
+    <code>D:\Images\my_image.png</code><br>
+    are absolute file names.</li>
+</ul>
+<p>The file names are stored in the relative form in the cheksums' files. The 
+  reference directory is which where the checksums' file itself is stored.</p>
+<p>It is strongly advised to save the checksums' file in the directory where the 
+  files to be checked are.</p>
+<h3><a name="Use_ManageFiles"></a>Management of the checksums' files</h3>
+<p>Here the main window of wxChecksums:</p>
+<p><img src="main.png" width="640" height="480"></p>
+<p>This window is composed of:</p>
+<ul>
+  <li>A menu bar: 
+    <ul>
+      <li>The <i>File</i> menu contains the commands to create, open, save and 
+        close checksums' files.</li>
+      <li>The <i>Sums</i> menu contains the commands of management of the checksums: 
+        adding, removing and checking.</li>
+      <li>The <i>Settings</i> menu permits to configure wxChecksums.</li>
+      <li>The <i>Help</i> menu permits to obtain information about wxChecksums.</li>
+    </ul>
+  </li>
+  <li>A tools bar.</li>
+  <li>The list of the files present in the checksums' files. This list contains: 
+    <ul>
+      <li>An icon indicating the state of the file: 
+        <ul>
+          <li><img src="../common/lvw_sums_notverified.png" width="16" height="16" align="absmiddle">&nbsp;: 
+            the file is not checked.</li>
+          <li><img src="../common/lvw_sums_verified.png" width="16" height="16" align="absmiddle">&nbsp;: 
+            the checksum calculated corresponds to the checksum contained in the 
+            checksums' file.</li>
+          <li><img src="../common/lvw_sums_invalid.png" width="16" height="16" align="absmiddle">&nbsp;: 
+            the checksum calculated doesn't corresponds to the checksum contained 
+            in the checksums' file.</li>
+          <li><img src="../common/lvw_sums_notfound.png" width="16" height="16" align="absmiddle">&nbsp;: 
+            the file couldn't be found or read.</li>
+        </ul>
+      </li>
+      <li>The name of the file.</li>
+      <li>The directory where the file is.</li>
+      <li>The value of the checksum contained in the checksums' file.</li>
+      <li>Information on the state of the file.</li>
+    </ul>
+  </li>
+  <li>A state bar.</li>
+</ul>
+<h4>Creation of a checksums' file</h4>
+<p>The creation of a file is done by the <i>File&gt; New...</i> menu or by the 
+  <img src="../common/hi16_action_filenew.png" width="16" height="16" align="absmiddle"> 
+  tool.</p>
+<p>Choose the type and the name of the new checksums' file in the following dialog:</p>
+<p><img src="file_new.png" width="367" height="180"></p>
+<p>The <i>Browser...</i> button allows you to choose a file name with a traditional 
+  dialog:</p>
+<p><img src="file_new_browse.png" width="563" height="347"></p>
+<h4>Opening of a checksums' file</h4>
+<p>The opening of a checksums' file can be done in two ways:</p>
+<ul>
+  <li>By the <i>File &gt; Open...</i> menu or by the <img src="../common/hi16_action_fileopen.png" width="18" height="18" align="absmiddle"> 
+    tool.</li>
+  <li>If no checksums' file is opened, by dragging a checksums' file from the 
+    explorer.</li>
+</ul>
+<h4>Saving the checksums' file</h4>
+<p>When a checksums' file was modified, you can save it by the <i>File &gt; Save</i> 
+  menu or by the <img src="../common/hi16_action_filesave.png" width="16" height="17" align="absmiddle"> 
+  tool.</p>
+<p>To save the checksums' file under another name, use the <i>File &gt; Save as...</i> 
+  menu.</p>
+<h4>Closing of the checksums' file</h4>
+<p>Use the <i>File &gt; Close</i> menu.</p>
+<h4>Adding files in the checksums' file</h4>
+<p>Adding files in the checksums' file can be done in four ways:</p>
+<ul>
+  <li>If a checksums' file is opened, you can drag some files and/or directories 
+    from the explorer.</li>
+  <li>By the <i>Sums &gt; Add files...</i> menu or by the <img src="../common/hi16_action_fileadd.png" width="16" height="16" align="absmiddle"> 
+    tool. A dialog enables you to choose one or more files to be added: 
+    <p><img src="sums_add_files.png" width="563" height="347"></p>
+  </li>
+  <li>By the <i>Sums &gt; Add directories...</i> menu or by the <img src="../common/hi16_action_directoryadd.png" width="16" height="16" align="absmiddle"> 
+    tool. A dialog box enables you to choose the directories to be added: 
+    <p><img src="sums_add_dirs.png" width="324" height="331"></p>
+  </li>
+  <li>By the <i>Sums &gt; Add matching files...</i> menu or by the <img src="../common/hi16_action_addmatchingfiles.png" width="16" height="16" align="absmiddle"> 
+    tool. A dialog box enables you to enter the matching patterns to select the 
+    files to add: 
+    <p><img src="sums_add_match.png" width="566" height="540"></p>
+    <p><a name="MatchPattern"></a>The <i>Pattern(s)</i> field permits you to indicate 
+      which files you want to add using substitution characters. The <code>*</code> 
+      character replaces a sequence of characters and the character <code>?</code> 
+      replaces a single character. You can specify several matching patterns by 
+      separating them by the character <code>;</code>.<br>
+      For example if you want to select all the <i>bmp</i> files which begin by 
+      <i>Birthday</i>, the matching pattern will be: <code>Birthday*.bmp</code>. 
+      If you want to select all the files with extension which finish by <i>pp</i>, 
+      the matching pattern will be <code>*.?pp</code>. If you want to select all 
+      the files with <i>cpp</i> and <i>h</i> extension, the filter will be: <code>*.cpp;*.h</code>.</p>
+    <p>The <i>Directory</i> field permits to indicate from which directory the 
+      search must begin. This directory can be absolute or relative to the directory 
+      in which the checksums' file is present. In the above screenshot, files 
+      corresponding to the matching pattern <code>*.xpm</code> will be searched 
+      in the directory <code>D:\wx\src</code> because the checksums' file in which 
+      these files will be added is <code>D:\wx\src\images.sfv</code> (the name 
+      of the file is indicated in the title bar of the dialog).</p>
+    <p>The <i>Depth</i> field indicates the recursion level with which the files 
+      will be searched from the given directory. <code>0</code> means there is 
+      no limit, <code>1</code> search only in the given directory, <code>2</code> 
+      search only in the given directory and its direct subdirectory, ...</p>
+    <p>In the above screenshot, the XPM files will be searched and added from 
+      the <code>D:\wx\src</code> directory, the PNG files from the <code>D:\wx\manual</code> 
+      directory, the JPEG files from the <code>D:\wx</code> directory, the GIF 
+      files from the <code>D:\wx\src\docs\html</code> directory (and not in its 
+      subdirectories as the depth limit was fixed at 1). Note that the JPEG files 
+      will be searched in the subdirectories of <code>D:\wx\src\docs\html</code> 
+      because <code>D:\wx\src\docs\html</code> is a subdirectory of <code>D:\wx</code> 
+      and there is no depth limit on the matching pattern in third position.</p>
+    <p>It is possible to save and reload the list of matching patterns using the 
+      <i>Add list</i>, <i>Load list</i> and <i>Save list</i> buttons. <i>Add list</i> 
+      loads the list of the matching patterns and adds it to the existing matching 
+      patterns, whereas <i>Load list</i> removes the existing matching patterns 
+      before adding the loaded matching patterns.</p>
+  </li>
+</ul>
+<p><u>Note:</u> if a file is already present in the checksums' file, it is not 
+  added.</p>
+<h4>Removing files from the checksums' file</h4>
+<p>To remove files from the checksums' file, use the <i>Sums &gt; Remove</i> menu. 
+  The files are removed from the checksums' file but not from the disc.</p>
+<h4>Checking files</h4>
+<p>To check the integrity of the files, use the <i>Sums &gt; Check</i> menu or 
+  the <img src="../common/hi16_action_check.png" width="16" height="14" align="absmiddle"> 
+  tool . If no file is selected all the files will be checked.</p>
+<h4>Recomputing the checksum of the files</h4>
+<p>To recompute the checksum of the files, use the <i>Sums &gt; Recompute</i> 
+  menu or the <img src="../common/hi16_action_recompute.png" width="16" height="16" align="absmiddle"> 
+  tool . The checksums will be recomputed only for the selected files.</p>
+<h3><a name="Use_MultiCheck"></a>Check multiple checksums' files</h3>
+<p>It is possible to check simultaneously several checksums' files, by the command 
+  <i>Tools &gt; Check multiple checksums' files...</i>.</p>
+<p>The first dialog permits you to choose the checksums' files to check:</p>
+<p><img src="multi_check_conf.png" width="571" height="549"></p>
+<p>This dialog works like the <a href="#MatchPattern"><i>Add matching files</i></a> 
+  dialog, but the <i>Search and add</i> button launch immediately the file search 
+  and you can only specify absolute directory names.</p>
+<p>Once the checksums' files to check are selected, the following progress dialog 
+  is displayed:</p>
+<p><img src="multi_check.png" width="640" height="480"></p>
+<p>The displayed information can be set in the <a href="#Conf_Multi_Check"><i>Multiple 
+  check</i></a> section of the settings dialog.</p>
+<h3><a name="Use_BatchCreation"></a>Batch creation of checksums' files</h3>
+<p>The batch creation of checksums' files permits you to create one or more checksums' 
+  file types per file that you have previously selected. The batch creation of 
+  checksums' files is accessible by the command <i>Tools &gt; Batch creation of 
+  checksums' files...</i>.</p>
+<p>The first dialog permits you to choose the files from which the checksums' 
+  files will be created:</p>
+<p><img src="batch_creation_conf.png" width="571" height="613"></p>
+<p>This dialog works like the <a href="#MatchPattern"><i>Add matching files</i></a> 
+  dialog, but the <i>Search and add</i> button launch immediately the file search 
+  and you can only specify absolute directory names.</p>
+<p>Select at least one type of checksum' file to create for each selected file.</p>
+<p>The <i>Options...</i> button permits you to temporary (for the current batch 
+  creation process) change the default options for the batch creation of checksums' 
+  file defined in the <a href="#Conf_Batch_Creation">configuration dialog</a>:</p>
+<p><img src="batch_creation_conf_options.png" width="516" height="284"></p>
+<p>For more information on these parameters, please see the <i><a href="#Conf_Batch_Creation">Batch 
+  creation</a></i> section of the configuration dialog.</p>
+<p>Once the files to process are selected, the following progress dialog is displayed:</p>
+<p><img src="batch_creation.png" width="685" height="480"></p>
+<h3><a name="Use_CmdLine"></a>Invoke wxChecksums from the command line</h3>
+<p>The general form of the command line of wxChecksums is:<br>
+  <code>wxcksums [-h] [-V] [-v] [-a str] [-c str] [-ct str] [-fl str] [--delete-temp-list] 
+  [file(s)...]</code></p>
+<p>Note that the files with jokers ('<code>*</code>' and '<code>?</code>') are 
+  not treated.</p>
+<p>Here is a table that sums up the switchs and options that wxChecksums accepts:</p>
+<table border="1">
+  <tr valign="top"> 
+    <th>Long option name</th>
+    <th>Short option name</th>
+    <th>Type</th>
+    <th>Can't be used with</th>
+    <th>Can be used with</th>
+    <th>Description</th>
+  </tr>
+  <tr valign="top"> 
+    <td>--help</td>
+    <td>-h</td>
+    <td>Switch</td>
+    <td>&nbsp;</td>
+    <td>All</td>
+    <td>Shows an help message.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--version</td>
+    <td>-V</td>
+    <td>Switch</td>
+    <td>&nbsp;</td>
+    <td>All</td>
+    <td>Shows the version of wxChecksums.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--verify</td>
+    <td>-v</td>
+    <td>Switch</td>
+    <td>-a, -c</td>
+    <td>-ct (-ct is ignored), -fl</td>
+    <td>Verifies the given checksums' file. Only one checksums' file can be specified.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--append=&lt;str&gt;</td>
+    <td>-a str</td>
+    <td>Option (string)</td>
+    <td>-c, -v</td>
+    <td>-ct, -fl</td>
+    <td>Appends to the given checkums' file the given list of files. If the checksums' 
+      file doesn't exist, it is created.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--create=&lt;str&gt;</td>
+    <td>-c str</td>
+    <td>Option (string)</td>
+    <td>-a, -v</td>
+    <td>-ct, -fl</td>
+    <td>Creates the given checkums' file and adds to it the given list of files. 
+      If the checksums' file exists, it is overwrited (without any warning message). 
+      Prefer in general the <i>append</i> option.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--create-type=&lt;str&gt;</td>
+    <td>-ct str</td>
+    <td>Option (string)</td>
+    <td>&nbsp;</td>
+    <td><p>-a, -c, -v, -fl</p></td>
+    <td>Specifies the type of checksums' file to create if it doesn't exist. If 
+      this option is not given, wxChecksums uses the extension of the given checksums' 
+      file: <code>md5</code> for an MD5 checksums' file; for all others extensions 
+      a SFV checksums' file is created.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--file-list=&lt;str&gt;</td>
+    <td>-fl str</td>
+    <td>Option (string)</td>
+    <td>&nbsp;</td>
+    <td>-a, -c, -v, -ct</td>
+    <td>Specifies file(s) that contain a list of names of files. Theses files 
+      are text files with one name of file by line. You can specify several lists 
+      of files by separating them by the '<code>|</code>' character.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--delete-temp-list</td>
+    <td>&nbsp;</td>
+    <td>Switch</td>
+    <td>&nbsp;</td>
+    <td>-fl</td>
+    <td>When specifying a list of names of files with the <i>-fl</i> option, deletes 
+      those which are temporary. A list of names of files is considered temporary 
+      when the extension of the file that contains the list matches one of the 
+      extensions specified by the <code>Files/TempExts</code> entry in the configuration 
+      file of wxChecksums. Default extensions are <code>tmp</code> and <code>temp</code>. 
+      See the <a href="#ConfigurationFile">Configuration file section</a> for 
+      more information.</td>
+  </tr>
+</table>
+<p><b>Examples:</b></p>
+<p><code>wxcksums -a wxChecksums-x-x-x.md5 wxChecksums-x.x.x</code><br>
+  Appends to the <code>wxChecksums-x-x-x.md5</code> checksums' file the files 
+  that are in the <code>wxChecksums-x.x.x</code> directory. If <code>wxChecksums-x-x-x.md5</code> 
+  MD5 checksums' file doesn't exist, it is created.</p>
+<p><code>wxcksums -v C:\Progs\wxChecksums\wxChecksums-x-x-x.sfv</code><br>
+  <code>wxcksums -v wxChecksums-x-x-x.sfv</code><br>
+  Checks the <code>wxChecksums-x-x-x.sfv</code> checksums' file.</p>
+<p><code>wxcksums -c wxChecksums.sfv -fl &quot;wxChecksums-1.0.0\wxChecksums-1.0.0.txt|wxChecksums-1.1.0\wxChecksums-1.1.0.tmp&quot; 
+  --delete-temp-list -ct sfv README.txt NEWS.txt</code><br>
+  Creates or overwrites the checksums' file <code>wxChecksums.sfv</code>, loads 
+  the files' names contained in <code>wxChecksums-1.0.0\wxChecksums-1.0.0.txt</code> 
+  and <code>wxChecksums-1.1.0\wxChecksums-1.1.0.tmp</code>, deletes the file <code>wxChecksums-1.1.0\wxChecksums-1.1.0.tmp</code>, 
+  adds to <code>wxChecksums.sfv</code> the files <code>README.txt</code> and <code>NEWS.txt</code>, 
+  adds to <code>wxChecksums.sfv</code> the files listed in <code>wxChecksums-1.0.0\wxChecksums-1.0.0.txt</code> 
+  and <code>wxChecksums-1.1.0\wxChecksums-1.1.0.tmp</code>.</p>
+<p><code>wxcksums &quot;C:\Documents and Settings\My account\My checksums file.txt&quot;</code><br>
+  Opens <code>C:\Documents and Settings\My account\My checksums file.txt</code> 
+  in wxChecksums.</p>
+<h3><a name="Use_Configure"></a>Configuration</h3>
+<p>The dialog box of configuration of wxChecksums is accessible by the <i>Settings 
+  &gt; Configure wxChecksums...</i> or by the <img src="../common/hi16_action_configure.png" width="16" height="16" align="absmiddle"> 
+  tool. It is composed of six panels:</p>
+<ul>
+  <li>The <i>Display</i> panel defines all the options for the displaying of the 
+    windows and of the information provided by the list of the files.</li>
+  <li>The <i>Behavior</i> panel defines the behavior of wxChecksums.</li>
+  <li>The <i>Language</i> panel defines the language used by wxChecksums.</li>
+  <li>The <i>Command line</i> panel defines the behavior of wxChecksums when it 
+    is launched from the command line with certain options.</li>
+  <li>The <i>SFV files</i> panel defines the parameters of reading and writing 
+    of SFV files.</li>
+  <li>The <i>MD5 files</i> panel defines the parameters of reading and writing 
+    of MD5 files.</li>
+  <li>The <i>Multiple check</i> panel defines the parameters of the verification 
+    of multiple checksums' files at the same time.</li>
+</ul>
+<p>This dialog is resizable and its dimensions are saved when you validate it.</p>
+<h4>Display</h4>
+<p><img src="cfg_display.png" width="601" height="453"></p>
+<ul>
+  <li><i>Save and restore the position of the window</i> indicates to wxChecksums 
+    to save the position of the main window when exiting and to restore it on 
+    startup.</li>
+  <li><i>Save and restore the size of the window</i> indicates to wxChecksums 
+    to save the size of the main window when exiting and to restore it on startup.</li>
+  <li><i>Headers of the checksums' list</i> allows you to change the order of 
+    the columns of the checksums' list by selecting a column and by using the 
+    <i>Up</i> and <i>Down </i>buttons.</li>
+  <li><i>Save the column to sort (and the order)</i> indicates to wxCheckums to 
+    save on which column the sorting is done and the sorting order when exiting. 
+    These parameters are always restored on startup.</li>
+  <li><i>Save the widths of the columns</i> indicates to wxChecksums to save the 
+    size of the columns when exiting and to restore it on startup.</li>
+  <li><i>Display the directories in absolute path</i> displays the path of the 
+    files in absolute mode rather than into relative mode. This parameter does 
+    not have an effect on the saving mode of the file names in the checksums' 
+    files.</li>
+  <li><i>Show checksums values in uppercase/lowercase</i> indicates which case 
+    will be use to display the checksums' values.</li>
+  <li><i>Draws light horizontal (vertical) rules between rows (columns)</i> draws 
+    light horizontal (vertical) rules between rows (columns). These options have 
+    an effect only when the application is restarted.</li>
+</ul>
+<h4>Behavior</h4>
+<p><img src="cfg_behavior.png" width="601" height="453"></p>
+<ul>
+  <li><i>Checks automatically the checksums file when opening it</i> indicates 
+    to wxChecksums to check all the files present in the checksums' file at its 
+    opening.</li>
+  <li><i>Opens a dialog box to sum up the check.</i> If this option is activated, 
+    a dialog box that sums up the checking will be opened at the end of each checking 
+    (if it was not cancelled).</li>
+  <li><i>Displays a warning if the state of all the files is not 'OK' when saving 
+    a checksums file.</i> If this option is activated, when you save a checksums' 
+    file and if all the files were not checked successfully, a dialog box requires 
+    of you to confirm that you wish to save the checksums' file whereas certain 
+    files are perhaps incorrect: 
+    <p><img src="save_all_not_verified.png" width="297" height="119"></p>
+  </li>
+</ul>
+<h4>Language</h4>
+<p><img src="cfg_language.png" width="601" height="453"></p>
+<p>This tab enables you to choose the language that wxChecksums must use. The 
+  <i>Language of the system</i> option uses the language of the system if it is 
+  available, if not english is used by default.</p>
+<h4>Command line</h4>
+<p><img src="cfg_cmdline.png" width="601" height="453"></p>
+<p>These parameters defines the behavior of the GUI when wxChecksums is called 
+  with options in the command line.</p>
+<p><u>Note:</u> If you use the <a href="http://wxchecksums.sourceforge.net/ShellExtForWindows/"><i>wxChecksums 
+  Shell Extension for Microsoft Windows</i></a>, these parameters apply for it 
+  too because this extension uses the wxChecksums command line to process the 
+  action selected by the user.</p>
+<p>If the <i>Don't show the GUI if all the checksums are correct</i> option is 
+  checked and if you use the <i><a href="#Use_CmdLine">--verify</a></i> switch, 
+  the GUI is shown only if one or more checksums are incorrect. If all the checksums 
+  are correct and if the <i>Opens a dialog box to sum up the check</i> option 
+  in the <i>Behavior</i> page is not checked, no message is displayed to sum up 
+  the check.</p>
+<p>The <i>When adding files to a checksums' file</i> and <i>When creating a checksums' 
+  file</i> options respectively set when to show the GUI when using the <a href="#Use_CmdLine"><i>--append</i></a> 
+  and <i><a href="#Use_CmdLine">--create</a></i> options. An error can be for 
+  example that the checksums' file can't be saved. For the moment no warnings 
+  can occurs but future releases of wxChecksums can have it.</p>
+<h4>SFV files</h4>
+<p><img src="cfg_sfvfile.png" width="601" height="453"></p>
+<p>The parameters presented above are the default settings. They have been defined 
+  to ensure a maximum compatibility with the other software that use SFV files.</p>
+<ul>
+  <li><i>Path separator on reading SFV files</i> allows to force the type of path 
+    separator to use for the reading of a SFV file if the automatic recognition 
+    does not give you satisfaction.</li>
+  <li><i>Save the name of the generator and the date of creation in the comments</i> 
+    adds these informations in the header of the SFV file.</li>
+  <li><i>Identify as</i> allows you to choose the name of the application which 
+    will be indicated as the generator of the SFV file. The entry <i>Personalized...</i> 
+    allows to enter new names of application.</li>
+  <li><i>Save the size and the modification date of the files in the comments</i> 
+    adds these informations in the header of the SFV file.</li>
+  <li><i>Use the following path sepator</i> allows to choose the path separator 
+    to used for the writing of the file names. <i>System default</i> is different 
+    according to the operating system used.</li>
+  <li><i>Use the following end of line</i> allows to choose the type of text file 
+    to used.</li>
+</ul>
+<h4>MD5 files</h4>
+<p><img src="cfg_md5file.png" width="601" height="453"></p>
+<p>The parameters presented above are the default settings. They have been defined 
+  to ensure a maximum compatibility with <i><a href="http://www.gnu.no/manual/coreutils/">md5sum</a></i>.</p>
+<ul>
+  <li><i>Path separator on reading MD5 files</i> allows to force the type of path 
+    separator to use for the reading of a MD5 file if the automatic recognition 
+    does not give you satisfaction.</li>
+  <li><i>Save the name of the generator and the date of creation in the comments</i> 
+    adds these informations in the header of the MD5 file.</li>
+  <li><i>Save the size and the modification date of the files in the comments</i> 
+    adds these informations in the header of the MD5 file.</li>
+  <li><i>Use the following path sepator</i> allows to choose the path separator 
+    to used for the writing of the file names. <i>System default</i> is different 
+    according to the operating system used.</li>
+  <li><i>Use the following end of line</i> allows to choose the type of text file 
+    to used.</li>
+</ul>
+<h4><a name="Conf_Multi_Check"></a>Multiple check</h4>
+<p><img src="cfg_multi_check.png" width="607" height="453"></p>
+<ul>
+  <li><i>Display a global summary</i> displays -&nbsp;if this option is set&nbsp;- 
+    a summary at the end of the checking of all the checksums' files. This summary 
+    includes: 
+    <ul>
+      <li>The total number of the checked checksums' files.</li>
+      <li>The number of correct checksums' files.</li>
+      <li>The number of partially correct checksums' files (which has at least 
+        a correct checksum).</li>
+      <li>The number of fully incorrect checksums' files.</li>
+      <li>The number of invalid checksums' files (files of which the content is 
+        not a checksums' file).</li>
+      <li>The number of checksums' files which cannot be opened.</li>
+    </ul>
+    <p>If this option is not set, it is just indicated if all the checksums' files 
+      are correct or not.</p>
+  </li>
+  <li><i>Display a summary for each checksums' file</i> displays -&nbsp;if this 
+    option is set&nbsp;- a summary at the end of the checking of each checksums' 
+    file. This summary includes: 
+    <ul>
+      <li>The total number of the checked files.</li>
+      <li>The number of correct files.</li>
+      <li>The number of incorrect files.</li>
+      <li>The number of files not found.</li>
+      <li>The number of files that cannot be opened.</li>
+    </ul>
+    <p>If this option is not set, it is just indicated if all the files are correct 
+      or not.</p>
+  </li>
+  <li><i>Display the state of each checked file</i> displays the state of all 
+    the checked files (correct, incorrect, not found, cannot be opened).</li>
+  <li>If the <i>Display the state of each checked file</i> option is set, the 
+    <i>Don't display the state of the correct files</i> option allows to display 
+    only the files of which the state is not correct.</li>
+  <li>The buttons of the <i>Text colours</i> box allow to change the colour of 
+    the text used in the dialog of <a href="#Use_MultiCheck">checking multiple 
+    checksums' files</a>.</li>
+</ul>
+<h4><a name="Conf_Batch_Creation"></a>Batch creation</h4>
+<p><img src="cfg_batch_creation.png" width="660" height="489"></p>
+<p>After computing the checksum(s) of a file, wxChecksums try to save the checksums' 
+  file(s). The naming of these checksums' files can be changed in the <i>Create 
+  the name of the checksums' file by</i> section:</p>
+<ul>
+  <li><i>Replacing the extension of the source file with the extension of the 
+    type of the checksums' file</i> will replace the extension of the read file 
+    to compute the checksum with the extension of the saved checksums' file type. 
+    For example if you had selected a file named <code>myfile.foo</code> and asked 
+    for the creation of SFV and MD5 checksums' files, wxChecksums will produce 
+    the <code>myfile.sfv</code> and <code>myfile.md5</code> checksums' files. 
+    If you have two or more files with the same names but with different extensions 
+    (for example <code>foo.html</code> and <code>foo.sxw</code>), don't use this 
+    option.</li>
+  <li><i>Adding the extension of the type of the checksums' file to the name of 
+    the source file</i> will add the extension of the saved checksums' file type 
+    to the name of the read file to compute the checksum. For example if you had 
+    selected a file named <code>myfile.foo</code> and asked for the creation of 
+    SFV and MD5 checksums' files, wxChecksums will produce the <code>myfile.foo.sfv</code> 
+    and <code>myfile.foo.md5</code> checksums' files.</li>
+</ul>
+  
+<p>When wxChecksums tries to save the checksums' files, if a checksums' file already 
+  exists, you can make wxChecksums:</p>
+<ul>
+  <li>Skip the creation of the checksums' file by selecting the <i>Skip the creation</i> 
+    option. This is the recommended setting.</li>
+  <li>Overwriting the existing checksums' file by selecting the <i>Overwrite it</i> 
+    option. <b>Please be sure to understand exactly what the batch creating of 
+    checksums' files process does before using this option.</b> An incorrect use 
+    of this option can overwrite some files that you want to keep. You should 
+    never use the <i>Overwrite it</i> and <i>Replacing the extension of the source 
+    file with the extension of the type of the checksums' file</i> options at 
+    the same time (especially when you select checksums' files in the file selector 
+    dialog). Please note that wxChecksums does <b>not</b> ask for a confirmation 
+    before overwriting a file during the batch creation of checksums' files process.</li>
+</ul>
+<p>The verbosity level permits you to choose the quantity of the information displayed 
+  in the progress dialog:</p>
+<table border="1">
+  <tr> 
+    <td>Errors only</td>
+    <td>Display errors only.</td>
+  </tr>
+  <tr> 
+    <td>Errors and warnings</td>
+    <td>Display errors and warnings only.</td>
+  </tr>
+  <tr> 
+    <td>Normal</td>
+    <td>Display all the useful messages.</td>
+  </tr>
+  <tr> 
+    <td>Talkative</td>
+    <td>Display additional information (like the values of the calculated checksums).</td>
+  </tr>
+</table>
+<p>The buttons of the <i>Text colours</i> box allow to change the colour of the 
+  text used in the dialog of <a href="#Use_BatchCreation">batch creation of checksums' 
+  files</a>.</p>
+<p><font size="-1"><a href="#Contents">Back to the table of contents</a>.</font></p>
+<hr width="50%" noshade>
+<h2><a name="ConfigurationFile"></a>Configuration files</h2>
+<h3><a name="UserPreferences"></a>User preferences</h3>
+<ul>
+  <li>Under Windows, the configuration file can be found in the <code>%APPDATA%\wxChecksums</code> 
+    directory and is called <code>wxChecksums.ini</code>.</li>
+  <li>Under Linux, the configuration file can be found in the <code>$HOME/wxChecksums</code> 
+    directory and is called <code>wxChecksums.ini</code>.</li>
+</ul>
+<p><code>wxChecksums.ini</code> is a text file which can be edited with a simple 
+  text editor.</p>
+<p>Here the descrition of the entries:</p>
+<table border="1">
+  <tr> 
+    <th>Key</th>
+    <th>Type</th>
+    <th>Values</th>
+    <th>Description</th>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/ConfigDlg/WindowSize</code></td>
+    <td>int,int</td>
+    <td>&nbsp;</td>
+    <td>Size of the configuration dialog box.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/ConfigDlg/SashPosition</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Position of the separator between the tree of selection of the preferences 
+      and the preference panels.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/SaveWindowPosition</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Save and restore the position of the main window.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/SaveWindowSize</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Save and restore the size of the main window.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/WindowPosition</code></td>
+    <td>int,int</td>
+    <td>&nbsp;</td>
+    <td>Position of the main window.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/WindowSize</code></td>
+    <td>int,int</td>
+    <td>&nbsp;</td>
+    <td>Size of the main window.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ShowToolbar</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Show the tools bar.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ShowStatusbar</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Show the status bar.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/LastDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Last directory used for the opening of the checksums' files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/SaveColumnToSort</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Save the column to sort (and the order).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnToSort</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>The column to sort.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/SaveColumnSortOrder</code></td>
+    <td>int</td>
+    <td>0-2</td>
+    <td>The sort order of the column.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/SaveColumnsWidths</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Save the width of the columns.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/DirsInAbsolutePath</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Display directory paths in absolute mode.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/Uppercase</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Display the checksums in uppercase (<code>1</code>) or in lowercase (<code>0</code>).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/HRules</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Draws light horizontal rules between rows.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/VRules</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Draws light vertical rules between columns.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnWidthFileName</code></td>
+    <td>int</td>
+    <td>1-</td>
+    <td>Width of the column <i>File name</i>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnWidthDirectory</code></td>
+    <td>int</td>
+    <td>1-</td>
+    <td>Width of the column <i>Directory</i>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnWidthChecksumValue</code></td>
+    <td>int</td>
+    <td>1-</td>
+    <td>Width of the column <i>Checksum value</i>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnWidthState</code></td>
+    <td>int</td>
+    <td>1-</td>
+    <td>Width of the column <i>State</i>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnFirst</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Element of the first column (0 = file name, 1 = directory, 2 = checksum 
+      value, 3 = state).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnSecond</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Element of the second column.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnThird</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Element of the third column.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnFourth</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Element of the fourth column.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/History/FileXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Name of the checksums' files recently opened. <code>XX</code> is an integer 
+      between <code>00</code> and <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/NewFile/LastDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Last directory used for the creation of a new checksums' files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/NewFile/LastFileType</code></td>
+    <td>int</td>
+    <td>1-2</td>
+    <td>Last type of created checksums' file (1 = SFV, 2 = MD5).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Behavior/AutoCheckOnOpen</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Checks automatically the checksums file when opening it.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Behavior/DlgSumUpCheck</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Opens a dialog box to sum up the check.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Behavior/WarnOnInvalidWhenSaving</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Displays a warning if the state of all the files is not 'OK' when saving 
+      a checksums file.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/CommandLine/DontShowWhenAllCorrect</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Don't show the GUI when all the checksums are correct.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/CommandLine/AppendShowGUI</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Show the GUI when using the <i>--append</i> option (0 = never, 1 = on 
+      errors, 2 = on errors or warnings, 3 = always).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/CommandLine/CreateShowGUI</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Show the GUI when using the <i>--create</i> option (0 = never, 1 = on 
+      errors, 2 = on errors or warnings, 3 = always).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/WindowSize</code></td>
+    <td>int,int</td>
+    <td>&nbsp;</td>
+    <td>Size of the dialog of adding files using matching patterns.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/LastSaveListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Name of the last directory used when saving the list of the matching patterns.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/LastAddListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Name of the last directory used when adding a list of matching patterns.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/LastLoadListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Name of the last directory used when loading a list of matching patterns.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/History/MatchPatternXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>History of the matching patterns entered in the field <i>Pattern(s)</i>. 
+      <code>XX</code> is an interger between <code>00</code> and <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/History/DirectoryXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>History of the directories entered in the field <i>Directory</i>. <code>XX</code> 
+      is an interger between <code>00</code> and <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/PatternsList/SortBy</code></td>
+    <td>int</td>
+    <td>0-2</td>
+    <td>Sort the list of the matching patterns directory (0), matching pattern 
+      (1), depth (2).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/PatternsList/SortOrder</code></td>
+    <td>int</td>
+    <td>0-2</td>
+    <td>The sort order (0 = ascending, 1 = descending, 2 = no sort).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/PatternsList/ColumnWidthDirectory</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Width of the column of the directories.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/PatternsList/ColumnWidthPatterns</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Width of the column of the matching patterns.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/PatternsList/ColumnWidthDepth</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Width of the column of the depths.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/GlobalSummary</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Display a global summary.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/ChecksumsFileSummary</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Display a summary for each checksums' file.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/FileState</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Display the state of each checked file.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/NoCorrectFileState</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Don't display the state of the correct files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/NormalColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Colour of the normal text in the dialog of checking of several checksums' 
+      files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/SuccessColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Colour of the text that indicates a success in the dialog of checking 
+      of several checksums' files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/WarningColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Colour of the text that indicates a warning in the dialog of checking 
+      of several checksums' files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/ErrorColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Colour of the text that indicates an error in the dialog of checking of 
+      several checksums' files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/WindowSize</code></td>
+    <td>int,int</td>
+    <td>&nbsp;</td>
+    <td>Size of the dialog of checking of several checksums' files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/WindowSize</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Size of the dialog for select the checksums' files to check.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/LookInBrowseLastDir</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Name of the last directory selected by the <i>Browse</i> command.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/LastSaveListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Name of the last directory used when saving the list of the checksums' 
+      files to check.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/LastAddListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Name of the last directory used when adding a list of checksums' files 
+      to check.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/LastLoadListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Name of the last directory used when loading a list of checksums' files 
+      to check.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/History/NamedXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>History of the names of files or mathing patterns entered in the field 
+      <i>Named</i>. <code>XX</code> is an interger between <code>00</code> and 
+      <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/History/LookInXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>History of the directories entered in the field <i>Look in</i>. <code>XX</code> 
+      is an interger between <code>00</code> and <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/FilesList/SortBy</code></td>
+    <td>int</td>
+    <td>0-1</td>
+    <td>Sort the list of the checksums' files to check by file name (0) or directory 
+      name (1).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/FilesList/SortOrder</code></td>
+    <td>int</td>
+    <td>0-2</td>
+    <td>The sort order (0 = ascending, 1 = descending, 2 = no sort).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/FilesList/ColumnWidthFileName</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Width of the column of the file names.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/FilesList/ColumnWidthDirectory</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Width of the column of the directories.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/OvrCkFileWhenItExists</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>If <code>true</code> (<code>=1</code>) overwrites the checksums' file 
+      when it exists in the batch creation of checksums' files process. Otherwise 
+      skips the creation of the checksums' file.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/ReplaceExtension</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>If <code>true</code> (<code>=1</code>) names the created checksums' file 
+      by replacing the extension of the source file with the extension of the 
+      type of the checksums' file. Otherwise names the created checksums' file 
+      by adding the extension of the type of the checksums' file to the name of 
+      the source file.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/VerbosityLevel</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Verbosity level (0 = errors only, 1 = errors and warnings, 2 = normal, 
+      3 = talkative).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/NormalColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Colour of the normal text in the dialog of checking of batch creation 
+      of checksums' files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/SuccessColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Colour of the text that indicates a success in the dialog of batch creation 
+      of checksums' files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/WarningColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Colour of the text that indicates a warning in the dialog of batch creation 
+      of checksums' files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/ErrorColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Colour of the text that indicates an error in the dialog of batch creation 
+      of checksums' files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/WindowSize</code></td>
+    <td>int,int</td>
+    <td>&nbsp;</td>
+    <td>Size of the dialog of batch creation of checksums' files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/WindowSize</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Size of the dialog for selecting the files for the batch creation of checksums' 
+      files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/LookInBrowseLastDir</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Name of the last directory selected by the <i>Browse</i> command.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/LastSaveListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Name of the last directory used when saving the list of the files on which 
+      the batch creation of checksums' files should be made.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/LastAddListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Name of the last directory used when adding a list of the files on which 
+      the batch creation of checksums' files should be made.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/LastLoadListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Name of the last directory used when loading a list of the files on which 
+      the batch creation of checksums' files should be made.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/History/NamedXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>History of the names of files or mathing patterns entered in the field 
+      <i>Named</i>. <code>XX</code> is an interger between <code>00</code> and 
+      <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/History/LookInXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>History of the directories entered in the field <i>Look in</i>. <code>XX</code> 
+      is an interger between <code>00</code> and <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/FilesList/SortBy</code></td>
+    <td>int</td>
+    <td>0-1</td>
+    <td>Sort the list of the files on which the batch creation of checksums' files 
+      should be made by file name (0) or directory name (1).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/FilesList/SortOrder</code></td>
+    <td>int</td>
+    <td>0-2</td>
+    <td>The sort order (0 = ascending, 1 = descending, 2 = no sort).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/FilesList/ColumnWidthFileName</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Width of the column of the file names.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/FilesList/ColumnWidthDirectory</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Width of the column of the directories.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/ReadPathSeparator</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Path separator on reading SFV files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/WriteGeneratorAndDate</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Save the name of the generator and the date of creation in the comments.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/WriteFileSizeAndDate</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Save the size and the modification date of the files in the comments.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/WritePathSeparator</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Path separator on writing.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/WriteEndOfLine</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>End of line of writng.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/IdentifyAs/Generator</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Name of the generator used actually. If it is empty, the name of the application 
+      is used.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/IdentifyAs/History/IdentifyXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>History of the names of generator entered. <code>XX</code> is an interger 
+      between <code>00</code> and <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/MD5/ReadPathSeparator</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Path separator on reading MD5 files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/MD5/WriteGeneratorAndDate</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Save the name of the generator and the date of creation in the comments.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/MD5/WriteFileSizeAndDate</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Save the size and the modification date of the files in the comments.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/MD5/WritePathSeparator</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Path separator on writing.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/MD5/WriteEndOfLine</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>End of line of writng.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>Engine/ReadBuffer</code></td>
+    <td>int</td>
+    <td>1-</td>
+    <td>Size of the buffer for reading files. Default value: <code>0xFFFF</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>Language/Name</code></td>
+    <td>string</td>
+    <td>en, fr</td>
+    <td>Language of the user interface.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>Files/TempExts</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>List of file extensions separated by a space. wxChecksums considers that 
+      the lists of files given with the <i>--file-list</i> option which have an 
+      extension that is present is this parameter are temporary lists of files 
+      and must be deleted. Default value for this parameter is '<code>tmp temp</code>'.</td>
+  </tr>
+</table>
+<h3><a name="AvailableLanguages"></a>Available languages</h3>
+<p>From wxChecksums 1.2.0, wxChecksums uses a configuration file to determine 
+  which languages are availables. If wxChecksums doesn't find this file, english 
+  will be the only available language. The contents of this file won't be described 
+  in this manual because it's not useful to the end-users.</p>
+<p>Under Windows, wxChecksums searches for this file in the following locations:</p>
+<ul>
+  <li>In the file pointed by the <code>WXCKSUMS_LANGS_RC</code> environment variable. 
+    This variable must contain a name of file with its complete path, for example 
+    <code>C:\Documents&nbsp;and&nbsp;Settings\All&nbsp;Users\Application&nbsp;Data\wxChecksums\langs.ini</code>.</li>
+  <li>In the directory where the executable file of wxChecksums is placed. The 
+    name of the configuration file must be <code>languages.ini</code>.</li>
+  <li>In the current directory. The name of the configuration file must be <code>languages.ini</code>.</li>
+</ul>
+<p>Under Unix, wxChecksums searches for this file in the following locations:</p>
+<ul>
+  <li>In the file pointed by the <code>WXCKSUMS_LANGS_RC</code> environment variable. 
+    This variable must contain a name of file with its complete path, for example 
+    <code>/home/user/.myConfigFiles/wxChecksums/langs.ini</code>.</li>
+  <li><code>/usr/share/wxChecksums/languages.ini</code></li>
+  <li><code>/usr/lib/wxChecksums/languages.ini</code></li>
+  <li><code>/usr/local/share/wxChecksums/languages.ini</code></li>
+  <li><code>/usr/local/lib/wxChecksums/languages.ini</code></li>
+  <li>In the current directory. The name of the configuration file must be <code>languages.ini</code>.</li>
+</ul>
+<p><font size="-1"><a href="#Contents">Back to the table of contents</a>.</font></p>
+<hr width="50%" noshade>
+<h2><a name="License"></a>License</h2>
+<p>wxChecksums is released under the <a href="../../licence/gpl.txt">GNU GENERAL 
+  PUBLIC LICENSE</a>.<br>
+  See the <a href="../../LICENSE.txt">LICENSE.txt</a> and <a href="../../licence/gpl.txt">gpl.txt</a> 
+  files for more details.</p>
+<p>wxChecksums uses the <a href="http://www.wxwidgets.org/">wxWidgets</a> toolkit. 
+  Please consult its website to take note of its license.</p>
+<p><font size="-1"><a href="#Contents">Back to the table of contents</a>.</font></p>
+<hr width="50%" noshade>
+<h2><a name="Author"></a>Author</h2>
+<p>Julien Couot &lt;<a href="mailto:jcouot@users.sourceforge.net">jcouot@users.sourceforge.net</a>&gt;</p>
+<p><font size="-1"><a href="#Contents">Back to the table of contents</a>.</font></p>
+<hr width="50%" noshade>
+<h2><a name="Links"></a>Links</h2>
+<p><a href="http://wxchecksums.sourceforge.net/">http://wxchecksums.sourceforge.net/</a><br>
+  - wxChecksums homepage.</p>
+<p><a href="http://www.jrsoftware.org/">http://www.jrsoftware.org/</a><br>
+  - Inno Setup homepage.</p>
+<p><a href="http://www.gnu.org/">http://www.gnu.org/</a><br>
+  - GNU project homepage.</p>
+<p><font size="-1"><a href="#Contents">Back to the table of contents</a>.</font></p>
+<hr width="50%" noshade>
+<p>Notes:</p>
+<p><a name="Note1"></a>1. Checksum (from <a href="http://www.wikipedia.org/wiki/Checksum">Wikipedia</a>):<br>
+  In computer technology, a <b>checksum</b> is a very simple integrity-protection 
+  measure. It is used mainly in data storage, and networking protocols.</p>
+<p>It works by adding up the bytes, or some other basic components in a string 
+  of data, and storing the resulting value.</p>
+<p>Later, anyone (who has the authentic checksum) can verify that the message 
+  was not corrupted by doing the same operation on the data, and &quot;<i>checking</i>&quot; 
+  the &quot;<i>sum</i>&quot;.</p>
+<p><font size="-1"><a href="#Contents">Back to the table of contents</a>.</font></p>
+</body>
+</html>

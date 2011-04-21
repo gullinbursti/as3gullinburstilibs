@@ -1,0 +1,21 @@
+#
+# File:		makefile.b32
+# Author:	Julien Couot
+# Created:	25/07/2003
+# Updated:	29/02/2003
+# Copyright:
+#
+# Makefile : Builds wxChecksums for 32-bit BC++
+# Use :  make -f makefile.b32 WXUSINGDLL=1 FINAL=1
+#  or :  make -f makefile.b32 FINAL=1
+
+# Use large files
+EXTRACPPFLAGS = -5 -O2 -w-inl- -DwxC_USE_LARGE_FILES=1
+
+WXDIR = $(WXWIN)
+
+TARGET=cksums
+OBJECTS = $(TARGET).obj lvwSums.obj frmSums.obj dlgProgress.obj dlgResProg.obj dlgFilesSelector.obj dlgConf.obj dlgAbout.obj dlgInvalidFiles.obj dlgNewFile.obj dlgMultiCheckConf.obj dlgMultiCheck.obj dlgBatchCreateConf.obj dlgBatchCreate.obj dlgAddMatchFiles.obj slstview.obj appprefs.obj language.obj checksumutil.obj checksumfactory.obj md5.obj crc32.obj sumfile.obj md5file.obj sfvfile.obj bytedisp.obj utils.obj osdep.obj fileutil.obj fdftlmk.obj cmdlnopt.obj licence.obj
+
+!include $(WXDIR)\src\makeprog.b32
+

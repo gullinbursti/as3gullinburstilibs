@@ -1,0 +1,1905 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wxChecksums\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2004-05-23 10:53+0100\n"
+"Last-Translator: Julien Couot <jcouot@users.sourceforge.net>\n"
+"Language-Team: Julien Couot <jcouot@users.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/bytedisp.cpp:74
+msgid "byte"
+msgstr "octet"
+
+#: ../src/bytedisp.cpp:75
+msgid "kilobyte"
+msgstr "kilooctet"
+
+#: ../src/bytedisp.cpp:76
+msgid "megabyte"
+msgstr "megaoctet"
+
+#: ../src/bytedisp.cpp:77
+msgid "gigabyte"
+msgstr "gigaoctet"
+
+#: ../src/bytedisp.cpp:78
+msgid "terabyte"
+msgstr "teraoctet"
+
+#: ../src/bytedisp.cpp:79
+msgid "petabyte"
+msgstr "petaoctet"
+
+#: ../src/bytedisp.cpp:80
+msgid "exabyte"
+msgstr "exaoctet"
+
+#: ../src/bytedisp.cpp:81
+msgid "zettabyte"
+msgstr "zettaoctet"
+
+#: ../src/bytedisp.cpp:82
+msgid "yottabyte"
+msgstr "yottaoctet"
+
+#: ../src/bytedisp.cpp:83
+msgid "B"
+msgstr "o"
+
+#: ../src/bytedisp.cpp:84
+msgid "KB"
+msgstr "Ko"
+
+#: ../src/bytedisp.cpp:85
+msgid "MB"
+msgstr "Mo"
+
+#: ../src/bytedisp.cpp:86
+msgid "GB"
+msgstr "Go"
+
+#: ../src/bytedisp.cpp:87
+msgid "TB"
+msgstr "To"
+
+#: ../src/bytedisp.cpp:88
+msgid "PB"
+msgstr "Po"
+
+#: ../src/bytedisp.cpp:89
+msgid "EB"
+msgstr "Eo"
+
+#: ../src/bytedisp.cpp:90
+msgid "ZB"
+msgstr "Zo"
+
+#: ../src/bytedisp.cpp:91
+msgid "YB"
+msgstr "Yo"
+
+#: ../src/bytedisp.cpp:349
+msgid "s"
+msgstr "s"
+
+#: ../src/cksums.cpp:107
+msgid "wxChecksums"
+msgstr "wxChecksums"
+
+#: ../src/cksums.cpp:192
+msgid "show version information"
+msgstr "afficher le nom et la version du logiciel"
+
+#: ../src/cksums.cpp:193
+msgid "verify sums against given list"
+msgstr "vérifier les sommes par rapport à la liste"
+
+#: ../src/cksums.cpp:194
+msgid "append files to a checksums' file"
+msgstr "ajoute des fichiers à un fichier de sommes"
+
+#: ../src/cksums.cpp:195
+msgid "create a checksums' file"
+msgstr "créer un fichier de sommes de contrôle"
+
+#: ../src/cksums.cpp:196
+msgid "type of the checksums' file to create"
+msgstr "type du fichier de sommes à créer"
+
+#: ../src/cksums.cpp:197
+msgid "list(s) of files"
+msgstr "Liste(s) de fichiers"
+
+#: ../src/cksums.cpp:198
+msgid "delete temporary lists of files"
+msgstr "efface les listes temporaires de fichiers"
+
+#: ../src/cksums.cpp:199
+msgid "file(s)"
+msgstr "fichier(s)"
+
+#: ../src/dlgAbout.cpp:99
+#, c-format
+msgid "About %s"
+msgstr "A propos de %s"
+
+#: ../src/dlgAbout.cpp:117
+msgid "About"
+msgstr "A propos"
+
+#: ../src/dlgAbout.cpp:118
+msgid "Computes and verifies checksums"
+msgstr "Calcule et vérifie les sommes de contrôle"
+
+#: ../src/dlgAbout.cpp:119
+#, c-format
+msgid "Copyright (c) %s %s"
+msgstr "Copyright (c) %s %s"
+
+#: ../src/dlgAbout.cpp:123
+msgid "Author"
+msgstr "Auteur"
+
+#: ../src/dlgAbout.cpp:124
+msgid "Programmer & documentation"
+msgstr "Programmeur & documentation"
+
+#: ../src/dlgAbout.cpp:128
+msgid "Translations"
+msgstr "Traductions"
+
+#: ../src/dlgAbout.cpp:142
+msgid "Licence agreement"
+msgstr "Accord de licence"
+
+#: ../src/dlgAbout.cpp:143
+msgid "This program is distributed under the terms of the GPL v2."
+msgstr "Ce programme est distribué selon les termes de la GPL v2."
+
+#: ../src/dlgAbout.cpp:152
+msgid "Misc information"
+msgstr "Informations diverses"
+
+#: ../src/dlgAbout.cpp:155
+#, c-format
+msgid "Built with wxWidgets %d.%d.%d."
+msgstr "Construit avec wxWidgets %d.%d.%d."
+
+#: ../src/dlgAbout.cpp:157
+msgid "Large files support enabled."
+msgstr "Support des grands fichiers activé."
+
+#: ../src/dlgAbout.cpp:159
+msgid "Large files support disabled."
+msgstr "Support des grands fichiers désactivé."
+
+#: ../src/dlgAbout.cpp:163
+#: ../src/dlgInvalidFiles.cpp:135
+#: ../src/dlgProgress.cpp:362
+#: ../src/dlgResProg.cpp:275
+msgid "&Close"
+msgstr "&Fermer"
+
+#: ../src/dlgConf.cpp:169
+msgid "Settings"
+msgstr "Paramètres"
+
+#: ../src/dlgConf.cpp:214
+msgid "Interface"
+msgstr "Interface"
+
+#: ../src/dlgConf.cpp:215
+msgid "Display"
+msgstr "Affichage"
+
+#: ../src/dlgConf.cpp:216
+msgid "Behavior"
+msgstr "Comportement"
+
+#: ../src/dlgConf.cpp:217
+msgid "Language"
+msgstr "Langage"
+
+#: ../src/dlgConf.cpp:218
+msgid "Command line"
+msgstr "Ligne de commande"
+
+#: ../src/dlgConf.cpp:221
+msgid "Checksums' files"
+msgstr "Fichiers de sommes"
+
+#: ../src/dlgConf.cpp:222
+msgid "SFV files"
+msgstr "Fichiers SFV"
+
+#: ../src/dlgConf.cpp:223
+msgid "MD5 files"
+msgstr "Fichiers MD5"
+
+#: ../src/dlgConf.cpp:226
+msgid "Tools"
+msgstr "Outils"
+
+#: ../src/dlgConf.cpp:227
+msgid "Multiple check"
+msgstr "Vérification multiple"
+
+#: ../src/dlgConf.cpp:228
+msgid "Batch creation"
+msgstr "Création par lots"
+
+#: ../src/dlgConf.cpp:264
+msgid "Window:"
+msgstr "Fenêtre :"
+
+#: ../src/dlgConf.cpp:265
+msgid "Save and restore the &position of the window"
+msgstr "Sauvegarder et restaurer la &position de la fenêtre"
+
+#: ../src/dlgConf.cpp:267
+msgid "Save and restore the &size of the window"
+msgstr "&Sauvegarder et restaurer la taille de la fenêtre"
+
+#: ../src/dlgConf.cpp:270
+msgid "Headers of the checksums' list:"
+msgstr "En-têtes de la liste des sommes :"
+
+#: ../src/dlgConf.cpp:272
+msgid "&Up"
+msgstr "&Monter"
+
+#: ../src/dlgConf.cpp:273
+msgid "&Down"
+msgstr "&Descendre"
+
+#: ../src/dlgConf.cpp:275
+msgid "Checksums' list:"
+msgstr "Liste des sommes :"
+
+#: ../src/dlgConf.cpp:276
+msgid "Save the &column to sort (and the order)"
+msgstr "Sauvegarder la &colonne à trier (et l'ordre du tri)"
+
+#: ../src/dlgConf.cpp:278
+msgid "Save the &widths of the columns"
+msgstr "Sauvegarder la &largeur des colonnes"
+
+#: ../src/dlgConf.cpp:280
+msgid "Display the directories in &absolute path"
+msgstr "Afficher les répertoires en chemin &absolu"
+
+#: ../src/dlgConf.cpp:282
+msgid "Show checksums values in:"
+msgstr "Afficher les sommes en :"
+
+#: ../src/dlgConf.cpp:283
+msgid "upp&ercase"
+msgstr "ma&juscules"
+
+#: ../src/dlgConf.cpp:284
+msgid "&lowercase"
+msgstr "mi&nuscules"
+
+#: ../src/dlgConf.cpp:289
+msgid "Draws light &horizontal rules between rows"
+msgstr "Dessiner des bordures &horizontales entre les lignes"
+
+#: ../src/dlgConf.cpp:291
+msgid "Draws light &vertical rules between columns"
+msgstr "Dessiner des bordures &verticales entre les colonnes"
+
+#: ../src/dlgConf.cpp:360
+msgid "&Checks automatically the checksums file when opening it"
+msgstr "&Vérifier automatiquement les fichiers de sommes de contrôle à leur ouverture"
+
+#: ../src/dlgConf.cpp:362
+msgid "&Opens a dialog box to sum up the check"
+msgstr "&Ouvrir une boîte de dialogue qui résume la vérification"
+
+#: ../src/dlgConf.cpp:364
+msgid "&Displays a warning if the state of all the files is not 'OK' when saving a checksums file"
+msgstr "&Afficher un avertissement si l'état de tous les fichiers n'est pas 'OK' lors de la sauvegarde du fichier de sommes"
+
+#: ../src/dlgConf.cpp:392
+#, c-format
+msgid "Select the &language that %s should use:"
+msgstr "Sélectionnez la &langue que %s doit utiliser :"
+
+#: ../src/dlgConf.cpp:394
+msgid "Language of the system (if available)"
+msgstr "Langue du système (si disponible)"
+
+#: ../src/dlgConf.cpp:405
+msgid "Note: Changes you made for the language won't take effect before the next restart."
+msgstr "Note : Les changements que vous effectuez sur le langage prendront effet au prochain démarrage."
+
+#: ../src/dlgConf.cpp:437
+msgid "When verifying a checksums' file:"
+msgstr "Lors de la vérification d'un fichier de sommes :"
+
+#: ../src/dlgConf.cpp:438
+msgid "&Don't show the GUI if all the checksums are correct"
+msgstr "Ne pas afficher l'interface graphique si toutes les sommes sont &correctes"
+
+#: ../src/dlgConf.cpp:441
+msgid "When adding files to a checksums' file:"
+msgstr "Lors de l'ajout de fichiers au fichier de sommes :"
+
+#: ../src/dlgConf.cpp:442
+msgid "&Never show the GUI"
+msgstr "&Ne jamais afficher l'interface graphique"
+
+#: ../src/dlgConf.cpp:443
+msgid "Show the GUI on &errors"
+msgstr "Afficher l'interface graphique en cas d'&erreur"
+
+#: ../src/dlgConf.cpp:444
+msgid "Show the GUI on errors or &warnings"
+msgstr "Afficher l'interface graphique en cas d'erreur ou d'&avertissement"
+
+#: ../src/dlgConf.cpp:445
+msgid "&Always show the GUI"
+msgstr "&Toujours afficher l'interface graphique"
+
+#: ../src/dlgConf.cpp:455
+msgid "When creating a checksums' file:"
+msgstr "Lors de la création d'un fichier de sommes :"
+
+#: ../src/dlgConf.cpp:456
+msgid "Ne&ver show the GUI"
+msgstr "Ne &jamais afficher l'interface graphique"
+
+#: ../src/dlgConf.cpp:457
+msgid "Show the GUI on e&rrors"
+msgstr "Afficher l'interface graphique en cas d'e&rreur"
+
+#: ../src/dlgConf.cpp:458
+msgid "Show the GUI on errors or warnin&gs"
+msgstr "Afficher l'interface graphique en cas d'erreur ou d'a&vertissement"
+
+#: ../src/dlgConf.cpp:459
+msgid "Alwa&ys show the GUI"
+msgstr "T&oujours afficher l'interface graphique"
+
+#: ../src/dlgConf.cpp:469
+msgid "Note: Error and warning messages are always displayed."
+msgstr "Note : Les messages d'erreur et d'avertissement sont toujours affichés."
+
+#: ../src/dlgConf.cpp:546
+msgid "Path separator on reading SFV files:"
+msgstr "Séparateur de chemin pour la lecture des fichiers SFV :"
+
+#: ../src/dlgConf.cpp:547
+#: ../src/dlgConf.cpp:660
+msgid "&Automatic recognition"
+msgstr "Reconnaissance &automatique"
+
+#: ../src/dlgConf.cpp:548
+#: ../src/dlgConf.cpp:661
+msgid "&Unix: '/'"
+msgstr "&Unix: '/'"
+
+#: ../src/dlgConf.cpp:549
+#: ../src/dlgConf.cpp:662
+msgid "&Windows: '\\'"
+msgstr "&Windows: '\\'"
+
+#: ../src/dlgConf.cpp:550
+#: ../src/dlgConf.cpp:663
+msgid "&Macintosh: ':'"
+msgstr "&Macintosh: ':'"
+
+#: ../src/dlgConf.cpp:561
+msgid "Saving SFV files:"
+msgstr "Sauvegarde des fichiers SFV :"
+
+#: ../src/dlgConf.cpp:562
+#: ../src/dlgConf.cpp:675
+msgid "Save the &name of the generator and the date of creation in the comments"
+msgstr "Sauvegarder le &nom du générateur et la date de création dans les commentaires"
+
+#: ../src/dlgConf.cpp:564
+msgid "Identi&fy as:"
+msgstr "Identi&fier comme :"
+
+#: ../src/dlgConf.cpp:566
+#: ../src/dlgConf.cpp:677
+msgid "Save the size and the modification &date of the files in the comments"
+msgstr "Sauvegarder la taille et la &date de modification des fichiers dans les commentaires"
+
+#: ../src/dlgConf.cpp:569
+#: ../src/dlgConf.cpp:680
+msgid "Use the following path sepator:"
+msgstr "Utiliser le séparateur de chemin suivant :"
+
+#: ../src/dlgConf.cpp:570
+#: ../src/dlgConf.cpp:681
+#, c-format
+msgid "S&ystem default: '%c'"
+msgstr "Celui du s&ystème : '%c'"
+
+#: ../src/dlgConf.cpp:571
+#: ../src/dlgConf.cpp:682
+msgid "Un&ix: '/'"
+msgstr "Un&ix: '/'"
+
+#: ../src/dlgConf.cpp:572
+#: ../src/dlgConf.cpp:683
+msgid "Wind&ows: '\\'"
+msgstr "Wind&ows: '\\'"
+
+#: ../src/dlgConf.cpp:573
+#: ../src/dlgConf.cpp:684
+msgid "Macin&tosh: ':'"
+msgstr "Macin&tosh: ':'"
+
+#: ../src/dlgConf.cpp:583
+#: ../src/dlgConf.cpp:694
+msgid "Use the following end of line:"
+msgstr "Utiliser la fin de ligne suivante :"
+
+#: ../src/dlgConf.cpp:584
+#: ../src/dlgConf.cpp:695
+msgid "Syst&em native"
+msgstr "Celle du systèm&e"
+
+#: ../src/dlgConf.cpp:585
+#: ../src/dlgConf.cpp:696
+msgid "Uni&x"
+msgstr "Uni&x"
+
+#: ../src/dlgConf.cpp:586
+#: ../src/dlgConf.cpp:697
+msgid "Window&s"
+msgstr "Window&s"
+
+#: ../src/dlgConf.cpp:587
+#: ../src/dlgConf.cpp:698
+msgid "Macintos&h"
+msgstr "Macintos&h"
+
+#: ../src/dlgConf.cpp:659
+msgid "Path separator on reading MD5 files:"
+msgstr "Séparateur de chemin pour la lecture des fichiers SFV :"
+
+#: ../src/dlgConf.cpp:674
+msgid "Saving MD5 files:"
+msgstr "Sauvegarde des fichiers MD5 :"
+
+#: ../src/dlgConf.cpp:787
+msgid "Displaying of the results:"
+msgstr "Affichage des résultats :"
+
+#: ../src/dlgConf.cpp:788
+msgid "Display a &global summary"
+msgstr "Afficher un récapitulatif &global"
+
+#: ../src/dlgConf.cpp:790
+msgid "Display a summary for each &checksums' file"
+msgstr "Afficher un récapitulatif pour &chaque fichier de sommes"
+
+#: ../src/dlgConf.cpp:793
+msgid "Display the state of each checked &file"
+msgstr "Afficher l'état de chaque &fichier vérifié"
+
+#: ../src/dlgConf.cpp:795
+msgid "Don't display the state of the c&orrect files"
+msgstr "Ne pas afficher l'état des fichiers c&orrects"
+
+#: ../src/dlgConf.cpp:800
+#: ../src/dlgConf.cpp:893
+msgid "Text colours:"
+msgstr "Couleurs du texte :"
+
+#: ../src/dlgConf.cpp:807
+#: ../src/dlgConf.cpp:900
+msgid "&Normal:"
+msgstr "&Normal :"
+
+#: ../src/dlgConf.cpp:809
+#: ../src/dlgConf.cpp:902
+msgid "&Success:"
+msgstr "&Succès :"
+
+#: ../src/dlgConf.cpp:811
+#: ../src/dlgConf.cpp:904
+msgid "&Warning:"
+msgstr "A&vertissement :"
+
+#: ../src/dlgConf.cpp:813
+#: ../src/dlgConf.cpp:906
+msgid "&Error:"
+msgstr "&Erreur :"
+
+#: ../src/dlgConf.cpp:866
+#: ../src/dlgBatchCreateConf.cpp:137
+msgid "When a checksums' file alrealdy exists:"
+msgstr "Quand un fichier de sommes existe :"
+
+#: ../src/dlgConf.cpp:867
+#: ../src/dlgBatchCreateConf.cpp:138
+msgid "S&kip the creation"
+msgstr "&Passer la création"
+
+#: ../src/dlgConf.cpp:868
+#: ../src/dlgBatchCreateConf.cpp:139
+msgid "&Overwrite it"
+msgstr "&L'écraser"
+
+#: ../src/dlgConf.cpp:875
+#: ../src/dlgBatchCreateConf.cpp:142
+msgid "Create the name of the checksums' file by:"
+msgstr "Créer le nom du fichier de sommes en :"
+
+#: ../src/dlgConf.cpp:876
+msgid "&Replacing the extension of the source file with the extension of the type of the checksums' file"
+msgstr "&Remplaçant l'extension du fichier source avec l'extension du type du fichier de sommes"
+
+#: ../src/dlgConf.cpp:877
+msgid "&Adding the extension of the type of the checksums' file to the name of the source file"
+msgstr "A&joutant l'extension du type du fichier de sommes au nom du fichier source"
+
+#: ../src/dlgConf.cpp:884
+#: ../src/dlgBatchCreateConf.cpp:147
+msgid "Level of &verbosity of the report:"
+msgstr "N&iveau de verbosité du rapport :"
+
+#: ../src/dlgConf.cpp:885
+#: ../src/dlgBatchCreateConf.cpp:148
+msgid "Errors only"
+msgstr "Erreurs seulement"
+
+#: ../src/dlgConf.cpp:885
+#: ../src/dlgBatchCreateConf.cpp:148
+msgid "Errors and warnings"
+msgstr "Erreurs et avertissements"
+
+#: ../src/dlgConf.cpp:885
+#: ../src/dlgBatchCreateConf.cpp:148
+msgid "Normal"
+msgstr "Normal"
+
+#: ../src/dlgConf.cpp:885
+#: ../src/dlgBatchCreateConf.cpp:148
+msgid "Talkative"
+msgstr "Bavard"
+
+#: ../src/dlgConf.cpp:963
+#: ../src/lvwSums.cpp:869
+#: ../src/lvwSums.cpp:1381
+#: ../src/lvwSums.cpp:1478
+#: ../src/lvwSums.cpp:1485
+msgid "OK"
+msgstr "OK"
+
+#: ../src/dlgConf.cpp:965
+msgid "Cancel"
+msgstr "Annuler"
+
+#: ../src/dlgConf.cpp:1017
+msgid "Personalized..."
+msgstr "Personnalisé..."
+
+#: ../src/dlgConf.cpp:1130
+msgid "Name of the generator:"
+msgstr "Nom du programme générateur :"
+
+#: ../src/dlgConf.cpp:1130
+msgid "Identify as"
+msgstr "Identifier comme"
+
+#: ../src/dlgInvalidFiles.cpp:139
+#: ../src/lvwSums.cpp:1817
+#: ../src/dlgFilesSelector.cpp:462
+#: ../src/dlgFilesSelector.cpp:471
+msgid "File name"
+msgstr "Nom du fichier"
+
+#: ../src/dlgInvalidFiles.cpp:140
+msgid "Reason"
+msgstr "Raison"
+
+#: ../src/dlgInvalidFiles.cpp:158
+msgid "Please wait..."
+msgstr "Veuillez patienter..."
+
+#: ../src/dlgNewFile.cpp:209
+msgid "Please give a name for the new checksum file."
+msgstr "Veuillez fournir un nom pour le nouveau fichier de sommes."
+
+#: ../src/dlgNewFile.cpp:214
+msgid "Please give an absolute path for the name of the new checksum file."
+msgstr "Veuillez fournir un chemin absolu pour le nom du nouveau fichier de sommes de contrôle."
+
+#: ../src/dlgNewFile.cpp:219
+#, c-format
+msgid "The directory '%s' doesn't exist."
+msgstr "Le répertoire '%s' n'existe pas."
+
+#: ../src/dlgNewFile.cpp:224
+#, c-format
+msgid "'%s' is a directory."
+msgstr "'%s' est un répertoire."
+
+#: ../src/dlgNewFile.cpp:231
+#, c-format
+msgid ""
+"The file '%s' already exists.\n"
+"Do you want to overwrite it?"
+msgstr ""
+"Le fichier '%s' existe déjà.\n"
+"Souhaitez-vous l'écraser ?"
+
+#: ../src/dlgNewFile.cpp:231
+msgid "Create a new file"
+msgstr "Créer un nouveau fichier"
+
+#: ../src/dlgNewFile.cpp:236
+#, c-format
+msgid "You don't have sufficient rights to write on '%s'."
+msgstr "Vous n'avez pas les droits suffisants pour écrire sur '%s'."
+
+#: ../src/dlgNewFile.cpp:244
+msgid "Invalid file name"
+msgstr "Nom de fichier invalide"
+
+#: ../src/dlgNewFile.cpp:315
+msgid "Create a new checksums file"
+msgstr "Créer un nouveau fichier de sommes"
+
+#: ../src/dlgNewFile.cpp:334
+msgid "Type of the new file:"
+msgstr "Type du nouveau fichier :"
+
+#: ../src/dlgNewFile.cpp:335
+msgid "&SFV file"
+msgstr "Fichier &SFV"
+
+#: ../src/dlgNewFile.cpp:336
+msgid "&MD5 file"
+msgstr "Fichier &MD5"
+
+#: ../src/dlgNewFile.cpp:338
+msgid "&Name of the new file:"
+msgstr "&Nom du nouveau fichier :"
+
+#: ../src/dlgNewFile.cpp:342
+#: ../src/dlgAddMatchFiles.cpp:993
+#: ../src/dlgFilesSelector.cpp:481
+msgid "&Browse..."
+msgstr "&Parcourir..."
+
+#: ../src/dlgNewFile.cpp:344
+#: ../src/dlgBatchCreateConf.cpp:154
+msgid "&OK"
+msgstr "&OK"
+
+#: ../src/dlgNewFile.cpp:346
+#: ../src/dlgProgress.cpp:204
+#: ../src/dlgResProg.cpp:123
+#: ../src/dlgBatchCreateConf.cpp:156
+msgid "&Cancel"
+msgstr "&Annuler"
+
+#: ../src/dlgNewFile.cpp:415
+msgid "new"
+msgstr "nouveau"
+
+#: ../src/dlgNewFile.cpp:439
+msgid "Choose a name for the new checksums file"
+msgstr "Choisissez un nom pour le nouveau fichier de sommes"
+
+#: ../src/fileutil.cpp:68
+msgid "Known checksums files"
+msgstr "Fichiers de sommes reconnus"
+
+#: ../src/fileutil.cpp:71
+#: ../src/lvwSums.cpp:696
+#: ../src/dlgAddMatchFiles.cpp:1166
+#: ../src/dlgBatchCreateConf.cpp:503
+#: ../src/dlgFilesSelector.cpp:687
+msgid "All the files"
+msgstr "Tous les fichiers"
+
+#: ../src/frmSums.cpp:221
+msgid "&File"
+msgstr "&Fichier"
+
+#: ../src/frmSums.cpp:223
+msgid "&New...\tCtrl+N"
+msgstr "&Nouveau...\tCtrl+N"
+
+#: ../src/frmSums.cpp:225
+#: ../src/frmSums.cpp:418
+msgid "Creates a new checksum file."
+msgstr "Crée un nouveau fichier de sommes."
+
+#: ../src/frmSums.cpp:227
+msgid "&Open...\tCtrl+O"
+msgstr "&Ouvrir...\tCtrl+O"
+
+#: ../src/frmSums.cpp:229
+#: ../src/frmSums.cpp:420
+msgid "Opens a checksum file."
+msgstr "Ouvre un fichier de sommes."
+
+#: ../src/frmSums.cpp:232
+msgid "Open &recent"
+msgstr "&Récemment ouvert(s)"
+
+#: ../src/frmSums.cpp:236
+msgid "&Save\tCtrl+S"
+msgstr "&Enregistrer\tCtrl+S"
+
+#: ../src/frmSums.cpp:238
+#: ../src/frmSums.cpp:422
+msgid "Saves the checksum file."
+msgstr "Enregistre le fichier de sommes."
+
+#: ../src/frmSums.cpp:240
+msgid "Save &as..."
+msgstr "Enregistrer &sous..."
+
+#: ../src/frmSums.cpp:242
+msgid "Saves the checksum file in another file."
+msgstr "Enregistre les sommes dans un autre fichier."
+
+#: ../src/frmSums.cpp:246
+msgid "&Close\tCtrl+W"
+msgstr "&Fermer\tCtrl+W"
+
+#: ../src/frmSums.cpp:248
+msgid "Closes the checksum file."
+msgstr "Ferme le fichier de sommes."
+
+#: ../src/frmSums.cpp:252
+msgid "&Quit\tCtrl+Q"
+msgstr "&Quitter\tCtrl+Q"
+
+#: ../src/frmSums.cpp:254
+#, c-format
+msgid "Quit %s."
+msgstr "Quitte %s."
+
+#: ../src/frmSums.cpp:258
+msgid "&Sums"
+msgstr "&Sommes"
+
+#: ../src/frmSums.cpp:260
+msgid "Add &files...\tInsert"
+msgstr "Ajouter des &fichiers...\tInsert"
+
+#: ../src/frmSums.cpp:262
+#: ../src/frmSums.cpp:425
+msgid "Add files to the checksum file."
+msgstr "Ajoute des fichiers au fichier de sommes."
+
+#: ../src/frmSums.cpp:264
+msgid "Add &directories...\tCtrl+D"
+msgstr "Ajouter des &répertoires...\tCtrl+D"
+
+#: ../src/frmSums.cpp:266
+#: ../src/frmSums.cpp:427
+msgid "Add directories to the checksum file."
+msgstr "Ajoute des répertoires au fichier de sommes."
+
+#: ../src/frmSums.cpp:268
+msgid "Add &matching files...\tShift+Insert"
+msgstr "Ajouter des fichiers depuis un fi&ltre...\tShift+Insert"
+
+#: ../src/frmSums.cpp:270
+#: ../src/frmSums.cpp:429
+msgid "Select some files from a matching pattern and add them to the to the checksum file."
+msgstr "Sélectionne des fichiers depuis un filtre et les ajoute au fichier de sommes de contrôle."
+
+#: ../src/frmSums.cpp:272
+msgid "&Remove\tDelete"
+msgstr "&Supprimer\tDelete"
+
+#: ../src/frmSums.cpp:274
+#: ../src/frmSums.cpp:431
+msgid "Remove the selected checksums from the checksum file."
+msgstr "Supprime les sommes sélectionnées du fichier de sommes."
+
+#: ../src/frmSums.cpp:278
+msgid "&Check\tCtrl+C"
+msgstr "&Vérifier\tCtrl+C"
+
+#: ../src/frmSums.cpp:280
+#: ../src/frmSums.cpp:434
+msgid "Checks the selected files or all files if none is selected."
+msgstr "Vérifie les fichiers sélectionnés ou tous les fichiers si aucun n'est sélectionné."
+
+#: ../src/frmSums.cpp:282
+msgid "Re&compute\tCtrl+R"
+msgstr "Re&calculer\tCtrl+R"
+
+#: ../src/frmSums.cpp:284
+#: ../src/frmSums.cpp:436
+msgid "Recompute the checksums of the selected files."
+msgstr "Recalcule les sommes de contrôle sélectionnées pour les fichiers sélectionnés."
+
+#: ../src/frmSums.cpp:289
+msgid "File &name"
+msgstr "&Nom du fichier"
+
+#: ../src/frmSums.cpp:289
+msgid "Sort the checksums' list by file name."
+msgstr "Trie la liste de sommes de contrôle par nom de fichier."
+
+#: ../src/frmSums.cpp:290
+msgid "&Directory"
+msgstr "&Répertoire"
+
+#: ../src/frmSums.cpp:290
+msgid "Sort the checksums' list by directory."
+msgstr "Trie la liste de sommes de contrôle par répertoire."
+
+#: ../src/frmSums.cpp:291
+msgid "Checksum &value"
+msgstr "&Valeur de la somme"
+
+#: ../src/frmSums.cpp:291
+msgid "Sort the checksums' list by value."
+msgstr "Trie la liste de sommes de contrôle par valeur de somme de contrôle."
+
+#: ../src/frmSums.cpp:292
+msgid "&State"
+msgstr "&Etat"
+
+#: ../src/frmSums.cpp:292
+msgid "Sort the checksums' list by state."
+msgstr "Trie la liste de sommes de contrôle par état."
+
+#: ../src/frmSums.cpp:299
+msgid "&Ascending order"
+msgstr "Ordre &croissant"
+
+#: ../src/frmSums.cpp:299
+msgid "Sort the checksums' list in ascending order."
+msgstr "Effectue le tri par ordre croissant."
+
+#: ../src/frmSums.cpp:300
+msgid "D&escending order"
+msgstr "Ordre &décroissant"
+
+#: ../src/frmSums.cpp:300
+msgid "Sort the checksums' list in descending order."
+msgstr "Effectue le tri par ordre décroissant."
+
+#: ../src/frmSums.cpp:301
+msgid "D&on't sort"
+msgstr "Ne &pas trier"
+
+#: ../src/frmSums.cpp:301
+msgid "Don't sort the checksums' list."
+msgstr "Ne pas trier la liste de sommes de contrôle."
+
+#: ../src/frmSums.cpp:302
+msgid "&Sort by"
+msgstr "Trier &par"
+
+#: ../src/frmSums.cpp:304
+msgid "Select &all\tCtrl+A"
+msgstr "Sélectionner &tout\tCtrl+A"
+
+#: ../src/frmSums.cpp:304
+msgid "Selects all the files."
+msgstr "Sélectionner tous les fichiers."
+
+#: ../src/frmSums.cpp:306
+msgid "&Invert selection\tCtrl+I"
+msgstr "&Inverser la sélection\tCtrl+I"
+
+#: ../src/frmSums.cpp:306
+msgid "Selects non-selected files and deselects selected files."
+msgstr "Sélectionne les fichiers non sélectionnés et désélectionne les fichier sélectionnés."
+
+#: ../src/frmSums.cpp:310
+msgid "&Tools"
+msgstr "&Outils"
+
+#: ../src/frmSums.cpp:311
+msgid "Check &multiple checksums' files...\tCtrl+M"
+msgstr "&Vérifier plusieurs fichiers de sommes...\tCtrl+M"
+
+#: ../src/frmSums.cpp:311
+msgid "Checks several checksums' files at the same time."
+msgstr "Vérifie plusieurs fichiers de sommes à la fois."
+
+#: ../src/frmSums.cpp:312
+msgid "&Batch creation of checksums' files...\tCtrl+B"
+msgstr "Création de fichiers de sommes par &lots...\tCtrl+B"
+
+#: ../src/frmSums.cpp:312
+msgid "Creates one checksums' file for each file selected in the following dialog."
+msgstr "Crée un fichier de sommes pour chaque fichier sélectionné dans la boîte de dialogue suivante."
+
+#: ../src/frmSums.cpp:322
+#, c-format
+msgid "&Configure %s..."
+msgstr "&Configurer %s..."
+
+#: ../src/frmSums.cpp:324
+#: ../src/frmSums.cpp:439
+#, c-format
+msgid "Sets the parameters of %s."
+msgstr "Modifie les paramètres de %s."
+
+#: ../src/frmSums.cpp:328
+msgid "&Help"
+msgstr "&Aide"
+
+#: ../src/frmSums.cpp:330
+#, c-format
+msgid "&About %s..."
+msgstr "&A propos de %s..."
+
+#: ../src/frmSums.cpp:332
+#, c-format
+msgid "Displays information about %s."
+msgstr "Affiche des informations sur %s."
+
+#: ../src/frmSums.cpp:417
+#: ../src/frmSums.cpp:418
+msgid "New"
+msgstr "Nouveau"
+
+#: ../src/frmSums.cpp:419
+#: ../src/frmSums.cpp:420
+msgid "Open"
+msgstr "Ouvrir"
+
+#: ../src/frmSums.cpp:421
+#: ../src/frmSums.cpp:422
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: ../src/frmSums.cpp:424
+#: ../src/frmSums.cpp:425
+msgid "Add files"
+msgstr "Ajouter des fichiers"
+
+#: ../src/frmSums.cpp:426
+#: ../src/frmSums.cpp:427
+msgid "Add directories"
+msgstr "Ajouter des répertoires"
+
+#: ../src/frmSums.cpp:428
+#: ../src/frmSums.cpp:429
+msgid "Add matching files"
+msgstr "Ajouter des fichiers depuis un filtre"
+
+#: ../src/frmSums.cpp:430
+#: ../src/frmSums.cpp:431
+msgid "Remove checksums"
+msgstr "Supprimer des sommes"
+
+#: ../src/frmSums.cpp:433
+msgid "Check"
+msgstr "Vérifier"
+
+#: ../src/frmSums.cpp:434
+msgid "Check files"
+msgstr "Vérifier les fichiers"
+
+#: ../src/frmSums.cpp:435
+msgid "Recompute"
+msgstr "Recalculer"
+
+#: ../src/frmSums.cpp:436
+msgid "Recompute checksums"
+msgstr "Recalcule les sommes de contrôle"
+
+#: ../src/frmSums.cpp:438
+msgid "Configure"
+msgstr "Configurer"
+
+#: ../src/frmSums.cpp:439
+#, c-format
+msgid "Configure %s"
+msgstr "Configurer %s"
+
+#: ../src/frmSums.cpp:454
+msgid "Welcome"
+msgstr "Bienvenue"
+
+#: ../src/frmSums.cpp:514
+#, c-format
+msgid ""
+"'%s' is a directory.\n"
+"The checksums' file will be not be saved.\n"
+"Do you want to continue?"
+msgstr ""
+"'%s' est un répertoire.\n"
+"Le fichier de sommes ne sera pas sauvegardé.\n"
+"Voulez-vous continuer ?"
+
+#: ../src/frmSums.cpp:514
+#: ../src/frmSums.cpp:566
+#: ../src/frmSums.cpp:689
+#, c-format
+msgid "Error - %s"
+msgstr "Erreur - %s"
+
+#: ../src/frmSums.cpp:526
+#, c-format
+msgid ""
+"'%s' exists but its format is unknown.\n"
+"Do you want to create a new checksums' file with this name and overwrite the existing file?"
+msgstr ""
+"'%s' existe mais son format est inconnu.\n"
+"Voulez-vous créer un nouveau fichier de sommes avec ce nom et écraser le fichier existant ?"
+
+#: ../src/frmSums.cpp:526
+#: ../src/frmSums.cpp:672
+#: ../src/frmSums.cpp:724
+#: ../src/frmSums.cpp:956
+#: ../src/frmSums.cpp:1555
+#, c-format
+msgid "Warning - %s"
+msgstr "Avertissement - %s"
+
+#: ../src/frmSums.cpp:565
+#: ../src/frmSums.cpp:688
+msgid "An error has occurred during the save process of the file."
+msgstr "Une erreur s'est produite durant la sauvegarde du fichier."
+
+#: ../src/frmSums.cpp:636
+msgid "(Modified) "
+msgstr "(Modifié) "
+
+#: ../src/frmSums.cpp:671
+msgid ""
+"Some checksums are not valid.\n"
+"Do you really wish to save this checksums file?"
+msgstr ""
+"Certaines sommes de contrôles ne sont pas valides.\n"
+"Souhaitez-vous vraiment sauvegarder ce fichier de sommes ?"
+
+#: ../src/frmSums.cpp:723
+msgid ""
+"This checksum file has been modified.\n"
+"Would you like to save it?"
+msgstr ""
+"Le fichier de sommes de contrôle a été modifié.\n"
+"Souhaitez-vous le sauvegarder ?"
+
+#: ../src/frmSums.cpp:815
+msgid "Open this checksums' file."
+msgstr "Ouvre ce fichier de sommes."
+
+#: ../src/frmSums.cpp:926
+msgid "Select the checksums file"
+msgstr "Sélectionnez le fichier de sommes"
+
+#: ../src/frmSums.cpp:955
+#, c-format
+msgid ""
+"'%s' is already opened.\n"
+"Do you want to reopen it?"
+msgstr ""
+"'%s' est déjà ouvert.\n"
+"Souhaitez-vous le réouvrir ?"
+
+#: ../src/frmSums.cpp:998
+msgid "Save the checksums file as"
+msgstr "Enregistre le fichier de sommes sous"
+
+#: ../src/frmSums.cpp:1554
+#, c-format
+msgid ""
+"'%s' will be closed even if you choose to cancel.\n"
+"If you want to save the current checksums file, choose 'yes' now."
+msgstr ""
+"'%s' sera fermé même si vous choisissez d'annuler.\n"
+"Si vous voulez sauvegarder le fichier de sommes, choisissez 'oui' maintenant."
+
+#: ../src/lvwSums.cpp:261
+#: ../src/lvwSums.cpp:956
+#: ../src/utils.cpp:255
+msgid "Beginning..."
+msgstr "Début..."
+
+#: ../src/lvwSums.cpp:315
+#: ../src/utils.cpp:280
+msgid "Finished"
+msgstr "Fin"
+
+#: ../src/lvwSums.cpp:642
+msgid "Not verified"
+msgstr "Non vérifié"
+
+#: ../src/lvwSums.cpp:698
+#: ../src/dlgBatchCreateConf.cpp:481
+msgid "Select the files to be added"
+msgstr "Sélectionnez les fichiers à ajouter"
+
+#: ../src/lvwSums.cpp:724
+#: ../src/dlgAddMatchFiles.cpp:1397
+#: ../src/dlgFilesSelector.cpp:859
+msgid "Select the directory"
+msgstr "Sélectionnez le répertoire"
+
+#: ../src/lvwSums.cpp:849
+#, c-format
+msgid ""
+"Computing the checkum of %s\n"
+"%s on %s read."
+msgstr ""
+"Calcule la somme de %s\n"
+"%s sur %s lus."
+
+#: ../src/lvwSums.cpp:849
+msgid "Computing the checksums"
+msgstr "Calcul des sommes"
+
+#: ../src/lvwSums.cpp:874
+#: ../src/lvwSums.cpp:1389
+#: ../src/lvwSums.cpp:1490
+msgid "Error while reading the file"
+msgstr "Erreur lors de la lecture du fichier"
+
+#: ../src/lvwSums.cpp:878
+#: ../src/lvwSums.cpp:1393
+#: ../src/lvwSums.cpp:1494
+msgid "File not found"
+msgstr "Fichier non trouvé"
+
+#: ../src/lvwSums.cpp:882
+#: ../src/lvwSums.cpp:1397
+#: ../src/lvwSums.cpp:1498
+msgid "File cannot be open"
+msgstr "Le fichier n'a pas pu être ouvert"
+
+#: ../src/lvwSums.cpp:902
+msgid "Invalid files"
+msgstr "Fichiers invalides"
+
+#: ../src/lvwSums.cpp:903
+msgid "The following files were not added to the list of the checksums:"
+msgstr "Les fichiers suivants ne seront pas ajoutés à la liste des sommes :"
+
+#: ../src/lvwSums.cpp:956
+msgid "Checking for duplicate files"
+msgstr "Recherche les fichiers en double"
+
+#: ../src/lvwSums.cpp:1024
+#, c-format
+msgid "Checking %s"
+msgstr "Vérifie %s"
+
+#: ../src/lvwSums.cpp:1035
+msgid "Finished."
+msgstr "Fin."
+
+#: ../src/lvwSums.cpp:1250
+msgid "1 file was checked. "
+msgstr "1 fichier a été vérifié. "
+
+#: ../src/lvwSums.cpp:1252
+#, c-format
+msgid "%d files were checked. "
+msgstr "%d fichiers ont été vérifiés. "
+
+#: ../src/lvwSums.cpp:1255
+msgid "All are ok."
+msgstr "Tous sont valides."
+
+#: ../src/lvwSums.cpp:1257
+msgid "All are invalid."
+msgstr "Tous sont invalides."
+
+#: ../src/lvwSums.cpp:1259
+msgid "All cannot be opened."
+msgstr "Aucun n'a pu être ouvert."
+
+#: ../src/lvwSums.cpp:1263
+msgid "None is ok"
+msgstr "Aucun n'est valide"
+
+#: ../src/lvwSums.cpp:1265
+msgid "1 is ok"
+msgstr "1 est valide"
+
+#: ../src/lvwSums.cpp:1267
+#, c-format
+msgid "%d are ok"
+msgstr "%d sont valides"
+
+#: ../src/lvwSums.cpp:1270
+msgid ", 1 is invalid"
+msgstr ", 1 est invalide"
+
+#: ../src/lvwSums.cpp:1272
+#, c-format
+msgid ", %d are invalid"
+msgstr ", %d sont invalides"
+
+#: ../src/lvwSums.cpp:1275
+msgid ", 1 can't be opened"
+msgstr ", 1 n'a pas pu être ouvert"
+
+#: ../src/lvwSums.cpp:1277
+#, c-format
+msgid ", %d can't be opened"
+msgstr ", %d n'ont pas pu être ouverts"
+
+#: ../src/lvwSums.cpp:1321
+#, c-format
+msgid "'%s' cannot be read."
+msgstr "'%s' n'a pas pu être lu."
+
+#: ../src/lvwSums.cpp:1321
+msgid "Open a checksums' file"
+msgstr "Ouvrir un fichier de sommes."
+
+#: ../src/lvwSums.cpp:1363
+#, c-format
+msgid ""
+"Checking %s\n"
+"%s on %s read."
+msgstr ""
+"Vérifie %s\n"
+"%s sur %s lus."
+
+#: ../src/lvwSums.cpp:1363
+msgid "Checking the files"
+msgstr "Vérification des fichiers en cours"
+
+#: ../src/lvwSums.cpp:1385
+msgid "Checksums differ"
+msgstr "Sommes différentes"
+
+#: ../src/lvwSums.cpp:1415
+msgid "Checking checksums"
+msgstr "Vérification des sommes de contrôle"
+
+#: ../src/lvwSums.cpp:1461
+#, c-format
+msgid ""
+"Recomputing the checkum of %s\n"
+"%s on %s read."
+msgstr ""
+"Recalcule la somme de %s\n"
+"%s sur %s lus."
+
+#: ../src/lvwSums.cpp:1461
+msgid "Recomputing the checksums"
+msgstr "Recalcul des sommes"
+
+#: ../src/lvwSums.cpp:1563
+msgid "&Add files..."
+msgstr "Ajouter des &fichiers..."
+
+#: ../src/lvwSums.cpp:1565
+msgid "A&dd directories..."
+msgstr "Ajouter des &répertoires..."
+
+#: ../src/lvwSums.cpp:1567
+msgid "Add &matching files..."
+msgstr "Ajouter des fichiers depuis un fi&ltre..."
+
+#: ../src/lvwSums.cpp:1569
+#: ../src/dlgAddMatchFiles.cpp:978
+#: ../src/dlgFilesSelector.cpp:466
+msgid "&Remove"
+msgstr "&Supprimer"
+
+#: ../src/lvwSums.cpp:1820
+#: ../src/dlgAddMatchFiles.cpp:974
+#: ../src/dlgAddMatchFiles.cpp:983
+#: ../src/dlgFilesSelector.cpp:463
+#: ../src/dlgFilesSelector.cpp:471
+msgid "Directory"
+msgstr "Répertoire"
+
+#: ../src/lvwSums.cpp:1823
+msgid "Checksum value"
+msgstr "Valeur de la somme"
+
+#: ../src/lvwSums.cpp:1826
+msgid "State"
+msgstr "Etat"
+
+#: ../src/utils.cpp:255
+msgid "Searching files"
+msgstr "Recherche des fichiers"
+
+#: ../src/language.cpp:574
+msgid "Unknow"
+msgstr "Inconnu"
+
+#: ../src/dlgMultiCheckConf.cpp:110
+#: ../src/dlgMultiCheck.cpp:276
+msgid "Check multiple checksums' files"
+msgstr "Vérifier plusieurs fichiers de sommes"
+
+#: ../src/dlgMultiCheckConf.cpp:112
+msgid "&Check"
+msgstr "&Vérifier"
+
+#: ../src/dlgMultiCheckConf.cpp:114
+msgid "List of files to c&heck:"
+msgstr "&Liste des fichiers à vérifier :"
+
+#: ../src/dlgMultiCheckConf.cpp:116
+msgid "Search &for some files to check:"
+msgstr "&Rechercher des fichiers à vérifier :"
+
+#: ../src/dlgMultiCheckConf.cpp:118
+msgid "Select the files to be checked"
+msgstr "Sélectionnez les fichiers à vérifier"
+
+#: ../src/dlgMultiCheckConf.cpp:120
+msgid "Add a list of checksums' files"
+msgstr "Ajouter à la liste des fichiers de sommes"
+
+#: ../src/dlgMultiCheckConf.cpp:122
+msgid "Load a list of checksums' files"
+msgstr "Charger une liste de fichier de sommes"
+
+#: ../src/dlgMultiCheckConf.cpp:124
+msgid "Save a list of checksums' files"
+msgstr "Enregistrer la liste des fichiers de sommes"
+
+#: ../src/dlgMultiCheck.cpp:312
+msgid "Checking:"
+msgstr "Vérifie :"
+
+#: ../src/dlgMultiCheck.cpp:318
+msgid "In checksums' file:"
+msgstr "Dans le fichier de sommes :"
+
+#: ../src/dlgMultiCheck.cpp:324
+#: ../src/dlgBatchCreate.cpp:373
+msgid "Current file:"
+msgstr "Fichier courant :"
+
+#: ../src/dlgMultiCheck.cpp:545
+#: ../src/dlgMultiCheck.cpp:564
+#: ../src/dlgBatchCreate.cpp:537
+#, c-format
+msgid "%d/%d"
+msgstr "%d/%d"
+
+#: ../src/dlgMultiCheck.cpp:585
+#: ../src/dlgBatchCreate.cpp:557
+#, c-format
+msgid "%s/%s"
+msgstr "%s/%s"
+
+#: ../src/dlgMultiCheck.cpp:651
+#, c-format
+msgid "'%s': OK\n"
+msgstr "'%s' : OK\n"
+
+#: ../src/dlgMultiCheck.cpp:657
+#, c-format
+msgid "'%s': Checksums differ\n"
+msgstr "'%s' : Sommes différentes\n"
+
+#: ../src/dlgMultiCheck.cpp:663
+#: ../src/dlgBatchCreate.cpp:808
+#, c-format
+msgid "Error while reading '%s'.\n"
+msgstr "Erreur lors de la lecture de '%s'.\n"
+
+#: ../src/dlgMultiCheck.cpp:669
+#, c-format
+msgid "'%s': File not found\n"
+msgstr "'%s' : Fichier non trouvé\n"
+
+#: ../src/dlgMultiCheck.cpp:675
+#, c-format
+msgid "'%s': File cannot be opened\n"
+msgstr "'%s' : Le fichier n'a pas pu être ouvert\n"
+
+#: ../src/dlgMultiCheck.cpp:712
+#, c-format
+msgid "Checking '%s'.\n"
+msgstr "Vérification de '%s'.\n"
+
+#: ../src/dlgMultiCheck.cpp:743
+#, c-format
+msgid "Checking '%s'...\n"
+msgstr "Vérification de '%s'...\n"
+
+#: ../src/dlgMultiCheck.cpp:769
+#, c-format
+msgid "Total checked: %d\n"
+msgstr "Vérifié(s) au total : %d\n"
+
+#: ../src/dlgMultiCheck.cpp:771
+#: ../src/dlgMultiCheck.cpp:830
+#, c-format
+msgid "Correct(s): %d\n"
+msgstr "Correct(s) : %d\n"
+
+#: ../src/dlgMultiCheck.cpp:773
+#, c-format
+msgid "Incorrect(s): %d\n"
+msgstr "Incorrect(s) : %d\n"
+
+#: ../src/dlgMultiCheck.cpp:775
+#, c-format
+msgid "Not found: %d\n"
+msgstr "Non trouvé(s) : %d\n"
+
+#: ../src/dlgMultiCheck.cpp:777
+#: ../src/dlgMultiCheck.cpp:838
+#, c-format
+msgid "Not opened: %d\n"
+msgstr "Non ouvert(s) : %d\n"
+
+#: ../src/dlgMultiCheck.cpp:785
+msgid "All checksums are corrects.\n"
+msgstr "Toutes les sommes de contrôle sont correctes.\n"
+
+#: ../src/dlgMultiCheck.cpp:787
+msgid "Some checksums are incorrects.\n"
+msgstr "Certaines sommes de contrôle sont incorrectes.\n"
+
+#: ../src/dlgMultiCheck.cpp:791
+#, c-format
+msgid "'%s' is empty.\n"
+msgstr "'%s' est vide.\n"
+
+#: ../src/dlgMultiCheck.cpp:808
+#, c-format
+msgid "'%s' is not a valid checksums' file.\n"
+msgstr "'%s' n'est pas un fichier de sommes de contrôle valide.\n"
+
+#: ../src/dlgMultiCheck.cpp:814
+#, c-format
+msgid "'%s' cannot be opened.\n"
+msgstr "'%s' n'a pas pu être ouvert.\n"
+
+#: ../src/dlgMultiCheck.cpp:828
+#, c-format
+msgid "Total checksums' files checked: %d\n"
+msgstr "Fichier(s) de sommes de contrôle vérifié(s) au total : %d\n"
+
+#: ../src/dlgMultiCheck.cpp:832
+#, c-format
+msgid "Partially correct(s): %d\n"
+msgstr "Partiellement correct(s) : %d\n"
+
+#: ../src/dlgMultiCheck.cpp:834
+#, c-format
+msgid "Fully incorrect(s): %d\n"
+msgstr "Complètement incorrect(s) : %d\n"
+
+#: ../src/dlgMultiCheck.cpp:836
+#, c-format
+msgid "Invalid(s): %d\n"
+msgstr "Invalide(s) : %d\n"
+
+#: ../src/dlgMultiCheck.cpp:843
+msgid "All checksums' files are corrects.\n"
+msgstr "Tous les fichiers de sommes de contrôle sont corrects.\n"
+
+#: ../src/dlgMultiCheck.cpp:845
+msgid "Some checksums' files are incorrects.\n"
+msgstr "Certains fichiers de sommes de contrôle sont incorrects.\n"
+
+#: ../src/dlgAddMatchFiles.cpp:774
+msgid "Add a matching pattern at least."
+msgstr "Ajoutez au moins un filtre."
+
+#: ../src/dlgAddMatchFiles.cpp:774
+#: ../src/dlgBatchCreateConf.cpp:392
+#: ../src/dlgFilesSelector.cpp:277
+#: ../src/dlgFilesSelector.cpp:923
+#: ../src/dlgFilesSelector.cpp:929
+msgid "Warning"
+msgstr "Avertissement"
+
+#: ../src/dlgAddMatchFiles.cpp:969
+msgid "List of the matc&hing patterns:"
+msgstr "Liste &des filtres :"
+
+#: ../src/dlgAddMatchFiles.cpp:975
+#: ../src/dlgAddMatchFiles.cpp:983
+msgid "Pattern"
+msgstr "Filtre"
+
+#: ../src/dlgAddMatchFiles.cpp:976
+#: ../src/dlgAddMatchFiles.cpp:983
+msgid "Depth"
+msgstr "Profondeur"
+
+#: ../src/dlgAddMatchFiles.cpp:980
+#: ../src/dlgFilesSelector.cpp:468
+msgid "Add li&st..."
+msgstr "A&jouter la liste..."
+
+#: ../src/dlgAddMatchFiles.cpp:981
+#: ../src/dlgFilesSelector.cpp:469
+msgid "L&oad list..."
+msgstr "&Charger la liste..."
+
+#: ../src/dlgAddMatchFiles.cpp:982
+#: ../src/dlgFilesSelector.cpp:470
+msgid "Sa&ve list..."
+msgstr "Sa&uver la liste..."
+
+#: ../src/dlgAddMatchFiles.cpp:984
+#: ../src/dlgFilesSelector.cpp:472
+msgid "Sort b&y:"
+msgstr "Tr&ier par :"
+
+#: ../src/dlgAddMatchFiles.cpp:985
+#: ../src/dlgFilesSelector.cpp:473
+msgid "Ascending"
+msgstr "Croissant"
+
+#: ../src/dlgAddMatchFiles.cpp:985
+#: ../src/dlgFilesSelector.cpp:473
+msgid "Descending"
+msgstr "Décroissant"
+
+#: ../src/dlgAddMatchFiles.cpp:985
+#: ../src/dlgFilesSelector.cpp:473
+msgid "Don't sort"
+msgstr "Ne pas trier"
+
+#: ../src/dlgAddMatchFiles.cpp:986
+#: ../src/dlgFilesSelector.cpp:474
+msgid "Sor&t order:"
+msgstr "Ordre du &tri :"
+
+#: ../src/dlgAddMatchFiles.cpp:988
+msgid "Add a mathing pattern to the li&st:"
+msgstr "Aj&outer un filtre à la liste :"
+
+#: ../src/dlgAddMatchFiles.cpp:989
+msgid "Patter&n(s):"
+msgstr "Fi&ltres(s) :"
+
+#: ../src/dlgAddMatchFiles.cpp:991
+msgid "D&irectory:"
+msgstr "&Répertoire:"
+
+#: ../src/dlgAddMatchFiles.cpp:994
+#: ../src/dlgFilesSelector.cpp:482
+msgid "&Depth:"
+msgstr "Pro&fondeur :"
+
+#: ../src/dlgAddMatchFiles.cpp:996
+msgid "Add patt&ern"
+msgstr "Ajout&er le filtre"
+
+#: ../src/dlgAddMatchFiles.cpp:998
+#: ../src/dlgFilesSelector.cpp:465
+msgid "&Add..."
+msgstr "&Ajouter..."
+
+#: ../src/dlgAddMatchFiles.cpp:1000
+#: ../src/dlgFilesSelector.cpp:488
+msgid "Ca&ncel"
+msgstr "A&nnuler"
+
+#: ../src/dlgAddMatchFiles.cpp:1106
+#, c-format
+msgid "Add matching files - %s"
+msgstr "Ajouter des fichiers depuis un filtre - %s"
+
+#: ../src/dlgAddMatchFiles.cpp:1165
+msgid "wxChecksums matching patterns files"
+msgstr "Filtres de wxChecksums"
+
+#: ../src/dlgAddMatchFiles.cpp:1265
+msgid "Add a list of matching patterns"
+msgstr "Ajouter une liste de filtres"
+
+#: ../src/dlgAddMatchFiles.cpp:1297
+msgid "Load a list of matching patterns"
+msgstr "Charger une liste de filtres"
+
+#: ../src/dlgAddMatchFiles.cpp:1335
+msgid "Save the list of matching patterns"
+msgstr "Sauvegarder une liste de filtres"
+
+#: ../src/cmdlnopt.cpp:284
+msgid "The verify switch and the create option are incompatibles."
+msgstr "Les options verify et create sont incompatibles."
+
+#: ../src/cmdlnopt.cpp:289
+msgid "The verify switch and the append option are incompatibles."
+msgstr "Les options verify et append sont incompatibles."
+
+#: ../src/cmdlnopt.cpp:296
+msgid "The verify switch needs that you specify one file to check."
+msgstr "Vous devez spécifier un fichier à vérifier avec l'option verify."
+
+#: ../src/cmdlnopt.cpp:301
+msgid "The verify switch needs that you specify only one file to check."
+msgstr "Vous ne pouvez spécifier qu'un seul fichier à vérifier avec l'option verify."
+
+#: ../src/cmdlnopt.cpp:309
+#: ../src/cmdlnopt.cpp:518
+msgid "The name of the file to check is empty."
+msgstr "Le nom du fichier à vérifier est vide."
+
+#: ../src/cmdlnopt.cpp:355
+msgid "The append option and the verify switch are incompatibles."
+msgstr "Les options append et verify sont incompatibles."
+
+#: ../src/cmdlnopt.cpp:360
+msgid "The append and create options are incompatibles."
+msgstr "Les options append et create sont incompatibles."
+
+#: ../src/cmdlnopt.cpp:367
+msgid "The name of the checksums' file where the checksums will be added is empty."
+msgstr "Le nom du fichier de sommes où les sommes vont être ajoutées est vide."
+
+#: ../src/cmdlnopt.cpp:378
+#: ../src/cmdlnopt.cpp:444
+#, c-format
+msgid "The directory %s doesn't exist."
+msgstr "Le répertoire %s n'existe pas."
+
+#: ../src/cmdlnopt.cpp:421
+msgid "The create option and the verify switch are incompatibles."
+msgstr "Les options create et verify sont incompatibles."
+
+#: ../src/cmdlnopt.cpp:426
+msgid "The create and append options are incompatibles."
+msgstr "Les options create et append sont incompatibles."
+
+#: ../src/cmdlnopt.cpp:433
+msgid "The name of the checksums' file to create is empty."
+msgstr "Le nom du fichier de sommes à créer est vide."
+
+#: ../src/cmdlnopt.cpp:485
+msgid "The type of the checksums' file to create is invalid. Valids types are 'sfv' and 'md5'."
+msgstr "Le type du fichier de sommes à créer est invalide. Les types valides sont 'sfv' et 'md5'."
+
+#: ../src/cmdlnopt.cpp:508
+msgid "You can specify only one file to check at the same time."
+msgstr "Vous ne pouvez spécifier qu'un seul fichier à ouvrir à la fois."
+
+#: ../src/dlgProgress.cpp:162
+msgid "Elapsed time:"
+msgstr "Temps écoulé :"
+
+#: ../src/dlgProgress.cpp:163
+#: ../src/dlgProgress.cpp:177
+#: ../src/dlgProgress.cpp:191
+msgid "unknown"
+msgstr "inconnu"
+
+#: ../src/dlgProgress.cpp:176
+msgid "Estimated time:"
+msgstr "Temps estimé :"
+
+#: ../src/dlgProgress.cpp:190
+msgid "Remaining time:"
+msgstr "Temps restant :"
+
+#: ../src/dlgProgress.cpp:201
+#: ../src/dlgProgress.cpp:490
+#: ../src/dlgResProg.cpp:121
+#: ../src/dlgResProg.cpp:220
+msgid "&Pause"
+msgstr "&Pause"
+
+#: ../src/dlgProgress.cpp:377
+msgid "Done."
+msgstr "Fait."
+
+#: ../src/dlgProgress.cpp:486
+#: ../src/dlgResProg.cpp:216
+msgid "C&ontinue"
+msgstr "&Continuer"
+
+#: ../src/checksumfactory.cpp:94
+msgid "SFV checksums' file"
+msgstr "Fichier de sommes SFV"
+
+#: ../src/checksumfactory.cpp:95
+msgid "MD5 checksums' file"
+msgstr "Fichier de sommes MD5"
+
+#: ../src/dlgBatchCreateConf.cpp:114
+msgid "Options of the batch creation of checksums' files"
+msgstr "Options de la création de fichiers de sommes par lots"
+
+#: ../src/dlgBatchCreateConf.cpp:143
+msgid "&Replacing the extension of the source file with the extension of the type of the checksums' file."
+msgstr "&Remplaçant l'extension du fichier source avec l'extension du type du fichier de sommes."
+
+#: ../src/dlgBatchCreateConf.cpp:144
+msgid "&Adding the extension of the type of the checksums' file to the name of the source file."
+msgstr "A&joutant l'extension du type du fichier de sommes au nom du fichier source."
+
+#: ../src/dlgBatchCreateConf.cpp:310
+msgid "Create the following types of checks&ums' file:"
+msgstr "Créer le nom d&u fichier de sommes en :"
+
+#: ../src/dlgBatchCreateConf.cpp:311
+msgid "O&ptions..."
+msgstr "Options&..."
+
+#: ../src/dlgBatchCreateConf.cpp:392
+msgid "Select as least a type of checksums' file."
+msgstr "Sélectionnez au moins un type de fichiers de sommes."
+
+#: ../src/dlgBatchCreateConf.cpp:473
+#: ../src/dlgBatchCreate.cpp:331
+msgid "Batch creation of checksums' files"
+msgstr "Création de fichiers de sommes par lots"
+
+#: ../src/dlgBatchCreateConf.cpp:475
+msgid "&Create"
+msgstr "Cr&éer"
+
+#: ../src/dlgBatchCreateConf.cpp:477
+msgid "List of files from which the c&hecksums' files will be created:"
+msgstr "&Liste des fichiers à partir desquels les fichiers de sommes seront créés :"
+
+#: ../src/dlgBatchCreateConf.cpp:479
+msgid "Search &for some files:"
+msgstr "&Rechercher des fichiers :"
+
+#: ../src/dlgBatchCreateConf.cpp:483
+msgid "Add a list of files"
+msgstr "Ajouter à la liste des fichiers"
+
+#: ../src/dlgBatchCreateConf.cpp:485
+msgid "Load a list of files"
+msgstr "Charger une liste de fichiers"
+
+#: ../src/dlgBatchCreateConf.cpp:487
+msgid "Save a list of files"
+msgstr "Enregistrer la liste des fichiers"
+
+#: ../src/dlgBatchCreate.cpp:367
+msgid "Creating:"
+msgstr "Crée :"
+
+#: ../src/dlgBatchCreate.cpp:669
+#, c-format
+msgid "'%s' already exists. Skipping.\n"
+msgstr "'%s' existe déjà. Passe la création.\n"
+
+#: ../src/dlgBatchCreate.cpp:688
+#, c-format
+msgid "'%s' has been overwritten."
+msgstr "'%s' a été écrasé."
+
+#: ../src/dlgBatchCreate.cpp:698
+#, c-format
+msgid "'%s' has been created."
+msgstr "'%s' a été créé."
+
+#: ../src/dlgBatchCreate.cpp:704
+#, c-format
+msgid "(Checksum value : %s)."
+msgstr "(Valeur de la somme : %s)."
+
+#: ../src/dlgBatchCreate.cpp:711
+#, c-format
+msgid "Error while writing '%s'.\n"
+msgstr "Erreur lors de l'écriture de '%s'.\n"
+
+#: ../src/dlgBatchCreate.cpp:766
+#, c-format
+msgid "Processing '%s'.\n"
+msgstr "Traitement de '%s'.\n"
+
+#: ../src/dlgBatchCreate.cpp:776
+msgid "All the checksums' files exist. Skipping.\n"
+msgstr "Tous les fichiers de sommes de contrôle existent. Passe ce fichier.\n"
+
+#: ../src/dlgBatchCreate.cpp:814
+#, c-format
+msgid "'%s': File not found.\n"
+msgstr "'%s' : Fichier non trouvé.\n"
+
+#: ../src/dlgBatchCreate.cpp:820
+#, c-format
+msgid "'%s': File cannot be opened.\n"
+msgstr "'%s' : Le fichier n'a pas pu être ouvert.\n"
+
+#: ../src/dlgBatchCreate.cpp:843
+#, c-format
+msgid "Total file(s) processed: %d\n"
+msgstr "Fichier(s) traité(s) au total : %d\n"
+
+#: ../src/dlgBatchCreate.cpp:845
+#, c-format
+msgid "Correct(s): %d"
+msgstr "Correct(s) : %d"
+
+#: ../src/dlgBatchCreate.cpp:847
+#, c-format
+msgid "(Skipped: %d)"
+msgstr "(Passé(s) : %d)"
+
+#: ../src/dlgBatchCreate.cpp:850
+#, c-format
+msgid "File(s) not found: %d\n"
+msgstr "Non trouvé(s) : %d\n"
+
+#: ../src/dlgBatchCreate.cpp:852
+#, c-format
+msgid "File(s) not opened: %d\n"
+msgstr "Non ouvert(s) : %d\n"
+
+#: ../src/dlgBatchCreate.cpp:854
+#, c-format
+msgid "Error(s) while reading: %d\n"
+msgstr "Erreur(s) de lecture : %d\n"
+
+#: ../src/dlgBatchCreate.cpp:856
+#, c-format
+msgid "Total checksums' file(s) processed: %d\n"
+msgstr "Fichier(s) de sommes de contrôle traité(s) au total : %d\n"
+
+#: ../src/dlgBatchCreate.cpp:858
+#, c-format
+msgid "Successfully processed: %d\n"
+msgstr "Traité(s) avec succès : %d\n"
+
+#: ../src/dlgBatchCreate.cpp:860
+#, c-format
+msgid "Created: %d\n"
+msgstr "Créé(s) : %d\n"
+
+#: ../src/dlgBatchCreate.cpp:862
+#, c-format
+msgid "Skipped: %d\n"
+msgstr "Passé(s) : %d\n"
+
+#: ../src/dlgBatchCreate.cpp:864
+#, c-format
+msgid "Overwritten: %d\n"
+msgstr "Ecrasé(s) : %d\n"
+
+#: ../src/dlgBatchCreate.cpp:866
+#, c-format
+msgid "Error(s) while writing: %d\n"
+msgstr "Erreur(s) d'écriture : %d\n"
+
+#: ../src/dlgFilesSelector.cpp:277
+msgid "Select at least a file."
+msgstr "Sélectionner au moins un fichier."
+
+#: ../src/dlgFilesSelector.cpp:477
+msgid "&Named:"
+msgstr "N&ommé :"
+
+#: ../src/dlgFilesSelector.cpp:479
+msgid "Look &in:"
+msgstr "Regarder &dans :"
+
+#: ../src/dlgFilesSelector.cpp:484
+msgid "S&earch and add"
+msgstr "R&echercher et ajouter"
+
+#: ../src/dlgFilesSelector.cpp:684
+msgid "Known files"
+msgstr "Fichiers reconnus"
+
+#: ../src/dlgFilesSelector.cpp:685
+msgid "Text files"
+msgstr "Fichiers texte"
+
+#: ../src/dlgFilesSelector.cpp:686
+msgid "List of files"
+msgstr "Liste des fichiers"
+
+#: ../src/dlgFilesSelector.cpp:923
+msgid "Please choose a directory."
+msgstr "Veuillez choisir un répertoire."
+
+#: ../src/dlgFilesSelector.cpp:929
+#, c-format
+msgid "'%s' is invalid."
+msgstr "'%s' est invalide."
+

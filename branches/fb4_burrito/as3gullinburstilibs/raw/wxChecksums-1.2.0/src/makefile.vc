@@ -1,0 +1,21 @@
+#
+# File:		makefile.vc
+# Author:	Julien Couot
+# Created:	29/02/2003
+# Updated:	
+# Copyright:
+#
+# Makefile : Builds wxChecksums for 32-bit Microsoft Visual C++
+# Use :  nmake -f makefile.vc WXUSINGDLL=1 FINAL=1
+#  or :  nmake -f makefile.vc FINAL=1
+
+# Use large files
+EXTRAFLAGS = /DwxC_USE_LARGE_FILES=1
+
+WXDIR = $(WXWIN)
+
+PROGRAM=cksums
+OBJECTS = $(PROGRAM).obj lvwSums.obj frmSums.obj dlgProgress.obj dlgResProg.obj dlgFilesSelector.obj dlgConf.obj dlgAbout.obj dlgInvalidFiles.obj dlgNewFile.obj dlgMultiCheckConf.obj dlgMultiCheck.obj dlgBatchCreateConf.obj dlgBatchCreate.obj dlgAddMatchFiles.obj slstview.obj appprefs.obj language.obj checksumutil.obj checksumfactory.obj md5.obj crc32.obj sumfile.obj md5file.obj sfvfile.obj bytedisp.obj utils.obj osdep.obj fileutil.obj fdftlmk.obj cmdlnopt.obj licence.obj
+
+!include $(WXDIR)\src\makeprog.vc
+

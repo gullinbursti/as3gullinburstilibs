@@ -1,0 +1,7 @@
+icon_app_checksums ICON "bitmaps/icon_app_checksums.ico"
+icon_sfvfile ICON "bitmaps/icon_sfvfile.ico"
+icon_md5file ICON "bitmaps/icon_md5file.ico"
+
+#include <wx/msw/wx.rc>
+
+1 24 "winxp.manifest"

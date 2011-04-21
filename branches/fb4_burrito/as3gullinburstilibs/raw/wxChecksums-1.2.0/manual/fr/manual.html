@@ -1,0 +1,1381 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Manuel de wxChecksums</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="../common/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1><a name="Top"></a>Manuel de wxChecksums 1.2.0</h1>
+<p>Copyright © 2003-2004 Julien Couot.<br>
+  <a href="http://wxchecksums.sourceforge.net/">http://wxchecksums.sourceforge.net/</a></p>
+<p>Ce programme est libre, vous pouvez le redistribuer et/ou le modifier selon 
+  les termes de la Licence Publique Générale GNU publiée par la Free Software 
+  Foundation (version 2 ou bien toute autre version ultérieure choisie par vous).</p>
+<p>Ce programme est distribué car potentiellement utile, mais <b>SANS AUCUNE GARANTIE</b>, 
+  ni explicite ni implicite, y compris les garanties de commercialisation ou d'adaptation 
+  dans un but spécifique. Reportez-vous à la Licence Publique Générale GNU pour 
+  plus de détails.</p>
+<p>Vous devez avoir reçu une copie de la Licence Publique Générale GNU en même 
+  temps que ce programme ; si ce n'est pas le cas, écrivez à la Free Software 
+  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, États-Unis.</p>
+<hr width="50%" noshade>
+<h2><a name="Contents"></a>Sommaire</h2>
+<dl>
+  <dt><a href="#Introduction">Introduction</a></dt>
+  <dt><a href="#Installation">Installation</a></dt>
+  <dd><a href="#Install_Win">Windows</a></dd>
+  <dd><a href="#Install_Lnx">Linux</a></dd>
+  <dt><a href="#Use">Utilisation</a></dt>
+  <dd><a href="#Use_Checksums">Les fichiers de sommes de contrôle</a></dd>
+  <dd><a href="#Use_ManageFiles">Gestion des fichiers de sommes</a></dd>
+  <dd><a href="#Use_MultiCheck">Vérifier plusieurs fichiers de sommes</a></dd>
+  <dd><a href="#Use_BatchCreation">Création fichiers de sommes par lots</a></dd>
+  <dd><a href="#Use_CmdLine">Invoquer wxChecksums depuis la ligne de commande</a></dd>
+  <dd><a href="#Use_Configure">Configuration</a></dd>
+  <dt><a href="#ConfigurationFile">Fichiers de configuration</a></dt>
+  <dd><a href="#UserPreferences">Préférences de l'utilisateur</a></dd>
+  <dd><a href="#AvailableLanguages">Langues disponibles</a></dd>
+  <dt><a href="#License">Licence</a></dt>
+  <dt><a href="#Author">Auteur</a></dt>
+  <dt><a href="#Links">Liens</a></dt>
+</dl>
+<hr width="50%" noshade>
+<h2><a name="Introduction"></a>Introduction</h2>
+<p>wxChecksums est un programme qui calcule et vérifie des <a href="#Note1">sommes 
+  de contrôle<sup><font size="-1">1</font></sup></a>. Cela permet de vérifier 
+  l'intégrité d'un ou plusieurs fichiers.</p>
+<p>Il est capable de lire et d'écrire des fichiers au format SFV et MD5 (fichiers 
+  générés par md5sum).</p>
+<p>wxChecksums est disponible sous Windows 9x/Me/2000/XP et Linux.</p>
+<p><u>Note&nbsp;:</u> L'expression <i>fichier de sommes</i> désignera <i>fichier 
+  de sommes de contrôle</i>.</p>
+<p><font size="-1"><a href="#Contents">Retour au sommaire</a>.</font></p>
+<hr width="50%" noshade>
+<h2><a name="Installation"></a>Installation</h2>
+<h3><a name="Install_Win"></a>Windows</h3>
+<p>Vous pouvez installer wxChecksums de trois façons&nbsp;:</p>
+<ul>
+  <li>Avec un programme d'installation qui se chargera d'installer tous les fichiers 
+    nécessaires au fonctionnement du programme, et de créer des icônes dans le 
+    menu démarrer de Windows.</li>
+  <li>Depuis une archive au format ZIP. Cette méthode est destinée aux utilisateurs 
+    avancés.</li>
+  <li>En compilant les sources. Cette méthode est destinée aux programmeurs, 
+    l'archive contenant les sources contient des indications sur la manière de 
+    compiler wxChecksums.</li>
+</ul>
+<p><u>Note&nbsp;:</u> Si vous utilisez Windows NT, Windows 2000 ou Windows XP 
+  Professionnel, lancez le programme d'installation depuis un compte administrateur 
+  si vous voulez que des icônes dans le menu démarrer soient créées pour tous 
+  les utilisateurs de la machine. Si vous souhaiter créer des icônes dans le menu 
+  démarrer seulement pour vous, lancer le programme d'installation depuis votre 
+  compte.</p>
+<p><u>Note&nbsp;:</u> Une extension pour l'explorateur de Windows est disponible. 
+  Elle vous permet de créer des fichiers sommes directement depuis l'explorateur. 
+  Pour plus d'informations, veuillez consulter le site de <a href="http://wxchecksums.sourceforge.net/ShellExtForWindows/"><i>wxChecksums 
+  Shell Extension for Microsoft Windows</i></a>.</p>
+<h3><a name="Install_Lnx"></a>Linux</h3>
+<p>Un paquetage RPM est fourni pour la distribution Mandrake Linux 9.2. Pour les 
+  autres distributions Linux, veuillez compiler le code source en suivant les 
+  instructions données dans le fichier <code>COMPILE.txt</code>.</p>
+<p><font size="-1"><a href="#Contents">Retour au sommaire</a>.</font></p>
+<hr width="50%" noshade>
+<h2><a name="Use"></a>Utilisation</h2>
+<h3><a name="Use_Checksums"></a>Les fichiers de sommes de contrôle</h3>
+<p>Les fichiers de sommes de contrôle sont des fichiers qui contiennent des informations 
+  permettant de vérifier l'intégrité d'autres fichiers. Il existe différentes 
+  méthodes pour calculer une somme de contrôle.</p>
+<p>wxChecksums gère actuellement deux types de fichiers&nbsp;:</p>
+<ul>
+  <li>Les fichiers SFV. Ce type de fichier est populaire sous Windows et est lu 
+    et généré par un grand nombre de programmes. L'intégrité des fichiers est 
+    effectuée avec la méthode CRC-32.</li>
+  <li>Les fichiers MD5. Ce type de fichier est généré et lu par la commande Unix 
+    <i>md5sum</i>. L'intégrité des fichiers est effectuée avec méthode hachage 
+    unidirectionnel MD5.</li>
+</ul>
+<p>Les sommes de contrôle ne peuvent que vérifier l'intégrité des fichiers et 
+  ne peuvent pas les réparer. Si vous souhaitez un outil vous permettant de vérifier 
+  l'intégrité des fichiers et de les réparer, visitez le site de <a href="http://parchive.sourceforge.net/">Parchive</a> 
+  (en anglais).</p>
+<p>Les fichiers de sommes de contrôle stockent seulement des informations permettant 
+  de vérifier l'intégrité des fichiers, mais en aucun cas les fichiers eux-mêmes.</p>
+<h4>Noms de fichiers relatifs et absolus</h4>
+<p>Les noms de fichiers relatifs sont des noms de fichiers donnés par rapport 
+  un répertoire de référence. Les noms de fichiers absolus sont des noms de fichiers 
+  dont le répertoire dans lequel ils se trouvent sont complètement définis.</p>
+<p>Exemple&nbsp;:</p>
+<ul>
+  <li><code>mon_image.png</code><br>
+    <code>..\mes images\mon_image.png</code><br>
+    <code>mes images\mon_image.png</code><br>
+    sont des noms de fichiers relatifs.</li>
+  <li><code>C:\Mes documents\Mes images\mon_image.png</code><br>
+    <code>D:\Images\mon_image.png</code><br>
+    sont des noms de fichiers absolus.</li>
+</ul>
+<p>Les noms de fichiers sont stockés en relatif dans les fichiers de sommes. Le 
+  répertoire de référence étant celui où est stocké le fichier de sommes lui-même.</p>
+<p>Il est fortement conseillé de sauvegarder le fichier de sommes de contrôle 
+  dans le même répertoire que les fichiers à vérifier.</p>
+<h3><a name="Use_ManageFiles"></a>Gestion des fichiers de sommes</h3>
+<p>Voici la fenêtre principale de wxChecksums&nbsp;:</p>
+<p><img src="main.png" width="640" height="480"></p>
+<p>Cette fenêtre se compose&nbsp;:</p>
+<ul>
+  <li>D'une barre de menu&nbsp;: 
+    <ul>
+      <li>Le menu <i>Fichier</i> contient les commandes vous permettant de créer, 
+        d'ouvrir, d'enregistrer et de fermer des fichiers de sommes. Il permet 
+        aussi de quitter l'application.</li>
+      <li>Le menu <i>Sommes</i> contient les commandes de gestion des sommes de 
+        contrôles&nbsp;: ajout, suppression, vérification.</li>
+      <li>Le menu <i>Paramètres</i> vous permet de configurer wxChecksums.</li>
+      <li>Le menu <i>Aide</i> vous permet d'obtenir des informations sur wxChecksums.</li>
+    </ul>
+  </li>
+  <li>D'une barre d'outils.</li>
+  <li>De la liste des fichiers présents dans le fichier de sommes de contrôle. 
+    Cette liste contient&nbsp;: 
+    <ul>
+      <li>Une icône indiquant l'état du fichier&nbsp;: 
+        <ul>
+          <li><img src="../common/lvw_sums_notverified.png" width="16" height="16" align="absmiddle">&nbsp;: 
+            le fichier n'a pas été vérifié.</li>
+          <li><img src="../common/lvw_sums_verified.png" width="16" height="16" align="absmiddle">&nbsp;: 
+            la somme de contrôle calculée correspond à la somme contenue dans 
+            le fichier de sommes de contrôle.</li>
+          <li><img src="../common/lvw_sums_invalid.png" width="16" height="16" align="absmiddle">&nbsp;: 
+            la somme de contrôle calculée ne correspond pas à la somme contenue 
+            dans le fichier de sommes de contrôle.</li>
+          <li><img src="../common/lvw_sums_notfound.png" width="16" height="16" align="absmiddle">&nbsp;: 
+            le fichier n'a pas pu être trouvé ou lu.</li>
+        </ul>
+      </li>
+      <li>Le nom du fichier.</li>
+      <li>Le répertoire où se trouve le fichier.</li>
+      <li>La valeur de la somme de contrôle contenue dans le fichier de sommes 
+        de contrôle.</li>
+      <li>Des informations sur l'état du fichier.</li>
+    </ul>
+  </li>
+  <li>Une barre d'état.</li>
+</ul>
+<h4>Création d'un fichier de sommes</h4>
+<p>La création d'un fichier se fait par le menu <i>Fichier &gt; Nouveau...</i> 
+  ou par l'outil <img src="../common/hi16_action_filenew.png" width="16" height="16" align="absmiddle">.</p>
+<p>Choisissez le type et le nom du nouveau fichier de sommes dans la boîte de 
+  dialogue suivante&nbsp;:</p>
+<p><img src="file_new.png" width="373" height="180"></p>
+<p>Le bouton <i>Parcourir...</i> vous permet de choisir un nom de fichier par 
+  l'intermédiaire d'une boîte de dialogue classique&nbsp;:</p>
+<p><img src="file_new_browse.png" width="563" height="347"></p>
+<h4>Ouverture d'un fichier de sommes</h4>
+<p>L'ouverture d'un fichier de sommes peut se faire de deux façons&nbsp;:</p>
+<ul>
+  <li>Par le menu <i>Fichier &gt; Ouvrir...</i> ou par l'outil <img src="../common/hi16_action_fileopen.png" width="18" height="18" align="absmiddle">.</li>
+  <li>Si aucun fichier de sommes n'est ouvert, en glissant un fichier de sommes 
+    depuis l'explorateur.</li>
+</ul>
+<h4>Enregistrement du fichier de sommes</h4>
+<p>Quand un fichier de sommes a été modifié, vous pouvez l'enregistrer par la 
+  commande <i>Fichier &gt; Enregistrer</i> ou par l'outil <img src="../common/hi16_action_filesave.png" width="16" height="17" align="absmiddle">.</p>
+<p>Pour enregistrer le fichier de sommes sous un autre nom, utilisez la commande 
+  <i>Fichier &gt; Enregistrer sous...</i>.</p>
+<h4>Fermeture du fichier de sommes</h4>
+<p>Utilisez la commande <i>Fichier &gt; Fermer</i>.</p>
+<h4>Ajout de fichiers dans le fichier de sommes</h4>
+<p>L'ajout de fichiers dans le fichier de sommes peut se faire de quatre façons&nbsp;:</p>
+<ul>
+  <li>Si un fichier de sommes est ouvert, en glissant des fichiers et/ou des répertoires 
+    depuis l'explorateur.</li>
+  <li>Par la commande <i>Sommes &gt; Ajouter des fichiers...</i> ou par l'outil 
+    <img src="../common/hi16_action_fileadd.png" width="16" height="16" align="absmiddle">. 
+    Une boîte de dialogue vous permet de choisir un ou plusieurs fichiers à ajouter&nbsp;: 
+    <p><img src="sums_add_files.png" width="563" height="347"></p>
+  </li>
+  <li>Par la commande <i>Sommes &gt; Ajouter des répertoires...</i> ou par l'outil 
+    <img src="../common/hi16_action_directoryadd.png" width="16" height="16" align="absmiddle">. 
+    Une boîte de dialogue vous permet de choisir le répertoire à ajouter&nbsp;: 
+    <p><img src="sums_add_dirs.png" width="324" height="331"></p>
+  </li>
+  <li>Par la commande <i>Sommes &gt; Ajouter des fichiers depuis un filtre...</i> 
+    ou par l'outil <img src="../common/hi16_action_addmatchingfiles.png" width="16" height="16" align="absmiddle">. 
+    Une boîte de dialogue vous permet de saisir les filtres sur les fichiers à 
+    ajouter&nbsp;: 
+    <p><img src="sums_add_match.png" width="578" height="540"></p>
+    <p><a name="MatchPattern"></a>Le champ <i>Filtre(s)</i> vous permet d'indiquer 
+      quels fichiers vous voulez ajouter en utilisant des caractères de substitution. 
+      Le caractère <code>*</code> remplace une suite de caractères et le caractère 
+      <code>?</code> remplace un seul caractère. Vous pouvez spécifier plusieurs 
+      filtres en les séparant par le caractère <code>;</code>.<br>
+      Par exemple si vous voulez sélectionner tous les fichiers au format <i>bmp</i> 
+      qui commencent par <i>Anniversaire</i>, le filtre sera&nbsp;: <code>Anniversaire*.bmp</code>. 
+      Si vous voulez sélectionner tous les fichiers dont l'extension finit par 
+      <i>pp</i>, le filtre sera <code>*.?pp</code>. Si vous souhaitez sélectionner 
+      tous les fichiers d'extension <i>cpp</i> et <i>h</i>, le filtre sera&nbsp;: 
+      <code>*.cpp;*.h</code>.</p>
+    <p>Le champ <i>Répertoire</i> permet d'indiquer à partir de quel répertoire 
+      commencer la recheche. Ce répertoire peut être absolu ou relatif au répertoire 
+      dans lequel se trouve le fichier de sommes auquel les fichiers vont être 
+      ajoutés. Dans la capture d'écran ci-dessus, le filtre <code>*.xpm</code> 
+      va être recherché dans le répertoire <code>D:\wx\src</code> puisque le fichier 
+      de sommes dans lequels ces fichiers vont être ajoutés est <code>D:\wx\src\images.sfv</code> 
+      (le nom du fichier est indiqué dans la barre de titre du dialogue).</p>
+    <p>Le champ <i>Profondeur</i> indique le niveau de récursivité jusque auquel 
+      les fichiers doivent être recherchés depuis le répertoire spécifié. <code>0</code> 
+      signifie qu'il n'y a pas de limite, <code>1</code> de rechercher seulement 
+      dans le répertoire indiqué, <code>2</code> de rechercher dans le répertoire 
+      indiqué et ses sous-répertoires directs, etc...</p>
+    <p>Dans la capture d'écran ci-dessus, les fichiers XPM seront recherchés et 
+      ajoutés depuis le répertoire <code>D:\wx\src</code>, les fichiers PNG depuis 
+      le répertoire <code>D:\wx\manual</code>, les fichiers JPEG depuis le répertoire 
+      <code>D:\wx</code>, les fichiers GIF dans le répertoire <code>D:\wx\src\docs\html</code> 
+      (et pas dans ses sous-répertoires puisque la limite de profondeur a été 
+      fixée à 1). Notez que les fichiers JPEG seront recherchés dans les sous-répertoires 
+      de <code>D:\wx\src\docs\html</code> car <code>D:\wx\src\docs\html</code> 
+      est un sous-répertoire de <code>D:\wx</code> et qu'il n'y a pas de limite 
+      de profondeur sur le filtre en troisième position.</p>
+    <p>Il est possible de sauvegarder et recharger la liste des filtres en utilisant 
+      les boutons <i>Ajouter la liste</i>, <i>Charger la liste</i> et <i>Sauver 
+      la liste</i>. <i>Ajouter la liste</i> charge la liste des filtres et l'ajoute 
+      aux filtres déjà existants, alors que <i>Charger la liste</i> supprime d'abord 
+      les filtres existants avant d'ajouter les filtres chargés.</p>
+  </li>
+</ul>
+<p><u>Note&nbsp;:</u> si un fichier est déjà présent dans le fichier de sommes, 
+  il n'est pas ajouté.</p>
+<h4>Retirer des fichiers du fichier de sommes</h4>
+<p>Pour retirer des fichiers du fichier de sommes, utilisez la commande <i>Sommes 
+  &gt; Supprimer</i>. Les fichiers sont supprimés du fichiers de sommes de contrôle 
+  mais pas du disque.</p>
+<h4>Vérification des fichiers</h4>
+<p>Pour vérifier l'intégrité des fichiers, utilisez la commande <i>Sommes &gt; 
+  Vérifier</i> ou l'outil <img src="../common/hi16_action_check.png" width="16" height="14" align="absmiddle">. 
+  Si aucun fichier n'est sélectionné tous les fichiers seront vérifiés.</p>
+<h4>Recalculer la somme de contrôle des fichiers</h4>
+<p>Pour recalculer la somme de contrôle des fichiers, utilisez la commande <i>Sommes 
+  &gt; Recalculer</i> ou l'outil <img src="../common/hi16_action_recompute.png" width="16" height="16" align="absmiddle">. 
+  Les sommes de contrôles seront recalculées seulement pour les fichiers sélectionnés.</p>
+<h3><a name="Use_MultiCheck"></a>Vérifier plusieurs fichiers de sommes</h3>
+<p>Il est possible de vérifier plusieurs fichiers de sommes de contrôle simultanément, 
+  par la commande <i>Outils &gt; Vérifier plusieurs fichiers de sommes...</i>.</p>
+<p>Un premier dialogue vous permet de choisir les fichiers à vérifier&nbsp;:</p>
+<p><img src="multi_check_conf.png" width="583" height="549"></p>
+<p>Ce dialogue fonctionne de la même façon que celui d'<a href="#MatchPattern">ajout 
+  de fichiers à partir de filtres</a>, à la différence que le bouton <i>Rechercher 
+  et ajouter</i> lance immédiatement la recherche des fichiers et que vous ne 
+  pouvez spécifier que des noms de répertoires en absolu.</p>
+<p>Une fois les fichiers de sommes de contrôle choisis, le dialogue d'avancement 
+  suivant s'affiche&nbsp;:</p>
+<p><img src="multi_check.png" width="640" height="480"></p>
+<p>Les informations affichées peuvent être paramétrées dans la section <a href="#Conf_Multi_Check"><i>Vérification 
+  multiple</i></a> de la boîte de dialogue de configuration.</p>
+<h3><a name="Use_BatchCreation"></a>Création de fichiers de sommes par lots</h3>
+<p>La création de fichiers de sommes par lots vous permet de créer un ou plusieurs 
+  types de fichiers de sommes par fichier que vous avez précédemment sélectionné. 
+  Elle est accessible par la commande <i>Outils &gt; Création de fichiers de sommes 
+  par lots...</i>.</p>
+<p>Un premier dialogue vous permet de choisir les fichiers à partir desquels les 
+  fichiers de sommes seront créés&nbsp;:</p>
+<p><img src="batch_creation_conf.png" width="583" height="613"></p>
+<p>Ce dialogue fonctionne de la même façon que celui d'<a href="#MatchPattern"><i>ajout 
+  de fichiers à partir de filtres</i></a>, à la différence que le bouton <i>Rechercher 
+  et ajouter</i> lance immédiatement la recherche des fichiers et que vous ne 
+  pouvez spécifier que des noms de répertoires en absolu.</p>
+<p>Sélectionnez au moins un type de fichier de sommes à créer pour chaque fichier 
+  sélectionné.</p>
+<p>Le bouton <i>Options...</i> vous permet de changer temporairement (pour la 
+  création par lots en cours) les options de création de fichiers de sommes par 
+  lots définies par défaut dans le <a href="#Conf_Batch_Creation">dialogue de 
+  configuration</a>&nbsp;:</p>
+<p><img src="batch_creation_conf_options.png" width="484" height="284"></p>
+<p>Pour plus d'informations sur ces paramètres, veuillez vous référer à la section 
+  <i><a href="#Conf_Batch_Creation">Création par lots</a></i> du dialogue de configuration.</p>
+<p>Une fois les fichiers à traiter choisis, le dialogue d'avancement suivant s'affiche&nbsp;:</p>
+<p><img src="batch_creation.png" width="664" height="480"></p>
+<h3><a name="Use_CmdLine"></a>Invoquer wxChecksums depuis la ligne de commande</h3>
+<p>La forme générale de la ligne de commande acceptée par wxChecksums est&nbsp;:<br>
+  <code>wxcksums [-h] [-V] [-v] [-a str] [-c str] [-ct str] [-fl str] [--delete-temp-list] 
+  [fichier(s)...]</code></p>
+<p>Notez que les noms de fichiers avec des jokers ('<code>*</code>' and '<code>?</code>') 
+  ne sont pas traités.</p>
+<p>Voici un tableau récapitulant les options que wxChecksums accepte&nbsp;:</p>
+<table border="1">
+  <tr valign="top"> 
+    <th>Nom de l'option longue</th>
+    <th>Nom de l'option courte</th>
+    <th>Type</th>
+    <th>Ne peut être utilisée avec</th>
+    <th>Peut être utilisée avec</th>
+    <th>Description</th>
+  </tr>
+  <tr valign="top"> 
+    <td>--help</td>
+    <td>-h</td>
+    <td>Commutateur</td>
+    <td>&nbsp;</td>
+    <td>All</td>
+    <td>Affiche un message d'aide.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--version</td>
+    <td>-V</td>
+    <td>Commutateur</td>
+    <td>&nbsp;</td>
+    <td>All</td>
+    <td>Affiche la version de wxChecksums.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--verify</td>
+    <td>-v</td>
+    <td>Commutateur</td>
+    <td>-a, -c</td>
+    <td>-ct (-ct est ignorée), -fl</td>
+    <td>Vérifie le fichier de sommes donné en paramètres. Un seul fichier de sommes 
+      peut être spécifié.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--append=&lt;str&gt;</td>
+    <td>-a str</td>
+    <td>Option (chaîne de caractères)</td>
+    <td>-c, -v</td>
+    <td>-ct, -fl</td>
+    <td>Ajoute la liste de fichiers donnée au fichier de sommes donné. Si le fichier 
+      de sommes n'existe pas, il est créé.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--create=&lt;str&gt;</td>
+    <td>-c str</td>
+    <td>Option (chaîne de caractères)</td>
+    <td>-a, -v</td>
+    <td>-ct, -fl</td>
+    <td>Crée le fichier de sommes donné et lui ajoute la liste de fichiers donnée. 
+      Si le fichier de sommes existe, il est écrasé (sans aucun message d'avertissement). 
+      Préférez en général l'option <i>append</i>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--create-type=&lt;str&gt;</td>
+    <td>-ct str</td>
+    <td>Option (chaîne de caractères)</td>
+    <td>&nbsp;</td>
+    <td><p>-a, -c, -v, -fl</p></td>
+    <td>Spécifie le type de fichier de sommes à créer s'il n'existe pas. Si cette 
+      option n'est pas spécifiée, wxChecksums utilise l'extension du fichier de 
+      sommes donné&nbsp;: <code>md5</code> pour un fichier de sommes MD5; pour 
+      toutes les autres extensions un fichier de sommes SFV est créé.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--file-list=&lt;str&gt;</td>
+    <td>-fl str</td>
+    <td>Option (chaîne de caractères)</td>
+    <td>&nbsp;</td>
+    <td>-a, -c, -v, -ct</td>
+    <td>Spécifie un ou des fichiers qui contiennent des listes de noms de fichiers. 
+      Ces fichiers sont des fichiers texte avec un nom de fichier par ligne. Vous 
+      pouvez spécifier plusieurs listes de fichiers en les séparant par le caractère 
+      '<code>|</code>'.</td>
+  </tr>
+  <tr valign="top"> 
+    <td>--delete-temp-list</td>
+    <td>&nbsp;</td>
+    <td>Commutateur</td>
+    <td>&nbsp;</td>
+    <td>-fl</td>
+    <td>Quand vous spécifiez des listes de noms de fichiers avec l'option <i>-fl</i>, 
+      ce commutateur supprime celles qui sont temporaires. Une liste de noms de 
+      fichiers est considérée comme temporaire quand l'extension du fichier qui 
+      contient la liste est l'une des extensions spécifiée par l'entrée <code>Files/TempExts</code> 
+      du fichier de configuration de wxChecksums. Les extensions par défaut sont 
+      <code>tmp</code> et <code>temp</code>. Reportez-vous à la section <a href="#ConfigurationFile"> 
+      Fichier de configuration</a> pour plus d'informations.</td>
+  </tr>
+</table>
+<p><b>Exemples&nbsp;:</b></p>
+<p><code>wxcksums -a wxChecksums-x-x-x.md5 wxChecksums-x.x.x</code><br>
+  Ajoute au fichier de sommes <code>wxChecksums-x-x-x.md5</code> les fichiers 
+  qui se trouvent dans le répertoire <code>wxChecksums-x.x.x</code>. Si le fichier 
+  de sommes MD5 <code>wxChecksums-x-x-x.md5</code> n'existe pas, il est créé.</p>
+<p><code>wxcksums -v C:\Progs\wxChecksums\wxChecksums-x-x-x.sfv</code><br>
+  <code>wxcksums -v wxChecksums-x-x-x.sfv</code><br>
+  Vérifie le fichier de sommes <code>wxChecksums-x-x-x.sfv</code>.</p>
+<p><code>wxcksums -c wxChecksums.sfv -fl &quot;wxChecksums-1.0.0\wxChecksums-1.0.0.txt|wxChecksums-1.1.0\wxChecksums-1.1.0.tmp&quot; 
+  --delete-temp-list -ct sfv README.txt NEWS.txt</code><br>
+  Crée ou écrase le fichier de sommes <code>wxChecksums.sfv</code>, charge les 
+  noms de fichiers contenus dans <code>wxChecksums-1.0.0\wxChecksums-1.0.0.txt</code> 
+  et <code>wxChecksums-1.1.0\wxChecksums-1.1.0.tmp</code>, supprime le fichier 
+  <code>wxChecksums-1.1.0\wxChecksums-1.1.0.tmp</code>, ajoute à <code>wxChecksums.sfv</code> 
+  les fichiers <code>README.txt</code> et <code>NEWS.txt</code>, ajoute à <code>wxChecksums.sfv</code> 
+  les fichiers listés dans <code>wxChecksums-1.0.0\wxChecksums-1.0.0.txt</code> 
+  et <code>wxChecksums-1.1.0\wxChecksums-1.1.0.tmp</code>.</p>
+<p><code>wxcksums &quot;C:\Documents and Settings\My account\My checksums file.txt&quot;</code><br>
+  Ouvre <code>C:\Documents and Settings\My account\My checksums file.txt</code> 
+  dans wxChecksums.</p>
+<h3><a name="Use_Configure"></a>Configuration</h3>
+<p>La boîte de dialogue de configuration de wxChecksums est accessible par la 
+  commande <i>Paramètres &gt; Configurer wxChecksums...</i> ou par l'outil <img src="../common/hi16_action_configure.png" width="16" height="16" align="absmiddle">. 
+  Elle est composée de six pages&nbsp;:</p>
+<ul>
+  <li>La page <i>Affichage</i> définit toutes les options d'affichage des fenêtres 
+    et des informations fournies par la liste des fichiers.</li>
+  <li>La page <i>Comportement</i> définit le comportement de wxChecksums.</li>
+  <li>La page <i>Langage</i> définit la langue utilisée par wxChecksums.</li>
+  <li>La page <i>Ligne de commande</i> définit le comportement de wxChecksums 
+    quand il est lancé depuis la ligne de commande avec certaines options.</li>
+  <li>La page <i>Fichier SFV</i> définit les paramètres de lecture et d'écriture 
+    des fichiers SFV.</li>
+  <li>La page <i>Fichier MD5</i> définit les paramètres de lecture et d'écriture 
+    des fichiers MD5.</li>
+  <li>La page <i>Vérification multiple</i> définit les paramètres de la vérification 
+    de multiples fichiers de sommes de contrôle en une seule opération.</li>
+</ul>
+<p>Cette boîte de dialogue est redimensionnable et ses dimensions sont sauvegardées 
+  quand vous la validez.</p>
+<h4>Affichage</h4>
+<p><img src="cfg_display.png" width="653" height="453"></p>
+<ul>
+  <li><i>Sauvegarder et restaurer la position de la fenêtre</i> indique à wxChecksums 
+    de sauvegarder la position de la fenêtre principale en quittant et de la restaurer 
+    au démarrage.</li>
+  <li><i>Sauvegarder et restaurer la taille de la fenêtre</i> indique à wxChecksums 
+    de sauvegarder la taille de la fenêtre principale en quittant et de la restaurer 
+    au démarrage.</li>
+  <li><i>En-tête de la liste des sommes</i> vous permet de changer l'ordre des 
+    colonnes de la liste des sommes de contrôle en sélectionnant une colonne et 
+    en utilisant les boutons <i>Monter</i> et <i>Descendre</i>.</li>
+  <li><i>Sauvegarder la colonne à trier (et l'ordre du tri)</i> indique à wxChecksums 
+    de sauvegarder sur quelle colonne doit s'effectuer le tri, ainsi que l'ordre 
+    du tri en quittant. Ces paramètres sont toujours restaurés au démarrage.</li>
+  <li><i>Sauvegarder la largeur des colonnes</i> indique à wxChecksums de sauvegarder 
+    la taille des colonnes en quittant. La largeur des colonnes est toujours restaurée 
+    au démarrage.</li>
+  <li><i>Afficher les répertoires en chemin absolu</i> affiche les répertoires 
+    des fichiers en mode absolu plutôt qu'en relatif. Ce paramètre n'a pas d'effet 
+    sur le mode d'enregistrement des nom de fichiers dans les fichiers de sommes 
+    de contrôle.</li>
+  <li><i>Afficher les sommes en majuscules/minuscules</i> indique quelle casse 
+    sera utilisée pour afficher les valeurs des sommes de contrôle.</li>
+  <li><i>Dessiner des bordures horizontales (verticales) entre les lignes (colonnes)</i> 
+    permet de dessiner de fines lignes entre les lignes (colonnes). Un redémarrage 
+    de l'application est nécessaire pour que ce paramètre soit pris en compte.</li>
+</ul>
+<h4>Comportement</h4>
+<p><img src="cfg_behavior.png" width="744" height="453"></p>
+<ul>
+  <li><i>Vérifier automatiquement les fichiers de sommes de contrôle à leur ouverture</i> 
+    indique à wxChecksums de vérifier tous les fichiers présents dans le fichier 
+    de sommes de contrôle à son ouverture.</li>
+  <li><i>Ouvrir une boîte de dialogue qui résume la vérification.</i> Si cette 
+    option est activée, une boîte de dialogue résumant la vérification sera ouverte 
+    à la fin de chaque vérification (si elle n'a pas été annulée).</li>
+  <li><i>Afficher un avertissement si l'état de tous les fichiers n'est pas 'OK' 
+    lors de la sauvegarde du fichier de sommes.</i> Si cette option est activée, 
+    lorsque vous enregistrez un fichier de sommes et que tous les fichiers n'ont 
+    pas été vérifiés avec succès, une boîte de dialogue vous demande de confirmer 
+    que vous souhaitez enregistrer le fichier de sommes alors que certains fichiers 
+    sont peut-être incorrects&nbsp;:
+    <p><img src="save_all_not_verified.png" width="368" height="119"></p></li>
+</ul>
+<h4>Language</h4>
+<p><img src="cfg_language.png" width="667" height="453"></p>
+<p>Cet onglet vous permet de choisir la langue que wxChecksums doit utiliser. 
+  L'option <i>Langue du système</i> utilise la même que le système si elle est 
+  disponible, sinon l'anglais est utilisé par défaut.</p>
+<h4>Ligne de commande</h4>
+<p><img src="cfg_cmdline.png" width="653" height="453"></p>
+<p>Ces paramètres définissent le comportement de l'interface graphique quand wxChecksums 
+  est invoqué avec certaines options dans la ligne de commande.</p>
+<p><u>Note&nbsp;:</u> Si vous utilisez <a href="http://wxchecksums.sourceforge.net/ShellExtForWindows/"><i>wxChecksums 
+  Shell Extension for Microsoft Windows</i></a>, ces paramètres s'appliquent aussi 
+  car cette extension utilise la ligne de commande de wxChecksums pour effectuer 
+  l'action choisie par l'utilisateur.</p>
+<p>Si l'option <i>Ne pas afficher l'interface graphique si toutes les sommes sont 
+  correctes</i> est cochée et si vous utilisez le commutateur <i><a href="#Use_CmdLine">--verify</a></i>, 
+  l'interface graphique n'est affichée que si au moins une somme est incorrecte. 
+  Si toutes les sommes sont correctes et si l'option <i>Ouvrir une boîte de dialogue 
+  qui résume la vérification</i> dans la page <i>Comportement</i> n'est pas cochée, 
+  aucun message pour résumer la vérification n'est affiché.</p>
+<p>Les options <i>Lors de l'ajout de fichiers au fichier de sommes</i> et <i>Lors 
+  de la création d'un fichier de sommes</i> définissent respectivement quand afficher 
+  l'interface graphique quand les options <a href="#Use_CmdLine"><i>--append</i></a> 
+  et <i><a href="#Use_CmdLine">--create</a></i> sont utilisées. Une erreur peut 
+  être par exemple que le fichier de sommes ne peut être sauvegardé. Pour le moment 
+  aucun avertissement ne peut se produire, mais les futures versions de wxChecksums 
+  pourraient en avoir.</p>
+<h4>Fichiers SFV</h4>
+<p><img src="cfg_sfvfile.png" width="653" height="453"></p>
+<p>Les paramètres présentés ci-dessus sont les paramètres par défaut. Ils ont 
+  étés définis pour assurer une compatibilité maximale avec les autres logiciels 
+  gérant les fichiers SFV.</p>
+<ul>
+  <li><i>Séparateur de chemin pour la lecture des fichiers SFV</i> permet de forcer 
+    le type de séparateur de chemin à utiliser pour la lecture si la reconnaissance 
+    automatique ne vous donne pas satisfaction.</li>
+  <li><i>Sauvegarder le nom du générateur et la date de création dans les commentaires</i> 
+    ajoute ces informations dans l'en-tête du fichier SFV.</li>
+  <li><i>Identifier comme</i> permet de choisir le nom de l'application qui sera 
+    indiqué comme ayant généré le fichier SFV. L'entrée <i>Personnalisé...</i> 
+    permet de saisir de nouveaux identifiants d'application.</li>
+  <li><i>Sauvegarder la taille et la date de modification des fichiers dans les 
+    commentaires</i> ajoute ces informations dans l'en-tête du fichier SFV.</li>
+  <li><i>Utiliser le séparateur de chemin suivant</i> permet de choisir le séparateur 
+    de chemin à utiliser pour l'écriture des noms de fichiers. <i>Celui du système</i> 
+    est différent selon le système d'exploitation utilisé.</li>
+  <li><i>Utiliser la fin de ligne suivante</i> permet de choisir le type de fichier 
+    texte à utiliser.</li>
+</ul>
+<h4>Fichiers MD5</h4>
+<p><img src="cfg_md5file.png" width="653" height="453"></p>
+<p>Les paramètres présentés ci-dessus sont les paramètres par défaut. Ils ont 
+  étés définis pour assurer une compatibilité maximale avec <i><a href="http://www.gnu.no/manual/coreutils/">md5sum</a></i>.</p>
+<ul>
+  <li><i>Séparateur de chemin pour la lecture des fichiers MD5</i> permet de forcer 
+    le type de séparateur de chemin à utiliser pour la lecture si la reconnaissance 
+    automatique ne vous donne pas satisfaction.</li>
+  <li><i>Sauvegarder le nom du générateur et la date de création dans les commentaires</i> 
+    ajoute ces informations dans l'en-tête du fichier MD5.</li>
+  <li><i>Sauvegarder la taille et la date de modification des fichiers dans les 
+    commentaires</i> ajoute ces informations dans l'en-tête du fichier MD5.</li>
+  <li><i>Utiliser le séparateur de chemin suivant</i> permet de choisir le séparateur 
+    de chemin à utiliser pour l'écriture des noms de fichiers. <i>Celui du système</i> 
+    est différent selon le système d'exploitation utilisé.</li>
+  <li><i>Utiliser la fin de ligne suivante</i> permet de choisir le type de fichier 
+    texte à utiliser.</li>
+</ul>
+<h4><a name="Conf_Multi_Check"></a>Vérification multiple</h4>
+<p><img src="cfg_multi_check.png" width="659" height="453"></p>
+<ul>
+  <li><i>Afficher un récapitulatif global</i> affiche -&nbsp;si cette option est 
+    activée&nbsp;- un récapitulatif à la fin de la vérification de tous les fichiers 
+    de sommes de contrôle. Ce récapitulatif comprend&nbsp;: 
+    <ul>
+      <li>Le nombre total de fichiers de sommes de contrôle vérifiés.</li>
+      <li>Le nombre de fichiers de sommes de contrôle totalement corrects.</li>
+      <li>Le nombre de fichiers de sommes de contrôle partiellement corrects (dont 
+        au moins une somme de contrôle est correcte).</li>
+      <li>Le nombre de fichiers de sommes de contrôle totalement incorrects.</li>
+      <li>Le nombre de fichiers de sommes de contrôle invalides (fichiers dont 
+        le format n'a pas été reconnu comme étant des fichiers de sommes de contrôle).</li>
+      <li>Le nombre de fichiers de sommes de contrôle qui n'ont pas pu être ouverts.</li>
+    </ul>
+    <p>Si cette option n'est pas activée, il est juste indiqué si tous les fichiers 
+      de sommes de contrôle sont corrects ou non.</p>
+  </li>
+  <li><i>Afficher un récapitulatif pour chaque fichier de sommes</i> affiche -&nbsp;si 
+    cette option est activée&nbsp;- un récapitulatif à la fin de la vérification 
+    de chaque fichier de sommes de contrôle. Ce récapitulatif comprend&nbsp;: 
+    <ul>
+      <li>Le nombre total de fichiers vérifiés.</li>
+      <li>Le nombre de fichiers corrects.</li>
+      <li>Le nombre de fichiers incorrects.</li>
+      <li>Le nombre de fichiers non trouvés.</li>
+      <li>Le nombre de fichiers qui n'ont pu être ouverts.</li>
+    </ul>
+    <p>Si cette option n'est pas activée, il est juste indiqué si tous les fichiers 
+      sont corrects ou non.</p>
+  </li>
+  <li><i>Afficher l'état de chaque fichier vérifié</i> affiche l'état de tous 
+    les fichiers vérifiés (correct, incorrect, non trouvé, n'a pas pu être ouvert).</li>
+  <li>Si l'option <i>Afficher l'état de chaque fichier vérifié</i> est activée, 
+    l'option <i>Ne pas afficher l'état des fichiers corrects</i> permet de n'afficher 
+    que les fichiers dont l'état n'est pas correct.</li>
+  <li>Les boutons du cadre <i>Couleurs du texte</i> permettent de changer la couleur 
+    de texte utilisé dans le dialogue de <a href="#Use_MultiCheck">vérification 
+    de plusieurs fichiers de sommes de contrôle</a>.</li>
+</ul>
+<h4><a name="Conf_Batch_Creation"></a>Création par lots</h4>
+<p><img src="cfg_batch_creation.png" width="659" height="489"></p>
+<p>Après le calcul de la (des) somme(s) d'un fichier, wxChecksums essaie d'enregistrer 
+  le(s) fichier(s) de sommes. Le nommage de ces fichiers de sommes peut être changé 
+  dans la section <i>Créer le nom du fichier de sommes en</i>&nbsp;:</p>
+<ul>
+  <li><i>Remplaçant l'extension du fichier source avec l'extension du type du 
+    fichier de sommes</i> va remplacer l'extension du fichier lu pour calculer 
+    la somme avec l'extension du type du fichier de sommmes enregistré. Par exemple 
+    si vous avez sélectionné un fichier nommé <code>monfichier.truc</code> et 
+    demandé la création de fichier de sommes SFV et MD5, wxChecksums produira 
+    les fichiers de sommes <code>monfichier.sfv</code> et <code>monfichier.md5</code>. 
+    Si vous avez plusieurs fichiers portant le même nom mais avec des extensions 
+    différentes (par exemple <code>truc.html</code> et <code>truc.sxw</code>), 
+    n'utilisez pas cette option.</li>
+  <li><i>Ajoutant l'extension du type du fichier de sommes au nom du fichier source</i> 
+    va ajouter l'extension du type du fichier de sommes enregistré au nom du fichier 
+    lu pour calculer la somme. Par exemple si vous avez sélectionné un fichier 
+    nommé <code>monfichier.truc</code> et demandé la création de fichier de sommes 
+    SFV et MD5, wxChecksums produira les fichiers de sommes <code>monfichier.truc.sfv</code> 
+    et <code>monfichier.truc.md5</code>.</li>
+</ul>
+  
+<p>Quand wxChecksums essaie d'enregistrer un fichier de sommes, si le fichier 
+  de sommes existe déjà, vous pouvez demander à wxChecksums de&nbsp;:</p>
+<ul>
+  <li>Passer la création du fichier de sommes en sélectionnant l'option <i>Passer 
+    la création</i>. C'est le paramétrage recommandé.</li>
+  <li>Ecraser le fichier de sommes existant en sélectionnant l'option <i>L'écraser</i>. 
+    <b>Veuillez être certain de comprendre exactement ce que fait la création 
+    de fichiers de sommes par lots avant d'utiliser cette option.</b> Une utilisation 
+    incorrecte de cette option peut écraser des fichiers que vous souhaitiez garder. 
+    Vous ne devriez jamais utiliser les options <i>L'écraser</i> et <i>Remplaçant 
+    l'extension du fichier source avec l'extension du type du fichier de sommes</i> 
+    en même temps (particulièrement quand vous sélectionnez des fichiers de sommes 
+    dans le dialogue de sélection de fichiers). Veuillez noter que wxChecksums 
+    <b>ne </b>demande <b>pas</b> de confirmation avant d'écraser un fichier pendant 
+    le processus de création de fichiers de sommes par lots.</li>
+</ul>
+<p>Le niveau de verbosité permet de choisir le volume d'informations affichées 
+  dans le dialogue de progression&nbsp;:</p>
+<table border="1">
+  <tr>
+    <td>Erreurs seulement</td>
+    <td>N'affiche que les erreurs.</td>
+  </tr>
+  <tr>
+    <td>Erreurs et avertissements</td>
+    <td>N'affiche que les erreurs et les avertissements.</td>
+  </tr>
+  <tr>
+    <td>Normal</td>
+    <td>Affiche tous les messages utiles.</td>
+  </tr>
+  <tr>
+    <td>Bavard</td>
+    <td>Affiche des informations supplémentaires (comme les valeurs des sommes 
+      de contrôle calculées).</td>
+  </tr>
+</table>
+<p>Les boutons du cadre <i>Couleurs du texte</i> permettent de changer la couleur 
+  de texte utilisé dans le dialogue de <a href="#Use_BatchCreation">création de 
+  fichiers de sommes par lots</a>.</p>
+<p><font size="-1"><a href="#Contents">Retour au sommaire</a>.</font></p>
+<hr width="50%" noshade>
+<h2><a name="ConfigurationFile"></a>Fichiers de configuration</h2>
+<h3><a name="UserPreferences"></a>Préférences de l'utilisateur</h3>
+<ul>
+  <li>Sous Windows, le fichier de configuration se trouve dans le répertoire <code>%APPDATA%\wxChecksums</code> 
+    et se nomme <code>wxChecksums.ini</code>.</li>
+  <li>Sous Linux, le fichier de configuration se trouve dans le répertoire <code>$HOME/wxChecksums</code> 
+    et se nomme <code>wxChecksums.ini</code>.</li>
+</ul>
+<p><code>wxChecksums.ini</code> est un fichier texte éditable avec un éditeur 
+  de texte.</p>
+<p>Voici la descrition des entrées&nbsp;:</p>
+<table border="1">
+  <tr> 
+    <th>Clé</th>
+    <th>Type</th>
+    <th>Valeurs</th>
+    <th>Description</th>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/ConfigDlg/WindowSize</code></td>
+    <td>int,int</td>
+    <td>&nbsp;</td>
+    <td>Taille de la fenêtre du dialogue de configuration.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/ConfigDlg/SashPosition</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Position du séparateur entre l'arbre de sélection des préférences et les 
+      panneaux de préférence.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/SaveWindowPosition</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Sauvegarder et restaurer la position de la fenêtre principale.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/SaveWindowSize</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Sauvegarder et restaurer la taille de la fenêtre principale.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/WindowPosition</code></td>
+    <td>int,int</td>
+    <td>&nbsp;</td>
+    <td>Position de la fenêtre principale.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/WindowSize</code></td>
+    <td>int,int</td>
+    <td>&nbsp;</td>
+    <td>Taille de la fenêtre principale.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ShowToolbar</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Afficher la barre d'outils.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ShowStatusbar</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Afficher la barre d'état.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/LastDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Dernier répertoire utilisé pour l'ouverture des fichiers de sommes.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/SaveColumnToSort</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Sauvegarder la colonne à tirer (et l'ordre du tri).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnToSort</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Numéro de la colonne à trier.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/SaveColumnSortOrder</code></td>
+    <td>int</td>
+    <td>0-2</td>
+    <td>L'ordre du tri.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/SaveColumnsWidths</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Sauvegarder la largeur des colonnes.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/DirsInAbsolutePath</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Afficher les répertoires en chemin absolu.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/Uppercase</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Afficher les sommes en majuscules (<code>1</code>) ou en minuscules (<code>0</code>).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/HRules</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Dessiner des bordures horizontales entre les lignes.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/VRules</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Dessiner des bordures verticales entre les colonnes.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnWidthFileName</code></td>
+    <td>int</td>
+    <td>1-</td>
+    <td>Taille de la colonne des noms de fichier.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnWidthDirectory</code></td>
+    <td>int</td>
+    <td>1-</td>
+    <td>Taille de la colonne des chemins des noms de fichier.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnWidthChecksumValue</code></td>
+    <td>int</td>
+    <td>1-</td>
+    <td>Taille de la colonne des valeurs des sommes de contrôle.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnWidthState</code></td>
+    <td>int</td>
+    <td>1-</td>
+    <td>Taille de la colonne des états de fichier.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnFirst</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Elément de la première colonne (0 = nom de fichier, 1 = répertoire, 2 
+      = valeur de la somme, 3 = état du fichier).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnSecond</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Elément de la deuxième colonne.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnThird</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Elément de la troisième colonne.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/ChecksumsList/ColumnFourth</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Elément de la quatrième colonne.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Main/History/FileXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Noms de fichiers de sommes de contrôle récemment ouverts. <code>XX</code> 
+      est un entier entre <code>00</code> et <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/NewFile/LastDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Dernier répertoire utilisé pour la création d'un nouveau fichier de sommes.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/NewFile/LastFileType</code></td>
+    <td>int</td>
+    <td>1-2</td>
+    <td>Dernier type de fichier de sommes créé (1 = SFV, 2 = MD5).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Behavior/AutoCheckOnOpen</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Vérifier automatiquement les fichiers de sommes de contrôle à leur ouverture.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Behavior/DlgSumUpCheck</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Ouvrir une boîte de dialogue qui résume la vérification.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/Behavior/WarnOnInvalidWhenSaving</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Afficher un avertissement si l'état de tous les fichiers n'est pas 'OK' 
+      lors de la sauvegarde du fichier de sommes.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/CommandLine/DontShowWhenAllCorrect</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Ne pas afficher l'interface graphique quand toutes les sommes sont correctes.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/CommandLine/AppendShowGUI</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Afficher l'interface graphique quand l'option <i>--append</i> est utilisée 
+      (0 = jamais, 1 = en cas d'erreur, 2 = en cas d'erreur ou d'avertissement, 
+      3 = toujours).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/CommandLine/CreateShowGUI</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Afficher l'interface graphique quand l'option <i>--create</i> est utilisée 
+      (0 = jamais, 1 = en cas d'erreur, 2 = en cas d'erreur ou d'avertissement, 
+      3 = toujours).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/WindowSize</code></td>
+    <td>int,int</td>
+    <td>&nbsp;</td>
+    <td>Taille de la fenêtre du dialogue d'ajout de fichier à partir de filtres.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/LastSaveListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Nom du dernier répertoire utilisé lors de la sauvegarde de la liste des 
+      filtres.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/LastAddListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Nom du dernier répertoire utilisé lors de l'ajout d'une liste de filtres.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/LastLoadListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Nom du dernier répertoire utilisé lors du chargement d'une liste de filtres.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/History/MatchPatternXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Historique des filtres saisis dans le champ <i>Filtre(s)</i>. <code>XX</code> 
+      est un entier entre <code>00</code> et <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/History/DirectoryXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Historique des répertoires saisis dans le champ <i>Répertoire</i>. <code>XX</code> 
+      est un entier entre <code>00</code> et <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/PatternsList/SortBy</code></td>
+    <td>int</td>
+    <td>0-2</td>
+    <td>Trier la liste des filtres par nom de répertoire (0), filtre (1), profondeur 
+      (2).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/PatternsList/SortOrder</code></td>
+    <td>int</td>
+    <td>0-2</td>
+    <td>Ordre du tri (0 = ascendant, 1 = descendant, 2 = pas de tri).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/PatternsList/ColumnWidthDirectory</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Taille de la colonne des noms de répertoire.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/PatternsList/ColumnWidthPatterns</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Taille de la colonne des filtres.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/AddMatchingFilesDlg/PatternsList/ColumnWidthDepth</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Taille de la colonne des profondeurs.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/GlobalSummary</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Afficher un récapitulatif global.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/ChecksumsFileSummary</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Afficher un récapitulatif pour chaque fichier de sommes.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/FileState</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Afficher l'état de chaque fichier vérifié.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/NoCorrectFileState</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Ne pas afficher l'état des fichiers corrects.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/NormalColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Couleur du texte normal dans le dialogue de vérification de plusieurs 
+      fichiers de sommes de contrôle.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/SuccessColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Couleur du texte indiquant un succès dans le dialogue de vérification 
+      de plusieurs fichiers de sommes de contrôle.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/WarningColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Couleur du texte indiquant un avertissement dans le dialogue de vérification 
+      de plusieurs fichiers de sommes de contrôle.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/ErrorColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Couleur du texte indiquant une erreur dans le dialogue de vérification 
+      de plusieurs fichiers de sommes de contrôle.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheck/WindowSize</code></td>
+    <td>int,int</td>
+    <td>&nbsp;</td>
+    <td>Taille de la fenêtre du dialogue de vérification de plusieurs fichiers 
+      de sommes de contrôle.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/WindowSize</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Taille de la fenêtre du dialogue de sélection des fichiers à vérifier.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/LookInBrowseLastDir</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Nom du dernier répertoire sélectionné avec la commande <i>Parcourir</i>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/LastSaveListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Nom du dernier répertoire utilisé lors de la sauvegarde de la liste des 
+      fichiers de sommes de contrôle à vérifier.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/LastAddListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Nom du dernier répertoire utilisé lors de l'ajout d'une liste de fichiers 
+      de sommes de contrôle à vérifier.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/LastLoadListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Nom du dernier répertoire utilisé lors du chargement d'une liste de fichiers 
+      de sommes de contrôle à vérifier.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/History/NamedXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Historique des noms de fichiers ou filtres saisis dans le champ <i>Nommé</i>. 
+      <code>XX</code> est un entier entre <code>00</code> et <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/History/LookInXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Historique des répertoires saisis dans le champ <i>Regarder dans</i>. 
+      <code>XX</code> est un entier entre <code>00</code> et <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/FilesList/SortBy</code></td>
+    <td>int</td>
+    <td>0-1</td>
+    <td>Trier la liste des fichiers de sommes à vérifier par nom de fichier (0) 
+      ou nom de répertoire (1).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/FilesList/SortOrder</code></td>
+    <td>int</td>
+    <td>0-2</td>
+    <td>Ordre du tri (0 = ascendant, 1 = descendant, 2 = pas de tri).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/FilesList/ColumnWidthFileName</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Taille de la colonne des noms de fichier.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/MultiCheckConfigDlg/FilesList/ColumnWidthDirectory</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Taille de la colonne des noms de répertoire.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/OvrCkFileWhenItExists</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Si <code>vrai</code> (<code>=1</code>) écrase le fichier de sommes quand 
+      il existe dans le processus de création de fichiers de sommes par lots. 
+      Sinon passe la création du fichier de sommes.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/ReplaceExtension</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td><p>Si <code>vrai</code> (<code>=1</code>) nomme le fichier de sommes créé 
+        en remplaçant l'extension du fichier source avec l'extension du type du 
+        fichier de sommes. Sinon nomme le fichier de sommes créé en ajoutant l'extension 
+        du type du fichier de sommes au nom du fichier source.</p></td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/VerbosityLevel</code></td>
+    <td>int</td>
+    <td>0-3</td>
+    <td>Niveau de verbosité (0 = erreurs seulement, 1 = erreurs et avertissements, 
+      2 = normal, 3 = bavard).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/NormalColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Couleur du texte normal dans le dialogue de création de fichiers de sommes 
+      de contrôle par lots.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/SuccessColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Couleur du texte indiquant un succès dans le dialogue de création de fichiers 
+      de sommes de contrôle par lots.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/WarningColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Couleur du texte indiquant un avertissement dans le dialogue de création 
+      de fichiers de sommes de contrôle par lots.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/ErrorColour</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Couleur du texte indiquant une erreur dans le dialogue de création de 
+      fichiers de sommes de contrôle par lots.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreation/WindowSize</code></td>
+    <td>int,int</td>
+    <td>&nbsp;</td>
+    <td>Taille de la fenêtre du dialogue de création de fichiers de sommes de 
+      contrôle par lots.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/WindowSize</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Taille de la fenêtre du dialogue de sélection des fichiers sur lesquels 
+      la création de fichiers de sommes par lots sera effectuée.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/LookInBrowseLastDir</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Nom du dernier répertoire sélectionné avec la commande <i>Parcourir</i>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/LastSaveListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Nom du dernier répertoire utilisé lors de la sauvegarde de la liste des 
+      fichiers sur lesquels la création de fichiers de sommes par lots sera effectuée.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/LastAddListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Nom du dernier répertoire utilisé lors de l'ajout d'une liste de fichiers 
+      sur lesquels la création de fichiers de sommes par lots sera effectuée.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/LastLoadListDirectory</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Nom du dernier répertoire utilisé lors du chargement d'une liste de fichiers 
+      sur lesquels la création de fichiers de sommes par lots sera effectuée.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/History/NamedXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Historique des noms de fichiers ou filtres saisis dans le champ <i>Nommé</i>. 
+      <code>XX</code> est un entier entre <code>00</code> et <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/History/LookInXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Historique des répertoires saisis dans le champ <i>Regarder dans</i>. 
+      <code>XX</code> est un entier entre <code>00</code> et <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/FilesList/SortBy</code></td>
+    <td>int</td>
+    <td>0-1</td>
+    <td>Trier la liste des fichiers sur lesquels la création de fichiers de sommes 
+      par lots sera effectuée par nom de fichier (0) ou nom de répertoire (1).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/FilesList/SortOrder</code></td>
+    <td>int</td>
+    <td>0-2</td>
+    <td>Ordre du tri (0 = ascendant, 1 = descendant, 2 = pas de tri).</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/FilesList/ColumnWidthFileName</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Taille de la colonne des noms de fichier.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>GUI/BatchCreationConfigDlg/FilesList/ColumnWidthDirectory</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Taille de la colonne des noms de répertoire.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/ReadPathSeparator</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Séparateur de chemin pour la lecture des fichiers SFV.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/WriteGeneratorAndDate</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Sauvegarder le nom du générateur et la date de création dans les commentaires.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/WriteFileSizeAndDate</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Sauvegarder la taille et la date de modification des fichiers dans les 
+      commentaires.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/WritePathSeparator</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Séparateur de chemin en écriture.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/WriteEndOfLine</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Fin de ligne en écriture.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/IdentifyAs/Generator</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Nom du générateur actuellement utilisé. S'il est vide, utilise le nom 
+      de l'application.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/SFV/IdentifyAs/History/IdentifyXX</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Historique des noms de générateur saisis. <code>XX</code> est un entier 
+      entre <code>00</code> et <code>16</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/MD5/ReadPathSeparator</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Séparateur de chemin pour la lecture des fichiers MD5.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/MD5/WriteGeneratorAndDate</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Sauvegarder le nom du générateur et la date de création dans les commentaires.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/MD5/WriteFileSizeAndDate</code></td>
+    <td>bool</td>
+    <td>&nbsp;</td>
+    <td>Sauvegarder la taille et la date de modification des fichiers dans les 
+      commentaires.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/MD5/WritePathSeparator</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Séparateur de chemin en écriture.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>ChecksumsFiles/MD5/WriteEndOfLine</code></td>
+    <td>int</td>
+    <td>&nbsp;</td>
+    <td>Fin de ligne en écriture.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>Engine/ReadBuffer</code></td>
+    <td>int</td>
+    <td>1-</td>
+    <td>Taille du tampon de lecture des fichiers pour le calcul des sommes de 
+      contrôle. Valeur par défaut&nbsp;: <code>0xFFFF</code>.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>Language/Name</code></td>
+    <td>string</td>
+    <td>en, fr</td>
+    <td>Langage de l'interface utilisateur.</td>
+  </tr>
+  <tr valign="top"> 
+    <td><code>Files/TempExts</code></td>
+    <td>string</td>
+    <td>&nbsp;</td>
+    <td>Liste d'extensions de fichiers séparées par un espace. wxChecksums considère 
+      que les listes de fichiers données avec l'option <i>--file-list</i> qui 
+      ont une extension présente dans ce paramètre sont des listes de fichiers 
+      temporaires et que ces listes doivent être détruites. La valeur par défaut 
+      est '<code>tmp temp</code>'.</td>
+  </tr>
+</table>
+<h3><a name="AvailableLanguages"></a>Langues disponibles</h3>
+<p>A partir de la version 1.2.0, wxChecksums utilise un fichier de configuration 
+  pour déterminer quelles sont les langues disponibles. Si wxChecksums ne trouve 
+  pas ce fichier, l'anglais sera la seule langue disponible. Le contenu de ce 
+  fichier ne sera pas décrit dans ce manuel car il intéresse peu l'utilisateur 
+  final.</p>
+<p>Sous Windows, wxChecksums recherche ce fichier dans les emplacements suivants&nbsp;:</p>
+<ul>
+  <li>Dans le fichier pointé par la variable d'environnement <code>WXCKSUMS_LANGS_RC</code>. 
+    Cette variable doit contenir un nom de fichier avec son chemin complet, par 
+    exemple <code>C:\Documents&nbsp;and&nbsp;Settings\All&nbsp;Users\Application&nbsp;Data\wxChecksums\langs.ini</code>.</li>
+  <li>Dans le répertoire où se trouve le fichier exécutable de wxChecksums. Le 
+    nom du fichier de configuration des langues doit être <code>languages.ini</code>.</li>
+  <li>Dans le répertoire courant. Le nom du fichier de configuration des langues 
+    doit être <code>languages.ini</code>.</li>
+</ul>
+<p>Sous Unix, wxChecksums recherche ce fichier dans les emplacements suivants&nbsp;:</p>
+<ul>
+  <li>Dans le fichier pointé par la variable d'environnement <code>WXCKSUMS_LANGS_RC</code>. 
+    Cette variable doit contenir un nom de fichier avec son chemin complet, par 
+    exemple <code>/home/user/.myConfigFiles/wxChecksums/langs.ini</code>.</li>
+  <li><code>/usr/share/wxChecksums/languages.ini</code></li>
+  <li><code>/usr/lib/wxChecksums/languages.ini</code></li>
+  <li><code>/usr/local/share/wxChecksums/languages.ini</code></li>
+  <li><code>/usr/local/lib/wxChecksums/languages.ini</code></li>
+  <li>Dans le répertoire courant. Le nom du fichier de configuration des langues 
+    doit être <code>languages.ini</code>.</li>
+</ul>
+<p><font size="-1"><a href="#Contents">Retour au sommaire</a>.</font></p>
+<hr width="50%" noshade>
+<h2><a name="License"></a>Licence</h2>
+<p>wxChecksums est publié sous la <a href="../../licence/gpl.txt">GNU GENERAL 
+  PUBLIC LICENSE</a>.<br>
+  Consultez les fichiers <a href="../../LICENSE.txt">LICENSE.txt</a> et <a href="../../licence/gpl.txt">gpl.txt</a> 
+  pour plus de détails.</p>
+<p>wxChecksums utilise la bibliothèque <a href="http://www.wxwidgets.org/">wxWidgets</a>. 
+  Veuillez consulter son site pour prendre connaissance de sa licence.</p>
+
+<p><font size="-1"><a href="#Contents">Retour au sommaire</a>.</font></p>
+<hr width="50%" noshade>
+<h2><a name="Author"></a>Auteur</h2>
+<p>Julien Couot &lt;<a href="mailto:jcouot@users.sourceforge.net">jcouot@users.sourceforge.net</a>&gt;</p>
+<p><font size="-1"><a href="#Contents">Retour au sommaire</a>.</font></p>
+<hr width="50%" noshade>
+<h2><a name="Links"></a>Liens</h2>
+<p><a href="http://wxchecksums.sourceforge.net/">http://wxchecksums.sourceforge.net/</a><br>
+  - Site officiel de wxChecksums.</p>
+<p><a href="http://www.jrsoftware.org/">http://www.jrsoftware.org/</a><br>
+  - Inno Setup homepage.</p>
+<p><a href="http://www.gnu.org/">http://www.gnu.org/</a><br>
+  - Site officiel du projet GNU.</p>
+<p><font size="-1"><a href="#Contents">Retour au sommaire</a>.</font></p>
+<hr width="50%" noshade>
+<p>Notes&nbsp;:</p>
+<p><a name="Note1"></a>1. Définition d'une somme de contrôle (<i>checksum</i>) 
+  tirée de <a href="http://www.wikipedia.org/wiki/Checksum">Wikipedia</a>&nbsp;:<br>
+  En informatique, les sommes de contrôle sont un moyen simple de contrôler l'intégrité 
+  des données. Elles sont utilisées prinpalement dans le stockage de données et 
+  dans les protocoles réseau.</p>
+<p>Le principe est d'ajouter des octets, ou tout ou composant de base dans une 
+  chaîne de données, et de stocker la valeur résultante.</p>
+<p>Plus tard, on pourra vérifier grâce à la somme de contrôle que les données 
+  n'ont pas été corrompues en rééffectuant l'opération de calcul, et en vérifiant 
+  (<i>checking</i>) la somme (<i>sum</i>).</p>
+<p><font size="-1"><a href="#Contents">Retour au sommaire</a>.</font></p>
+</body>
+</html>
