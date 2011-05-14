@@ -1,8 +1,8 @@
 package cc.gullinbursti.lang {
-	import flash.filters.DisplacementMapFilter;
 	
 	//] includes [!]>
 	//]=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+	import flash.filters.DisplacementMapFilter;
 	//]~=~=~=~=~=~=~=~=~=~=~=~=~=~[]~=~=~=~=~=~=~=~=~=~=~=~=~=~[
 	
 	
